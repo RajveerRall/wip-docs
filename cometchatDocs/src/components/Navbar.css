@@ -1,0 +1,334 @@
+.navbar-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #ffffff; /* Solid white background in light mode */
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 24px; /* Increased padding */
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Add more space to the right side for action items */
+.navbar-logo,
+.navbar-links {
+  flex-shrink: 0;
+}
+
+.logo-image {
+  height: 28px;
+}
+
+/* Theme-specific logo display */
+.logo-dark {
+  display: none; /* Hide dark logo by default (light mode) */
+}
+
+html[data-theme='dark'] .logo-light {
+  display: none; /* Hide light logo in dark mode */
+}
+
+html[data-theme='dark'] .logo-dark {
+  display: block; /* Show dark logo in dark mode */
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+  margin-left: 40px;
+}
+
+.dropdown-container {
+  position: relative;
+  margin-right: 20px;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  padding: 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.dropdown-button:hover {
+  color: var(--ifm-color-primary);
+}
+
+.dropdown-button.active {
+  color: var(--ifm-color-primary);
+}
+
+.dropdown-arrow {
+  font-size: 10px;
+  margin-left: 5px;
+  transition: transform 0.2s;
+}
+
+.dropdown-button.active .dropdown-arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown-content {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100vw;
+  z-index: 1001;
+  background-color: var(--ifm-background-color);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-backdrop {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 0 40px; /* Increased padding on both sides */
+}
+
+.search-box {
+  position: relative;
+  width: 100%;
+  max-width: 400px; /* Reduced from 500px */
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  width: 100%;
+  height: 36px;
+  padding: 0 40px 0 12px;
+  border-radius: 10px; /* Increased from 6px for more rounded edges */
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+  font-size: 14px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(104, 81, 214, 0.2);
+}
+
+.search-button {
+  position: absolute;
+  right: 8px;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.search-shortcut {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--ifm-color-emphasis-600);
+  padding: 2px 4px;
+  border-radius: 4px;
+  background-color: var(--ifm-color-emphasis-200);
+  border: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Increased gap between action items */
+  min-width: 280px; /* Minimum width to prevent squeezing */
+}
+
+.dashboard-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+.dashboard-button:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+}
+
+.contact-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  background-color: #191822; /* Dark button background */
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s, border-color 0.2s;
+  text-decoration: none;
+}
+
+.contact-button:hover {
+  background-color: #111019;
+  text-decoration: none;
+}
+
+
+/* Theme Toggle - Precise Implementation */
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.theme-toggle {
+  position: relative;
+  background-color: #fff; /* White background in light mode */
+  border: 1px solid #e0e0e0; /* Light border for definition */
+  width: 80px;
+  height: 40px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Dark mode toggle background */
+html[data-theme='dark'] .theme-toggle {
+  background-color: #222; /* Dark background in dark mode */
+  border: none; /* No border needed in dark mode */
+}
+
+/* Fixed positioned icons */
+.sun-icon,
+.moon-icon {
+  position: absolute;
+  top: 0;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666; /* Gray color in light mode (light background) */
+  z-index: 2;
+}
+
+/* Adjust vertical position of icons */
+.sun-icon svg,
+.moon-icon svg {
+  position: relative;
+  top: 0px; /* Center exactly */
+}
+
+/* Dark mode icon colors */
+html[data-theme='dark'] .sun-icon,
+html[data-theme='dark'] .moon-icon {
+  color: #fff; /* White color in dark mode (dark background) */
+}
+
+.sun-icon {
+  left: 0;
+}
+
+.moon-icon {
+  right: 0;
+}
+
+.toggle-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Sliding circle indicator */
+.toggle-circle {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: #fff; /* White circle in light mode */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow for white circle */
+  top: 4px; /* Precisely 4px from top */
+  z-index: 1;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Dark mode circle */
+html[data-theme='dark'] .toggle-circle {
+  background-color: #444; /* Dark gray circle in dark mode */
+  box-shadow: none; /* No shadow needed on dark background */
+}
+
+/* Exact positions for the sliding circle */
+.toggle-circle.left {
+  transform: translateX(4px);
+}
+
+.toggle-circle.right {
+  transform: translateX(44px);
+}
+
+/* Make icons slightly brighter when active */
+.toggle-icon.active {
+  color: #222; /* Dark color for active icon in light mode (light background) */
+}
+
+/* Active icon in dark mode */
+html[data-theme='dark'] .toggle-icon.active {
+  color: #ffffff; /* White color for active icon in dark mode */
+}
+
+/* Dark mode overrides */
+html[data-theme='dark'] .navbar-container {
+  background-color: #1a1b1e; /* Solid dark background in dark mode */
+}
+
+html[data-theme='dark'] .dashboard-button {
+  border-color: var(--ifm-color-emphasis-600);
+}
+
+html[data-theme='dark'] .contact-button {
+  background-color: white;
+  color: #191822; /* Dark text color */
+  border-color: white;
+}
+
+html[data-theme='dark'] .contact-button:hover {
+  background-color: #f5f5f5; /* Slightly darker white on hover in dark mode */
+}
+
+html[data-theme='dark'] .dropdown-content {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}

@@ -383,52 +383,116 @@ const config: Config = {
       searchPagePath: 'search',
     },
     
+    // navbar: {
+    //   title: 'cometchat docs',
+    //   logo: {
+    //     alt: 'CometChat Logo',
+    //     src: 'img/logo.svg',
+    //   },
+    //   items: [
+    //     {
+    //       type: 'dropdown',
+    //       label: 'Integrate',
+    //       position: 'left',
+    //       items: [
+    //         { label: 'Overview', to: '/integrate/overview' },
+    //         { label: 'Authentication', to: '/integrate/authentication' },
+    //         { label: 'Chat', to: '/integrate/chat' },
+    //       ],
+    //     },
+    //     {
+    //       type: 'dropdown',
+    //       label: 'Platform',
+    //       position: 'left',
+    //       items: [
+    //         { label: 'Overview', to: '/platform/overview' },
+    //         { label: 'Pricing', to: '/platform/pricing' },
+    //         { label: 'API Reference', to: '/platform/api-reference' },
+    //       ],
+    //     },
+    //     {
+    //       type: 'docSidebar',
+    //       sidebarId: 'tutorialSidebar',
+    //       position: 'left',
+    //       label: 'Docs',
+    //     },
+    //     {
+    //       href: 'https://dashboard.cometchat.com/',
+    //       label: 'Dashboard',
+    //       position: 'right',
+    //     },
+    //     {
+    //       href: 'https://cometchat.com/support',
+    //       label: 'Contact Support',
+    //       position: 'right',
+    //       className: 'navbar-support-link',
+    //     },
+    //   ],
+    // },
     navbar: {
-      title: 'cometchat docs',
       logo: {
-        alt: 'CometChat Logo',
-        src: 'img/logo.svg',
+        href: "/",
+        src: "/imgs/logo.svg",
+        srcDark: "/imgs/logo.svg",
+        alt: "Logo",
+        width: "150px",
       },
+
       items: [
         {
-          type: 'dropdown',
-          label: 'Integrate',
-          position: 'left',
+          label: "Platform",
+          type: "dropdown",
           items: [
-            { label: 'Overview', to: '/integrate/overview' },
-            { label: 'Authentication', to: '/integrate/authentication' },
-            { label: 'Chat', to: '/integrate/chat' },
+            {
+              type: "html",
+              value: "<div></div>",
+              className: "my-website-dropdown",
+            },
           ],
         },
         {
-          type: 'dropdown',
-          label: 'Platform',
-          position: 'left',
+          label: "Integrate",
+          type: "dropdown",
           items: [
-            { label: 'Overview', to: '/platform/overview' },
-            { label: 'Pricing', to: '/platform/pricing' },
-            { label: 'API Reference', to: '/platform/api-reference' },
+            {
+              type: "html",
+              value: "<div></div>",
+              className: "my-website-dropdown",
+            },
           ],
         },
+        // {
+        //   label: "Extend",
+        //   type: "dropdown",
+        //   items: [
+        //     {
+        //       type: "html",
+        //       value: "<div></div>",
+        //       className: "my-website-dropdown",
+        //     },
+        //   ],
+        // },
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Docs',
+          type: "search",
+          position: "right",
         },
         {
-          href: 'https://dashboard.cometchat.com/',
-          label: 'Dashboard',
-          position: 'right',
+          label: "Dashboard",
+          to: "https://app.cometchat.com/",
+          position: "right",
+          className: "navbar-book-demo",
         },
         {
-          href: 'https://cometchat.com/support',
-          label: 'Contact Support',
-          position: 'right',
-          className: 'navbar-support-link',
+          label: "Contact Support",
+          to: "https://help.cometchat.com/hc/en-us/requests/new",
+          position: "right",
+          className: "schedule_a_demo_button",
         },
       ],
     },
+
+    
+    
     footer: {
       style: 'light',
       links: [
