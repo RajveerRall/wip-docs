@@ -1,7 +1,55 @@
+// // src/components/FrameworkGrid.tsx
+// import React from 'react';
+// import FrameworkCard from '../components/framework-card';
+// import styles from '../components/FrameworkGrid.module.css';
+
+// // Define the Framework interface
+// export interface Framework {
+//   id: string;
+//   title: string;
+//   version: string;
+//   icon: string;
+//   link: string;
+// }
+
+// // Define props interface for FrameworkGrid component
+// export interface FrameworkGridProps {
+//   title: string;
+//   description: string;
+//   frameworks: Framework[];
+// }
+
+// export default function FrameworkGrid({ 
+//   title, 
+//   description, 
+//   frameworks 
+// }: FrameworkGridProps): React.ReactElement {
+//   return (
+//     <div className={styles.section}>
+//       <h2 className={styles.sectionTitle}>{title}</h2>
+//       <p className={styles.sectionDescription}>{description}</p>
+      
+//       <div className={styles.grid}>
+//         {frameworks.map((framework) => (
+//           <div key={framework.id} className={styles.gridItem}>
+//             <FrameworkCard
+//               icon={framework.icon}
+//               title={framework.title}
+//               version={framework.version}
+//               link={framework.link}
+//             />
+//           </div>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+
 // src/components/FrameworkGrid.tsx
 import React from 'react';
-import FrameworkCard from '../components/framework-card';
-import styles from '../components/FrameworkGrid.module.css';
+import FrameworkCard from './framework-card';
+import styles from './FrameworkGrid.module.css';
 
 // Define the Framework interface
 export interface Framework {
@@ -31,14 +79,13 @@ export default function FrameworkGrid({
       
       <div className={styles.grid}>
         {frameworks.map((framework) => (
-          <div key={framework.id} className={styles.gridItem}>
-            <FrameworkCard
-              icon={framework.icon}
-              title={framework.title}
-              version={framework.version}
-              link={framework.link}
-            />
-          </div>
+          <FrameworkCard
+            key={framework.id}
+            icon={framework.icon}
+            title={framework.title}
+            version={framework.version}
+            link={framework.link}
+          />
         ))}
       </div>
     </div>
