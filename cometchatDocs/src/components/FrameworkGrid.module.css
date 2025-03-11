@@ -8,13 +8,16 @@
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
+  /* Uses Docusaurus CSS variables for text color */
+  color: var(--ifm-heading-color);
 }
 
 .sectionDescription {
   font-size: 1.1rem;
   margin-bottom: 2rem;
   max-width: 800px;
-  color: #666;
+  /* Uses Docusaurus CSS variables for secondary text color */
+  color: var(--ifm-color-secondary-darkest);
 }
 
 .grid {
@@ -40,10 +43,19 @@
   align-items: center;
   padding: 1.25rem;
   border-radius: 8px;
-  background-color: white;
-  border: 1px solid #eaeaea;
+  /* Use Docusaurus CSS variables for background and border */
+  background-color: var(--ifm-card-background-color);
+  border: 1px solid var(--ifm-color-emphasis-200);
   height: 100%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+/* Dark mode specific styling using data-theme attribute */
+html[data-theme='dark'] .card {
+  background-color: var(--ifm-card-background-color);
+  border-color: var(--ifm-color-emphasis-300);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .iconContainer {
@@ -69,11 +81,14 @@
   font-weight: 600;
   margin: 0;
   padding: 0;
+  /* Uses variable for text color */
+  color: var(--ifm-heading-color);
 }
 
 .version {
   font-size: 0.9rem;
-  color: #666;
+  /* Uses variable for muted text color */
+  color: var(--ifm-color-secondary-darkest);
   margin-top: 0.2rem;
 }
 
