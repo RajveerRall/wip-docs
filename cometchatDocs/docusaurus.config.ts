@@ -493,63 +493,12 @@ const config: Config = {
 
     
     
-    footer: {
-      style: 'light',
-      links: [
-        {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Get Started',
-              to: '/get-started/introduction',
-            },
-            {
-              label: 'UI Kits',
-              to: '/ui-kits/overview',
-            },
-            {
-              label: 'SDKs',
-              to: '/sdks/overview',
-            },
-          ],
-        },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/cometchat',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discord.gg/cometchat',
-            },
-            {
-              label: 'Twitter',
-              href: 'https://twitter.com/cometchat',
-            },
-          ],
-        },
-        {
-          title: 'More',
-          items: [
-            {
-              label: 'CometChat Website',
-              href: 'https://cometchat.com',
-            },
-            {
-              label: 'Blog',
-              href: 'https://cometchat.com/blog',
-            },
-            {
-              label: 'GitHub',
-              href: 'https://github.com/cometchat-pro',
-            },
-          ],
-        },
-      ],
-      copyright: `Copyright © ${new Date().getFullYear()} CometChat. Built with Docusaurus.`,
-    },
+    // footer: {
+    //   style: 'dark',
+    //   links: [], // Empty to avoid default footer links
+    //   // You can remove the copyright property completely if you want
+    //   copyright: '', // Empty to avoid default copyright text
+    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
