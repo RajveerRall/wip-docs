@@ -73,8 +73,10 @@ html[data-theme='dark'] .apiCardDescription {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  border: 1px solid #d0d0d0;
-  color: #555;
+  /* border: 1px solid #d0d0d0;
+  color: #000000; */
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-700);
   padding: 8px 16px;
   border-radius: 10px; /* More rounded button corners */
   font-weight: 500;

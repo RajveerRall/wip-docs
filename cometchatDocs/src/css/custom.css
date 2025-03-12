@@ -26,6 +26,20 @@
   
   --ifm-container-width: 1200px;
   --doc-sidebar-width: 280px;
+  
+  /* Override Docusaurus light theme variables */
+  --ifm-color-emphasis-700: #000000; /* Set text to black instead of gray */
+  --ifm-color-emphasis-600: #000000; /* Secondary text to black */
+  --ifm-color-emphasis-500: #000000; /* More text variants to black */
+  
+  /* Global button styling variables */
+  --button-bg-light: white;
+  --button-bg-light-hover: #f5f5f5;
+  --button-border-light: #e0e0e0;
+  --button-text-light: #000000;
+  
+  /* Card background color for API cards */
+  --card-bg-light: white;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -38,6 +52,51 @@ html[data-theme='dark'] {
   --ifm-color-primary-lighter: #90cdf4;
   --ifm-color-primary-lightest: #bee3f8;
   --ifm-navbar-background-color: #1a202c;
+
+  /* Override Docusaurus dark theme variables */
+  --ifm-color-emphasis-700: #ffffff; /* Set to white for dark mode */
+  --ifm-color-emphasis-600: #ffffff; /* Secondary text to white */
+  --ifm-color-emphasis-500: #ffffff; /* More text variants to white */
+  
+  /* Global button styling variables for dark mode */
+  --button-bg-dark: rgba(255, 255, 255, 0.05);
+  --button-bg-dark-hover: rgba(255, 255, 255, 0.1);
+  --button-border-dark: #444;
+  --button-text-dark: #ffffff;
+  
+  /* Card background color for API cards in dark mode */
+  --card-bg-dark: #1a1a1a;
+}
+
+/* Global button styling */
+.cloneButton,
+.viewAllButton,
+.learnMoreButton {
+  background-color: var(--button-bg-light);
+  color: var(--button-text-light);
+  border-color: var(--button-border-light);
+}
+
+.cloneButton:hover,
+.viewAllButton:hover,
+.learnMoreButton:hover {
+  background-color: var(--button-bg-light-hover);
+  color: var(--button-text-light);
+}
+
+html[data-theme='dark'] .cloneButton,
+html[data-theme='dark'] .viewAllButton,
+html[data-theme='dark'] .learnMoreButton {
+  background-color: var(--button-bg-dark);
+  color: var(--button-text-dark);
+  border-color: var(--button-border-dark);
+}
+
+html[data-theme='dark'] .cloneButton:hover,
+html[data-theme='dark'] .viewAllButton:hover,
+html[data-theme='dark'] .learnMoreButton:hover {
+  background-color: var(--button-bg-dark-hover);
+  color: var(--button-text-dark);
 }
 
 /* Navbar styling */
@@ -113,4 +172,13 @@ h1, h2, h3, h4, h5, h6 {
 .card {
   border-radius: 8px;
   transition: all 0.3s ease;
+}
+
+/* API card styling */
+.apiCard {
+  background-color: var(--card-bg-light);
+}
+
+html[data-theme='dark'] .apiCard {
+  background-color: var(--card-bg-dark);
 }
