@@ -602,7 +602,7 @@ import FrameworkGrid, { Framework } from '../components/framework-card/framework
 import styles from '../pages/index.module.css';
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import ApiCardsRow from '../components/api-card/ApiCardsRow';
-import WidgetsGrid, { Widget } from '../components/widgets/widgets';
+import WidgetsGrid, { Widget } from '../components/widget-card/widgets';
 
 export default function Home(): React.ReactElement {
   const { siteConfig } = useDocusaurusContext();
