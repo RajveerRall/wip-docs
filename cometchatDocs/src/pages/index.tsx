@@ -604,6 +604,7 @@ import useBaseUrl from "@docusaurus/useBaseUrl";
 import ApiCardsRow from '../components/api-card/ApiCardsRow';
 import WidgetsGrid, { Widget } from '../components/widget-card/widgets';
 import SampleAppsSection from '../components/sample-apps/sample-apps';
+import AdditionalResources from '../components/additional-resources/additional-resources';
 
 export default function Home(): React.ReactElement {
   const { siteConfig } = useDocusaurusContext();
@@ -749,6 +750,11 @@ export default function Home(): React.ReactElement {
 
           {/* Sample Apps Section */}
           <SampleAppsSection />
+
+          {/* Additional Resources Section */}
+          <AdditionalResources />
+
+
         </div>
       </main>
     </Layout>

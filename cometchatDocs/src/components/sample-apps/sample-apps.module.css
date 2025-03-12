@@ -195,7 +195,7 @@
     margin: 0 0 1.5rem 0;
     font-size: 0.9375rem;
     line-height: 1.6;
-    color: var(--ifm-color-emphasis-700);
+    color: var(--ifm-color-secondary-darkest);
   }
   
   html[data-theme='dark'] .officeHoursDescription {
