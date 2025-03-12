@@ -598,9 +598,11 @@ import React from 'react';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
-import FrameworkGrid, { Framework } from '../components/framework-grid';
+import FrameworkGrid, { Framework } from '../components/framework-card/framework-grid';
 import styles from '../pages/index.module.css';
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import ApiCardsRow from '../components/api-card/ApiCardsRow';
+import WidgetsGrid, { Widget } from '../components/widgets/widgets';
 
 export default function Home(): React.ReactElement {
   const { siteConfig } = useDocusaurusContext();
@@ -691,6 +693,22 @@ export default function Home(): React.ReactElement {
     },
   ];
 
+    // Widget data
+    const widgets: Widget[] = [
+      {
+        id: 'wordpress',
+        title: 'Wordpress / BuddyPress',
+        icon: getIconPath('wp.svg'),
+        link: '/docs/widgets/wordpress'
+      },
+      {
+        id: 'html',
+        title: 'HTML / Bootstrap / jQuery',
+        icon: getIconPath('html.svg'),
+        link: '/docs/widgets/html'
+      }
+    ];
+
   return (
     <Layout
       title={`${siteConfig.title}`}
@@ -720,6 +738,13 @@ export default function Home(): React.ReactElement {
             description="Use Our SDKs to tap into the full potential while building your own user interface."
             frameworks={sdks} 
           />
+            {/* Widgets Section */}
+            <WidgetsGrid 
+            title="Widgets" 
+            description="Integrate chat into any simple HTML, Bootstrap, or jQuery site effortlessly with our copy-and-paste code."
+            widgets={widgets} 
+          />
+          <ApiCardsRow className="container" />
         </div>
       </main>
     </Layout>

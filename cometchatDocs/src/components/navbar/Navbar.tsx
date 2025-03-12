@@ -9,8 +9,8 @@ import ThemeToggle from './theme-toggle'; // Import the separate theme toggle co
 type DropdownType = 'integrate' | 'platform' | null;
 
 // Import your dropdown components
-import Implementation from '../components/navbar/Implementation';
-import Platform from '../components/navbar/Platform';
+import Implementation from './Implementation';
+import Platform from './Platform';
 
 function Navbar(): React.ReactNode {
   const [activeDropdown, setActiveDropdown] = useState<DropdownType>(null);

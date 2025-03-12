@@ -1,47 +1,60 @@
 ---
-sidebar_position: 1
+id: introduction
+title: Introduction to CometChat
+sidebar_label: Introduction
+slug: /get-started/introduction
 ---
 
-# Tutorial Intro
+# Introduction to CometChat
 
-Let's discover **Docusaurus in less than 5 minutes**.
+Welcome to the CometChat documentation! CometChat provides a powerful platform for integrating real-time chat, voice, and video functionalities into your applications.
+
+## What is CometChat?
+
+CometChat is a communication platform that enables developers to add messaging, voice, and video capabilities to their applications with minimal effort. Our solutions are:
+
+- **Customizable**: Tailor the chat experience to match your application's look and feel
+- **Scalable**: Built to handle millions of users and messages
+- **Secure**: Enterprise-grade security to protect user data and communications
+- **Feature-rich**: Group chats, one-on-one messaging, media sharing, read receipts, typing indicators, and more
+
+## Implementation Options
+
+CometChat offers multiple ways to integrate our technology into your application:
+
+### UI Kits
+
+Pre-built UI components that provide ready-to-use chat interfaces with built-in business logic. UI Kits are available for:
+
+- React
+- React Native
+- Angular
+- iOS (Swift)
+- Android (Kotlin & Java)
+- Vue
+
+### SDKs
+
+Core SDKs that provide the fundamental building blocks for creating custom chat experiences. SDKs are available for:
+
+- React
+- React Native
+- Android
+- iOS (Swift)
 
 ## Getting Started
 
-Get started by **creating a new site**.
+To begin your integration:
 
-Or **try Docusaurus immediately** with **[docusaurus.new](https://docusaurus.new)**.
+1. [Sign up](https://app.cometchat.com/signup) for a CometChat account
+2. Create a new app in the CometChat dashboard
+3. Choose a UI Kit or SDK based on your platform
+4. Follow our quickstart guide to implement chat in your application
 
-### What you'll need
+## Need Help?
 
-- [Node.js](https://nodejs.org/en/download/) version 18.0 or above:
-  - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
+If you have any questions or need assistance:
 
-## Generate a new site
-
-Generate a new Docusaurus site using the **classic template**.
-
-The classic template will automatically be added to your project after you run the command:
-
-```bash
-npm init docusaurus@latest my-website classic
-```
-
-You can type this command into Command Prompt, Powershell, Terminal, or any other integrated terminal of your code editor.
-
-The command also installs all necessary dependencies you need to run Docusaurus.
-
-## Start your site
-
-Run the development server:
-
-```bash
-cd my-website
-npm run start
-```
-
-The `cd` command changes the directory you're working with. In order to work with your newly created Docusaurus site, you'll need to navigate the terminal there.
-
-The `npm run start` command builds your website locally and serves it through a development server, ready for you to view at http://localhost:3000/.
-
-Open `docs/intro.md` (this page) and edit some lines: the site **reloads automatically** and displays your changes.
+- Check our [documentation](/docs)
+- Contact our [support team](https://cometchat.com/support)
+- Visit our [GitHub repositories](https://github.com/cometchat-pro)
