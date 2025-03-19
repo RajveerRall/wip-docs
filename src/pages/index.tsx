@@ -618,7 +618,7 @@ export default function Home(): React.ReactElement {
       title: 'React',
       version: '3',
       icon: getIconPath('react.svg'),
-      link: '/docs/get-started/quickstart'
+      link: useBaseUrl('/get-started/quickstart'),
     },
     {
       id: 'react-native',

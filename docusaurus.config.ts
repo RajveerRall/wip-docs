@@ -333,7 +333,7 @@ const config: Config = {
 
   url: 'https://www.cometchat.com',
     // This will use the BASE_URL env variable when available, or fall back to '/'
-  baseUrl: process.env.BASE_URL || '/',
+  baseUrl: process.env.BASE_URL || '/wip-docs/',
 
   organizationName: 'CometChat',
   projectName: 'cometchat-docs',
