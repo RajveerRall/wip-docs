@@ -364,6 +364,7 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
+  
 
   themeConfig: {
     // Add color mode settings
@@ -382,53 +383,60 @@ const config: Config = {
       contextualSearch: true,
       searchPagePath: 'search',
     },
-    
+  
     // navbar: {
-    //   title: 'cometchat docs',
     //   logo: {
-    //     alt: 'CometChat Logo',
-    //     src: 'img/logo.svg',
+    //     href: "/",
+    //     src: "/imgs/logo.svg",
+    //     srcDark: "/imgs/logo.svg",
+    //     alt: "Logo",
+    //     width: "150px",
     //   },
+
     //   items: [
     //     {
-    //       type: 'dropdown',
-    //       label: 'Integrate',
-    //       position: 'left',
+    //       label: "Platform",
+    //       type: "dropdown",
     //       items: [
-    //         { label: 'Overview', to: '/integrate/overview' },
-    //         { label: 'Authentication', to: '/integrate/authentication' },
-    //         { label: 'Chat', to: '/integrate/chat' },
+    //         {
+    //           type: "html",
+    //           value: "<div></div>",
+    //           className: "my-website-dropdown",
+    //         },
     //       ],
     //     },
     //     {
-    //       type: 'dropdown',
-    //       label: 'Platform',
-    //       position: 'left',
+    //       label: "Integrate",
+    //       type: "dropdown",
     //       items: [
-    //         { label: 'Overview', to: '/platform/overview' },
-    //         { label: 'Pricing', to: '/platform/pricing' },
-    //         { label: 'API Reference', to: '/platform/api-reference' },
+    //         {
+    //           type: "html",
+    //           value: "<div></div>",
+    //           className: "my-website-dropdown",
+    //         },
     //       ],
     //     },
     //     {
-    //       type: 'docSidebar',
-    //       sidebarId: 'tutorialSidebar',
-    //       position: 'left',
-    //       label: 'Docs',
+    //       type: "search",
+    //       position: "right",
     //     },
     //     {
-    //       href: 'https://dashboard.cometchat.com/',
-    //       label: 'Dashboard',
-    //       position: 'right',
+    //       label: "Dashboard",
+    //       to: "https://app.cometchat.com/",
+    //       position: "right",
+    //       className: "navbar-book-demo",
     //     },
     //     {
-    //       href: 'https://cometchat.com/support',
-    //       label: 'Contact Support',
-    //       position: 'right',
-    //       className: 'navbar-support-link',
+    //       label: "Contact Support",
+    //       to: "https://help.cometchat.com/hc/en-us/requests/new",
+    //       position: "right",
+    //       className: "schedule_a_demo_button",
     //     },
     //   ],
     // },
+
+
+
     navbar: {
       logo: {
         href: "/",
@@ -437,7 +445,7 @@ const config: Config = {
         alt: "Logo",
         width: "150px",
       },
-
+    
       items: [
         {
           label: "Platform",
@@ -461,17 +469,48 @@ const config: Config = {
             },
           ],
         },
-        // {
-        //   label: "Extend",
-        //   type: "dropdown",
-        //   items: [
-        //     {
-        //       type: "html",
-        //       value: "<div></div>",
-        //       className: "my-website-dropdown",
-        //     },
-        //   ],
-        // },
+        // Add Version Dropdowns
+        {
+          type: 'docsVersionDropdown',
+          label: 'Docs Versions',
+          position: 'left',
+        },
+        {
+          type: 'dropdown',
+          label: 'UI Kits Versions',
+          position: 'left',
+          items: [
+            {
+              label: 'React v3',
+              to: '/ui-kits/react/v3/installation',
+            },
+            {
+              label: 'React Native v4',
+              to: '/ui-kits/react-native/v4/installation',
+            },
+            {
+              label: 'iOS Swift v3',
+              to: '/ui-kits/ios-swift/v3/installation',
+            },
+            // Add more UI Kit versions
+          ],
+        },
+        {
+          type: 'dropdown',
+          label: 'SDKs Versions',
+          position: 'left',
+          items: [
+            {
+              label: 'React SDK v5',
+              to: '/sdks/react/v5/installation',
+            },
+            {
+              label: 'React Native SDK v4',
+              to: '/sdks/react-native/v4/installation',
+            },
+            // Add more SDK versions
+          ],
+        },
         {
           type: "search",
           position: "right",
@@ -492,13 +531,6 @@ const config: Config = {
     },
 
     
-    
-    // footer: {
-    //   style: 'dark',
-    //   links: [], // Empty to avoid default footer links
-    //   // You can remove the copyright property completely if you want
-    //   copyright: '', // Empty to avoid default copyright text
-    // },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
@@ -510,7 +542,55 @@ const config: Config = {
   staticDirectories: ['static'],
 
   // Keep plugins array clean
-  plugins: [],
+  // Add plugins for additional versioned documentation
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'ui-kits',
+        path: 'ui-kits-docs',
+        routeBasePath: 'ui-kits',
+        sidebarPath: './sidebars.ts',
+        versions: {
+          current: {
+            label: 'Current UI Kits',
+          },
+        },
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'sdks',
+        path: 'sdks-docs',
+        routeBasePath: 'sdks',
+        sidebarPath: './sidebars.ts',
+        versions: {
+          current: {
+            label: 'Current SDKs',
+          },
+        },
+      },
+    ],
+  ],
 };
 
-export default config;
+// export default config;
+
+export default {
+  title: 'CometChat Docs',
+  url: 'https://rajveerrall.github.io',
+  baseUrl: '/wip-docs/',
+  // Keep any existing configuration below
+  // favicon: 'img/favicon.ico',
+  // organizationName: 'RajveerRall',
+  // projectName: 'wip-docs',
+  // onBrokenLinks: 'throw',
+  // onBrokenMarkdownLinks: 'warn',
+  // i18n: { ... },
+  // themes: [ ... ],
+  // presets: [ ... ],
+  // themeConfig: { ... },
+  // plugins: [ ... ],
+  // ... any other existing config options
+};

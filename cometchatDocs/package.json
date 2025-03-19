@@ -12,7 +12,10 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "docusaurus:version": "docusaurus docs:version",
+    "docusaurus:version:ui-kits": "docusaurus docs:version ui-kits",
+    "docusaurus:version:sdks": "docusaurus docs:version sdks"
   },
   "dependencies": {
     "@docusaurus/core": "3.7.0",
