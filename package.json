@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@docusaurus/plugin-content-docs": "^3.7.0"
+  }
+}
