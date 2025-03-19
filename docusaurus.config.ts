@@ -332,7 +332,7 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://www.cometchat.com',
-  baseUrl: '/docs/',
+  baseUrl: '/wip-docs/',
 
   organizationName: 'CometChat',
   projectName: 'cometchat-docs',
