@@ -68,4 +68,4 @@ After completing this quickstart guide, you can:
 - Implement user presence indicators and typing indicators
 - Set up message history and read receipts
 
-For more detailed instructions, refer to the specific documentation for your chosen platform in our [UI Kits](/ui-kits/overview) or [SDKs](/sdks/overview) sections.
+

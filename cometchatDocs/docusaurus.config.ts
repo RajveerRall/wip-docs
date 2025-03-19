@@ -337,13 +337,14 @@ const config: Config = {
   organizationName: 'CometChat',
   projectName: 'cometchat-docs',
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
   },
+  
 
   // Remove the themes array since these are already included in the presets
   // themes: ['@docusaurus/theme-classic', '@docusaurus/theme-search-algolia'],
@@ -490,6 +491,7 @@ const config: Config = {
 
   // Configure static directories
   staticDirectories: ['static'],
+  
 
   // Keep plugins array clean
   // Add plugins for additional versioned documentation

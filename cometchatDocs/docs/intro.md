@@ -55,6 +55,6 @@ To begin your integration:
 
 If you have any questions or need assistance:
 
-- Check our [documentation](/docs)
+
 - Contact our [support team](https://cometchat.com/support)
 - Visit our [GitHub repositories](https://github.com/cometchat-pro)
