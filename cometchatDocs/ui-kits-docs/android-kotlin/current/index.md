@@ -1,7 +1,3 @@
----
-sidebar_position: 1
-title: Android Kotlin UI Kit Overview
----
 
 # Android Kotlin UI Kit Overview
 

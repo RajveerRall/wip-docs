@@ -1,7 +1,3 @@
----
-sidebar_position: 1
-title: React UI Kit Overview
----
 
 # React UI Kit Overview
 
