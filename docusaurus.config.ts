@@ -355,7 +355,7 @@ const config: Config = {
       'classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
+          // sidebarPath: './sidebars.ts',
           routeBasePath: '/', // Set routeBasePath to '/' since docs are the main content
           editUrl: 'https://github.com/cometchat/cometchat-docs/edit/main/',
         },
