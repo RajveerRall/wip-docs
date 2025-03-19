@@ -332,7 +332,8 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   url: 'https://www.cometchat.com',
-  baseUrl: '/wip-docs/',
+    // This will use the BASE_URL env variable when available, or fall back to '/'
+  baseUrl: process.env.BASE_URL || '/',
 
   organizationName: 'CometChat',
   projectName: 'cometchat-docs',
