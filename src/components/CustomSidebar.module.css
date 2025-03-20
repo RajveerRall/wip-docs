@@ -1,0 +1,41 @@
+/* CustomSidebar.module.css */
+.sidebarContainer {
+  padding: 1rem;
+  padding-top: calc(var(--ifm-navbar-height) + 1rem); /* Add padding at the top to account for the fixed header */
+  position: relative;
+  z-index: 1; /* Ensure it's not being hidden behind other elements */
+}
+
+.versionSelector {
+  margin-bottom: -50px; /* Remove the bottom margin */
+  padding: 0.75rem;
+  background-color: var(--ifm-color-emphasis-100);
+  border-radius: 0.5rem;
+  position: sticky;
+  top: var(--ifm-navbar-height);
+  z-index: 10; /* Make sure it stays on top */
+}
+
+.versionSelector label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.versionDropdown {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 0.375rem;
+  background-color: var(--ifm-background-color);
+  font-size: 0.875rem;
+  color: var(--ifm-font-color-base);
+  cursor: pointer;
+}
+
+.versionDropdown:focus {
+  outline: none;
+  border-color: var(--ifm-color-primary);
+  box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.25);
+}

@@ -350,12 +350,63 @@ const config: Config = {
   // Remove the themes array since these are already included in the presets
   // themes: ['@docusaurus/theme-classic', '@docusaurus/theme-search-algolia'],
 
+  // presets: [
+  //   [
+  //     'classic',
+  //     {
+  //       docs: {
+  //         sidebarPath: require.resolve('./sidebars.ts'),
+  //         // lastVersion: 'current',
+  //         // includeCurrentVersion: true, // Include the ./docs folder
+  //         lastVersion: '2.0.0', // Set this to your latest version
+  //         versions: {
+  //           current: {
+  //             label: 'Next',
+  //             path: 'next',
+  //           },
+  //           '2.0.0': {
+  //             label: '2.0.0',
+  //             // No path means it will be the default (/docs)
+  //           },
+  //           '1.0.0': {
+  //             label: '1.0.0',
+  //             path: '1.0.0',
+  //           },
+  //         },
+  //         // sidebarPath: './sidebars.ts',
+  //         routeBasePath: '/', // Set routeBasePath to '/' since docs are the main content
+  //         editUrl: 'https://github.com/cometchat/cometchat-docs/edit/main/',
+  //       },
+  //       blog: false,
+  //       theme: {
+  //         customCss: './src/css/custom.css',
+  //       },
+  //     } satisfies Preset.Options,
+  //   ],
+  // ],
+
+
   presets: [
     [
       'classic',
       {
         docs: {
-          // sidebarPath: './sidebars.ts',
+          sidebarPath: require.resolve('./sidebars.ts'),
+          lastVersion: '2.0.0', // Set as your latest stable version
+          versions: {
+            current: {
+              label: 'Next',
+              path: 'next',
+            },
+            '2.0.0': {
+              label: '2.0.0',
+              // No path means it will be the default (/docs)
+            },
+            '1.0.0': {
+              label: '1.0.0',
+              path: '1.0.0',
+            },
+          },
           routeBasePath: '/', // Set routeBasePath to '/' since docs are the main content
           editUrl: 'https://github.com/cometchat/cometchat-docs/edit/main/',
         },
@@ -399,70 +450,71 @@ const config: Config = {
       },
     
       items: [
-        {
-          label: "Platform",
-          type: "dropdown",
-          items: [
-            {
-              type: "html",
-              value: "<div></div>",
-              className: "my-website-dropdown",
-            },
-          ],
-        },
-        {
-          label: "Integrate",
-          type: "dropdown",
-          items: [
-            {
-              type: "html",
-              value: "<div></div>",
-              className: "my-website-dropdown",
-            },
-          ],
-        },
+        // {
+        //   label: "Platform",
+        //   type: "dropdown",
+        //   items: [
+        //     {
+        //       type: "html",
+        //       value: "<div></div>",
+        //       className: "my-website-dropdown",
+        //     },
+        //   ],
+        // },
+        // {
+        //   label: "Integrate",
+        //   type: "dropdown",
+        //   items: [
+        //     {
+        //       type: "html",
+        //       value: "<div></div>",
+        //       className: "my-website-dropdown",
+        //     },
+        //   ],
+        // },
         // Add Version Dropdowns
         {
           type: 'docsVersionDropdown',
           label: 'Docs Versions',
-          position: 'left',
+          position: 'right',
+          docsPluginId: 'default', // Use the ID of your main docs plugin
         },
-        {
-          type: 'dropdown',
-          label: 'UI Kits Versions',
-          position: 'left',
-          items: [
-            {
-              label: 'React v3',
-              to: '/ui-kits/react/v3/installation',
-            },
-            {
-              label: 'React Native v4',
-              to: '/ui-kits/react-native/v4/installation',
-            },
-            {
-              label: 'iOS Swift v3',
-              to: '/ui-kits/ios-swift/v3/installation',
-            },
-            // Add more UI Kit versions
-          ],
-        },
-        {
-          type: 'dropdown',
-          label: 'SDKs Versions',
-          position: 'left',
-          items: [
-            {
-              label: 'React SDK v5',
-              to: '/sdks/react/v5/installation',
-            },
-            {
-              label: 'React Native SDK v4',
-              to: '/sdks/react-native/v4/installation',
-            },
-            // Add more SDK versions
-          ],
-        },
+        // {
+        //   type: 'dropdown',
+        //   label: 'UI Kits Versions',
+        //   position: 'left',
+        //   items: [
+        //     {
+        //       label: 'React v3',
+        //       to: '/ui-kits/react/v3/installation',
+        //     },
+        //     {
+        //       label: 'React Native v4',
+        //       to: '/ui-kits/react-native/v4/installation',
+        //     },
+        //     {
+        //       label: 'iOS Swift v3',
+        //       to: '/ui-kits/ios-swift/v3/installation',
+        //     },
+        //     // Add more UI Kit versions
+        //   ],
+        // },
+        // {
+        //   type: 'dropdown',
+        //   label: 'SDKs Versions',
+        //   position: 'left',
+        //   items: [
+        //     {
+        //       label: 'React SDK v5',
+        //       to: '/sdks/react/v5/installation',
+        //     },
+        //     {
+        //       label: 'React Native SDK v4',
+        //       to: '/sdks/react-native/v4/installation',
+        //     },
+        //     // Add more SDK versions
+        //   ],
+        // },
         {
           type: "search",
           position: "right",

@@ -1,0 +1,10 @@
+/* styles.module.css */
+.versionSelectorContainer {
+    padding: 0.5rem;
+    padding-bottom: 0;
+    background-color: var(--ifm-background-color);
+    position: sticky;
+    top: var(--ifm-navbar-height);
+    z-index: 10;
+    margin-bottom: -16px; /* Negative margin to remove any remaining gap */
+  }

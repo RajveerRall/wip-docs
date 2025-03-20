@@ -29,3 +29,30 @@ const sidebars: SidebarsConfig = {
   ],
    */
 };
+
+// import type { SidebarsConfig } from '@docusaurus/plugin-content-docs';
+
+// const sidebars: SidebarsConfig = {
+//   tutorialSidebar: [
+//     {
+//       type: 'doc',
+//       id: 'Index', // Refers to "index.md"
+//       label: 'Home', // Sidebar label for this item
+//     },
+//     {
+//       type: 'doc',
+//       id: 'introduction', // Refers to "introduction.md" (correct ID)
+//       label: 'Introduction', // Sidebar label for this item
+//     },
+//     {
+//       type: 'category',
+//       label: 'Getting Started', // Category name
+//       collapsed: false, // Expand this category by default
+//       items: [
+//         'get-started/quickstart', // Refers to "get-started/quickstart.md"
+//       ],
+//     },
+//   ],
+// };
+
+// export default sidebars;
