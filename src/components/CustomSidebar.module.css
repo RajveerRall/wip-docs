@@ -1,41 +1,242 @@
-/* CustomSidebar.module.css */
+/* CustomSidebar.module.css with dark mode support */
+:root {
+  --ifm-color-primary: #087ea4;
+  --ifm-color-primary-dark: #0771a0;
+  --ifm-color-primary-darker: #066698;
+  --ifm-color-primary-darkest: #055690;
+  --ifm-color-primary-light: #0989a8;
+  --ifm-color-primary-lighter: #0a94b0;
+  --ifm-color-primary-lightest: #0ba0b8;
+  --ifm-menu-color: #4a5568;
+  --ifm-menu-color-active: var(--ifm-color-primary);
+  
+  /* Dropdown colors - light mode */
+  --dropdown-bg: white;
+  --dropdown-border: #e2e8f0;
+  --dropdown-text: #1a202c;
+  --dropdown-hover: #f7fafc;
+  --dropdown-arrow: #718096;
+  --checkbox-border: #cbd5e0;
+  --dropdown-shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark mode variables */
+html[data-theme='dark'] {
+  --ifm-menu-color: #e2e8f0;
+  --ifm-menu-color-active: #61dafb;
+  
+  /* Dropdown colors - dark mode */
+  --dropdown-bg: #1e2937;
+  --dropdown-border: #374151;
+  --dropdown-text: #e5e7eb;
+  --dropdown-hover: #374151;
+  --dropdown-arrow: #9ca3af;
+  --checkbox-border: #4b5563;
+  --dropdown-shadow: rgba(0, 0, 0, 0.3);
+}
+
 .sidebarContainer {
-  padding: 1rem;
-  padding-top: calc(var(--ifm-navbar-height) + 1rem); /* Add padding at the top to account for the fixed header */
+  padding: 0.75rem 0.5rem;
+  padding-top: calc(var(--ifm-navbar-height) + 0.5rem);
   position: relative;
-  z-index: 1; /* Ensure it's not being hidden behind other elements */
+  z-index: 100;
+  margin-bottom: -30px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
 }
 
-.versionSelector {
-  margin-bottom: -50px; /* Remove the bottom margin */
-  padding: 0.75rem;
-  background-color: var(--ifm-color-emphasis-100);
+/* Common dropdown styles */
+.selectorWrapper {
+  position: relative;
+  width: 100%; /* Make all selector wrappers full width */
+}
+
+.dropdownButton {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--dropdown-border);
   border-radius: 0.5rem;
-  position: sticky;
-  top: var(--ifm-navbar-height);
-  z-index: 10; /* Make sure it stays on top */
-}
-
-.versionSelector label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--ifm-color-emphasis-700);
-}
-
-.versionDropdown {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid var(--ifm-color-emphasis-300);
-  border-radius: 0.375rem;
-  background-color: var(--ifm-background-color);
-  font-size: 0.875rem;
-  color: var(--ifm-font-color-base);
+  background-color: var(--dropdown-bg);
   cursor: pointer;
+  justify-content: space-between;
+  width: 100%;
+  color: var(--dropdown-text);
+  min-height: 2.5rem; /* Fixed height for all dropdowns */
+  box-sizing: border-box;
 }
 
-.versionDropdown:focus {
-  outline: none;
+/* Increase height specifically for version dropdown */
+.versionSelector .dropdownButton {
+  padding: 0.5rem 0.75rem;
+  min-height: 2.5rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Adjust version dropdown menu items for consistency */
+.versionSelector .dropdownMenu .dropdownItem {
+  padding: 0.5rem 0.75rem;
+  min-height: 2.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownLabel {
+  font-weight: 500;
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.dropdownArrow {
+  color: var(--dropdown-arrow);
+  margin-left: 0.25rem;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.25rem;
+  background-color: var(--dropdown-bg);
+  border: 1px solid var(--dropdown-border);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  z-index: 120;
+  box-shadow: 0 4px 6px -1px var(--dropdown-shadow), 0 2px 4px -1px var(--dropdown-shadow);
+}
+
+/* Ensure consistent spacing in dropdown menus */
+.dropdownItem {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--dropdown-text);
+  min-height: 2.25rem;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownItem:hover {
+  background-color: var(--dropdown-hover);
+}
+
+/* Ensure consistent sizing for the React logo */
+.reactLogo {
+  width: 20px; /* Slightly larger */
+  height: 20px;
+  margin-right: 0.5rem;
+  color: #61dafb;
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+/* Version selector styles */
+.versionSelector {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: -50px;
+  position: relative;
+  z-index: 110;
+  width: 100%; /* Make version selector full width */
+}
+
+/* Adjust the checkbox to match the height of the React logo */
+.versionCheckbox {
+  appearance: none;
+  width: 1.25rem; /* Increase from 1rem */
+  height: 1.25rem; /* Increase from 1rem */
+  border: 1px solid var(--checkbox-border);
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+  position: relative;
+  cursor: pointer;
+  background-color: transparent;
+  flex-shrink: 0; /* Prevent checkbox from shrinking */
+}
+
+.versionCheckbox:checked {
+  background-color: var(--ifm-color-primary);
   border-color: var(--ifm-color-primary);
-  box-shadow: 0 0 0 2px rgba(var(--ifm-color-primary-rgb), 0.25);
+}
+
+/* Adjust the checkmark position for the larger checkbox */
+.versionCheckbox:checked::after {
+  content: '';
+  position: absolute;
+  left: 6px; /* Adjusted from 5px */
+  top: 3px; /* Adjusted from 2px */
+  width: 4px; /* Adjusted from 3px */
+  height: 8px; /* Adjusted from 7px */
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+/* Override global Docusaurus menu styles */
+:global(.menu) {
+  padding: 0.75rem 0.5rem !important;
+  font-size: 0.875rem;
+}
+
+:global(.menu__list) {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+:global(.menu__list-item) {
+  margin: 0.125rem 0;
+}
+
+:global(.menu__link) {
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  font-weight: 400;
+  transition: background-color 0.2s, color 0.2s;
+  color: var(--ifm-menu-color);
+}
+
+:global(.menu__link--active) {
+  background-color: transparent;
+  font-weight: 500;
+  color: var(--ifm-color-primary);
+}
+
+:global(.menu__link:hover),
+:global(.menu__link--active:hover) {
+  background-color: rgba(8, 126, 164, 0.05);
+}
+
+/* Dark mode overrides for hover states */
+html[data-theme='dark'] :global(.menu__link:hover),
+html[data-theme='dark'] :global(.menu__link--active:hover) {
+  background-color: rgba(97, 218, 251, 0.05);
+}
+
+/* Category headers */
+:global(.menu__list-item-collapsible) {
+  font-weight: 500;
+}
+
+:global(.menu__list-item-collapsible .menu__link) {
+  color: var(--dropdown-text);
+}
+
+:global(.menu__list-item-collapsible:hover) {
+  background-color: transparent;
+}
+
+/* Right arrow indicator for collapsible menu items */
+:global(.menu__link--sublist-caret:after) {
+  content: '›';
+  font-size: 1.2rem;
+  line-height: 1;
+  transform: rotate(90deg);
+  background: none;
+}
+
+:global(.menu__list-item--collapsed .menu__link--sublist-caret:after) {
+  transform: rotate(0deg);
 }
