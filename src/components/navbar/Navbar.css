@@ -353,3 +353,24 @@ html[data-theme='dark'] .dropdown-content {
     padding: 0 60px;
   }
 }
+
+/* Add this to your custom.css file */
+
+/* Fix content being hidden behind navbar */
+.main-wrapper {
+  padding-top: 60px; /* Height of your navbar */
+}
+
+/* Target content within docs pages specifically */
+.docs-wrapper, 
+.docs-page,
+main[class^='docMainContainer'] {
+  margin-top: 20px;
+}
+
+/* Ensure breadcrumbs are visible */
+.theme-doc-breadcrumbs {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+}

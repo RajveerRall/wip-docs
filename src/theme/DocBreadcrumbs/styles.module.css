@@ -1,0 +1,47 @@
+.breadcrumbs {
+  margin-top: 80px; /* Add space for fixed navbar */
+  margin-bottom: 1rem;
+  --ifm-breadcrumb-separator-size-multiplier: 1.2;
+  font-size: 0.85rem;
+  padding: 0 20px;
+}
+
+/* Reset padding/margin on list */
+.breadcrumbs :global(.breadcrumbs__list) {
+  padding: 0;
+  margin: 0;
+}
+
+/* Override default Docusaurus breadcrumbs */
+.breadcrumbs :global(.breadcrumbs__item--separator) {
+  margin: 0 0.4rem;
+  color: var(--ifm-color-emphasis-600);
+  font-weight: normal;
+}
+
+.breadcrumbs :global(.breadcrumbs__link) {
+  text-decoration: none;
+  color: var(--ifm-color-primary);
+  font-weight: normal;
+  transition: none;
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.breadcrumbs :global(.breadcrumbs__link:hover),
+.breadcrumbs :global(.breadcrumbs__link:focus),
+.breadcrumbs :global(.breadcrumbs__link:active) {
+  text-decoration: none;
+  color: var(--ifm-color-primary-darker);
+  box-shadow: none !important;
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.breadcrumbs :global(.breadcrumbs__item--active .breadcrumbs__link) {
+  color: var(--ifm-font-color-base);
+  font-weight: normal;
+}
