@@ -391,7 +391,9 @@ const config: Config = {
       'classic',
       {
         docs: {
+          
           sidebarPath: require.resolve('./sidebars.ts'),
+          id: 'default',
           lastVersion: '2.0.0', // Set as your latest stable version
           versions: {
             current: {
@@ -417,8 +419,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-  
-
   themeConfig: {
     // Add color mode settings
     colorMode: {
@@ -436,10 +436,6 @@ const config: Config = {
       contextualSearch: true,
       searchPagePath: 'search',
     },
-
-
-
-
     navbar: {
       logo: {
         href: "/",
@@ -477,7 +473,7 @@ const config: Config = {
           type: 'docsVersionDropdown',
           label: 'Docs Versions',
           position: 'right',
-          docsPluginId: 'default', // Use the ID of your main docs plugin
+          // docsPluginId: 'default', // Use the ID of your main docs plugin
         },
         // {
         //   type: 'dropdown',

@@ -608,39 +608,127 @@ function CustomSidebar() {
     { label: 'EXPERIMENTAL', value: 'experimental' }
   ];
   
-  // Handle version change
-  const handleVersionChange = (version) => {
-    setSelectedVersion(version);
-    setVersionDropdownOpen(false);
+  // // Handle version change
+  // const handleVersionChange = (version) => {
+  //   setSelectedVersion(version);
+  //   setVersionDropdownOpen(false);
     
-    // Find the selected version object
-    const newVersion = versions.find(v => v.name === version || v.label === version);
+  //   // Find the selected version object
+  //   const newVersion = versions.find(v => v.name === version || v.label === version);
     
-    if (!newVersion || !activeVersion) return;
+  //   if (!newVersion || !activeVersion) return;
     
-    // Get the current pathname
-    const currentPath = location.pathname;
+  //   // Get the current pathname
+  //   const currentPath = location.pathname;
     
-    // If we're in a versioned doc, we need to map to the equivalent doc in the new version
-    if (currentPath.includes(activeVersion.path)) {
-      // Get the path after the version segment
-      const pathAfterVersion = currentPath.split(activeVersion.path)[1] || '';
+  //   // If we're in a versioned doc, we need to map to the equivalent doc in the new version
+  //   if (currentPath.includes(activeVersion.path)) {
+  //     // Get the path after the version segment
+  //     const pathAfterVersion = currentPath.split(activeVersion.path)[1] || '';
       
-      // Create the new path with the selected version
-      const newPath = newVersion.isLast 
-        ? `/docs${pathAfterVersion}` // Latest version might not have version in URL
-        : `/docs/${newVersion.name}${pathAfterVersion}`;
+  //     // Create the new path with the selected version
+  //     const newPath = newVersion.isLast 
+  //       ? `/docs${pathAfterVersion}` // Latest version might not have version in URL
+  //       : `/docs/${newVersion.name}${pathAfterVersion}`;
         
-      history.push(newPath);
-    } else {
-      // If we're not in a versioned doc, just go to the version's landing page
-      const newPath = newVersion.isLast 
-        ? '/docs' 
-        : `/docs/${newVersion.name}`;
+  //     history.push(newPath);
+  //   } else {
+  //     // If we're not in a versioned doc, just go to the version's landing page
+  //     const newPath = newVersion.isLast 
+  //       ? '/docs' 
+  //       : `/docs/${newVersion.name}`;
         
-      history.push(newPath);
-    }
-  };
+  //     history.push(newPath);
+  //   }
+  // };
+
+  // // Handle version change
+  // const handleVersionChange = (version) => {
+  //   setSelectedVersion(version);
+  //   setVersionDropdownOpen(false);
+    
+  //   // Find the selected version object
+  //   const newVersion = versions.find(v => v.name === version || v.label === version);
+    
+  //   if (!newVersion || !activeVersion) {
+  //     console.log('Version not found or no active version');
+  //     return;
+  //   }
+    
+  //   // Get the current pathname
+  //   const currentPath = location.pathname;
+  //   console.log('Current path:', currentPath);
+  //   console.log('New version:', newVersion);
+  //   console.log('Active version:', activeVersion);
+    
+  //   // Extract the document path (after the version path)
+  //   // First, remove the active version's path prefix from the current URL
+  //   let docPath = '';
+  //   if (currentPath.startsWith(activeVersion.path)) {
+  //     docPath = currentPath.slice(activeVersion.path.length);
+  //   }
+    
+  //   // Make sure docPath starts with a slash
+  //   if (docPath && !docPath.startsWith('/')) {
+  //     docPath = '/' + docPath;
+  //   }
+    
+  //   // Construct the new URL by combining the new version's path with the document path
+  //   const newPath = newVersion.path + docPath;
+    
+  //   console.log('Document path:', docPath);
+  //   console.log('Navigating to:', newPath);
+    
+  //   history.push(newPath);
+  // };
+
+
+  // Handle version change
+const handleVersionChange = (version) => {
+  setSelectedVersion(version);
+  setVersionDropdownOpen(false);
+  
+  // Find the selected version object
+  const newVersion = versions.find(v => v.name === version || v.label === version);
+  
+  if (!newVersion || !activeVersion) {
+    console.log('Version not found or no active version');
+    return;
+  }
+  
+  // Get the current pathname
+  const currentPath = location.pathname;
+  console.log('Current path:', currentPath);
+  console.log('New version:', newVersion);
+  console.log('Active version:', activeVersion);
+  
+  // Extract the document path (after the version path)
+  // First, remove the active version's path prefix from the current URL
+  let docPath = '';
+  if (currentPath.startsWith(activeVersion.path)) {
+    docPath = currentPath.slice(activeVersion.path.length);
+  }
+  
+  // Make sure docPath starts with a slash
+  if (docPath && !docPath.startsWith('/')) {
+    docPath = '/' + docPath;
+  }
+  
+  // Construct the new URL by combining the new version's path with the document path
+  // Ensure we don't get double slashes
+  let versionPath = newVersion.path;
+  if (versionPath.endsWith('/') && docPath.startsWith('/')) {
+    // Remove the trailing slash from versionPath to avoid double slash
+    versionPath = versionPath.slice(0, -1);
+  }
+  
+  const newPath = versionPath + docPath;
+  
+  console.log('Document path:', docPath);
+  console.log('Navigating to:', newPath);
+  
+  history.push(newPath);
+};
   
   
   // Handle framework change
