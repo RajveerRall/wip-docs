@@ -605,6 +605,8 @@ import ApiCardsRow from '../components/api-card/ApiCardsRow';
 import WidgetsGrid, { Widget } from '../components/widget-card/widgets';
 import SampleAppsSection from '../components/sample-apps/sample-apps';
 import AdditionalResources from '../components/additional-resources/additional-resources';
+import { FaArrowRight, FaReact } from 'react-icons/fa';
+import { MdOutlineKeyboardArrowRight } from 'react-icons/md';
 
 export default function Home(): React.ReactElement {
   const { siteConfig } = useDocusaurusContext();
@@ -717,9 +719,11 @@ export default function Home(): React.ReactElement {
       description={siteConfig.tagline}>
       <main className={styles.main}>
         <div className={styles.container}>
-          <div className={styles.breadcrumbs}>
-            <Link to="/">Home</Link> / Docs
-          </div>
+        <div className={styles.breadcrumbs}>
+           <Link to="/">Home</Link> <span> 
+           <MdOutlineKeyboardArrowRight style={{ marginLeft: '8px', verticalAlign: 'middle' }} />
+           </span> <span>Docs</span>
+        </div>
           
           <div className={styles.hero}>
             <h1 className={styles.heroTitle}>Get Started</h1>

@@ -1,6 +1,6 @@
 /* src/pages/index.module.css */
 .main {
-  padding-top: 80px; /* Adjust if your navbar height is different than 60px */
+  padding-top: 30px; /* Adjust if your navbar height is different than 60px */
   min-height: calc(100vh - 60px);
   width: 100%;
 }
@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 6rem;
 }
 
 .breadcrumbs {
@@ -29,11 +29,11 @@
 }
 
 .hero {
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 
 .heroTitle {
-  font-size: 2.5rem;
+  font-size: 2.1rem;
   font-weight: 700;
   margin-bottom: 1rem;
 }
@@ -43,4 +43,5 @@
   color: var(--ifm-color-emphasis-700);
   max-width: 800px;
   line-height: 1.6;
+
 }
