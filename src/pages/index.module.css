@@ -6,12 +6,15 @@
   width: 100%; /* Ensure it takes available width within the Layout container */
 }
 
-@media (min-width: 768px) { /* md breakpoint */
+@media (max-width: 800px) { /* md breakpoint */
   .pageContainer {
-    padding-top: 3rem;    /* md:py-12 */
-    padding-bottom: 3rem; /* md:py-12 */
-    /* md:px-6 and lg:px-8 might be handled by Layout's container padding */
+    padding: 0.2rem 1.3rem; 
+    width: 100%; 
   }
+
+  .main-wrapper {
+    padding-top: 20px!important;
+}
 }
 
 /* --- Breadcrumbs --- */
@@ -21,10 +24,12 @@
   font-size: var(--ifm-font-size-sm); /* text-sm */
   color: var(--ifm-color-emphasis-600); /* text-[--ifm-color-emphasis-600] */
   margin-bottom: 1.5rem; /* mb-6 */
+  margin-top: 1.2rem;
 }
 
-@media (min-width: 768px) { /* md breakpoint */
+@media (max-width: 768px) { /* md breakpoint */
   .breadcrumbs {
+    margin-top: 0rem;
     margin-bottom: 2rem; /* md:mb-8 */
   }
 }
@@ -58,9 +63,9 @@
   margin-bottom: 3rem; /* mb-12 */
 }
 
-@media (min-width: 768px) { /* md breakpoint */
+@media (max-width: 768px) { /* md breakpoint */
   .heroSection {
-    margin-bottom: 4rem; /* md:mb-16 */
+    margin-bottom: 2rem; /* md:mb-16 */
   }
 }
 
@@ -73,9 +78,9 @@
   color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
 }
 
-@media (min-width: 768px) { /* md breakpoint */
+@media (max-width: 768px) { /* md breakpoint */
   .heroTitle {
-    font-size: 2.25rem; /* md:text-4xl */
+    font-size: 1.25rem; /* md:text-4xl */
   }
 }
 

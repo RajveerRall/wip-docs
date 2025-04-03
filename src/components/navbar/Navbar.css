@@ -7,7 +7,9 @@
   top: 0;
   left: 0;
   right: 0;
+  height: 70px !important;
   z-index: 1000; /* Ensure navbar is above most content */
+  padding:'10px';
   background-color: var(--ifm-navbar-background-color, var(--ifm-background-surface-color)); /* Use theme navbar or surface color */
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   box-shadow: var(--ifm-navbar-shadow); /* Use theme shadow */
@@ -18,7 +20,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 60px; /* Your desired navbar height */
+  height: 60px !important; /* Your desired navbar height */
   padding: 0 24px;
   width: 100%;
   max-width: 1400px; /* Example max-width, adjust if needed */
@@ -186,11 +188,17 @@ html[data-theme='dark'] .logo-dark {
   display: flex;
   align-items: center;
 }
+
+.item-container-platform-sub span{
+  font-size: 14px;
+
+}
 .item-container-desc {
   display: flex;
   align-items: center;
   padding-left: 30px; /* Approx: icon width (20px) + margin (10px) */
   margin-top: 2px;
+  font-size: 12px;
 }
 
 /* Item Text */
@@ -582,4 +590,53 @@ main[class^='docMainContainer'] {
   font-size: 12px;
   font-weight: 500;
 }
+
+@media (max-width: 996px) {
+  .DocSearch-Button {
+  /* Increase button size to comfortably fit a larger icon */
+  width: 36px !important; /* e.g., matches h-9/w-9 */
+  height: 36px !important;
+  min-width: 36px !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 50% !important;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+  color: transparent !important;
+  outline: none !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer;
+  transition: background-color 0.2s ease !important;
+}
+
+.DocSearch-Button:hover {
+  background-color: var(--ifm-hover-overlay) !important;
+}
+
+.DocSearch-Button .DocSearch-Search-Icon {
+  /* Make icon bigger */
+  width: 22px !important;  /* Increased from 20px */
+  height: 22px !important; /* Keep square aspect ratio */
+  color: var(--ifm-navbar-link-color) !important;
+  margin: 0 !important; /* Removed invalid margin-top */
+  /* Make icon bolder */
+  stroke-width: 2 !important; /* Increased from inherit (default ~1.6) */
+  display: block !important;
+}
+
+.DocSearch-Button .DocSearch-Button-Placeholder,
+.DocSearch-Button .DocSearch-Button-Keys {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  visibility: hidden !important;
+}
+}
+
 }

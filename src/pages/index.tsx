@@ -8,7 +8,7 @@ import WidgetsGrid from "./widgets"; // Assuming these use their own styling or 
 import ApiCardsRow from "./apiCardRow"; // Assuming these use their own styling or will be refactored
 import SampleAppsSection from "./sampleApps"; // Assuming these use their own styling or will be refactored
 import AdditionalResources from "./additionalResource"; // Assuming these use their own styling or will be refactored
-
+import "../css/custom.css";
 // Import the CSS Module
 import styles from "./index.module.css"; // Make sure the path is correct
 

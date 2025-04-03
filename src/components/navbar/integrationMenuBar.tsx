@@ -1,14 +1,9 @@
 import React from "react";
 import "./Navbar.css";
-
-// Define types for the items in the lists
-interface MenuItem {
-  icon: string;
-  name: string;
-}
+import { RiUserSettingsLine } from "react-icons/ri";
+import { IoChatboxEllipsesOutline } from "react-icons/io5";
 
 // Define props for the DropdownMenu component
-
 
 const IntegrationDropdownMenu: React.FC = () => {
   const uiKitsList = [
@@ -75,11 +70,11 @@ const IntegrationDropdownMenu: React.FC = () => {
   const apis = [
     {
       name: "Chat APIs",
-      icon: "https://img.icons8.com/windows/96/chat-message.png",
+      icon: IoChatboxEllipsesOutline,
     },
     {
       name: "Managment API",
-      icon: "https://img.icons8.com/nolan/96/api-settings.png",
+      icon: RiUserSettingsLine,
     },
   ];
 
@@ -146,13 +141,7 @@ const IntegrationDropdownMenu: React.FC = () => {
             </span>
             {apis.map((item, index) => (
               <div className="item-container" key={index}>
-                <img
-                  src={item.icon}
-                  style={{ marginRight: "10px" }}
-                  height={"20px"}
-                  width={"20px"}
-                  alt={item.name}
-                />
+                <item.icon className="item-icon-react" /> {/* Added class */}
                 <span>{item.name}</span>
               </div>
             ))}
