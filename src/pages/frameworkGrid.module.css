@@ -1,0 +1,67 @@
+/* --- Section Container --- */
+.gridSection {
+    margin-bottom: 3rem; /* Equivalent to mb-12 */
+    padding-left: 1rem;  /* Equivalent to px-4 */
+    padding-right: 1rem; /* Equivalent to px-4 */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .gridSection {
+      padding-left: 2rem;  /* Equivalent to md:px-8 */
+      padding-right: 2rem; /* Equivalent to md:px-8 */
+    }
+  }
+  
+  /* --- Section Title --- */
+  .gridTitle {
+    /* If 'Jakarta Sans' is globally available or part of your theme */
+    /* font-family: 'Jakarta Sans', sans-serif; */
+    /* Or rely on the theme's heading font */
+    font-family: var(--ifm-font-family-heading);
+    margin-bottom: 0.75rem; /* Equivalent to mb-3 */
+    font-size: 1.5rem;      /* Equivalent to text-2xl */
+    line-height: 2rem;      /* Line height for text-2xl */
+    font-weight: var(--ifm-font-weight-bold); /* Equivalent to font-bold */
+    color: var(--ifm-heading-color); /* Equivalent to text-[--ifm-heading-color] */
+  }
+  
+  @media (min-width: 996px) { /* lg breakpoint (Docusaurus default) */
+    .gridTitle {
+      font-size: 1.875rem; /* Equivalent to lg:text-3xl */
+      line-height: 2.25rem;/* Line height for lg:text-3xl */
+    }
+  }
+  
+  /* --- Section Description --- */
+  .gridDescription {
+    margin-bottom: 2.5rem; /* Equivalent to mb-10 */
+    max-width: 48rem;     /* Equivalent to max-w-3xl */
+    font-size: 1.125rem;  /* Equivalent to text-lg */
+    line-height: var(--ifm-line-height-relaxed); /* Equivalent to leading-relaxed */
+    color: var(--ifm-font-color-secondary); /* Handles both light/dark via variable */
+  }
+  
+  /* --- Grid Layout --- */
+  .frameworkItemsGrid {
+    display: grid;
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default: grid-cols-1 */
+    gap: 1.5rem; /* Equivalent to gap-6 */
+  }
+  
+  @media (min-width: 640px) { /* sm breakpoint */
+    .frameworkItemsGrid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); /* sm:grid-cols-2 */
+    }
+  }
+  
+  @media (min-width: 996px) { /* lg breakpoint (Docusaurus default) */
+    .frameworkItemsGrid {
+      grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+    }
+  }
+  
+  @media (min-width: 1280px) { /* xl breakpoint */
+    .frameworkItemsGrid {
+      grid-template-columns: repeat(4, minmax(0, 1fr)); /* xl:grid-cols-4 */
+    }
+  }

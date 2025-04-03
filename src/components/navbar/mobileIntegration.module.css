@@ -1,0 +1,132 @@
+/* src/components/MobileIntegrate.module.css */
+
+/* --- CSS Variables for Theming --- */
+:root {
+    --integrate-bg: transparent; /* Container background (was shadow) */
+    --integrate-padding: 1rem; /* p-4 */
+    --integrate-section-gap: 2rem; /* space-y-8 -> translates to gap */
+    --integrate-grid-gap: 0.75rem; /* gap-3 */
+    --integrate-title-text: #1f2937; /* gray-800 */
+    --integrate-divider-color: #e5e7eb; /* gray-200 */
+    --integrate-focus-ring: #6366f1; /* indigo-500 */
+    --integrate-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* shadow-md */
+
+    /* Platform Button Variables */
+    --integrate-button-bg: #ffffff; /* bg-white */
+    --integrate-button-border: #e5e7eb; /* border-gray-200 */
+    --integrate-button-text: #4b5563; /* gray-700 */
+    --integrate-button-hover-bg: #f9fafb; /* hover:bg-gray-50 */
+    --integrate-button-hover-border: #d1d5db; /* hover:border-gray-300 */
+    --integrate-button-focus-offset-color: var(--integrate-button-bg); /* Offset ring color */
+}
+
+html[data-theme='dark'] {
+    --integrate-title-text: #f3f4f6; /* dark:text-gray-100 */
+    --integrate-divider-color: #3f3f46; /* dark:border-zinc-700 */
+    /* Dark mode shadow can be subtle or adjusted if needed */
+     /*--integrate-shadow: 0 4px 6px -1px rgb(255 255 255 / 0.1), 0 2px 4px -2px rgb(255 255 255 / 0.1); */
+    --integrate-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4); /* Example darker shadow for dark */
+
+
+    /* Platform Button Dark Variables */
+    --integrate-button-bg: #27272a; /* dark:bg-zinc-800 */
+    --integrate-button-border: #3f3f46; /* dark:border-zinc-700 */
+    --integrate-button-text: #d4d4d8; /* dark:text-gray-200 */
+    --integrate-button-hover-bg: #3f3f46; /* dark:hover:bg-zinc-700 */
+    --integrate-button-hover-border: #52525b; /* dark:hover:border-zinc-600 */
+    --integrate-button-focus-offset-color: #18181b; /* dark:focus:ring-offset-zinc-900 - Matching dark page bg */
+}
+
+/* --- Component Styles --- */
+
+.integrateContainer {
+    padding: var(--integrate-padding);
+    background-color: var(--integrate-bg);
+    box-shadow: var(--integrate-shadow); /* Shadow applied to main container */
+    /* Using flex and gap to replicate space-y-8 */
+    display: flex;
+    flex-direction: column;
+    gap: var(--integrate-section-gap);
+}
+
+/* No explicit style needed if gap on container works, but can add if needed */
+.section {
+    /* Potential overrides or specific section styles here */
+}
+
+
+.sectionTitle {
+    font-size: 1.125rem; /* text-lg */
+    line-height: 1.75rem;
+    font-weight: 600; /* font-semibold */
+    margin-bottom: 1rem; /* mb-4 */
+    color: var(--integrate-title-text);
+}
+
+.gridContainer {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
+    gap: var(--integrate-grid-gap); /* gap-3 */
+}
+
+.divider {
+    border: none; /* Reset default hr border */
+    border-top: 1px solid var(--integrate-divider-color);
+    margin: 0; /* Reset default hr margin */
+    height: 0;
+}
+
+/* --- PlatformButton Styles --- */
+.platformButton {
+    /* Layout & Box Model */
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 1rem; /* px-4 py-2 */
+    border: 1px solid var(--integrate-button-border);
+    border-radius: 0.5rem; /* rounded-lg */
+    box-shadow: var(--integrate-shadow); /* shadow-md */
+
+    /* Colors & Background */
+    background-color: var(--integrate-button-bg);
+    color: var(--integrate-button-text);
+
+    /* Typography */
+    font-size: 0.875rem; /* text-sm */
+    line-height: 1.25rem;
+    font-weight: 500; /* font-medium */
+    text-decoration: none; /* Remove Link underline */
+
+    /* Transitions */
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; /* duration-150 */
+}
+
+.platformButton:hover {
+    background-color: var(--integrate-button-hover-bg);
+    border-color: var(--integrate-button-hover-border);
+     /* Can adjust shadow on hover if desired */
+}
+
+.platformButton:focus {
+    outline: none; /* focus:outline-none */
+    /* Replicating focus:ring-2 focus:ring-offset-1 */
+    box-shadow: 0 0 0 1px var(--integrate-button-focus-offset-color), /* ring-offset-1 */
+                0 0 0 3px var(--integrate-focus-ring); /* ring-2 */
+}
+
+.iconContainer {
+    /* Sizing & Spacing */
+    height: 1.25rem; /* h-5 */
+    width: 1.25rem; /* w-5 */
+    margin-right: 0.5rem; /* mr-2 */
+
+    /* Flex centering (if needed, usually image handles size) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconImage {
+    height: 100%; /* h-full */
+    width: 100%; /* w-full */
+    object-fit: contain; /* object-contain */
+}

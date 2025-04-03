@@ -1,0 +1,345 @@
+/* --- Section Container --- */
+.sectionContainer {
+    margin-bottom: 3rem; /* mb-12 */
+    width: 100%;         /* w-full */
+    padding-left: 1rem;  /* px-4 */
+    padding-right: 1rem; /* px-4 */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .sectionContainer {
+      padding-left: 0;  /* md:px-0 */
+      padding-right: 0; /* md:px-0 */
+    }
+  }
+  
+  /* --- Section Header --- */
+  .sectionHeader {
+    margin-bottom: 1rem; /* mb-4 */
+    display: flex;       /* flex */
+    align-items: center; /* items-center */
+    justify-content: space-between; /* justify-between */
+    gap: 1rem;           /* gap-4 */
+  }
+  
+  /* --- Section Title --- */
+  .sectionTitle {
+    margin: 0;          /* m-0 */
+    font-size: 1.25rem; /* text-xl */
+    line-height: 1.75rem;
+    font-weight: var(--ifm-font-weight-medium); /* font-medium */
+    color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .sectionTitle {
+      font-size: 1.5rem; /* md:text-2xl */
+      line-height: 2rem;
+    }
+  }
+  
+  /* --- View All Button --- */
+  .viewAllButton {
+    display: inline-flex; /* inline-flex */
+    flex-shrink: 0;      /* flex-shrink-0 */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    white-space: nowrap; /* whitespace-nowrap */
+    border-radius: var(--ifm-button-border-radius, 0.5rem); /* rounded-lg */
+    border: 1px solid var(--ifm-color-emphasis-300); /* border border-[...] */
+    padding: 0.375rem 1rem; /* py-1.5 px-4 */
+    font-size: var(--ifm-font-size-sm); /* text-sm */
+    font-weight: var(--ifm-font-weight-medium); /* font-medium */
+    text-decoration: none; /* no-underline */
+    background-color: transparent; /* bg-transparent */
+    color: var(--ifm-font-color-base); /* text-[...] */
+    transition: background-color 200ms ease; /* transition-colors duration-200 */
+  }
+  
+  .viewAllButton:hover {
+    background-color: var(--ifm-hover-overlay); /* hover:bg-[...] */
+    /* Color doesn't change on hover per original classes */
+  }
+  
+  /* Dark mode */
+  html[data-theme='dark'] .viewAllButton {
+    border-color: var(--ifm-color-emphasis-400); /* dark:border-[...] */
+    color: var(--ifm-font-color-base); /* dark:text-[...] */
+  }
+  
+  html[data-theme='dark'] .viewAllButton:hover {
+    background-color: var(--ifm-hover-overlay); /* dark:hover:bg-[...] */
+  }
+  
+  
+  /* --- Section Description --- */
+  .sectionDescription {
+    margin-top: 0; /* mt-0 */
+    margin-bottom: 2rem; /* mb-8 */
+    font-size: var(--ifm-font-size-base); /* text-base */
+    line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
+    color: var(--ifm-font-color-secondary); /* Handles light/dark */
+  }
+  
+  
+  /* --- Apps Grid Container --- */
+  .appsGridContainer {
+    margin-bottom: 2.5rem; /* mb-10 */
+    display: flex;         /* flex */
+    width: 100%;           /* w-full */
+    flex-direction: column; /* flex-col */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .appsGridContainer {
+      flex-direction: row; /* md:flex-row */
+    }
+  }
+  
+  
+  /* --- Apps Column --- */
+  .appsColumn {
+    display: flex;         /* flex */
+    flex: 1 1 0%;        /* flex-1 */
+    flex-direction: column; /* flex-col */
+    gap: 1rem;           /* gap-4 */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .appsColumn:first-child {
+      padding-right: 1.5rem; /* md:pr-6 */
+    }
+    .appsColumn:last-child {
+      padding-left: 1.5rem; /* md:pl-6 */
+    }
+  }
+  
+  
+  /* --- App Row (List item) --- */
+  .appRow {
+    display: flex; /* flex */
+    align-items: center; /* items-center */
+    justify-content: space-between; /* justify-between */
+    border-bottom: 1px dashed var(--ifm-color-emphasis-200); /* border-b border-dashed border-[...] */
+    padding-top: 0.5rem; /* py-2 */
+    padding-bottom: 0.5rem; /* py-2 */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .appRow {
+      border-bottom: none; /* md:border-none */
+      padding-top: 0; /* md:py-0 */
+      padding-bottom: 0; /* md:py-0 */
+    }
+  }
+  
+  /* Dark mode border */
+  html[data-theme='dark'] .appRow {
+    border-color: var(--ifm-color-emphasis-300); /* dark:border-[...] */
+  }
+  
+  
+  /* --- App Title Text --- */
+  .appTitleText {
+    font-size: var(--ifm-font-size-sm); /* text-sm */
+    font-weight: var(--ifm-font-weight-medium); /* font-medium */
+    color: var(--ifm-font-color-base); /* text-[...] */
+  }
+  
+  html[data-theme='dark'] .appTitleText {
+    color: var(--ifm-font-color-secondary); /* dark:text-[...] */
+  }
+  
+  
+  /* --- Clone Button --- */
+  .cloneButton {
+    display: inline-flex; /* inline-flex */
+    flex-shrink: 0; /* shrink-0 */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    gap: 0.5rem; /* gap-2 */
+    white-space: nowrap; /* whitespace-nowrap */
+    border-radius: var(--ifm-button-border-radius, 0.5rem); /* rounded-lg */
+    border: 1px solid var(--ifm-color-emphasis-300); /* border border-[...] */
+    padding: 0.25rem 0.75rem; /* py-1 px-3 */
+    font-size: 0.75rem; /* text-xs */
+    line-height: 1rem;
+    font-weight: var(--ifm-font-weight-medium); /* font-medium */
+    text-decoration: none; /* no-underline */
+    background-color: transparent; /* bg-transparent */
+    color: var(--ifm-font-color-base); /* text-[...] */
+    transition: background-color 200ms ease; /* transition-colors duration-200 */
+  }
+  
+  .cloneButton:hover {
+    background-color: var(--ifm-hover-overlay); /* hover:bg-[...] */
+  }
+  
+  /* Dark mode */
+  html[data-theme='dark'] .cloneButton {
+    border-color: var(--ifm-color-emphasis-400); /* dark:border-[...] */
+    color: var(--ifm-font-color-base); /* dark:text-[...] */
+  }
+  
+  html[data-theme='dark'] .cloneButton:hover {
+    background-color: var(--ifm-hover-overlay); /* dark:hover:bg-[...] */
+  }
+  
+  /* --- GitHub Icon inside Button --- */
+  .githubIcon {
+    height: 1rem; /* h-4 */
+    width: 1rem; /* w-4 */
+    /* Color is inherited via fill="currentColor" in the SVG component */
+  }
+  
+  
+  /* --- Divider --- */
+  .divider {
+    margin: 1rem auto; /* my-4 mx-auto */
+    height: 1px; /* h-px */
+    width: 100%; /* w-full */
+    background-color: var(--ifm-color-emphasis-200); /* bg-[...] */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .divider {
+      margin: 0; /* md:my-0 md:mx-0 */
+      height: auto; /* md:h-auto */
+      width: 1px; /* md:w-px */
+    }
+  }
+  
+  /* Dark mode */
+  html[data-theme='dark'] .divider {
+    background-color: var(--ifm-color-emphasis-300); /* dark:bg-[...] */
+  }
+  
+  
+  /* --- Office Hours Section --- */
+  .officeHoursSection {
+    margin-top: 3rem; /* mt-12 */
+    width: 100%; /* w-full */
+  }
+  
+  
+  /* --- Office Hours Card --- */
+  .officeHoursCard {
+    position: relative; /* relative */
+    display: flex; /* flex */
+    flex-direction: column; /* flex-col */
+    overflow: hidden; /* overflow-hidden */
+    border-radius: 1rem; /* rounded-2xl */
+    border: 1px solid var(--ifm-color-emphasis-200); /* border border-[...] */
+    padding: 1.5rem; /* p-6 */
+    box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
+    background-color: var(--ifm-color-emphasis-100); /* bg-[...] */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .officeHoursCard {
+      flex-direction: row; /* md:flex-row */
+      align-items: center; /* md:items-center */
+      justify-content: space-between; /* md:justify-between */
+      padding: 2rem; /* md:p-8 */
+    }
+  }
+  
+  /* Dark mode */
+  html[data-theme='dark'] .officeHoursCard {
+    border-color: var(--ifm-color-emphasis-300); /* dark:border-[...] */
+    background-color: #1a1a1a; /* dark:bg-[#1a1a1a] */
+  }
+  
+  
+  /* --- Office Hours Content --- */
+  .officeHoursContent {
+    position: relative; /* relative */
+    z-index: 10; /* z-10 */
+    width: 100%; /* w-full */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .officeHoursContent {
+      width: 66.666667%; /* md:w-2/3 */
+    }
+  }
+  
+  @media (min-width: 996px) { /* lg breakpoint */
+    .officeHoursContent {
+      width: 60%; /* lg:w-3/5 */
+    }
+  }
+  
+  
+  /* --- Office Hours Title --- */
+  .officeHoursTitle {
+    margin-bottom: 1rem; /* mb-4 */
+    font-size: 1.25rem; /* text-xl */
+    line-height: 1.75rem;
+    font-weight: var(--ifm-font-weight-semibold); /* font-semibold */
+    color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .officeHoursTitle {
+      font-size: 1.5rem; /* md:text-2xl */
+      line-height: 2rem;
+    }
+  }
+  
+  
+  /* --- Office Hours Description --- */
+  .officeHoursDescription {
+    margin-bottom: 1.5rem; /* mb-6 */
+    font-size: var(--ifm-font-size-base); /* text-base */
+    line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
+    color: var(--ifm-font-color-secondary); /* text-[...] */
+  }
+  
+  
+  /* --- Book Slot Button --- */
+  .bookSlotButton {
+    display: inline-flex; /* inline-flex */
+    align-items: center; /* items-center */
+    justify-content: center; /* justify-center */
+    border-radius: 0.75rem; /* rounded-xl */
+    background-color: #6852D6; /* bg-[#6852D6] */
+    padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
+    font-size: var(--ifm-font-size-base); /* text-base */
+    font-weight: var(--ifm-font-weight-medium); /* font-medium */
+    color: #ffffff; /* text-white */
+    text-decoration: none; /* no-underline */
+    transition: background-color 200ms ease; /* transition-colors duration-200 */
+  }
+  
+  .bookSlotButton:hover {
+    background-color: #5a45c0; /* hover:bg-[#5a45c0] */
+    color: #ffffff; /* hover:text-white */
+  }
+  
+  
+  /* --- Office Hours Image --- */
+  .officeHoursImage {
+    position: absolute; /* absolute */
+    bottom: 0; /* bottom-0 */
+    right: 0; /* right-0 */
+    display: none; /* hidden */
+    height: auto; /* h-auto */
+    object-fit: contain; /* object-contain */
+    width: 120px; /* w-[120px] */
+    opacity: 0.5; /* opacity-50 */
+  }
+  
+  @media (min-width: 768px) { /* md breakpoint */
+    .officeHoursImage {
+      display: block; /* md:block */
+      width: 180px; /* md:w-[180px] */
+      opacity: 1; /* md:opacity-100 */
+    }
+  }
+  
+  @media (min-width: 996px) { /* lg breakpoint */
+    .officeHoursImage {
+      width: 200px; /* lg:w-[200px] */
+    }
+  }

@@ -1,47 +1,119 @@
-/* src/pages/index.module.css */
-.main {
-  padding-top: 30px; /* Adjust if your navbar height is different than 60px */
-  min-height: calc(100vh - 60px);
-  width: 100%;
+/* --- General Page Layout --- */
+.pageContainer {
+  /* Replicates container behavior if Layout doesn't fully handle it, or adds specific page padding */
+  /* Assuming Layout provides max-width and centering (mx-auto) */
+  padding: 1rem 5rem; 
+  width: 100%; /* Ensure it takes available width within the Layout container */
 }
 
-.container {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 6rem;
+@media (min-width: 768px) { /* md breakpoint */
+  .pageContainer {
+    padding-top: 3rem;    /* md:py-12 */
+    padding-bottom: 3rem; /* md:py-12 */
+    /* md:px-6 and lg:px-8 might be handled by Layout's container padding */
+  }
 }
 
+/* --- Breadcrumbs --- */
 .breadcrumbs {
-  margin-bottom: 20px;
-  font-size: 14px;
-  color: var(--ifm-color-emphasis-600);
+  display: flex;
+  align-items: center;
+  font-size: var(--ifm-font-size-sm); /* text-sm */
+  color: var(--ifm-color-emphasis-600); /* text-[--ifm-color-emphasis-600] */
+  margin-bottom: 1.5rem; /* mb-6 */
 }
 
-.breadcrumbs a {
-  color: var(--ifm-color-emphasis-600);
-  text-decoration: none;
+@media (min-width: 768px) { /* md breakpoint */
+  .breadcrumbs {
+    margin-bottom: 2rem; /* md:mb-8 */
+  }
 }
 
-.breadcrumbs a:hover {
-  color: var(--ifm-color-primary);
-  text-decoration: underline;
+.breadcrumbLink {
+  color: var(--ifm-color-primary); /* text-[--ifm-color-primary] */
+  text-decoration: none; /* no-underline */
 }
 
-.hero {
-  margin-bottom: 1rem;
+.breadcrumbLink:hover {
+  text-decoration: underline; /* hover:underline */
+}
+
+.breadcrumbSeparator {
+  margin-left: 0.25rem;  /* mx-1 */
+  margin-right: 0.25rem; /* mx-1 */
+  height: 1rem;          /* h-4 */
+  width: 1rem;           /* w-4 */
+  flex-shrink: 0;        /* shrink-0 */
+  /* Icon color usually inherited or set by the icon library */
+}
+
+.breadcrumbCurrent {
+  font-weight: var(--ifm-font-weight-medium); /* font-medium */
+  color: var(--ifm-font-color-secondary);    /* text-[--ifm-font-color-secondary] */
+}
+
+
+/* --- Hero Section --- */
+.heroSection {
+  margin-bottom: 3rem; /* mb-12 */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .heroSection {
+    margin-bottom: 4rem; /* md:mb-16 */
+  }
 }
 
 .heroTitle {
-  font-size: 2.1rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+  font-family: var(--ifm-font-family-sans-serif); /* font-sans (usually default, but good to be explicit) */
+  margin-bottom: 1rem; /* mb-4 */
+  font-size: 1.875rem; /* text-3xl */
+  line-height: 1.25;  /* Add a reasonable line-height */
+  font-weight: var(--ifm-font-weight-bold) !important; /* !font-bold */
+  color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .heroTitle {
+    font-size: 2.25rem; /* md:text-4xl */
+  }
+}
+
+@media (min-width: 996px) { /* lg breakpoint (Docusaurus default) */
+  .heroTitle {
+    font-size: 3rem; /* lg:text-5xl */
+  }
 }
 
 .heroDescription {
-  font-size: 1.1rem;
-  color: var(--ifm-color-emphasis-700);
-  max-width: 800px;
-  line-height: 1.6;
+  max-width: 48rem; /* max-w-3xl */
+  font-size: var(--ifm-font-size-base); /* text-base */
+  line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
+  color: var(--ifm-color-emphasis-700) !important; /* !text-[--ifm-color-emphasis-700] */
+}
 
+/* Handle dark mode for description */
+html[data-theme='dark'] .heroDescription {
+  color: var(--ifm-color-emphasis-600) !important; /* dark:!text-[--ifm-color-emphasis-600] */
+}
+
+
+@media (min-width: 768px) { /* md breakpoint */
+  .heroDescription {
+    font-size: var(--ifm-font-size-lg); /* md:text-lg */
+  }
+}
+
+
+/* --- Section Spacing --- */
+.sectionSpacer {
+  margin-top: 3rem; /* my-12 */
+  margin-bottom: 3rem; /* my-12 */
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .sectionSpacer {
+    margin-top: 4rem; /* md:my-16 */
+    margin-bottom: 4rem; /* md:my-16 */
+  }
 }
