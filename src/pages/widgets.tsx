@@ -64,9 +64,10 @@ const WidgetsGrid: React.FC<WidgetsGridProps> = ({
 
       {/* Use CSS module class for the Widgets Container */}
       <div className={gridStyles.widgetsContainer}>
-        {widgets.map((widget) => (
-          <WidgetCard key={widget.id} widget={widget} />
-        ))}
+        {Array.isArray(widgets) &&
+          widgets.map((widget) => (
+            <WidgetCard key={widget.id} widget={widget} />
+          ))}
       </div>
     </section>
   );

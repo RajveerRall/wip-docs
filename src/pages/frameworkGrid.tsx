@@ -35,20 +35,21 @@ export default function FrameworkGrid({
 
       {/* Use CSS module class for the Grid Layout */}
       <div className={styles.frameworkItemsGrid}>
-        {frameworks.map((framework) => (
-          // Pass framework data to FrameworkCard
-          // FrameworkCard needs to handle its own styling.
-          // If FrameworkCard needs specific grid item styling (like height),
-          // it should define those styles itself or accept classNames.
-          <FrameworkCard
-            key={framework.id}
-            icon={framework.icon}
-            title={framework.title}
-            version={framework.version}
-            link={framework.link}
-            // className={styles.gridItemCard} // Example if FrameworkCard accepted a className
-          />
-        ))}
+        {Array.isArray(frameworks) &&
+          frameworks.map((framework) => (
+            // Pass framework data to FrameworkCard
+            // FrameworkCard needs to handle its own styling.
+            // If FrameworkCard needs specific grid item styling (like height),
+            // it should define those styles itself or accept classNames.
+            <FrameworkCard
+              key={framework.id}
+              icon={framework.icon}
+              title={framework.title}
+              version={framework.version}
+              link={framework.link}
+              // className={styles.gridItemCard} // Example if FrameworkCard accepted a className
+            />
+          ))}
       </div>
     </div>
   );
