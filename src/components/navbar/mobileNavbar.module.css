@@ -15,6 +15,17 @@
   /* You might need to explicitly set background-color here too */
    background-color: var(--ifm-navbar-background-color, var(--ifm-background-surface-color));
 }
+.docsMenuTriggerButton {
+  background: none;
+  border: none;
+  padding: 0.25rem; /* Clickable area around icon */
+  margin-right: 0.75rem; /* Space between trigger and logo */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: var(--ifm-navbar-link-color); /* Use theme color */
+  line-height: 1; /* Prevent extra height */
+}
 
 /* --- Main Content Wrapper inside Header --- */
 .navbarContent {

@@ -2,12 +2,12 @@
 /* --- Component Styles --- */
 
 .platformContainer {
-    padding: var(--platform-padding);
+    padding:0.7rem;
     background-color: var(--platform-bg);
     box-shadow: var(--platform-container-shadow);
     display: flex;
     flex-direction: column;
-    gap: var(--platform-section-gap);
+    gap: 0.5rem;
 }
 
 .section {
@@ -25,7 +25,7 @@
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
-    gap: var(--platform-grid-gap); /* gap-3 */
+    gap: 0.4rem;
 }
 
 .divider {
@@ -41,10 +41,11 @@
     display: flex;
     flex-direction: column; /* flex-col */
     height: 100%; /* h-full */
-    padding: 1.25rem; /* p-5 */
-    border: 1px solid var(--platform-infocard-border); /* border border-transparent */
+    padding: 1rem; /* p-5 */
     border-radius: 0.75rem; /* rounded-xl */
     overflow: hidden; /* overflow-hidden */
+    box-shadow: 0 1px 2px 0 var( --docs-color-border); 
+    border: 1px solid var(--docs-color-border); /* Use theme border color */
 
     /* Colors & Background */
     background-color: var(--platform-infocard-bg);
@@ -95,7 +96,7 @@
 .cardTitle {
     font-size: 1rem; /* text-base */
     font-weight: 600; /* font-semibold */
-    color: var(--platform-infocard-text-title);
+    color: var(--docs-color-text);
     min-width: 0; /* Prevent title from overflowing container */
     word-wrap: break-word; /* break-words */
 }
@@ -103,7 +104,7 @@
 .cardDescription {
     font-size: 0.875rem; /* text-sm */
     line-height: 1.25rem;
-    color: var(--platform-infocard-text-desc);
+    color: var(--docs-color-text);
     word-wrap: break-word; /* break-words */
     /* Add margin-top if needed, or rely on flex gap if header/desc were flex children */
 }
@@ -166,14 +167,15 @@
 .seeAllAppsLink {
     display: block; /* Make it block level */
     margin-top: 1rem; /* Add some space above */
-    text-align: center; /* Center the text */
-    font-size: 0.875rem; /* text-sm */
+    text-align: start; /* Center the text */
+    font-size: 0.975rem; /* text-sm */
     font-weight: 500; /* font-medium */
-    color: var(--platform-link-color);
+    color: var(--docs-color-primary);
     text-decoration: none;
     padding: 0.5rem; /* Add some padding for easier clicking */
     border-radius: 0.375rem; /* rounded-md */
     transition: background-color 0.15s ease;
+    
 }
 
 .seeAllAppsLink:hover {

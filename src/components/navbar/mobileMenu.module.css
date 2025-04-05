@@ -10,6 +10,7 @@
     display: flex;
     flex-direction: column;
     background-color: var(--docs-color-background-100);
+    box-shadow: 0 -4px 6px -1px var(--toggle-shadow, rgba(0,0,0,0.1));
 }
 html[data-theme='dark']
 .mobileMenuOverlay {
@@ -72,12 +73,15 @@ html[data-theme='dark'] .closeButton:hover {
 .navLink {
     display: flex;
     width: 100%; /* Make button take full width */
+    border: 1px solid var(--docs-color-border); /* Use theme border color */
+    box-shadow: 0 1px 2px 0 var( --docs-color-border); 
+    margin-top: 1rem;
     align-items: center;
     justify-content: space-between;
-    padding: 0.75rem 0.5rem; /* py-3 px-2 */
+    padding: 0.75rem 0.7rem; /* py-3 px-2 */
     font-size: 1rem; /* Adjust as needed */
     color: var(--mobile-menu-text-secondary); /* text-gray-700 dark:text-gray-300 */
-    border-radius: 0.375rem; /* rounded-md */
+    border-radius: 0.575rem; /* rounded-md */
     background-color: transparent; /* No default bg */
     border: none; /* Reset button border */
     text-align: left; /* Align text left */
@@ -168,7 +172,22 @@ html[data-theme='dark'] .contactButton:focus {
 }
 
 .themeToggleContainer {
-    margin-top: auto; /* mt-auto */
-    padding-top: 1rem; /* pt-4 */
-    border-top: 1px solid var(--mobile-menu-border);
+    /* --- Positioning --- */
+    position: absolute; /* Position relative to the parent */
+    bottom: 0;          /* Stick to the bottom edge of the parent */
+    left: 0;            /* Stick to the left edge of the parent */
+    right: 0;           /* Stick to the right edge (makes it full width) */
+
+    /* --- Styling & Layout --- */
+    width: 100%;        /* Ensure it takes full width */
+    box-sizing: border-box; /* Include padding/border in the width */
+    padding: 1rem 0.5rem; /* Example padding inside the fixed container */
+    border-top: 1px solid var(--docs-color-border); /* Your border */
+    background-color: var(--docs-color-background-100); /* Essential background */
+
+    /* Add the upward shadow */
+    box-shadow: 0 -4px 6px -1px var(--toggle-shadow, rgba(0,0,0,0.1)); /* Added default shadow */
+
+    /* REMOVE this - it conflicts with position: absolute */
+    /* margin-top: auto; */
 }
