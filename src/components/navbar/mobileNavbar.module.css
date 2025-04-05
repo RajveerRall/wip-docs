@@ -4,9 +4,16 @@
 /* Keep Docusaurus base classes for theme consistency if desired */
 /* .navbarHeader {} */
 /* Add specific overrides or additional styles if needed */
+
 .navbarHeader {
-  height: 4rem; /* h-16 */
+  position: fixed; /* No quotes! */
+  top: 0;       /* Added: Usually needed with position:fixed */
+  left: 0;      /* Added: Usually needed with position:fixed */
+  width: 100%;  /* Added: Usually needed with position:fixed */
+  z-index: 1000; /* Added: Ensure it stays on top */
   /* Inherits background etc from theme's .navbar */
+  /* You might need to explicitly set background-color here too */
+   background-color: var(--ifm-navbar-background-color, var(--ifm-background-surface-color));
 }
 
 /* --- Main Content Wrapper inside Header --- */
@@ -99,9 +106,12 @@ html[data-theme='dark'] .optionsButtonWrapper {
   color: var(--ifm-navbar-link-hover-color); /* Optional: Add hover effect */
 }
 
+
 /* --- Algolia DocSearch Button Icon-Only Style --- */
 
 .mobile-navbar-context .navbar__item.navbar__search {
+  position: fixed;
+
   padding: 0 !important;
   margin: 0 !important;
 }

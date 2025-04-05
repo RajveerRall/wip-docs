@@ -525,20 +525,16 @@ html[data-theme='dark'] .toggle-icon.active { color: #ffffff; }
 
 /* Fix content being hidden behind fixed navbar */
 .main-wrapper {
-  padding-top: 60px; /* Match navbar height */
+  padding-top: 50px; /* Match navbar height */
 }
 
 /* Target content within docs pages specifically */
 /* Ensure these selectors are still relevant */
-.docs-wrapper,
-.docs-page,
-main[class^='docMainContainer'] {
-  margin-top: 20px;
-}
+
 
 /* Ensure breadcrumbs are visible */
 .theme-doc-breadcrumbs {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: 20px;
   padding: 0 20px; /* Adjust if needed */
 }

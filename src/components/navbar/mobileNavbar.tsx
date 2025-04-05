@@ -23,7 +23,7 @@ export default function YourMobileNavbarComponent() {
       {/* Keep base 'navbar' class for Docusaurus theme integration */}
       {/* Add module class for specific height or overrides */}
       <header
-        className={`navbar mobile-navbar-context ${styles.navbarHeader} `}
+        className={`mobile-navbar-context navbar  ${styles.navbarHeader} `}
       >
         <div className={styles.navbarContent}>
           {" "}
