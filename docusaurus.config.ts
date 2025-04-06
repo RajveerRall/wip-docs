@@ -1,5 +1,3 @@
-
-
 import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
@@ -9,12 +7,12 @@ const config: Config = {
   tagline: 'Integrate real-time chat, voice, and video functionalities.',
   favicon: 'img/favicon.ico',
 
-  url: 'https://www.cometchat.com',
-    // This will use the BASE_URL env variable when available, or fall back to '/'
+  url: 'https://www.cometchat.com', // Your production URL
+  // Ensure BASE_URL env var is set correctly during build, or defaults here
   baseUrl: process.env.BASE_URL || '/wip-docs/',
 
-  organizationName: 'CometChat',
-  projectName: 'cometchat-docs',
+  organizationName: 'CometChat', // Your GitHub org/user
+  projectName: 'cometchat-docs', // Your repo name
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
@@ -23,101 +21,83 @@ const config: Config = {
     defaultLocale: 'en',
     locales: ['en'],
   },
-  
-
-  // Remove the themes array since these are already included in the presets
-  // themes: ['@docusaurus/theme-classic', '@docusaurus/theme-search-algolia'],
-
-  // presets: [
-  //   [
-  //     'classic',
-  //     {
-  //       docs: {
-  //         sidebarPath: require.resolve('./sidebars.ts'),
-  //         // lastVersion: 'current',
-  //         // includeCurrentVersion: true, // Include the ./docs folder
-  //         lastVersion: '2.0.0', // Set this to your latest version
-  //         versions: {
-  //           current: {
-  //             label: 'Next',
-  //             path: 'next',
-  //           },
-  //           '2.0.0': {
-  //             label: '2.0.0',
-  //             // No path means it will be the default (/docs)
-  //           },
-  //           '1.0.0': {
-  //             label: '1.0.0',
-  //             path: '1.0.0',
-  //           },
-  //         },
-  //         // sidebarPath: './sidebars.ts',
-  //         routeBasePath: '/', // Set routeBasePath to '/' since docs are the main content
-  //         editUrl: 'https://github.com/cometchat/cometchat-docs/edit/main/',
-  //       },
-  //       blog: false,
-  //       theme: {
-  //         customCss: './src/css/custom.css',
-  //       },
-  //     } satisfies Preset.Options,
-  //   ],
-  // ],
-
 
   presets: [
     [
       'classic',
       {
-        docs: {
-          sidebarPath: require.resolve('./sidebars.ts'),
-          id: 'default',
-          lastVersion: 'current', // Set the current version as the last (stable) version
-          versions: {
-            current: {
-              label: 'Latest', // You can adjust this label if needed
-              path: '', // Empty path makes it the default route
-              banner: 'none',
-            },
-            '2.0.0': {
-              label: '2.0.0',
-              path: '2.0.0', // Explicitly define path for the previous version
-            },
-            '1.0.0': {
-              label: '1.0.0',
-              path: '1.0.0',
-            },
-          },
-          routeBasePath: '/', // Keeps docs as the main content
-          editUrl: 'https://github.com/cometchat/cometchat-docs/edit/main/',
+        docs: { // *** Configuration for the DEFAULT instance (non-React Kit docs) ***
+          sidebarPath: require.resolve('./sidebars.ts'), // Sidebar for default docs
+          id: 'default', // Explicitly set ID (good practice)
+          path: 'docs', // Assumes your main docs are in the 'docs' folder
+          routeBasePath: '/', // Makes these docs the root content after baseUrl
+
+          // === REMOVE VERSIONING HERE if only React Kit should be versioned ===
+          // lastVersion: 'current', // Remove this
+          // versions: { ... }, // Remove this whole block if main docs are unversioned
+
+          editUrl: 'https://github.com/cometchat/cometchat-docs/edit/main/', // Adjust path if needed
         },
-        blog: false,
+        blog: false, // Or configure if you have a blog
         theme: {
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
     ],
   ],
+
+  plugins: [
+    // *** Configuration for the SEPARATE React Kit instance ***
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        // --- Core Instance Settings ---
+        id: 'react-kit', // Unique ID for this instance
+        path: 'react-kit-docs', // Folder containing React Kit docs
+
+        // --- V V V --- CORRECTED routeBasePath --- V V V ---
+        routeBasePath: 'ui-kits/react', // <<< CHANGE THIS to match your desired URL structure
+
+        // --- V V V --- UNCOMMENTED and REQUIRED sidebarPath --- V V V ---
+        sidebarPath: require.resolve('./sidebarsReactKit.js'), // <<< ADD THIS BACK (ensure sidebarsReactKit.js exists)
+
+        // --- Versioning Settings for THIS instance ONLY ---
+        includeCurrentVersion: true, // Serve current content at the base routeBasePath
+        lastVersion: 'current', // Treat 'current' as the latest stable (change after creating named versions)
+        // Define specific versions if you have created them:
+        // versions: {
+        //   current: { label: 'Next 🚧', path: 'next' }, // Example 'next' version
+        //   '2.0': { label: 'v2.0', path: '2.0' },      // Example '2.0' version
+        //   '1.0': { label: 'v1.0', path: '1.0' },      // Example '1.0' version
+        // },
+      },
+    ],
+    // Add other plugins here if needed (e.g., for Flutter Kit if it also needs separate versioning)
+  ],
+
   themeConfig: {
-    // Add color mode settings
     colorMode: {
       defaultMode: 'light',
       disableSwitch: false,
       respectPrefersColorScheme: true,
     },
     image: 'img/cometchat-social-card.jpg',
-
-    navbar:{
+    navbar: {
       logo: {
-      href: "/",
-      src: "/imgs/logo.svg",
-      srcDark: "/imgs/logo.svg",
-      alt: "Logo",
-      width: "150px",
+        href: "/", // Links to baseUrl
+        src: "/wip-docs/imgs/logo.svg", // Needs to include baseUrl if absolute
+        srcDark: "/wip-docs/imgs/logo.svg", // Needs to include baseUrl if absolute
+        alt: "Logo",
+        width: "150px",
+      },
+      items: [
+        // Example link to default docs root
+        { to: '/', label: 'Guides', position: 'left' }, // Assuming default docs are at '/'
+        // Example link to React Kit current overview
+        { to: '/ui-kits/react/overview', label: 'React Kit', position: 'left'},
+        // Add other links as needed
+      ],
     },
-
-  },
-    
-    // Algolia DocSearch configuration
     algolia: {
       appId: '6RW3CISVKU',
       apiKey: 'ca85d17c2b7e887b2f084d22e25807cf',
@@ -130,36 +110,10 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['java', 'kotlin', 'swift', 'typescript', 'bash'],
     },
+    // ... other themeConfig like footer ...
   } satisfies Preset.ThemeConfig,
 
-  // Configure static directories
   staticDirectories: ['static'],
-  
-
-  // Keep plugins array clean
-  // Add plugins for additional versioned documentation
-  plugins: [
-
-  ],
 };
 
-
 export default config;
-
-// export default {
-//   title: 'CometChat Docs',
-//   url: 'https://rajveerrall.github.io',
-//   baseUrl: '/wip-docs/',
-//   // Keep any existing configuration below
-//   favicon: 'img/favicon.ico',
-//   organizationName: 'RajveerRall',
-//   projectName: 'wip-docs',
-//   onBrokenLinks: 'throw',
-//   onBrokenMarkdownLinks: 'warn',
-//   i18n: { ... },
-//   themes: [ ... ],
-//   presets: [ ... ],
-//   themeConfig: { ... },
-//   plugins: [ ... ],
-//   // ... any other existing config options
-// };

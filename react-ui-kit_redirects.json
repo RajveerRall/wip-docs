@@ -1,0 +1,10 @@
+[
+  {
+      "from": "/ui-kit/react",
+      "to": "/ui-kit/react/v3/overview" 
+  },
+  {
+      "from": "/ui-kit/react/v3", 
+      "to": "/ui-kit/react/v3/overview"
+  }
+]
