@@ -1,24 +1,18 @@
 /* --- Section Container --- */
 .gridSection {
     margin-bottom: 3rem; /* Equivalent to mb-12 */
-    padding-left: 1rem;  /* Equivalent to px-4 */
-    padding-right: 1rem; /* Equivalent to px-4 */
+    
   }
   
-  @media (max-width: 768px) { /* md breakpoint */
-    .gridSection {
-      padding-left: 1.3rem;  /* Equivalent to md:px-8 */
-      padding-right: 1.3rem; /* Equivalent to md:px-8 */
-    }
-  }
   
   /* --- Section Title --- */
   .gridTitle {
     /* If 'Jakarta Sans' is globally available or part of your theme */
     /* font-family: 'Jakarta Sans', sans-serif; */
     /* Or rely on the theme's heading font */
-    font-family: var(--ifm-font-family-heading);
-    margin-bottom: 0.75rem; /* Equivalent to mb-3 */
+    /* font-family: var(--ifm-font-family-heading); */
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0.45rem; /* Equivalent to mb-3 */
     font-size: 1.5rem;      /* Equivalent to text-2xl */
     line-height: 2rem;      /* Line height for text-2xl */
     font-weight: var(--ifm-font-weight-bold); /* Equivalent to font-bold */
@@ -27,8 +21,8 @@
   
   @media (max-width: 996px) { /* lg breakpoint (Docusaurus default) */
     .gridTitle {
-      font-size: 1.875rem; /* Equivalent to lg:text-3xl */
-      line-height: 2.25rem;/* Line height for lg:text-3xl */
+      font-size: 1.875rem;
+      line-height: 2.25rem;
     }
   }
   
@@ -36,9 +30,10 @@
   .gridDescription {
     margin-bottom: 2.5rem; /* Equivalent to mb-10 */
     max-width: 48rem;     /* Equivalent to max-w-3xl */
-    font-size: 1.125rem;  /* Equivalent to text-lg */
     line-height: var(--ifm-line-height-relaxed); /* Equivalent to leading-relaxed */
-    color: var(--ifm-font-color-secondary); /* Handles both light/dark via variable */
+    color: var(--ifm-color-emphasis-700) !important; /* !text-[--ifm-color-emphasis-700] */
+    font-family: 'Inter', sans-serif;
+    font-size: var(--ifm-font-size-base); /* text-base */
   }
   
   /* --- Grid Layout --- */

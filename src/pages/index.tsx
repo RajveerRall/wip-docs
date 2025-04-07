@@ -55,7 +55,7 @@ export default function Homepage() {
       id: "android-kotlin",
       title: "Android Kotlin",
       version: "4",
-      icon: getIconPath("android.svg"),
+      icon: getIconPath("kotlin.svg"),
       link: useBaseUrl("/"),
     },
     {

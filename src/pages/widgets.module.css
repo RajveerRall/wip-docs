@@ -12,15 +12,19 @@
     }
   }
   
+  
   /* --- Section Title --- */
   .gridTitle {
-    /* font-family: 'Jakarta Sans', sans-serif; */ /* If needed */
-    font-family: var(--ifm-font-family-heading);
-    margin-bottom: 0.75rem; /* mb-3 */
-    font-size: 1.5rem;      /* text-2xl */
-    line-height: 2rem;
-    font-weight: var(--ifm-font-weight-bold);
-    color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
+    /* If 'Jakarta Sans' is globally available or part of your theme */
+    /* font-family: 'Jakarta Sans', sans-serif; */
+    /* Or rely on the theme's heading font */
+    /* font-family: var(--ifm-font-family-heading); */
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0.45rem; /* Equivalent to mb-3 */
+    font-size: 1.5rem!important;      /* Equivalent to text-2xl */
+    line-height: 2rem;      /* Line height for text-2xl */
+    font-weight: 600; /* Equivalent to font-bold */
+    color: var(--ifm-heading-color); /* Equivalent to text-[--ifm-heading-color] */
   }
   
   @media (min-width: 996px) { /* lg breakpoint */
@@ -32,11 +36,12 @@
   
   /* --- Section Description --- */
   .gridDescription {
-    margin-bottom: 2.5rem; /* mb-10 */
-    max-width: 48rem;     /* max-w-3xl */
-    font-size: 1.125rem;  /* text-lg */
-    line-height: var(--ifm-line-height-relaxed);
-    color: var(--ifm-font-color-secondary); /* Handles light/dark */
+    margin-bottom: 2.5rem; /* Equivalent to mb-10 */
+    max-width: 48rem;     /* Equivalent to max-w-3xl */
+    line-height: var(--ifm-line-height-relaxed); /* Equivalent to leading-relaxed */
+    color: var(--ifm-color-emphasis-700) !important; /* !text-[--ifm-color-emphasis-700] */
+    font-family: 'Inter', sans-serif;
+    font-size: var(--ifm-font-size-base); /* text-base */
   }
   
   /* --- Widgets Container --- */
@@ -74,12 +79,12 @@
     text-decoration: none; /* no-underline */
   }
   
-  /* --- Hover Effects --- */
+
   .widgetLinkCard:hover {
-    transform: translateY(-0.25rem); /* hover:-translate-y-1 */
-    box-shadow: var(--ifm-global-shadow-md); /* hover:shadow-md */
-    border-color: var(--ifm-color-emphasis-300); /* hover:border-[...] */
-    color: var(--ifm-font-color-base); /* hover:text-[...] */
+    background-color: var(--ifm-color-emphasis-100);
+    border-color: var(--ifm-color-emphasis-400);
+    text-decoration: none;
+    color: var(--ifm-font-color-base);
   }
   
   /* --- Dark Mode Styles --- */

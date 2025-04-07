@@ -17,7 +17,7 @@
     display: flex; /* flex */
     height: 100%; /* h-full */
     align-items: center; /* items-center */
-    border-radius: var(--ifm-card-border-radius, 0.5rem); /* rounded-lg */
+    border-radius: 0.3rem; /* rounded-lg */
     border: 1px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
     background-color: var(--ifm-card-background-color); /* bg-[--ifm-card-background-color] */
     box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
@@ -42,11 +42,12 @@
     }
   }
   
-  /* --- Hover Effects (applied via link hover) --- */
-  .cardLink:hover .cardBody {
-    transform: translateY(-0.25rem); /* group-hover:-translate-y-1 */
-    border-color: var(--ifm-color-emphasis-300); /* group-hover:border-[--ifm-color-emphasis-300] */
-    box-shadow: var(--ifm-global-shadow-md); /* group-hover:shadow-md */
+
+  .cardBody:hover {
+    background-color: var(--ifm-color-emphasis-100);
+    border-color: var(--ifm-color-emphasis-400);
+    text-decoration: none;
+    color: var(--ifm-font-color-base);
   }
   
   /* --- Dark Mode Styles --- */
@@ -104,15 +105,17 @@
   
   /* --- Card Title --- */
   .cardTitle {
-    font-weight: var(--ifm-font-weight-semibold); /* font-semibold */
+    font-weight: 600; /* font-semibold */
     color: var(--ifm-heading-color); /* text-[--ifm-heading-color] */
+    font-family: 'Inter', sans-serif;
     /* Truncation */
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; /* truncate (overrides text-wrap/whitespace-normal) */
+    
   
     /* Responsive Title Size (approximating 'text-s' as 14px) */
-    font-size: 0.875rem; /* text-s (14px) */
+    font-size: 0.475rem; /* text-s (14px) */
     line-height: 1.25rem; /* line-height for 14px */
   }
   

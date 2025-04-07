@@ -2,7 +2,7 @@
 .pageContainer {
   /* Replicates container behavior if Layout doesn't fully handle it, or adds specific page padding */
   /* Assuming Layout provides max-width and centering (mx-auto) */
-  padding: 1rem 5rem; 
+  padding: 1.5rem 10rem; 
   width: 100%; /* Ensure it takes available width within the Layout container */
 }
 
@@ -23,7 +23,7 @@
   align-items: center;
   font-size: var(--ifm-font-size-sm); /* text-sm */
   color: var(--ifm-color-emphasis-600); /* text-[--ifm-color-emphasis-600] */
-  margin-bottom: 1.5rem; /* mb-6 */
+  margin-bottom: 2rem; /* mb-6 */
   margin-top: 1.2rem;
 }
 
@@ -71,11 +71,13 @@
 
 .heroTitle {
   font-family: var(--ifm-font-family-sans-serif); /* font-sans (usually default, but good to be explicit) */
-  margin-bottom: 1rem; /* mb-4 */
+  margin-bottom: 0.6rem; /* mb-4 */
   font-size: 1.875rem; /* text-3xl */
-  line-height: 1.25;  /* Add a reasonable line-height */
-  font-weight: var(--ifm-font-weight-bold) !important; /* !font-bold */
+  line-height: 1;  /* Add a reasonable line-height */
   color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  /* font-style: italic; */
 }
 
 @media (max-width: 768px) { /* md breakpoint */
@@ -86,12 +88,13 @@
 
 @media (min-width: 996px) { /* lg breakpoint (Docusaurus default) */
   .heroTitle {
-    font-size: 3rem; /* lg:text-5xl */
+    font-size: 2rem; /* lg:text-5xl */
   }
 }
 
 .heroDescription {
   max-width: 48rem; /* max-w-3xl */
+  font-family: 'Inter', sans-serif;
   font-size: var(--ifm-font-size-base); /* text-base */
   line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
   color: var(--ifm-color-emphasis-700) !important; /* !text-[--ifm-color-emphasis-700] */

@@ -15,7 +15,7 @@
   
   /* --- Section Header --- */
   .sectionHeader {
-    margin-bottom: 1rem; /* mb-4 */
+    margin-bottom: 0.3rem; /* mb-4 */
     display: flex;       /* flex */
     align-items: center; /* items-center */
     justify-content: space-between; /* justify-between */
@@ -24,11 +24,12 @@
   
   /* --- Section Title --- */
   .sectionTitle {
-    margin: 0;          /* m-0 */
-    font-size: 1.25rem; /* text-xl */
-    line-height: 1.75rem;
-    font-weight: var(--ifm-font-weight-medium); /* font-medium */
-    color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 0.1rem; /* Equivalent to mb-3 */
+    font-size: 1.5rem!important;      /* Equivalent to text-2xl */
+    line-height: 2rem;      /* Line height for text-2xl */
+    font-weight: 600; /* Equivalent to font-bold */
+    color: var(--ifm-heading-color);
   }
   
   @media (min-width: 768px) { /* md breakpoint */
@@ -41,13 +42,14 @@
   /* --- View All Button --- */
   .viewAllButton {
     display: inline-flex; /* inline-flex */
+    font-family: 'Inter', sans-serif;
     flex-shrink: 0;      /* flex-shrink-0 */
     align-items: center; /* items-center */
     justify-content: center; /* justify-center */
     white-space: nowrap; /* whitespace-nowrap */
     border-radius: var(--ifm-button-border-radius, 0.5rem); /* rounded-lg */
     border: 1px solid var(--ifm-color-emphasis-300); /* border border-[...] */
-    padding: 0.375rem 1rem; /* py-1.5 px-4 */
+    padding: 0.175rem 1.6rem; /* py-1.5 px-4 */
     font-size: var(--ifm-font-size-sm); /* text-sm */
     font-weight: var(--ifm-font-weight-medium); /* font-medium */
     text-decoration: none; /* no-underline */
@@ -57,10 +59,11 @@
   }
   
   .viewAllButton:hover {
-    background-color: var(--ifm-hover-overlay); /* hover:bg-[...] */
-    /* Color doesn't change on hover per original classes */
+    background-color: var(--ifm-color-emphasis-100);
+    border-color: var(--ifm-color-emphasis-400);
+    text-decoration: none;
+    color: var(--ifm-font-color-base);
   }
-  
   /* Dark mode */
   html[data-theme='dark'] .viewAllButton {
     border-color: var(--ifm-color-emphasis-400); /* dark:border-[...] */
@@ -71,14 +74,14 @@
     background-color: var(--ifm-hover-overlay); /* dark:hover:bg-[...] */
   }
   
-  
   /* --- Section Description --- */
   .sectionDescription {
-    margin-top: 0; /* mt-0 */
-    margin-bottom: 2rem; /* mb-8 */
+    margin-bottom: 2.5rem; /* Equivalent to mb-10 */
+    max-width: 48rem;     /* Equivalent to max-w-3xl */
+    line-height: var(--ifm-line-height-relaxed); /* Equivalent to leading-relaxed */
+    color: var(--ifm-color-emphasis-700) !important; /* !text-[--ifm-color-emphasis-700] */
+    font-family: 'Inter', sans-serif;
     font-size: var(--ifm-font-size-base); /* text-base */
-    line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
-    color: var(--ifm-font-color-secondary); /* Handles light/dark */
   }
   
   
@@ -141,8 +144,9 @@
   
   /* --- App Title Text --- */
   .appTitleText {
+    font-family: 'Inter', sans-serif;
     font-size: var(--ifm-font-size-sm); /* text-sm */
-    font-weight: var(--ifm-font-weight-medium); /* font-medium */
+    font-weight: 500; /* font-medium */
     color: var(--ifm-font-color-base); /* text-[...] */
   }
   
@@ -153,6 +157,7 @@
   
   /* --- Clone Button --- */
   .cloneButton {
+    font-family: 'Inter', sans-serif;
     display: inline-flex; /* inline-flex */
     flex-shrink: 0; /* shrink-0 */
     align-items: center; /* items-center */
@@ -172,7 +177,10 @@
   }
   
   .cloneButton:hover {
-    background-color: var(--ifm-hover-overlay); /* hover:bg-[...] */
+    background-color: var(--ifm-color-emphasis-100);
+    border-color: var(--ifm-color-emphasis-400);
+    text-decoration: none;
+    color: var(--ifm-font-color-base);
   }
   
   /* Dark mode */

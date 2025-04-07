@@ -24,8 +24,8 @@ export default function FrameworkCard({
   const linkClasses = `${styles.cardLink} ${className}`.trim();
 
   return (
-    <Link
-      to={link}
+    <div
+      // to={link}
       className={linkClasses} // Use combined classes
     >
       {/* Use CSS module class for the card body */}
@@ -54,11 +54,11 @@ export default function FrameworkCard({
             <span
               className={styles.versionBadge} // Use CSS module class for the badge
             >
-              v{version}
+              V{version}
             </span>
           )}
         </div>
       </div>
-    </Link>
+    </div>
   );
 }

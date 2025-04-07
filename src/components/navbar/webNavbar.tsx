@@ -40,11 +40,13 @@ function WebNavbar(): React.ReactNode {
               src={lightLogoUrl}
               alt="CometChat Docs"
               className="logo-image logo-light"
+              style={{ height: "2.2rem" }}
             />
             <img
               src={darkLogoUrl}
               alt="CometChat Docs"
               className="logo-image logo-dark"
+              style={{ height: "1.5rem" }}
             />
           </Link>
         </div>
@@ -105,12 +107,8 @@ function WebNavbar(): React.ReactNode {
 
         {/* Action Buttons */}
         <div className="navbar-actions">
-          <Link to="/dashboard" className="dashboard-button">
-            Dashboard
-          </Link>
-          <Link to="/contact" className="contact-button">
-            Contact Support
-          </Link>
+          <button className="dashboard-button">Dashboard</button>
+          <button className="contact-button">Contact Support</button>
 
           {/* Theme Toggle Switch */}
           <ThemeToggle />
