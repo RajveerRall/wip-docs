@@ -65,7 +65,7 @@
     flex: 1 1 0%; /* flex-1 */
     align-items: center; /* items-center */
     gap: 1rem; /* space-x-4 */
-    border-radius: var(--ifm-card-border-radius, 0.5rem); /* rounded-lg */
+    border-radius: 0.2rem; /* rounded-lg */
     border: 1px solid var(--ifm-color-emphasis-200); /* border border-[...] */
     background-color: var(--ifm-card-background-color); /* bg-[...] */
     padding: 1rem; /* p-4 */

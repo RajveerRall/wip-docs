@@ -104,7 +104,7 @@ const PlatformDropdownMenu: React.FC = () => {
             <div className="item-container-platform">
               <div className="item-container-platform-sub" key={index}>
                 <item.icon className="item-icon-react" />
-                <span>{item.name}</span>
+                <span style={{fontWeight:600}}>{item.name}</span>
               </div>
               <div className="item-container-desc" key={index}>
                 <span>{item.description}</span>
@@ -119,7 +119,7 @@ const PlatformDropdownMenu: React.FC = () => {
             <div className="item-container-platform">
               <div className="item-container-platform-sub" key={index}>
                 <item.icon className="item-icon-react" />
-                <span>{item.name}</span>
+                <span style={{fontWeight:600}}>{item.name}</span>
               </div>
               <div className="item-container-desc" key={index}>
                 <span>{item.description}</span>
@@ -139,7 +139,7 @@ const PlatformDropdownMenu: React.FC = () => {
                 width={"20px"}
                 alt={item.name}
               />
-              <span>{item.name}</span>
+              <span style={{fontWeight:600}}>{item.name}</span>
             </div>
           ))}
         </div>

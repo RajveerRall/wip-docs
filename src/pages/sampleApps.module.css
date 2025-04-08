@@ -227,6 +227,8 @@
   .officeHoursSection {
     margin-top: 3rem; /* mt-12 */
     width: 100%; /* w-full */
+    font-family: 'Inter', sans-serif;
+
   }
   
   
@@ -241,6 +243,8 @@
     padding: 1.5rem; /* p-6 */
     box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
     background-color: var(--ifm-color-emphasis-100); /* bg-[...] */
+    font-family: 'Inter', sans-serif;
+
   }
   
   @media (min-width: 768px) { /* md breakpoint */
@@ -283,8 +287,10 @@
   .officeHoursTitle {
     margin-bottom: 1rem; /* mb-4 */
     font-size: 1.25rem; /* text-xl */
+    font-family: 'Inter', sans-serif;
+
     line-height: 1.75rem;
-    font-weight: var(--ifm-font-weight-semibold); /* font-semibold */
+    font-weight: 600; /* font-semibold */
     color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
   }
   
@@ -298,6 +304,7 @@
   
   /* --- Office Hours Description --- */
   .officeHoursDescription {
+    font-family: 'Inter', sans-serif;
     margin-bottom: 1.5rem; /* mb-6 */
     font-size: var(--ifm-font-size-base); /* text-base */
     line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
@@ -312,8 +319,8 @@
     justify-content: center; /* justify-center */
     border-radius: 0.75rem; /* rounded-xl */
     background-color: #6852D6; /* bg-[#6852D6] */
-    padding: 0.625rem 1.25rem; /* py-2.5 px-5 */
-    font-size: var(--ifm-font-size-base); /* text-base */
+    padding: 0.425rem 1.1rem; /* py-2.5 px-5 */
+    font-size: 1rem; /* text-base */
     font-weight: var(--ifm-font-weight-medium); /* font-medium */
     color: #ffffff; /* text-white */
     text-decoration: none; /* no-underline */

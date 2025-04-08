@@ -6,6 +6,8 @@ import clsx from "clsx";
 import "./Navbar.css";
 import ThemeToggle from "./theme-toggle";
 import IntegrationDropdownMenu from "./integrationMenuBar";
+import { MdKeyboardArrowDown,MdKeyboardArrowUp } from "react-icons/md";
+
 import PlatformDropdownMenu from "./platformMenuBar";
 import SearchBar from "@theme/SearchBar";
 type DropdownType = "integrate" | "platform" | null;
@@ -60,11 +62,12 @@ function WebNavbar(): React.ReactNode {
               className={clsx("dropdown-button", {
                 active: activeDropdown === "integrate",
               })}
-              onClick={() => handleDropdownToggle("integrate")}
-              // ... aria attributes ...
+              onMouseEnter={() => handleDropdownToggle("integrate")}
+
             >
               Integrate
-              <span className="dropdown-arrow">▼</span>
+              {activeDropdown === "integrate" ?<MdKeyboardArrowUp/> :<MdKeyboardArrowDown/>}
+              {/* <span className="dropdown-arrow">▼</span> */}
             </button>
             {/* The Dropdown Content itself */}
             {activeDropdown === "integrate" && (
@@ -83,11 +86,11 @@ function WebNavbar(): React.ReactNode {
               className={clsx("dropdown-button", {
                 active: activeDropdown === "platform",
               })}
-              onClick={() => handleDropdownToggle("platform")}
+              onMouseEnter={() => handleDropdownToggle("platform")}
               // ... aria attributes ...
             >
               Platform
-              <span className="dropdown-arrow">▼</span>
+              {activeDropdown === "platform" ?<MdKeyboardArrowUp/> :<MdKeyboardArrowDown/>}
             </button>
             {/* The Dropdown Content itself */}
             {activeDropdown === "platform" && (

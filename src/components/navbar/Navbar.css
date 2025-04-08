@@ -94,9 +94,13 @@ html[data-theme='dark'] .logo-dark {
   transition: transform 0.2s;
 }
 
-.dropdown-button.active .dropdown-arrow {
-  transform: rotate(180deg);
-  color: var(--ifm-navbar-link-color, var(--ifm-font-color-base)); 
+.dropdown-button.active{
+  /* transform: rotate(180deg);
+  color: var(--ifm-navbar-link-color, var(--ifm-font-color-base));  */
+  background-color: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-400);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
   
 }
 
@@ -113,7 +117,7 @@ html[data-theme='dark'] .logo-dark {
 /* Backdrop for closing dropdowns */
 .dropdown-backdrop {
   position: fixed;
-   top: 0;
+   top: 70px;
    left: 0;
    right: 0;
    bottom: 0;

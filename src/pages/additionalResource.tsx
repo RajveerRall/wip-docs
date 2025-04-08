@@ -79,9 +79,9 @@ export default function AdditionalResources() {
       <h2 className={styles.title}>Additional Resources</h2>
       <div className={styles.resourceGrid}>
         {resources.map((resource, index) => (
-          <a
+          <div
             key={index}
-            href={useBaseUrl(resource.link)}
+            // href={useBaseUrl(resource.link)}
             className={styles.resourceCard}
           >
             <div className={styles.iconBox}>
@@ -97,7 +97,7 @@ export default function AdditionalResources() {
                 {resource.description}
               </p>
             </div>
-          </a>
+          </div>
         ))}
       </div>
     </div>

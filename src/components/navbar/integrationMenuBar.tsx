@@ -92,7 +92,9 @@ const IntegrationDropdownMenu: React.FC = () => {
                 width={"20px"}
                 alt={item.name}
               />
-              <span>{item.name}</span>
+              <span style={{
+                fontWeight:600
+              }}>{item.name}</span>
             </div>
           ))}
         </div>
@@ -108,7 +110,7 @@ const IntegrationDropdownMenu: React.FC = () => {
                 width={"20px"}
                 alt={item.name}
               />
-              <span>{item.name}</span>
+              <span style={{fontWeight:600}}>{item.name}</span>
             </div>
           ))}
         </div>
@@ -125,7 +127,7 @@ const IntegrationDropdownMenu: React.FC = () => {
                   width={"20px"}
                   alt={item.name}
                 />
-                <span>{item.name}</span>
+                <span style={{fontWeight:600}}>{item.name}</span>
               </div>
             ))}
             <div className="vertical-line"></div>
@@ -142,7 +144,7 @@ const IntegrationDropdownMenu: React.FC = () => {
             {apis.map((item, index) => (
               <div className="item-container" key={index}>
                 <item.icon className="item-icon-react" /> {/* Added class */}
-                <span>{item.name}</span>
+                <span style={{fontWeight:600}}>{item.name}</span>
               </div>
             ))}
           </div>
