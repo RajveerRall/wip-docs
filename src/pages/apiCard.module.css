@@ -1,127 +1,130 @@
 .sectionContainer {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  width: 100%;
+}
+
+.apiCardsContainer {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
+  margin: 30px 0;
+  overflow: hidden;
+  border-radius: 0.4rem; /* Increased border radius for more curve */
+  border: 1px solid #e0e0e0;
+}
+
+.apiCard {
+  flex: 1;
+  background-color: white;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+/* Add a subtle separator between cards */
+.apiCard:first-child {
+  border-right: 1px solid #e0e0e0;
+}
+
+html[data-theme="dark"] .apiCardsContainer {
+  border-color: #333;
+}
+
+html[data-theme="dark"] .apiCard {
+  background-color: #1a1a1a;
+}
+
+html[data-theme="dark"] .apiCard:first-child {
+  border-right-color: #333;
+}
+
+.apiCardTitle {
+  margin-top: 0;
+  font-family: "Inter", sans-serif;
+  margin-bottom: 16px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333;
+}
+
+html[data-theme="dark"] .apiCardTitle {
+  color: white;
+}
+
+.apiCardDescription {
+  font-family: "Inter", sans-serif;
+  color: #666;
+  flex-grow: 1;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  font-size: 0.875rem;
+}
+
+/* Handle dark mode for description */
+html[data-theme="dark"] .apiCardDescription {
+  color: var(
+    --ifm-color-emphasis-300
+  ) !important; /* dark:!text-[--ifm-color-emphasis-600] */
+}
+
+.apiCardFooter {
+  margin-top: auto;
+}
+
+.learnMoreButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  /* border: 1px solid #d0d0d0;
+    color: #000000; */
+  border: 1px solid var(--ifm-color-emphasis-300);
+  color: var(--ifm-color-emphasis-700);
+  padding: 8px 16px;
+  border-radius: 0.3rem; /* More rounded button corners */
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  height: 34px;
+  width: 120px;
+}
+
+.learnMoreButton:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: #333;
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .learnMoreButton {
+  border-color: rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.8);
+}
+
+html[data-theme="dark"] .learnMoreButton:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .apiCardsContainer {
+    flex-direction: column;
+  }
+
+  .apiCard {
     width: 100%;
   }
-  
-  .apiCardsContainer {
-    display: flex;
-    width: 100%; 
-    max-width: 100%;
-    margin: 30px 0;
-    overflow: hidden;
-    border-radius: 0.4rem; /* Increased border radius for more curve */
-    border: 1px solid #e0e0e0;
-  }
-  
-  .apiCard {
-    flex: 1;
-    background-color: white;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
-    border-radius: 0;
-  }
-  
-  /* Add a subtle separator between cards */
+
+  /* Change the separator direction on mobile */
   .apiCard:first-child {
-    border-right: 1px solid #e0e0e0;
+    border-right: none;
+    border-bottom: 1px solid #e0e0e0;
   }
-  
-  html[data-theme='dark'] .apiCardsContainer {
-    border-color: #333;
+
+  html[data-theme="dark"] .apiCard:first-child {
+    border-bottom-color: #333;
   }
-  
-  html[data-theme='dark'] .apiCard {
-    background-color: #1a1a1a;
-  }
-  
-  html[data-theme='dark'] .apiCard:first-child {
-    border-right-color: #333;
-  }
-  
-  .apiCardTitle {
-    margin-top: 0;
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 16px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #333;
-  }
-  
-  html[data-theme='dark'] .apiCardTitle {
-    color: white;
-  }
-  
-  .apiCardDescription {
-    font-family: 'Inter', sans-serif;
-    color: #666;
-    flex-grow: 1;
-    line-height: 1.6;
-    margin-bottom: 24px;
-    font-size: 0.875rem;
-  }
-  
-  html[data-theme='dark'] .apiCardDescription {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .apiCardFooter {
-    margin-top: auto;
-  }
-  
-  .learnMoreButton {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    /* border: 1px solid #d0d0d0;
-    color: #000000; */
-    border: 1px solid var(--ifm-color-emphasis-300);
-    color: var(--ifm-color-emphasis-700);
-    padding: 8px 16px;
-    border-radius: 0.3rem; /* More rounded button corners */
-    font-weight: 500;
-    font-size: 14px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    height: 34px;
-    width: 120px;
-  }
-  
-  .learnMoreButton:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    color: #333;
-    text-decoration: none;
-  }
-  
-  html[data-theme='dark'] .learnMoreButton {
-    border-color: rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.8);
-  }
-  
-  html[data-theme='dark'] .learnMoreButton:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-    color: white;
-  }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .apiCardsContainer {
-      flex-direction: column;
-    }
-    
-    .apiCard {
-      width: 100%;
-    }
-    
-    /* Change the separator direction on mobile */
-    .apiCard:first-child {
-      border-right: none;
-      border-bottom: 1px solid #e0e0e0;
-    }
-    
-    html[data-theme='dark'] .apiCard:first-child {
-      border-bottom-color: #333;
-    }
-  }
+}

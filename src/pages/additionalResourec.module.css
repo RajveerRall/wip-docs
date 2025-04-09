@@ -1,119 +1,120 @@
 /* src/components/resources/additional-resources.module.css */
 
 .resourcesSection {
-    padding: 2rem 0;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .title {
-    font-family: 'Inter', sans-serif;
-    margin-bottom: 1.1rem; /* Equivalent to mb-3 */
-    font-size: 1.5rem!important;      /* Equivalent to text-2xl */
-    line-height: 2rem;      /* Line height for text-2xl */
-    font-weight: 600; /* Equivalent to font-bold */
-    color: var(--ifm-heading-color);
-  }
-  
-  .resourceGrid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
-  }
-  
-  .resourceCard {
-    display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    border-radius: 8px;
-    transition: all 0.2s ease;
-    text-decoration: none;
-    cursor: pointer;
-    height: 100%;
-    border: 1px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
-    background-color: var(--ifm-card-background-color); /* bg-[--ifm-card-background-color] */
-    box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
-  }
-  
-  html[data-theme='dark'] .resourceCard {
-    background-color: var(--button-bg-dark);
-    border-color: var(--button-border-dark);
-  }
-  
-  .resourceCard:hover {
-    background-color: var(--ifm-color-emphasis-100);
-    border-color: var(--ifm-color-emphasis-400);
-    text-decoration: none;
-    color: var(--ifm-font-color-base);
-  }
-  
-  html[data-theme='dark'] .resourceCard:hover {
-    background-color: var(--button-bg-dark-hover);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
-  
-  .iconBox {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color:#fff;
-    border: 2px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
-    width: 40px;
-    height: 40px;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-  }
-  
-  html[data-theme='dark'] .iconBox {
-    background-color: rgba(255, 255, 255, 0.1);
-    background-color:var(--docs-color-text);
+  padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
 
+.title {
+  font-family: "Inter", sans-serif;
+  margin-bottom: 1.1rem; /* Equivalent to mb-3 */
+  font-size: 1.5rem !important; /* Equivalent to text-2xl */
+  line-height: 2rem; /* Line height for text-2xl */
+  font-weight: 600; /* Equivalent to font-bold */
+  color: var(--ifm-heading-color);
+}
+
+.resourceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.resourceCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  height: 100%;
+  border: 1px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
+  background-color: var(
+    --ifm-card-background-color
+  ); /* bg-[--ifm-card-background-color] */
+  box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
+}
+
+html[data-theme="dark"] .resourceCard {
+  background-color: var(--button-bg-dark);
+}
+
+.resourceCard:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-400);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+html[data-theme="dark"] .resourceCard:hover {
+  background-color: var(--button-bg-dark-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 2px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+html[data-theme="dark"] .iconBox {
+  background-color: rgba(255, 255, 255, 0.1) !important;
+  background-color: var(--docs-color-text);
+  border: 2px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}
+
+.contentContainer {
+  flex: 1;
+}
+
+.resourceTitle {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-decoration: none;
+  color: var(--ifm-color-emphasis-700);
+}
+
+.resourceDescription {
+  font-size: 0.875rem;
+  text-decoration: none;
+  color: var(--ifm-color-secondary-darkest);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .resourceGrid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  .icon {
-    width: 20px;
-    height: 20px;
+}
+
+@media (max-width: 768px) {
+  .resourceGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .contentContainer {
-    flex: 1;
+}
+
+@media (max-width: 480px) {
+  .resourceGrid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .resourceTitle {
-    font-size: 1.125rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    text-decoration: none;
-    color: var(--ifm-color-emphasis-700);
+
+  .resourcesSection {
+    padding: 1.5rem 1rem;
   }
-  
-  .resourceDescription {
-    font-size: 0.875rem;
-    text-decoration: none;
-    color: var(--ifm-color-secondary-darkest);
-    margin: 0;
-    line-height: 1.4;
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 996px) {
-    .resourceGrid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .resourceGrid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .resourceGrid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .resourcesSection {
-      padding: 1.5rem 1rem;
-    }
-  }
+}

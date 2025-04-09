@@ -2,14 +2,15 @@
 .pageContainer {
   /* Replicates container behavior if Layout doesn't fully handle it, or adds specific page padding */
   /* Assuming Layout provides max-width and centering (mx-auto) */
-  padding: 1.5rem 10rem; 
+  padding: 1.5rem 10rem;
   width: 100%; /* Ensure it takes available width within the Layout container */
 }
 
-@media (max-width: 800px) { /* md breakpoint */
+@media (max-width: 800px) {
+  /* md breakpoint */
   .pageContainer {
-    padding: 0.2rem 1.3rem; 
-    width: 100%; 
+    padding: 0.2rem 1.3rem;
+    width: 100%;
   }
 
   /* .main-wrapper {
@@ -27,7 +28,8 @@
   margin-top: 1.2rem;
 }
 
-@media (max-width: 768px) { /* md breakpoint */
+@media (max-width: 768px) {
+  /* md breakpoint */
   .breadcrumbs {
     margin-top: 0rem;
     margin-bottom: 2rem; /* md:mb-8 */
@@ -44,49 +46,55 @@
 }
 
 .breadcrumbSeparator {
-  margin-left: 0.25rem;  /* mx-1 */
+  margin-left: 0.25rem; /* mx-1 */
   margin-right: 0.25rem; /* mx-1 */
-  height: 1rem;          /* h-4 */
-  width: 1rem;           /* w-4 */
-  flex-shrink: 0;        /* shrink-0 */
+  margin-top: 0.3rem;
+  height: 1rem; /* h-4 */
+  width: 1rem; /* w-4 */
+  flex-shrink: 0; /* shrink-0 */
   /* Icon color usually inherited or set by the icon library */
 }
 
 .breadcrumbCurrent {
   font-weight: var(--ifm-font-weight-medium); /* font-medium */
-  color: var(--ifm-font-color-secondary);    /* text-[--ifm-font-color-secondary] */
+  color: #b4b4b4; /* text-[--ifm-font-color-secondary] */
+  opacity: 0.6;
 }
-
 
 /* --- Hero Section --- */
 .heroSection {
   margin-bottom: 3rem; /* mb-12 */
 }
 
-@media (max-width: 768px) { /* md breakpoint */
+@media (max-width: 768px) {
+  /* md breakpoint */
   .heroSection {
     margin-bottom: 2rem; /* md:mb-16 */
   }
 }
 
 .heroTitle {
-  font-family: var(--ifm-font-family-sans-serif); /* font-sans (usually default, but good to be explicit) */
+  font-family: var(
+    --ifm-font-family-sans-serif
+  ); /* font-sans (usually default, but good to be explicit) */
   margin-bottom: 0.6rem; /* mb-4 */
   font-size: 1.875rem; /* text-3xl */
-  line-height: 1;  /* Add a reasonable line-height */
+  line-height: 1; /* Add a reasonable line-height */
   color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 700;
   /* font-style: italic; */
 }
 
-@media (max-width: 768px) { /* md breakpoint */
+@media (max-width: 768px) {
+  /* md breakpoint */
   .heroTitle {
     font-size: 1.25rem; /* md:text-4xl */
   }
 }
 
-@media (min-width: 996px) { /* lg breakpoint (Docusaurus default) */
+@media (min-width: 996px) {
+  /* lg breakpoint (Docusaurus default) */
   .heroTitle {
     font-size: 2rem; /* lg:text-5xl */
   }
@@ -94,24 +102,27 @@
 
 .heroDescription {
   max-width: 48rem; /* max-w-3xl */
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: var(--ifm-font-size-base); /* text-base */
   line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
-  color: var(--ifm-color-emphasis-700) !important; /* !text-[--ifm-color-emphasis-700] */
+  color: var(
+    --ifm-color-emphasis-700
+  ) !important; /* !text-[--ifm-color-emphasis-700] */
 }
 
 /* Handle dark mode for description */
-html[data-theme='dark'] .heroDescription {
-  color: var(--ifm-color-emphasis-600) !important; /* dark:!text-[--ifm-color-emphasis-600] */
+html[data-theme="dark"] .heroDescription {
+  color: var(
+    --ifm-color-emphasis-300
+  ) !important; /* dark:!text-[--ifm-color-emphasis-600] */
 }
 
-
-@media (min-width: 768px) { /* md breakpoint */
+@media (min-width: 768px) {
+  /* md breakpoint */
   .heroDescription {
     font-size: var(--ifm-font-size-lg); /* md:text-lg */
   }
 }
-
 
 /* --- Section Spacing --- */
 .sectionSpacer {
@@ -119,7 +130,8 @@ html[data-theme='dark'] .heroDescription {
   margin-bottom: 3rem; /* my-12 */
 }
 
-@media (min-width: 768px) { /* md breakpoint */
+@media (min-width: 768px) {
+  /* md breakpoint */
   .sectionSpacer {
     margin-top: 4rem; /* md:my-16 */
     margin-bottom: 4rem; /* md:my-16 */
