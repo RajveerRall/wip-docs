@@ -32,10 +32,11 @@ export default function MobileNavbar() {
   // Show if path starts with '/docs' but is not just '/'.
   // Adjust '/docs/' if your main docs landing page should NOT show the icon.
   const showDocsMenuTrigger =
-    pathname.startsWith("/wip-docs") && pathname !== "/";
+    pathname.split("/wip-docs/")[1].length == 0 ? false : true;
   // Example alternative: Show ONLY if path is deeper than /docs/ (e.g., /docs/intro)
   // const showDocsMenuTrigger = pathname.startsWith('/docs/');
 
+  console.log("pathname ::", pathname);
   const openMenu = () => setIsDisplayMobileMenu(true);
   const closeMenu = () => setIsDisplayMobileMenu(false);
 
@@ -54,30 +55,35 @@ export default function MobileNavbar() {
         <div className={styles.navbarContent}>
           {/* --- Conditional Docs Menu Trigger (e.g., Hamburger) --- */}
           {/* Show only if in docs context AND menu is currently closed */}
-          {showDocsMenuTrigger && !isDisplayMobileMenu && (
-            <button
-              className={styles.docsMenuTriggerButton} // Specific style for this button
-              // onClick={openMenu}
-              aria-label="Open menu"
-            >
-              <FiMenu size={24} aria-hidden="true" />{" "}
-              {/* Adjust size as needed */}
-            </button>
+          {!isDisplayMobileMenu && (
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              {showDocsMenuTrigger && (
+                <button
+                  className={styles.docsMenuTriggerButton} // Specific style for this button
+                  // onClick={openMenu}
+                  aria-label="Open menu"
+                >
+                  <FiMenu size={24} aria-hidden="true" />{" "}
+                  {/* Adjust size as needed */}
+                </button>
+              )}
+
+              <div className={styles.logoContainer}>
+                <Link to="/" onClick={closeMenu}>
+                  {" "}
+                  {/* Close menu if logo is clicked */}
+                  <img
+                    src={logoUrl}
+                    alt="CometChat Docs"
+                    className={styles.logoImage}
+                  />
+                </Link>
+              </div>
+            </div>
           )}
 
           {/* --- Logo --- */}
           {/* Logo is generally always visible in the header */}
-          <div className={styles.logoContainer}>
-            <Link to="/" onClick={closeMenu}>
-              {" "}
-              {/* Close menu if logo is clicked */}
-              <img
-                src={logoUrl}
-                alt="CometChat Docs"
-                className={styles.logoImage}
-              />
-            </Link>
-          </div>
 
           {/* --- Right Side Actions (Search, Ellipsis/Options) --- */}
           {/* Show only when the main mobile menu is CLOSED */}

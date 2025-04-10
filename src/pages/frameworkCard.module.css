@@ -1,174 +1,165 @@
 /* --- Link Wrapper --- */
 .cardLink {
-    display: block; /* block */
-    height: 100%; /* h-full */
-    color: var(--ifm-font-color-base); /* text-[--ifm-font-color-base] */
-    text-decoration: none; /* no-underline */
-  }
-  
-  .cardLink:hover {
-    color: var(--ifm-font-color-base); /* hover:text-[--ifm-font-color-base] */
-    /* Group hover effects are applied below */
-  }
-  
-  
-  /* --- Card Body --- */
-  .cardBody {
-    display: flex; /* flex */
-    height: 100%; /* h-full */
-    align-items: center; /* items-center */
-    border-radius: 0.3rem; /* rounded-lg */
-    border: 1px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
-    background-color: var(--ifm-card-background-color); /* bg-[--ifm-card-background-color] */
-    box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
-    transition: all 200ms ease-out; /* transition-all duration-200 ease-out */
-  
-    /* Responsive Padding & Spacing (using gap instead of space-x) */
-    padding: 0.5rem; /* p-2 */
-    gap: 0.25rem;   /* space-x-1 equivalent */
-  }
-  
-  @media (min-width: 768px) { /* md breakpoint */
-    .cardBody {
-      padding: 0.75rem; /* md:p-3 */
-      gap: 0.75rem;    /* md:space-x-3 equivalent */
-    }
-  }
-  
-  @media (min-width: 996px) { /* lg breakpoint */
-    .cardBody {
-      padding: 1rem; /* lg:p-4 */
-      gap: 1rem;   /* lg:space-x-4 equivalent */
-    }
-  }
-  
+  display: block; /* block */
+  height: 100%; /* h-full */
+  color: var(--ifm-font-color-base); /* text-[--ifm-font-color-base] */
+  text-decoration: none; /* no-underline */
+}
 
-  .cardBody:hover {
-    background-color: var(--ifm-color-emphasis-100);
-    border-color: var(--ifm-color-emphasis-400);
-    text-decoration: none;
-    color: var(--ifm-font-color-base);
+.cardLink:hover {
+  color: var(--ifm-font-color-base); /* hover:text-[--ifm-font-color-base] */
+  /* Group hover effects are applied below */
+}
+
+/* --- Card Body --- */
+.cardBody {
+  display: flex; /* flex */
+  height: 100%; /* h-full */
+  align-items: center; /* items-center */
+  border-radius: 0.3rem; /* rounded-lg */
+  border: 1px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
+  background-color: var(
+    --ifm-card-background-color
+  ); /* bg-[--ifm-card-background-color] */
+  box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
+  transition: all 200ms ease-out; /* transition-all duration-200 ease-out */
+
+  /* Responsive Padding & Spacing (using gap instead of space-x) */
+  padding: 0.5rem; /* p-2 */
+  gap: 0.25rem; /* space-x-1 equivalent */
+}
+
+@media (min-width: 768px) {
+  /* md breakpoint */
+  .cardBody {
+    padding: 0.75rem; /* md:p-3 */
+    gap: 0.75rem; /* md:space-x-3 equivalent */
   }
-  
-  /* --- Dark Mode Styles --- */
-  html[data-theme='dark'] .cardBody {
-    border-color: var(--ifm-color-emphasis-300); /* dark:border-[--ifm-color-emphasis-300] */
-    /* dark:bg is handled by --ifm-card-background-color variable */
+}
+
+@media (min-width: 996px) {
+  /* lg breakpoint */
+  .cardBody {
+    padding: 1rem; /* lg:p-4 */
+    gap: 1rem; /* lg:space-x-4 equivalent */
   }
-  
-  html[data-theme='dark'] .cardLink:hover .cardBody {
-    border-color: var(--ifm-color-emphasis-400); /* dark:group-hover:border-[--ifm-color-emphasis-400] */
-    box-shadow: var(--ifm-global-shadow-lg); /* dark:group-hover:shadow-lg */
-  }
-  
-  
-  /* --- Icon Container --- */
-  .iconContainer {
-    display: flex; /* flex */
-    flex-shrink: 0; /* flex-shrink-0 */
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-  }
-  
-  
-  /* --- Icon Image --- */
+}
+
+.cardBody:hover {
+  background-color: var(--ifm-color-emphasis-100);
+  border-color: var(--ifm-color-emphasis-400);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+/* --- Dark Mode Styles --- */
+html[data-theme="dark"] .cardBody {
+  border-color: var(
+    --ifm-color-emphasis-300
+  ); /* dark:border-[--ifm-color-emphasis-300] */
+  /* dark:bg is handled by --ifm-card-background-color variable */
+}
+
+html[data-theme="dark"] .cardLink:hover .cardBody {
+  border-color: var(
+    --ifm-color-emphasis-400
+  ); /* dark:group-hover:border-[--ifm-color-emphasis-400] */
+  box-shadow: var(--ifm-global-shadow-lg); /* dark:group-hover:shadow-lg */
+}
+
+/* --- Icon Container --- */
+.iconContainer {
+  display: flex; /* flex */
+  flex-shrink: 0; /* flex-shrink-0 */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+}
+
+/* --- Icon Image --- */
+.iconImage {
+  object-fit: contain; /* object-contain */
+  /* Responsive Icon Size */
+  height: 1.5rem; /* h-6 */
+  width: 1.5rem; /* w-6 */
+}
+
+@media (min-width: 640px) {
+  /* sm breakpoint */
   .iconImage {
-    object-fit: contain; /* object-contain */
-    /* Responsive Icon Size */
-    height: 1.5rem; /* h-6 */
-    width: 1.5rem; /* w-6 */
+    height: 1.75rem; /* sm:h-7 */
+    width: 1.75rem; /* sm:w-7 */
   }
-  
-  @media (min-width: 640px) { /* sm breakpoint */
-    .iconImage {
-      height: 1.75rem; /* sm:h-7 */
-      width: 1.75rem; /* sm:w-7 */
-    }
+}
+
+@media (min-width: 996px) {
+  /* lg breakpoint */
+  .iconImage {
+    height: 2rem; /* lg:h-8 */
+    width: 2rem; /* lg:w-8 */
   }
-  
-  @media (min-width: 996px) { /* lg breakpoint */
-    .iconImage {
-      height: 2rem; /* lg:h-8 */
-      width: 2rem; /* lg:w-8 */
-    }
-  }
-  
-  
-  /* --- Card Content Area --- */
-  .cardContent {
-    display: flex; /* flex */
-    min-width: 0; /* min-w-0 (for truncation) */
-    flex: 1 1 0%; /* flex-1 */
-    flex-direction: column; /* flex-col */
-  }
-  
-  
-  /* --- Card Title --- */
+}
+
+/* --- Card Content Area --- */
+.cardContent {
+  display: flex; /* flex */
+  min-width: 0; /* min-w-0 (for truncation) */
+  flex: 1 1 0%; /* flex-1 */
+  flex-direction: column; /* flex-col */
+  margin-left: 0.4rem;
+}
+
+/* --- Card Title --- */
+.cardTitle {
+  font-weight: 600; /* font-semibold */
+  color: var(--ifm-heading-color); /* text-[--ifm-heading-color] */
+  font-family: "Inter", sans-serif;
+  /* Truncation */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* truncate (overrides text-wrap/whitespace-normal) */
+
+  /* Responsive Title Size (approximating 'text-s' as 14px) */
+  font-size: 0.475rem; /* text-s (14px) */
+  line-height: 1.25rem; /* line-height for 14px */
+}
+
+/* --- Version Badge --- */
+.versionBadge {
+  margin-top: 0.1rem; /* Approximating mt-0.4 */
+  display: inline-flex; /* inline-flex */
+  width: fit-content; /* w-fit */
+  align-items: center; /* items-center */
+  justify-content: center; /* justify-center */
+  border-radius: var(--ifm-global-radius, 0.25rem); /* rounded */
+  border: 2px solid var(--ifm-color-emphasis-200); /* border-2 border-[...] */
+  background-color: var(--ifm-color-emphasis-100); /* bg-[...] */
+  color: var(--ifm-color-emphasis-700); /* text-[...] */
+  font-weight: var(--ifm-font-weight-medium); /* font-medium */
+
+  /* Responsive Padding */
+  padding: 0 0.25rem; /* py-0 px-1 */
+}
+
+/* Responsive Badge Text Size (approximating 'text-s' as 10px) */
+.versionBadge {
+  font-size: 0.625rem; /* text-s (10px) */
+  line-height: 1; /* Adjust line-height for small font */
+}
+
+/* Dark Mode Badge Styles */
+html[data-theme="dark"] .versionBadge {
+  border-color: var(--ifm-color-emphasis-300); /* dark:border-[...] */
+  background-color: var(--ifm-color-emphasis-200); /* dark:bg-[...] */
+  color: var(--ifm-color-emphasis-600); /* dark:text-[...] */
+}
+
+@media (max-width: 996px) {
   .cardTitle {
-    font-weight: 600; /* font-semibold */
-    color: var(--ifm-heading-color); /* text-[--ifm-heading-color] */
-    font-family: 'Inter', sans-serif;
-    /* Truncation */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap; /* truncate (overrides text-wrap/whitespace-normal) */
-    
-  
-    /* Responsive Title Size (approximating 'text-s' as 14px) */
-    font-size: 0.475rem; /* text-s (14px) */
-    line-height: 1.25rem; /* line-height for 14px */
+    font-size: 0.8rem !important; /* lg:text-5xl */
   }
-  
-  @media (min-width: 768px) { /* md breakpoint */
-    .cardTitle {
-      font-size: var(--ifm-font-size-base); /* md:text-base (16px) */
-      line-height: var(--ifm-line-height-base);
-    }
-  }
-  
-  
-  /* --- Version Badge --- */
+
   .versionBadge {
-    margin-top: 0.1rem; /* Approximating mt-0.4 */
-    display: inline-flex; /* inline-flex */
-    width: fit-content; /* w-fit */
-    align-items: center; /* items-center */
-    justify-content: center; /* justify-center */
-    border-radius: var(--ifm-global-radius, 0.25rem); /* rounded */
-    border: 2px solid var(--ifm-color-emphasis-200); /* border-2 border-[...] */
-    background-color: var(--ifm-color-emphasis-100); /* bg-[...] */
-    color: var(--ifm-color-emphasis-700); /* text-[...] */
-    font-weight: var(--ifm-font-weight-medium); /* font-medium */
-  
-    /* Responsive Padding */
-    padding: 0 0.25rem; /* py-0 px-1 */
+    font-size: 0.6rem; /* md:text-xs (12px) */
+    /* line-height: 1rem; */
   }
-  
-  @media (min-width: 768px) { /* md breakpoint */
-    .versionBadge {
-       /* Approximating md:px-1.3 */
-      padding-left: 0.325rem;
-      padding-right: 0.325rem;
-    }
-  }
-  
-  /* Responsive Badge Text Size (approximating 'text-s' as 10px) */
-  .versionBadge {
-    font-size: 0.625rem; /* text-s (10px) */
-    line-height: 1; /* Adjust line-height for small font */
-  }
-  
-  @media (min-width: 768px) { /* md breakpoint */
-    .versionBadge {
-      font-size: 0.75rem; /* md:text-xs (12px) */
-      line-height: 1rem;
-    }
-  }
-  
-  
-  /* Dark Mode Badge Styles */
-  html[data-theme='dark'] .versionBadge {
-    border-color: var(--ifm-color-emphasis-300); /* dark:border-[...] */
-    background-color: var(--ifm-color-emphasis-200); /* dark:bg-[...] */
-    color: var(--ifm-color-emphasis-600); /* dark:text-[...] */
-  }
+}

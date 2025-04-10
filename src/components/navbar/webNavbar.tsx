@@ -6,7 +6,7 @@ import clsx from "clsx";
 import "./Navbar.css";
 import ThemeToggle from "./theme-toggle";
 import IntegrationDropdownMenu from "./integrationMenuBar";
-import { MdKeyboardArrowDown,MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
 
 import PlatformDropdownMenu from "./platformMenuBar";
 import SearchBar from "@theme/SearchBar";
@@ -63,10 +63,13 @@ function WebNavbar(): React.ReactNode {
                 active: activeDropdown === "integrate",
               })}
               onMouseEnter={() => handleDropdownToggle("integrate")}
-
             >
               Integrate
-              {activeDropdown === "integrate" ?<MdKeyboardArrowUp/> :<MdKeyboardArrowDown/>}
+              {activeDropdown === "integrate" ? (
+                <MdKeyboardArrowUp />
+              ) : (
+                <MdKeyboardArrowDown />
+              )}
               {/* <span className="dropdown-arrow">▼</span> */}
             </button>
             {/* The Dropdown Content itself */}
@@ -90,7 +93,11 @@ function WebNavbar(): React.ReactNode {
               // ... aria attributes ...
             >
               Platform
-              {activeDropdown === "platform" ?<MdKeyboardArrowUp/> :<MdKeyboardArrowDown/>}
+              {activeDropdown === "platform" ? (
+                <MdKeyboardArrowUp />
+              ) : (
+                <MdKeyboardArrowDown />
+              )}
             </button>
             {/* The Dropdown Content itself */}
             {activeDropdown === "platform" && (

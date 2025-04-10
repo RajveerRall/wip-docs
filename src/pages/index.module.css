@@ -31,7 +31,7 @@
 @media (max-width: 768px) {
   /* md breakpoint */
   .breadcrumbs {
-    margin-top: 0rem;
+    margin-top: 1.2rem;
     margin-bottom: 2rem; /* md:mb-8 */
   }
 }
@@ -86,17 +86,9 @@
   /* font-style: italic; */
 }
 
-@media (max-width: 768px) {
-  /* md breakpoint */
+@media (max-width: 996px) {
   .heroTitle {
-    font-size: 1.25rem; /* md:text-4xl */
-  }
-}
-
-@media (min-width: 996px) {
-  /* lg breakpoint (Docusaurus default) */
-  .heroTitle {
-    font-size: 2rem; /* lg:text-5xl */
+    font-size: 1.5rem !important; /* lg:text-5xl */
   }
 }
 
@@ -117,10 +109,9 @@ html[data-theme="dark"] .heroDescription {
   ) !important; /* dark:!text-[--ifm-color-emphasis-600] */
 }
 
-@media (min-width: 768px) {
-  /* md breakpoint */
+@media (max-width: 996px) {
   .heroDescription {
-    font-size: var(--ifm-font-size-lg); /* md:text-lg */
+    font-size: 0.9rem !important; /* lg:text-5xl */
   }
 }
 

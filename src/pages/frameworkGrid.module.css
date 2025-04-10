@@ -20,13 +20,11 @@
 }
 
 @media (max-width: 996px) {
-  /* lg breakpoint (Docusaurus default) */
   .gridTitle {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 1.2rem !important; /* lg:text-5xl */
+    font-weight: var(--ifm-font-weight-bold); /* Equivalent to font-bold */
   }
 }
-
 /* --- Section Description --- */
 .gridDescription {
   margin-bottom: 2.5rem; /* Equivalent to mb-10 */
@@ -45,6 +43,11 @@ html[data-theme="dark"] .gridDescription {
   color: var(--ifm-color-emphasis-300) !important;
 }
 
+@media (max-width: 996px) {
+  .gridDescription {
+    font-size: 0.8rem !important; /* lg:text-5xl */
+  }
+}
 /* --- Grid Layout --- */
 .frameworkItemsGrid {
   display: grid;

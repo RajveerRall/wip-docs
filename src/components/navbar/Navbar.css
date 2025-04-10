@@ -32,7 +32,9 @@
 
 .navbar-logo {
   flex-shrink: 0;
-  margin-right: 20px;
+  margin-right: 20px; /* Adjust spacing as needed */
+  display: inline-flex; /* Helps contain the image properly */
+  align-items: center; /* Ensures vertical center if link itself 
 }
 
 .logo-image {

@@ -5,14 +5,6 @@
   padding-right: 1rem; /* px-4 */
 }
 
-@media (min-width: 768px) {
-  /* md breakpoint */
-  .gridSection {
-    padding-left: 0; /* md:px-0 */
-    padding-right: 0; /* md:px-0 */
-  }
-}
-
 /* --- Section Title --- */
 .gridTitle {
   /* If 'Jakarta Sans' is globally available or part of your theme */
@@ -27,14 +19,6 @@
   color: var(
     --ifm-heading-color
   ); /* Equivalent to text-[--ifm-heading-color] */
-}
-
-@media (min-width: 996px) {
-  /* lg breakpoint */
-  .gridTitle {
-    font-size: 1.875rem; /* lg:text-3xl */
-    line-height: 2.25rem;
-  }
 }
 
 /* --- Section Description --- */
@@ -78,6 +62,8 @@ html[data-theme="dark"] .gridDescription {
   display: flex; /* flex */
   flex: 1 1 0%; /* flex-1 */
   align-items: center; /* items-center */
+  font-family: "Inter", sans-serif;
+
   gap: 1rem; /* space-x-4 */
   border-radius: 0.2rem; /* rounded-lg */
   border: 1px solid var(--ifm-color-emphasis-200); /* border border-[...] */
@@ -130,8 +116,9 @@ html[data-theme="dark"] .widgetLinkCard:hover {
 
 /* --- Widget Title --- */
 .widgetTitle {
-  font-weight: var(--ifm-font-weight-semibold); /* font-semibold */
   color: var(--ifm-heading-color); /* text-[...] */
+  font-weight: var(--ifm-font-weight-bold); /* Equivalent to font-bold */
+
   /* Truncation */
   overflow: hidden;
   text-overflow: ellipsis;
@@ -142,10 +129,16 @@ html[data-theme="dark"] .widgetLinkCard:hover {
   line-height: var(--ifm-line-height-base);
 }
 
-@media (min-width: 768px) {
-  /* md breakpoint */
+@media (max-width: 996px) {
+  .gridSection {
+    padding-left: 0; /* md:px-0 */
+    padding-right: 0; /* md:px-0 */
+  }
+
   .widgetTitle {
-    font-size: 1.125rem; /* md:text-lg (18px) */
-    line-height: 1.75rem;
+    font-size: 1.2rem !important; /* lg:text-5xl */
+  }
+  .gridDescription {
+    font-size: 0.8rem !important; /* lg:text-5xl */
   }
 }
