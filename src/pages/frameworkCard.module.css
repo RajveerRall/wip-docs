@@ -119,7 +119,7 @@ html[data-theme="dark"] .cardLink:hover .cardBody {
   white-space: nowrap; /* truncate (overrides text-wrap/whitespace-normal) */
 
   /* Responsive Title Size (approximating 'text-s' as 14px) */
-  font-size: 0.475rem; /* text-s (14px) */
+  font-size: 0.9rem; /* text-s (14px) */
   line-height: 1.25rem; /* line-height for 14px */
 }
 

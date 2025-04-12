@@ -1,7 +1,4 @@
 import React, { useState } from "react"; // Re-added useState for integrate/platform toggle
-import Link from "@docusaurus/Link";
-import { useColorMode } from "@docusaurus/theme-common";
-import { FiX } from "react-icons/fi";
 import { IoChevronForward, IoChevronDownOutline } from "react-icons/io5";
 import ThemeToggle from "./theme-toggle"; // Assuming this handles its own styles/imports
 import MobileIntegrate from "./mobileIntegration"; // Assuming uses its own styles or passed classNames
@@ -14,7 +11,6 @@ interface MobileMenuProps {
 }
 
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
-  const { colorMode } = useColorMode(); // Keep if ThemeToggle needs it externally
   const [isDisplayIntegration, setDisplayIntegration] = useState(false);
   const [isDisplayPlatform, setDisplayPlatform] = useState(false);
 
@@ -29,19 +25,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
 
   return (
     // Overlay container
-    <div className={styles.mobileMenuOverlay} role="dialog" aria-modal="true">
-      {/* Header */}
-      <div className={styles.mobileMenuHeader}>
-        <span className={styles.menuTitle}>cometchat docs</span>
-        <button
-          onClick={onClose}
-          className={styles.closeButton}
-          aria-label="Close menu"
-        >
-          <FiX size={24} /> {/* Keep size prop */}
-        </button>
-      </div>
-
+    <div className={styles.mobileMenuOverlay} aria-modal="true">
       {/* Main Content Area */}
       <div className={styles.mainContent}>
         {/* --- START: Navigation Section with CSS Modules --- */}
@@ -99,22 +83,14 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
         {/* Action Buttons */}
         <div className={styles.actionButtonsContainer}>
           {/* Dashboard Button */}
-          <Link
-            to="/dashboard" // Adjust path as needed
-            onClick={handleLinkClick}
-            className={styles.dashboardButton}
-          >
+          <div onClick={handleLinkClick} className={styles.dashboardButton}>
             Dashboard
-          </Link>
+          </div>
 
           {/* Contact Support Button */}
-          <Link
-            to="/contact" // Adjust path as needed
-            onClick={handleLinkClick}
-            className={styles.contactButton}
-          >
+          <div onClick={handleLinkClick} className={styles.contactButton}>
             Contact Support
-          </Link>
+          </div>
         </div>
 
         {/* Spacer to push theme toggle to bottom */}
