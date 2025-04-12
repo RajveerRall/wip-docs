@@ -67,22 +67,7 @@ const config: Config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.ts"),
           id: "default",
-          lastVersion: "current", // Set the current version as the last (stable) version
-          versions: {
-            current: {
-              label: "Latest", // You can adjust this label if needed
-              path: "", // Empty path makes it the default route
-              banner: "none",
-            },
-            "2.0.0": {
-              label: "2.0.0",
-              path: "2.0.0", // Explicitly define path for the previous version
-            },
-            "1.0.0": {
-              label: "1.0.0",
-              path: "1.0.0",
-            },
-          },
+
           routeBasePath: "/", // Keeps docs as the main content
           editUrl: "https://github.com/cometchat/cometchat-docs/edit/main/",
         },
