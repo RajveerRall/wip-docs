@@ -100,6 +100,29 @@ html[data-theme="dark"] .iconBox {
 @media (max-width: 996px) {
   .resourceGrid {
     grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    gap: 0.4rem;
+  }
+  .resourcesSection {
+    padding: 0;
+  }
+  .resourceTitle {
+    font-size: 0.8rem;
+  }
+  .title {
+    font-size: 1rem !important; /* Equivalent to text-2xl */
+  }
+  .resourceDescription {
+    font-size: 0.775rem;
+  }
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+  .iconBox {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0.8rem;
   }
 }
 
@@ -114,7 +137,7 @@ html[data-theme="dark"] .iconBox {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .resourcesSection {
+  /* .resourcesSection {
     padding: 1.5rem 1rem;
-  }
+  } */
 }

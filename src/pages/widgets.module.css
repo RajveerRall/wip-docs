@@ -13,7 +13,7 @@
   /* font-family: var(--ifm-font-family-heading); */
   font-family: "Inter", sans-serif;
   margin-bottom: 0.45rem; /* Equivalent to mb-3 */
-  font-size: 1.5rem !important; /* Equivalent to text-2xl */
+  font-size: 1.2rem !important; /* Equivalent to text-2xl */
   line-height: 2rem; /* Line height for text-2xl */
   font-weight: 600; /* Equivalent to font-bold */
   color: var(
@@ -102,16 +102,8 @@ html[data-theme="dark"] .widgetLinkCard:hover {
   flex-shrink: 0; /* flex-shrink-0 */
   object-fit: contain; /* object-contain */
   /* Responsive Icon Size */
-  height: 2rem; /* h-8 */
-  width: 2rem; /* w-8 */
-}
-
-@media (min-width: 768px) {
-  /* md breakpoint */
-  .widgetIcon {
-    height: 2.25rem; /* md:h-9 */
-    width: 2.25rem; /* md:w-9 */
-  }
+  height: 1.5rem; /* h-8 */
+  width: 1.5rem; /* w-8 */
 }
 
 /* --- Widget Title --- */
@@ -125,7 +117,7 @@ html[data-theme="dark"] .widgetLinkCard:hover {
   white-space: nowrap; /* truncate */
 
   /* Responsive Title Size */
-  font-size: var(--ifm-font-size-base); /* text-base (16px) */
+  font-size: 1rem; /* text-base (16px) */
   line-height: var(--ifm-line-height-base);
 }
 
@@ -136,7 +128,7 @@ html[data-theme="dark"] .widgetLinkCard:hover {
   }
 
   .widgetTitle {
-    font-size: 1.2rem !important; /* lg:text-5xl */
+    font-size: 0.8rem !important; /* lg:text-5xl */
   }
   .gridDescription {
     font-size: 0.8rem !important; /* lg:text-5xl */
