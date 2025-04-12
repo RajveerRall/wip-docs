@@ -134,7 +134,7 @@ html[data-theme="dark"] .sectionDescription {
   display: flex; /* flex */
   align-items: center; /* items-center */
   justify-content: space-between; /* justify-between */
-  border-bottom: 1px dashed var(--ifm-color-emphasis-200); /* border-b border-dashed border-[...] */
+  /* border-bottom: 1px dashed var(--ifm-color-emphasis-200); */
   padding-top: 0.5rem; /* py-2 */
   padding-bottom: 0.5rem; /* py-2 */
 }
@@ -339,7 +339,6 @@ html[data-theme="dark"] .officeHoursDescription {
   transition: background-color 200ms ease; /* transition-colors duration-200 */
 }
 
-
 .bookSlotButton:hover {
   background-color: #5a45c0; /* hover:bg-[#5a45c0] */
   color: #ffffff; /* hover:text-white */
@@ -370,5 +369,24 @@ html[data-theme="dark"] .officeHoursDescription {
   /* lg breakpoint */
   .officeHoursImage {
     width: 200px; /* lg:w-[200px] */
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .sectionTitle {
+    font-size: 1rem !important; /* Equivalent to text-2xl */
+  }
+  .sectionContainer {
+    margin-bottom: 2rem; /* mb-12 */
+    padding-left: 0; /* px-4 */
+    padding-right: 0; /* px-4 */
+  }
+  .sectionDescription {
+    font-size: 0.8rem; /* text-base */
+    margin-bottom: 1.5rem;
+  }
+  .officeHoursDescription {
+    font-size: 0.9rem; /* text-base */
   }
 }
