@@ -13,7 +13,7 @@ import {
   isSamePath,
   useLocalPathname,
 } from "@docusaurus/theme-common/internal";
-import SectionsMenu from "@site/src/components/SectionsMenu";
+// import SectionsMenu from "@site/src/components/SectionsMenu";
 import NavbarNavLink from "@theme/NavbarItem/NavbarNavLink";
 import NavbarItem from "@theme/NavbarItem";
 import Implementation from "@site/src/components/navbar/Implementation";

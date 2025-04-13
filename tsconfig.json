@@ -4,6 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@theme/*": ["./node_modules/@docusaurus/theme-classic/lib/theme/*"],
       "@site/*": ["./*"]
     },    // other options...
   },
