@@ -5,15 +5,14 @@
     "baseUrl": ".",
     "paths": {
       "@site/*": ["./*"]
-    },
-    "types": ["node", "@docusaurus/module-type-aliases"],
-    // other options...
+    },    // other options...
   },
   "include": [
     "src/**/*",
-    "src/@types/**/*",
+    "src/@types/**/*", // Keep this if you have custom type definitions here
     "docusaurus.config.ts",
     "sidebars.ts"
+    // Add other TS files you want checked if necessary
   ],
-  "exclude": [".docusaurus", "build"]
+  "exclude": [".docusaurus", "build", "node_modules"] // Added node_modules explicitly just in case
 }
