@@ -1,6 +1,6 @@
 // src/components/ResponsiveComponentSwitcher.tsx
-import React from 'react';
-import { useWindowSize } from '@docusaurus/theme-common/internal'; // Standard Docusaurus hook
+import React from "react";
+import { useWindowSize } from "@docusaurus/theme-common/internal"; // Standard Docusaurus hook
 
 // Define the props for the switcher component
 interface ResponsiveComponentSwitcherProps {
@@ -11,7 +11,7 @@ interface ResponsiveComponentSwitcherProps {
   /** Optional: Component props to pass down */
   componentProps?: Record<string, any>;
   /** Optional: Define what to render during SSR. 'desktop' or 'mobile' or null */
-  ssrDefault?: 'desktop' | 'mobile' | null;
+  ssrDefault?: "desktop" | "mobile" | null;
 }
 
 export default function ResponsiveComponentSwitcher({
@@ -20,19 +20,18 @@ export default function ResponsiveComponentSwitcher({
   componentProps = {},
   ssrDefault = null, // Default to rendering nothing during SSR to prevent layout shifts
 }: ResponsiveComponentSwitcherProps): React.ReactElement | null {
-
   const windowSize = useWindowSize(); // Returns 'desktop', 'mobile', or 'ssr'
 
   // Determine if we are effectively on a mobile screen size
   // Docusaurus's definition of 'mobile' is usually <= 996px
-  const isMobile = windowSize === 'mobile';
+  const isMobile = windowSize === "mobile";
 
   // Handle Server-Side Rendering (SSR) case
-  if (windowSize === 'ssr') {
+  if (windowSize === "ssr") {
     switch (ssrDefault) {
-      case 'desktop':
+      case "desktop":
         return <DesktopComponent {...componentProps} />;
-      case 'mobile':
+      case "mobile":
         return <MobileComponent {...componentProps} />;
       default:
         // Render nothing on the server by default.

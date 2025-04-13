@@ -7,12 +7,12 @@ const config: Config = {
   tagline: "Integrate real-time chat, voice, and video functionalities.",
   favicon: "img/favicon.ico",
 
-  url: "https://www.cometchat.com",
-  // This will use the BASE_URL env variable when available, or fall back to '/'
+  url: "https://www.cometchat.com", // Your production URL
+  // Ensure BASE_URL env var is set correctly during build, or defaults here
   baseUrl: process.env.BASE_URL || "/wip-docs/",
 
-  organizationName: "CometChat",
-  projectName: "cometchat-docs",
+  organizationName: "CometChat", // Your GitHub org/user
+  projectName: "cometchat-docs", // Your repo name
 
   onBrokenLinks: "warn",
   onBrokenMarkdownLinks: "warn",
@@ -27,59 +27,26 @@ const config: Config = {
       "classic",
       {
         docs: {
-          sidebarPath: require.resolve("./sidebars.ts"),
-          id: "default",
-          path: "docs",
+          // *** Configuration for the DEFAULT instance (non-React Kit docs) ***
+          sidebarPath: require.resolve("./sidebars.ts"), // Sidebar for default docs
+          id: "default", // Explicitly set ID (good practice)
+          path: "docs", // Assumes your main docs are in the 'docs' folder
+          routeBasePath: "/", // Makes these docs the root content after baseUrl
 
-          routeBasePath: "/", // Keeps docs as the main content
-          editUrl: "https://github.com/cometchat/cometchat-docs/edit/main/",
+          // === REMOVE VERSIONING HERE if only React Kit should be versioned ===
+          // lastVersion: 'current', // Remove this
+          // versions: { ... }, // Remove this whole block if main docs are unversioned
+
+          editUrl: "https://github.com/cometchat/cometchat-docs/edit/main/", // Adjust path if needed
         },
-        blog: false,
+        blog: false, // Or configure if you have a blog
         theme: {
           customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
   ],
-  themeConfig: {
-    // Add color mode settings
-    colorMode: {
-      defaultMode: "light",
-      disableSwitch: false,
-      respectPrefersColorScheme: true,
-    },
-    image: "img/cometchat-social-card.jpg",
 
-    navbar: {
-      //   logo: {
-      //   href: "/",
-      //   src: "/imgs/logo.svg",
-      //   srcDark: "/imgs/logo.svg",
-      //   alt: "Logo",
-      //   width: "150px",
-      // },
-    },
-
-    // Algolia DocSearch configuration
-    algolia: {
-      appId: "6RW3CISVKU",
-      apiKey: "ca85d17c2b7e887b2f084d22e25807cf",
-      indexName: "cometchat",
-      contextualSearch: true,
-      searchPagePath: "search",
-    },
-    prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: ["java", "kotlin", "swift", "typescript", "bash"],
-    },
-  } satisfies Preset.ThemeConfig,
-
-  // Configure static directories
-  staticDirectories: ["static"],
-
-  // Keep plugins array clean
-  // Add plugins for additional versioned documentation
   plugins: [
     // *** Configuration for the SEPARATE React Kit instance ***
     [
@@ -87,10 +54,10 @@ const config: Config = {
       {
         // --- Core Instance Settings ---
         id: "react-kit", // Unique ID for this instance
-        path: "docs/ui-kits/react", // Folder containing React Kit docs
+        path: "react-ui-kits", // Folder containing React Kit docs
 
         // --- V V V --- CORRECTED routeBasePath --- V V V ---
-        routeBasePath: "ui-kits/react", // <<< CHANGE THIS to match your desired URL structure
+        routeBasePath: "ui-kit/react", // <<< CHANGE THIS to match your desired URL structure
 
         // --- V V V --- UNCOMMENTED and REQUIRED sidebarPath --- V V V ---
         sidebarPath: require.resolve("./sidebarsReactKit.js"), // <<< ADD THIS BACK (ensure sidebarsReactKit.js exists)
@@ -108,24 +75,46 @@ const config: Config = {
     ],
     // Add other plugins here if needed (e.g., for Flutter Kit if it also needs separate versioning)
   ],
+
+  themeConfig: {
+    colorMode: {
+      defaultMode: "light",
+      disableSwitch: false,
+      respectPrefersColorScheme: true,
+    },
+    image: "img/cometchat-social-card.jpg",
+    navbar: {
+      logo: {
+        href: "/", // Links to baseUrl
+        src: "/wip-docs/imgs/logo.svg", // Needs to include baseUrl if absolute
+        srcDark: "/wip-docs/imgs/logo.svg", // Needs to include baseUrl if absolute
+        alt: "Logo",
+        width: "150px",
+      },
+      items: [
+        // Example link to default docs root
+        { to: "/", label: "Guides", position: "left" }, // Assuming default docs are at '/'
+        // Example link to React Kit current overview
+        { to: "/ui-kits/react/overview", label: "React Kit", position: "left" },
+        // Add other links as needed
+      ],
+    },
+    algolia: {
+      appId: "6RW3CISVKU",
+      apiKey: "ca85d17c2b7e887b2f084d22e25807cf",
+      indexName: "cometchat",
+      contextualSearch: true,
+      searchPagePath: "search",
+    },
+    prism: {
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula,
+      additionalLanguages: ["java", "kotlin", "swift", "typescript", "bash"],
+    },
+    // ... other themeConfig like footer ...
+  } satisfies Preset.ThemeConfig,
+
+  staticDirectories: ["static"],
 };
 
 export default config;
-
-// export default {
-//   title: 'CometChat Docs',
-//   url: 'https://rajveerrall.github.io',
-//   baseUrl: '/wip-docs/',
-//   // Keep any existing configuration below
-//   favicon: 'img/favicon.ico',
-//   organizationName: 'RajveerRall',
-//   projectName: 'wip-docs',
-//   onBrokenLinks: 'throw',
-//   onBrokenMarkdownLinks: 'warn',
-//   i18n: { ... },
-//   themes: [ ... ],
-//   presets: [ ... ],
-//   themeConfig: { ... },
-//   plugins: [ ... ],
-//   // ... any other existing config options
-// };

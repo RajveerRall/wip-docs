@@ -26,6 +26,9 @@ export default function FrameworkCard({
   return (
     <div
       // to={link}
+      onClick={() => {
+        window.location.href = link;
+      }}
       className={linkClasses} // Use combined classes
     >
       {/* Use CSS module class for the card body */}
