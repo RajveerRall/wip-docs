@@ -1,0 +1,9 @@
+{
+  "reactKitSidebar": [
+    {
+      "type": "doc",
+      "id": "overview",
+      "label": "React Kit Overview"
+    }
+  ]
+}

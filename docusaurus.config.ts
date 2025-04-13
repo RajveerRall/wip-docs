@@ -240,6 +240,11 @@ const config: Config = {
         routeBasePath: "ui-kits/react",   // URL prefix for this instance
         sidebarPath: require.resolve("./sidebarsReactKit.js"), // Sidebar for React Kit
         includeCurrentVersion: true,     // Show content at the routeBasePath
+        lastVersion: "v1.0",
+        // versions: {
+        //     current: { label: 'Next 🚧', path: 'next' },
+        //     'v1.0': { label: 'v1.0', path: 'v1.0' },
+        // },
       },
     ],
     // <<< FLUTTER KIT DOCUMENTATION INSTANCE >>>
@@ -251,6 +256,11 @@ const config: Config = {
         routeBasePath: "ui-kits/flutter", // URL prefix for this instance
         sidebarPath: require.resolve("./sidebarsFlutterKit.js"), // Sidebar for Flutter Kit
         includeCurrentVersion: true,    // Show content at the routeBasePath
+        lastVersion: "v1.0",
+        // versions: {
+        //     current: { label: 'Next 🚧', path: 'next' },
+        //     'v1.0': { label: 'v1.0', path: 'v1.0' },
+        // },
       },
     ],
   ],
