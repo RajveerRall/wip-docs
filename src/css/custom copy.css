@@ -1,0 +1,94 @@
+
+/* UI Kit tokens */
+body {
+  --my-website-colors-video-bg: 50 50 50;
+}
+
+:root {
+  overflow-x: hidden;
+}
+/* my-website Docs Tokens */
+:root {
+
+  --ifm-font-family-base: 'Inter', sans-serif;
+
+  --docs-color-primary: #6851d6;
+  /* --docs-color-primary-100: #1a90ff; */
+  --docs-color-primary-tint: rgba(127, 17, 224, 0.16);
+  --docs-color-primary-tint-light: rgba(33 96 253/0.24);
+  --docs-color-border: #dadde1;
+
+  --docs-color-text: #000000;
+  --docs-color-text-100: #000000;
+
+  --docs-color-background: #0b0a15;
+  --docs-color-background-100: #f8f8f8;
+  --docs-color-background-200: #efefef;
+  --docs-color-background-300: #dcdcdc;
+  --docs-color-background-400: #c8c8c8;
+  --docs-color-background-500: #b0b0b0;
+  --docs-color-background-600: #969696; /* Darker Grey */
+  --docs-color-background-700: #7c7c7c; /* Even Darker Grey */
+
+  /* Color from prism themes */
+  /*
+  --docs-color-code-background: #f6f8fa;
+  */
+  --docs-color-android: #44db85;
+  --docs-color-apple: var(--docs-color-text) !important;
+}
+
+[data-theme="dark"] {
+  --docs-color-border: #2e2e2e;
+
+  --docs-color-text: #ffffff;
+  --docs-color-text-100: #b4b4b4;
+
+  --docs-color-background: #161616;
+  --docs-color-background-100: #1c1c1c;
+  --docs-color-background-200: #2a2a2a;
+  --docs-color-background-300: #2e2e2e;
+  --docs-color-background-400: #2c2c2c;
+  --docs-color-background-500: #1a1a1a;
+  --docs-color-background-600: #101010; /* Very Dark Grey (almost black) */
+  --docs-color-background-700: #0a0a0a;
+
+
+  --docs-color-code-background: #1e1e1e;
+  
+}
+
+/* Docusaurus Theming */
+
+:root {
+  /* Default values */
+
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-navbar-padding-horizontal: 0.75rem;
+
+  --ifm-font-family-base: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
+    Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+
+  --ifm-font-family-monospace: "Fira Code", SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+
+  /* Theme colors */
+  --ifm-color-primary: #6851d6;
+  --ifm-color-primary-dark: #6851d6;
+  --ifm-color-primary-darker: #6851d6;
+  --ifm-color-primary-darkest: #6851d6;
+  --ifm-color-primary-light: #6851d6;
+  --ifm-color-primary-lighter: #6851d6;
+  --ifm-color-primary-lightest: #6851d6;
+
+  --ifm-navbar-shadow: none;
+  --ifm-toc-border-color: #dedede;
+
+  --ifm-table-border-color: var(--docs-color-border);
+  --code-border-color: var(--docs-color-border);
+
+  --ifm-code-font-size: 92%;
+  --docusaurus-highlighted-code-line-bg: rgba(147, 178, 244, 0.38);
+}

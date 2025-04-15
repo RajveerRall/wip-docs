@@ -1,4 +1,3 @@
-
 /* UI Kit tokens */
 body {
   --my-website-colors-video-bg: 50 50 50;
@@ -9,53 +8,142 @@ body {
 }
 /* my-website Docs Tokens */
 :root {
+  --primary: #6852d6;
 
-  --ifm-font-family-base: 'Inter', sans-serif;
+  --extended-primary-50: #f9f8fd;
+  --extended-primary-100: #edeafa;
+  --extended-primary-200: #dcd7f6;
+  --extended-primary-300: #ccc4f1;
+  --extended-primary-400: #bbb1ed;
+  --extended-primary-500: #aa9ee8;
+  --extended-primary-600: #9a8be4;
+  --extended-primary-700: #8978df;
+  --extended-primary-800: #7965db;
+  --extended-primary-900: #5d49be;
 
-  --docs-color-primary: #6851d6;
-  /* --docs-color-primary-100: #1a90ff; */
-  --docs-color-primary-tint: rgba(127, 17, 224, 0.16);
-  --docs-color-primary-tint-light: rgba(33 96 253/0.24);
-  --docs-color-border: #dadde1;
+  --neutral-50: #ffffff;
+  --neutral-100: #fafafa;
+  --neutral-200: #f5f5f5;
+  --neutral-300: #e8e8e8;
+  --neutral-400: #dcdcdc;
+  --neutral-500: #a1a1a1;
+  --neutral-600: #727272;
+  --neutral-700: #5b5b5b;
+  --neutral-800: #434343;
+  --neutral-900: #141414;
 
-  --docs-color-text: #000000;
-  --docs-color-text-100: #000000;
+  --alert-info: #0b7bea;
+  --alert-warning: #ffab00;
+  --alert-success: #09c26f;
+  --alert-error: #f44649;
 
-  --docs-color-background: #0b0a15;
-  --docs-color-background-100: #f8f8f8;
-  --docs-color-background-200: #efefef;
-  --docs-color-background-300: #dcdcdc;
-  --docs-color-background-400: #c8c8c8;
-  --docs-color-background-500: #b0b0b0;
-  --docs-color-background-600: #969696; /* Darker Grey */
-  --docs-color-background-700: #7c7c7c; /* Even Darker Grey */
+  --static-black: #141414;
+  --static-white: #ffffff;
 
-  /* Color from prism themes */
-  /*
-  --docs-color-code-background: #f6f8fa;
-  */
-  --docs-color-android: #44db85;
-  --docs-color-apple: var(--docs-color-text) !important;
+  --background-01: #ffffff;
+  --background-02: #fafafa;
+  --background-03: #f5f5f5;
+  --background-04: #e8e8e8;
+
+  --border-light: #f5f5f5;
+  --border-defult: #e8e8e8;
+  --border-dark: #dcdcdc;
+  --border-highlight: #6852d6;
+
+  --text-primary: #141414;
+  --text-secondary: #727272;
+  --text-tertiary: #a1a1a1;
+  --text-disabled: #dcdcdc;
+  --text-white: #ffffff;
+  --text-highlight: #6852d6;
+
+  --icon-primary: #141414;
+  --icon-secondary: #a1a1a1;
+  --icon-tertiary: #dcdcdc;
+  --icon-white: #ffffff;
+  --icon-highlight: #6852d6;
+
+  --primary-btn-bg-sp: #6852d6;
+  --primary-btn-icon-sw: #ffffff;
+  --primary-btn-text-sw: #ffffff;
+  --secondary-btn-bg: #141414;
+  --secondary-btn-icon: #141414;
+  --secondary-btn-txt: #141414;
+  --link-btn: #0b7bea;
+  --fab-btn-bg-sp: #6852d6;
+  --fab-btn-icon-sw: #ffffff;
+
+  --btn-white-hover: #fafafa;
+  --btn-white-preesed: #e8e8e8;
 }
 
 [data-theme="dark"] {
-  --docs-color-border: #2e2e2e;
+  --primary: #6852d6;
+  --extended-primary-50: #15102b;
+  --extended-primary-100: #1d173c;
+  --extended-primary-200: #251e4d;
+  --extended-primary-300: #2e245e;
+  --extended-primary-400: #362b6f;
+  --extended-primary-500: #3e3180;
+  --extended-primary-600: #473892;
+  --extended-primary-700: #4f3ea3;
+  --extended-primary-800: #5745b4;
+  --extended-primary-900: #7460d9;
 
-  --docs-color-text: #ffffff;
-  --docs-color-text-100: #b4b4b4;
+  --neutral-50: #141414;
+  --neutral-100: #1a1a1a;
+  --neutral-200: #272727;
+  --neutral-300: #383838;
+  --neutral-400: #4c4c4c;
+  --neutral-500: #858585;
+  --neutral-600: #989898;
+  --neutral-700: #a8a8a8;
+  --neutral-800: #c8c8c8;
+  --neutral-900: #ffffff;
 
-  --docs-color-background: #161616;
-  --docs-color-background-100: #1c1c1c;
-  --docs-color-background-200: #2a2a2a;
-  --docs-color-background-300: #2e2e2e;
-  --docs-color-background-400: #2c2c2c;
-  --docs-color-background-500: #1a1a1a;
-  --docs-color-background-600: #101010; /* Very Dark Grey (almost black) */
-  --docs-color-background-700: #0a0a0a;
+  --alert-info: #0d66bf;
+  --alert-warning: #d08d04;
+  --alert-success: #0b9f5d;
+  --alert-error: #c73c3e;
 
+  --static-black: #141414;
+  --static-white: #ffffff;
 
-  --docs-color-code-background: #1e1e1e;
-  
+  --background-01: #141414;
+  --background-02: #1a1a1a;
+  --background-03: #272727;
+  --background-04: #383838;
+
+  --border-light: #272727;
+  --border-defult: #383838;
+  --border-dark: #4c4c4c;
+  --border-highlight: #6852d6;
+
+  --text-primary: #ffffff;
+  --text-secondary: #989898;
+  --text-tertiary: #858585;
+  --text-disabled: #4c4c4c;
+  --text-white: #141414;
+  --text-highlight: #6852d6;
+
+  --icon-primary: #ffffff;
+  --icon-secondary: #858585;
+  --icon-tertiary: #4c4c4c;
+  --icon-white: #141414;
+  --icon-highlight: #6852d6;
+
+  --primary-btn-bg-sp: #6852d6;
+  --primary-btn-icon-sw: #ffffff;
+  --primary-btn-text-sw: #ffffff;
+  --secondary-btn-bg: #ffffff;
+  --secondary-btn-icon: #ffffff;
+  --secondary-btn-txt: #ffffff;
+  --link-btn: #0d66bf;
+  --fab-btn-bg-sp: #6852d6;
+  --fab-btn-icon-sw: #ffffff;
+
+  --btn-white-hover: #1a1a1a;
+  --btn-white-preesed: #383838;
 }
 
 /* Docusaurus Theming */
