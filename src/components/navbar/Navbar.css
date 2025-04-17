@@ -26,7 +26,6 @@
   height: 60px !important; /* Your desired navbar height */
   padding: 0 24px;
   width: 100%;
-  max-width: 1400px; /* Example max-width, adjust if needed */
   margin: 0 auto;
 }
 
@@ -34,11 +33,7 @@
   flex-shrink: 0;
   margin-right: 20px; /* Adjust spacing as needed */
   display: inline-flex; /* Helps contain the image properly */
-  align-items: center; /* Ensures vertical center if link itself 
-}
-
-.logo-image {
-  /* height: 28px;  */
+  align-items: center;
   display: block;
 }
 
@@ -84,9 +79,7 @@ html[data-theme="dark"] .logo-dark {
   background: none;
   border: none;
   padding: 8px 0;
-  font-size: 16px;
-  font-weight: 500;
-  color: var(--ifm-color-emphasis-500);
+  color: var(--neutral-600);
   cursor: pointer;
   transition: color 0.2s;
 }
@@ -100,7 +93,10 @@ html[data-theme="dark"] .logo-dark {
 .dropdown-button.active {
   border-color: var(--ifm-color-emphasis-500);
   text-decoration: none;
-  color: var(--ifm-font-color-base);
+  border-radius: 0.5rem;
+  color: var(--neutral-900);
+  padding: 0.3rem;
+  background-color: var(--neutral-200);
 }
 
 /* Positioning wrapper for the dropdown content */
@@ -151,8 +147,6 @@ html[data-theme="dark"] .logo-dark {
 
 /* Headings */
 .menu-heading {
-  font-size: 14px;
-  font-weight: 700;
   color: var(--ifm-font-color-base);
   margin-bottom: 10px;
   padding-bottom: 5px;
@@ -183,7 +177,7 @@ html[data-theme="dark"] .logo-dark {
 .item-container-platform {
   flex-direction: column;
   margin-top: 5px;
-  width: 200px; /* Adjust as needed */
+  width: 220px; /* Adjust as needed */
   padding: 6px;
 }
 .item-container-platform-sub {
@@ -191,15 +185,11 @@ html[data-theme="dark"] .logo-dark {
   align-items: center;
 }
 
-.item-container-platform-sub span {
-  font-size: 14px;
-}
 .item-container-desc {
   display: flex;
   align-items: center;
-  padding-left: 30px; /* Approx: icon width (20px) + margin (10px) */
-  margin-top: 2px;
-  font-size: 12px;
+  /* padding-left: 30px;  */
+  margin-top: 1px;
 }
 
 html[data-theme="dark"] .item-container-desc {
@@ -230,13 +220,16 @@ html[data-theme="dark"] .item-container-desc {
   flex-shrink: 0;
 }
 .item-icon-react {
-  width: 20px;
-  height: 20px;
+  width: 15px;
+  height: 15px;
   margin-right: 10px;
-  color: var(--ifm-color-primary);
+  color: var(--primary);
   flex-shrink: 0;
 }
 
+.txtDesc {
+  color: var(--neutral-500);
+}
 /* Dividers */
 .vertical-line,
 .horizontal-line {

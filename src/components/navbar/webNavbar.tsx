@@ -59,16 +59,20 @@ function WebNavbar(): React.ReactNode {
             {" "}
             {/* Position relative */}
             <button
-              className={clsx("dropdown-button", {
+              className={clsx("dropdown-button  text-caption-1", {
                 active: activeDropdown === "integrate",
               })}
               onMouseEnter={() => handleDropdownToggle("integrate")}
             >
               Integrate
               {activeDropdown === "integrate" ? (
-                <MdKeyboardArrowUp />
+                <MdKeyboardArrowUp
+                  style={{ marginLeft: "0.4rem", marginTop: "0.1rem" }}
+                />
               ) : (
-                <MdKeyboardArrowDown />
+                <MdKeyboardArrowDown
+                  style={{ marginLeft: "0.4rem", marginTop: "0.1rem" }}
+                />
               )}
               {/* <span className="dropdown-arrow">▼</span> */}
             </button>
@@ -86,7 +90,7 @@ function WebNavbar(): React.ReactNode {
             {" "}
             {/* Position relative */}
             <button
-              className={clsx("dropdown-button", {
+              className={clsx("dropdown-button text-caption-1", {
                 active: activeDropdown === "platform",
               })}
               onMouseEnter={() => handleDropdownToggle("platform")}
@@ -94,9 +98,13 @@ function WebNavbar(): React.ReactNode {
             >
               Platform
               {activeDropdown === "platform" ? (
-                <MdKeyboardArrowUp />
+                <MdKeyboardArrowUp
+                  style={{ marginLeft: "0.4rem", marginTop: "0.1rem" }}
+                />
               ) : (
-                <MdKeyboardArrowDown />
+                <MdKeyboardArrowDown
+                  style={{ marginLeft: "0.4rem", marginTop: "0.1rem" }}
+                />
               )}
             </button>
             {/* The Dropdown Content itself */}

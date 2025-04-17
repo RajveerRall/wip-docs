@@ -99,47 +99,58 @@ const PlatformDropdownMenu: React.FC = () => {
     <div className="dropdown-content">
       <div className="main-menu-container">
         <div className="menu-col-1">
-          <span className="menu-heading">Chats & Calling</span>
+          <span className="menu-heading text-body-2 font-semibold">
+            Chats & Calling
+          </span>
           {chatsAndCalling.map((item, index) => (
             <div className="item-container-platform">
-              <div className="item-container-platform-sub" key={index}>
+              <div
+                className="item-container-platform-sub text-caption-1 font-semibold"
+                key={index}
+              >
                 <item.icon className="item-icon-react" />
-                <span style={{fontWeight:600}}>{item.name}</span>
+                <span className="text-caption-2">{item.name}</span>
               </div>
-              <div className="item-container-desc" key={index}>
-                <span>{item.description}</span>
+              <div className="text-caption-2" key={index}>
+                <span className="txtDesc">{item.description}</span>
               </div>
             </div>
           ))}
         </div>
         <div className="vertical-line"></div>
         <div className="menu-col-1">
-          <span className="menu-heading">Extend</span>
+          <span className="menu-heading text-body-2 font-semibold">Extend</span>
           {extendData.map((item, index) => (
             <div className="item-container-platform">
-              <div className="item-container-platform-sub" key={index}>
+              <div
+                className="item-container-platform-sub text-caption-1 font-semibold"
+                key={index}
+              >
                 <item.icon className="item-icon-react" />
-                <span style={{fontWeight:600}}>{item.name}</span>
+                <span className="text-caption-2">{item.name}</span>
               </div>
-              <div className="item-container-desc" key={index}>
-                <span>{item.description}</span>
+              <div className="text-caption-2" key={index}>
+                <span className="txtDesc">{item.description}</span>
               </div>
             </div>
           ))}
         </div>
         <div className="vertical-line"></div>
         <div className="menu-col-1">
-          <span className="menu-heading">SDKs</span>
+          <span className="menu-heading text-body-2 font-semibold">SDKs</span>
           {sampleApps.map((item, index) => (
-            <div className="item-container" key={index}>
+            <div
+              className="item-container text-caption-1 font-semibold "
+              key={index}
+            >
               <img
                 src={item.icon}
                 style={{ marginRight: "10px" }}
-                height={"20px"}
-                width={"20px"}
+                height={"15px"}
+                width={"15px"}
                 alt={item.name}
               />
-              <span style={{fontWeight:600}}>{item.name}</span>
+              <span style={{ fontWeight: 600 }}>{item.name}</span>
             </div>
           ))}
         </div>
