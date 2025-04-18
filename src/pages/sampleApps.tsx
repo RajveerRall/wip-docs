@@ -67,12 +67,12 @@ const SampleAppsSection = () => {
       {/* Section Header */}
       <div className={styles.sectionHeader}>
         {/* Section Title */}
-        <h2 className={styles.sectionTitle}>Sample Apps</h2>
+        <span className={`${styles.sectionTitle} text-h2 font-semibold`}>Sample Apps</span>
 
         {/* View All Button */}
         <Link
           to="https://github.com/cometchat"
-          className={styles.viewAllButton} // Use module class
+          className={`${styles.viewAllButton} text-caption-1`} // Use module class
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -81,7 +81,7 @@ const SampleAppsSection = () => {
       </div>
 
       {/* Section Description */}
-      <p className={styles.sectionDescription}>
+      <p className={`${styles.sectionDescription} text-body-2`}>
         Explore practical examples of what you can achieve, and don't forget to
         check out our Interactive Demo.
       </p>
@@ -94,14 +94,14 @@ const SampleAppsSection = () => {
             <div key={app.title} className={styles.appRow}>
               {" "}
               {/* Use module class */}
-              <div className={styles.appTitleText}>
+              <div className={`${styles.appTitleText} text-body-1 font-semibold`}>
                 {" "}
                 {/* Use module class */}
                 {app.title}
               </div>
               <Link
                 to={app.link}
-                className={styles.cloneButton} // Use module class
+                className={`${styles.cloneButton} font-semibold`}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -118,24 +118,24 @@ const SampleAppsSection = () => {
         <div className={styles.appsColumn}>
           {sampleApps.slice(4, 8).map((app) => (
             <div key={app.title} className={styles.appRow}>
+            {" "}
+            {/* Use module class */}
+            <div className={`${styles.appTitleText} text-body-1 font-semibold`}>
               {" "}
               {/* Use module class */}
-              <div className={styles.appTitleText}>
-                {" "}
-                {/* Use module class */}
-                {app.title}
-              </div>
-              <Link
-                to={app.link}
-                className={styles.cloneButton} // Use module class
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <GithubIcon className={styles.githubIcon} />{" "}
-                {/* Use module class */}
-                Clone
-              </Link>
+              {app.title}
             </div>
+            <Link
+              to={app.link}
+              className={`${styles.cloneButton} font-semibold`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <GithubIcon className={styles.githubIcon} />{" "}
+              {/* Use module class */}
+              Clone
+            </Link>
+          </div>
           ))}
         </div>
       </div>

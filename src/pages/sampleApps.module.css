@@ -25,38 +25,23 @@
 
 /* --- Section Title --- */
 .sectionTitle {
-  font-family: "Inter", sans-serif;
   margin-bottom: 0.1rem; /* Equivalent to mb-3 */
-  font-size: 1.5rem !important; /* Equivalent to text-2xl */
-  line-height: 2rem; /* Line height for text-2xl */
-  font-weight: 600; /* Equivalent to font-bold */
-  color: var(--ifm-heading-color);
-}
-
-@media (min-width: 768px) {
-  /* md breakpoint */
-  .sectionTitle {
-    font-size: 1.5rem; /* md:text-2xl */
-    line-height: 2rem;
-  }
+  color: var(--text-primary);
 }
 
 /* --- View All Button --- */
 .viewAllButton {
   display: inline-flex; /* inline-flex */
-  font-family: "Inter", sans-serif;
   flex-shrink: 0; /* flex-shrink-0 */
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
   white-space: nowrap; /* whitespace-nowrap */
-  border-radius: var(--ifm-button-border-radius, 0.5rem); /* rounded-lg */
+  border-radius:0.5rem;
   border: 1px solid var(--ifm-color-emphasis-300); /* border border-[...] */
-  padding: 0.175rem 1.6rem; /* py-1.5 px-4 */
-  font-size: var(--ifm-font-size-sm); /* text-sm */
-  font-weight: var(--ifm-font-weight-medium); /* font-medium */
+  padding: 0.275rem 1.6rem; /* py-1.5 px-4 */
   text-decoration: none; /* no-underline */
   background-color: transparent; /* bg-transparent */
-  color: var(--ifm-font-color-base); /* text-[...] */
+  color: var(--text-primary); /* text-[...] */
   transition: background-color 200ms ease; /* transition-colors duration-200 */
 }
 
@@ -79,15 +64,9 @@ html[data-theme="dark"] .viewAllButton:hover {
 /* --- Section Description --- */
 .sectionDescription {
   margin-bottom: 2.5rem; /* Equivalent to mb-10 */
-  max-width: 48rem; /* Equivalent to max-w-3xl */
-  line-height: var(
-    --ifm-line-height-relaxed
-  ); /* Equivalent to leading-relaxed */
-  color: var(
-    --ifm-color-emphasis-700
-  ) !important; /* !text-[--ifm-color-emphasis-700] */
-  font-family: "Inter", sans-serif;
-  font-size: var(--ifm-font-size-base); /* text-base */
+  max-width: 70vw; /* Equivalent to max-w-3xl */
+  color:var(--neutral-500)!important;
+
 }
 
 html[data-theme="dark"] .sectionDescription {
@@ -116,7 +95,7 @@ html[data-theme="dark"] .sectionDescription {
   display: flex; /* flex */
   flex: 1 1 0%; /* flex-1 */
   flex-direction: column; /* flex-col */
-  gap: 1rem; /* gap-4 */
+  gap: 1.6rem; /* gap-4 */
 }
 
 @media (min-width: 768px) {
@@ -155,10 +134,7 @@ html[data-theme="dark"] .appRow {
 
 /* --- App Title Text --- */
 .appTitleText {
-  font-family: "Inter", sans-serif;
-  font-size: var(--ifm-font-size-sm); /* text-sm */
-  font-weight: 500; /* font-medium */
-  color: var(--ifm-font-color-base); /* text-[...] */
+  color: var(--text-primary); /* text-[...] */
 }
 
 html[data-theme="dark"] .appTitleText {
@@ -167,7 +143,6 @@ html[data-theme="dark"] .appTitleText {
 
 /* --- Clone Button --- */
 .cloneButton {
-  font-family: "Inter", sans-serif;
   display: inline-flex; /* inline-flex */
   flex-shrink: 0; /* shrink-0 */
   align-items: center; /* items-center */
@@ -176,13 +151,11 @@ html[data-theme="dark"] .appTitleText {
   white-space: nowrap; /* whitespace-nowrap */
   border-radius: var(--ifm-button-border-radius, 0.5rem); /* rounded-lg */
   border: 1px solid var(--ifm-color-emphasis-300); /* border border-[...] */
-  padding: 0.25rem 0.75rem; /* py-1 px-3 */
-  font-size: 0.75rem; /* text-xs */
-  line-height: 1rem;
-  font-weight: var(--ifm-font-weight-medium); /* font-medium */
+  padding: 0.35rem 0.95rem; /* py-1 px-3 */
+  font-size: 0.7rem;
   text-decoration: none; /* no-underline */
   background-color: transparent; /* bg-transparent */
-  color: var(--ifm-font-color-base); /* text-[...] */
+  color: var(--text-primary); /* text-[...] */
   transition: background-color 200ms ease; /* transition-colors duration-200 */
 }
 
