@@ -5,38 +5,15 @@
 
 /* --- Section Title --- */
 .gridTitle {
-  /* If 'Jakarta Sans' is globally available or part of your theme */
-  /* font-family: 'Jakarta Sans', sans-serif; */
-  /* Or rely on the theme's heading font */
-  /* font-family: var(--ifm-font-family-heading); */
-  font-family: "Inter", sans-serif;
-  margin-bottom: 0.45rem; /* Equivalent to mb-3 */
-  font-size: 1.5rem; /* Equivalent to text-2xl */
-  line-height: 2rem; /* Line height for text-2xl */
-  font-weight: var(--ifm-font-weight-bold); /* Equivalent to font-bold */
-  color: var(
-    --ifm-heading-color
-  ); /* Equivalent to text-[--ifm-heading-color] */
+  margin-bottom: 0.45rem;
+  color:var(--text-primary);
 }
 
-@media (max-width: 996px) {
-  .gridTitle {
-    font-size: 1.2rem !important; /* lg:text-5xl */
-    font-weight: var(--ifm-font-weight-bold); /* Equivalent to font-bold */
-  }
-}
 /* --- Section Description --- */
 .gridDescription {
-  margin-bottom: 2.5rem; /* Equivalent to mb-10 */
-  max-width: 48rem; /* Equivalent to max-w-3xl */
-  line-height: var(
-    --ifm-line-height-relaxed
-  ); /* Equivalent to leading-relaxed */
-  color: var(
-    --ifm-color-emphasis-700
-  ) !important; /* !text-[--ifm-color-emphasis-700] */
-  font-family: "Inter", sans-serif;
-  font-size: var(--ifm-font-size-base); /* text-base */
+  margin-bottom: 1.5rem; /* Equivalent to mb-10 */
+  max-width: 70vw; /* Equivalent to max-w-3xl */
+  color:var(--neutral-500)!important;
 }
 
 html[data-theme="dark"] .gridDescription {
@@ -52,7 +29,7 @@ html[data-theme="dark"] .gridDescription {
 .frameworkItemsGrid {
   display: grid;
   grid-template-columns: repeat(1, minmax(0, 1fr)); /* Default: grid-cols-1 */
-  gap: 1.5rem; /* Equivalent to gap-6 */
+  gap: 0.5rem; /* Equivalent to gap-6 */
 }
 
 @media (max-width: 996px) {

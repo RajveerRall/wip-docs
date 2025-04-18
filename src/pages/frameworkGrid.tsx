@@ -29,9 +29,9 @@ export default function FrameworkGrid({
     // Use CSS module class for the section container
     <div className={styles.gridSection}>
       {/* Use CSS module class for the Section Title */}
-      <h2 className={styles.gridTitle}>{title}</h2>
+      <p className={`${styles.gridTitle} text-h2 font-semibold`}>{title}</p>
       {/* Use CSS module class for the Section Description */}
-      <p className={styles.gridDescription}>{description}</p>
+      <p className={`${styles.gridDescription} text-body-2`}>{description}</p>
 
       {/* Use CSS module class for the Grid Layout */}
       <div className={styles.frameworkItemsGrid}>

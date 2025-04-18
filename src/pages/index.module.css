@@ -2,7 +2,7 @@
 .pageContainer {
   /* Replicates container behavior if Layout doesn't fully handle it, or adds specific page padding */
   /* Assuming Layout provides max-width and centering (mx-auto) */
-  padding: 1.5rem 10rem;
+  padding: 1.5rem 12rem;
   width: 100%; /* Ensure it takes available width within the Layout container */
 }
 
@@ -22,7 +22,6 @@
 .breadcrumbs {
   display: flex;
   align-items: center;
-  font-size: var(--ifm-font-size-sm); /* text-sm */
   color: var(--ifm-color-emphasis-600); /* text-[--ifm-color-emphasis-600] */
   margin-bottom: 2rem; /* mb-6 */
   margin-top: 1.2rem;
@@ -37,7 +36,7 @@
 }
 
 .breadcrumbLink {
-  color: var(--ifm-color-primary); /* text-[--ifm-color-primary] */
+  color: var(--primary); /* text-[--ifm-color-primary] */
   text-decoration: none; /* no-underline */
 }
 
@@ -48,17 +47,15 @@
 .breadcrumbSeparator {
   margin-left: 0.25rem; /* mx-1 */
   margin-right: 0.25rem; /* mx-1 */
-  margin-top: 0.3rem;
+  /* margin-top: 0.1rem; */
   height: 1rem; /* h-4 */
   width: 1rem; /* w-4 */
   flex-shrink: 0; /* shrink-0 */
-  /* Icon color usually inherited or set by the icon library */
+  color:var(--neutral-500)
 }
 
 .breadcrumbCurrent {
-  font-weight: var(--ifm-font-weight-medium); /* font-medium */
-  color: #b4b4b4; /* text-[--ifm-font-color-secondary] */
-  opacity: 0.6;
+  color:var(--neutral-500)
 }
 
 /* --- Hero Section --- */
@@ -74,51 +71,20 @@
 }
 
 .heroTitle {
-  font-family: var(
-    --ifm-font-family-sans-serif
-  ); /* font-sans (usually default, but good to be explicit) */
   margin-bottom: 0.6rem; /* mb-4 */
-  font-size: 1.875rem; /* text-3xl */
-  line-height: 1; /* Add a reasonable line-height */
-  color: var(--ifm-heading-color) !important; /* !text-[--ifm-heading-color] */
-  font-family: "Inter", sans-serif;
-  font-weight: 700;
-  /* font-style: italic; */
-}
-
-@media (max-width: 996px) {
-  .heroTitle {
-    font-size: 1.5rem !important; /* lg:text-5xl */
-  }
+  color: var(--icon-primary) !important; 
 }
 
 .heroDescription {
-  max-width: 48rem; /* max-w-3xl */
-  font-family: "Inter", sans-serif;
-  font-size: var(--ifm-font-size-base); /* text-base */
-  line-height: var(--ifm-line-height-relaxed); /* leading-relaxed */
-  color: var(
-    --ifm-color-emphasis-700
-  ) !important; /* !text-[--ifm-color-emphasis-700] */
-}
-
-/* Handle dark mode for description */
-html[data-theme="dark"] .heroDescription {
-  color: var(
-    --ifm-color-emphasis-300
-  ) !important; /* dark:!text-[--ifm-color-emphasis-600] */
-}
-
-@media (max-width: 996px) {
-  .heroDescription {
-    font-size: 0.9rem !important; /* lg:text-5xl */
-  }
+  max-width: 70vw;/* max-w-3xl */
+  color:var(--neutral-500)!important;
+  margin-bottom: 3rem;
 }
 
 /* --- Section Spacing --- */
 .sectionSpacer {
-  margin-top: 3rem; /* my-12 */
-  margin-bottom: 3rem; /* my-12 */
+  margin-top: 3rem;
+  margin-bottom: 3rem; 
 }
 
 @media (min-width: 768px) {
