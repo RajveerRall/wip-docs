@@ -9,7 +9,7 @@
   max-width: 100%;
   margin: 30px 0;
   overflow: hidden;
-  border-radius: 0.4rem; /* Increased border radius for more curve */
+  border-radius: 1rem; /* Increased border radius for more curve */
   border: 1px solid #e0e0e0;
 }
 
@@ -42,24 +42,14 @@ html[data-theme="dark"] .apiCard:first-child {
 
 .apiCardTitle {
   margin-top: 0;
-  font-family: "Inter", sans-serif;
-  margin-bottom: 16px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #333;
-}
-
-html[data-theme="dark"] .apiCardTitle {
-  color: white;
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
 }
 
 .apiCardDescription {
-  font-family: "Inter", sans-serif;
-  color: #666;
+  color: var(--text-secondary);
   flex-grow: 1;
-  line-height: 1.6;
   margin-bottom: 24px;
-  font-size: 0.875rem;
 }
 
 /* Handle dark mode for description */
@@ -78,14 +68,10 @@ html[data-theme="dark"] .apiCardDescription {
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  /* border: 1px solid #d0d0d0;
-    color: #000000; */
   border: 1px solid var(--ifm-color-emphasis-300);
-  color: var(--ifm-color-emphasis-700);
+  color: var(--text-primary);
   padding: 8px 16px;
-  border-radius: 0.3rem; /* More rounded button corners */
-  font-weight: 500;
-  font-size: 14px;
+  border-radius: 0.5rem; /* More rounded button corners */
   text-decoration: none;
   transition: all 0.2s ease;
   height: 34px;
