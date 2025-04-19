@@ -76,7 +76,8 @@ const resources: ResourceItem[] = [
 export default function AdditionalResources() {
   return (
     <div className={styles.resourcesSection}>
-      <h2 className={styles.title}>Additional Resources</h2>
+      <p className={`${styles.title} text-h3 font-semibold`}>Additional Resource</p>
+
       <div className={styles.resourceGrid}>
         {resources.map((resource, index) => (
           <div
@@ -92,8 +93,8 @@ export default function AdditionalResources() {
               />
             </div>
             <div className={styles.contentContainer}>
-              <h3 className={styles.resourceTitle}>{resource.title}</h3>
-              <p className={styles.resourceDescription}>
+              <p className={`${styles.resourceTitle} text-context-2 font-semibold`}>{resource.title}</p>
+              <p className={`${styles.resourceDescription} text-`}>
                 {resource.description}
               </p>
             </div>

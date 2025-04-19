@@ -1,18 +1,14 @@
 /* src/components/resources/additional-resources.module.css */
 
 .resourcesSection {
-  padding: 2rem 0;
-  max-width: 1200px;
+  padding: 0 0;
   margin: 0 auto;
 }
 
 .title {
-  font-family: "Inter", sans-serif;
-  margin-bottom: 1.1rem; /* Equivalent to mb-3 */
-  font-size: 1.5rem !important; /* Equivalent to text-2xl */
-  line-height: 2rem; /* Line height for text-2xl */
-  font-weight: 600; /* Equivalent to font-bold */
-  color: var(--ifm-heading-color);
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
 }
 
 .resourceGrid {
@@ -24,7 +20,7 @@
 .resourceCard {
   display: flex;
   flex-direction: column;
-  padding: 1.5rem;
+  padding: 1rem;
   border-radius: 8px;
   transition: all 0.2s ease;
   text-decoration: none;
@@ -33,7 +29,7 @@
   border: 1px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
   background-color: var(
     --ifm-card-background-color
-  ); /* bg-[--ifm-card-background-color] */
+  );
   box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
 }
 
@@ -74,6 +70,7 @@ html[data-theme="dark"] .iconBox {
 .icon {
   width: 20px;
   height: 20px;
+  color:var(--neutral-800)!important
 }
 
 .contentContainer {
@@ -81,19 +78,16 @@ html[data-theme="dark"] .iconBox {
 }
 
 .resourceTitle {
-  font-size: 1.125rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   text-decoration: none;
-  color: var(--ifm-color-emphasis-700);
+  color: var(--text-primary);
 }
 
 .resourceDescription {
-  font-size: 0.875rem;
   text-decoration: none;
-  color: var(--ifm-color-secondary-darkest);
+  color: var(--text-secondary);
   margin: 0;
-  line-height: 1.4;
+  font-size: 0.82rem;
 }
 
 /* Responsive adjustments */

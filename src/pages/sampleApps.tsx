@@ -151,28 +151,28 @@ const SampleAppsSection = () => {
             {" "}
             {/* Use module class */}
             {/* Title */}
-            <h3 className={styles.officeHoursTitle}>
+            <p className={`${styles.officeHoursTitle} font-semibold text-h2`}>
               {" "}
               {/* Use module class */}
               CometChat Solutions Office Hours
-            </h3>
+            </p> 
+
             {/* Description */}
-            <p className={styles.officeHoursDescription}>
-              {" "}
-              {/* Use module class */}
+            <p className={`${styles.officeHoursDescription} font-regular text-body-2`}>
               Join our solutions office hours to brainstorm and ideate on your
               use cases, get guidance on integration from our solution
               engineers.
             </p>
+           
             {/* Book Slot Button */}
-            <Link
-              to="https://www.cometchat.com/office-hours"
-              className={styles.bookSlotButton} // Use module class
-              target="_blank"
-              rel="noopener noreferrer"
+            <div
+              // to="https://www.cometchat.com/office-hours"
+              className={`${styles.bookSlotButton} text-caption-2`} // Use module class
+              // target="_blank"
+              // rel="noopener noreferrer"
             >
-              Book your slot
-            </Link>
+              Book Your Slot
+            </div>
           </div>
           {/* Image */}
           <img
