@@ -145,7 +145,7 @@ html[data-theme="dark"] .optionsButtonWrapper {
   margin: 0 !important;
   border-radius: 50% !important;
   border: none !important;
-  background: transparent !important;
+  /* background: transparent !important; */
   box-shadow: none !important;
   font-size: 0 !important;
   line-height: 0 !important;

@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 import { useColorMode } from "@docusaurus/theme-common";
-import clsx from "clsx";
+import clsx from 'clsx';
 import "./Navbar.css";
 import ThemeToggle from "./theme-toggle";
 import IntegrationDropdownMenu from "./integrationMenuBar";
@@ -13,6 +13,9 @@ import SearchBar from "@theme/SearchBar";
 type DropdownType = "integrate" | "platform" | null;
 
 function WebNavbar(): React.ReactNode {
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+  const [hovering, setHovering] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<DropdownType>(null);
   const { colorMode } = useColorMode();
 
@@ -25,7 +28,33 @@ function WebNavbar(): React.ReactNode {
       setActiveDropdown(null);
     } else {
       setActiveDropdown(dropdown);
+      setHovering(true);
     }
+  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+        if (
+            activeDropdown &&
+            dropdownRef.current &&
+            buttonRef.current &&
+            !dropdownRef.current.contains(event.target as Node) &&
+            !buttonRef.current.contains(event.target as Node)
+        ) {
+            setActiveDropdown(null);
+        }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+    };
+}, [activeDropdown]);
+
+  const handleMouseLeave = () => {
+    setHovering(false);
+    setTimeout(() => {
+      if (!hovering) setActiveDropdown(null);
+    }, 100);
   };
 
   const closeDropdowns = (): void => {
@@ -51,18 +80,22 @@ function WebNavbar(): React.ReactNode {
               style={{ height: "1.5rem" }}
             />
           </Link>
-        </div>
+        </div> 
 
         {/* Navigation Links */}
         <nav className="navbar-links">
-          <div className="dropdown-container">
-            {" "}
+          <div
+            className="dropdown-container"
+            onMouseLeave={handleMouseLeave}
+          >
             {/* Position relative */}
             <button
+               ref={buttonRef}
               className={clsx("dropdown-button  text-caption-1", {
                 active: activeDropdown === "integrate",
               })}
               onMouseEnter={() => handleDropdownToggle("integrate")}
+              
             >
               Integrate
               {activeDropdown === "integrate" ? (
@@ -76,19 +109,21 @@ function WebNavbar(): React.ReactNode {
               )}
               {/* <span className="dropdown-arrow">▼</span> */}
             </button>
-            {/* The Dropdown Content itself */}
-            {activeDropdown === "integrate" && (
-              <div className="dropdown-content">
-                {" "}
-                {/* Position absolute */}
+             {/* The Dropdown Content itself */}
+            {activeDropdown === "integrate" && ( 
+              <div ref={dropdownRef}
+                className="dropdown-content"
+                
+              >
                 <IntegrationDropdownMenu /> {/* The visual menu */}
               </div>
+              
             )}
           </div>
 
-          <div className="dropdown-container">
-            {" "}
-            {/* Position relative */}
+          <div className="dropdown-container" >
+           
+           {/* Position relative */}
             <button
               className={clsx("dropdown-button text-caption-1", {
                 active: activeDropdown === "platform",
@@ -109,10 +144,11 @@ function WebNavbar(): React.ReactNode {
             </button>
             {/* The Dropdown Content itself */}
             {activeDropdown === "platform" && (
-              <div className="dropdown-content">
-                {" "}
-                {/* Position absolute */}
+              <div ref={dropdownRef} className="dropdown-content">
+               
+                 {/* Position absolute */}
                 <PlatformDropdownMenu /> {/* The visual menu */}
+                
               </div>
             )}
           </div>
@@ -120,7 +156,8 @@ function WebNavbar(): React.ReactNode {
 
         {/* Search Box */}
         <div className="search-container">
-          <SearchBar />
+          <SearchBar/>
+
         </div>
 
         {/* Action Buttons */}
@@ -138,7 +175,7 @@ function WebNavbar(): React.ReactNode {
         <div className="dropdown-backdrop" onClick={closeDropdowns} />
       )}
     </header>
-  );
+  ); 
 }
 
 export default WebNavbar;

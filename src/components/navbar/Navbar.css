@@ -10,10 +10,7 @@
   height: 70px !important;
   z-index: 1000; /* Ensure navbar is above most content */
   padding: "10px";
-  background-color: var(
-    --ifm-navbar-background-color,
-    var(--ifm-background-surface-color)
-  ); /* Use theme navbar or surface color */
+  background-color: var(--background-01); 
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   box-shadow: var(--ifm-navbar-shadow); /* Use theme shadow */
   width: 100%;
@@ -126,7 +123,7 @@ html[data-theme="dark"] .logo-dark {
 
 /* The visual container */
 .main-menu-container {
-  background-color: var(--ifm-background-surface-color);
+  background-color: var(--background-02);
   max-width: calc(100vw - 40px); /* Prevent horizontal overflow */
   width: max-content; /* Size to content */
   margin: 0; /* Reset margins */
@@ -285,7 +282,7 @@ html[data-theme="dark"] .item-container-desc {
   padding: 0 12px !important;
   box-shadow: none !important;
   background: none;
-  color: var(--ifm-color-emphasis-300, #ccc) !important;
+
 }
 
 .DocSearch-Search-Icon {
@@ -300,6 +297,8 @@ html[data-theme="dark"] .item-container-desc {
   align-items: center;
   padding: 0; 
   border-radius: 0;
+  background-color: var(--background-01) !important;
+
 }
 
 /* --- Individual Key Styling (kbd tag) --- */
@@ -307,6 +306,7 @@ kbd.DocSearch-Button-Key {
   display: inline-block !important; /* Make sure it's visible */
   padding: 1px; /* << Increase this value (was 5px) */
   font-family: inherit;
+  background-color: var(--background-01) !important;
   font-size: 11px;
   font-weight: 600;
   line-height: 1.1; /* Adjust slightly if needed for vertical centering */
@@ -315,58 +315,17 @@ kbd.DocSearch-Button-Key {
   border-radius: 3px;
   border: 1px solid;
   border-bottom-width: 2px;
-  background-color: transparent; /* Set per theme */
   color: inherit; /* Set per theme */
   box-shadow: none !important;
   position: static !important;
 }
 
-/* --- Light Mode --- */
-html:not([data-theme="dark"]) .DocSearch-Button {
-  background-color: var(--ifm-background-surface-color, #555) !important;
-  border-color: var(--ifm-color-emphasis-300, #555) !important;
-}
-html:not([data-theme="dark"]) .DocSearch-Button-Placeholder {
-  color: #c8c5c5 !important;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
 .DocSearch-Button .DocSearch-Search-Icon {
-  color: var(--neutral-400) !important
-}
-/* Light Mode Key Styling */
-html:not([data-theme="dark"]) kbd.DocSearch-Button-Key {
-  border-color: var(--ifm-color-emphasis-300, #ccc) !important;
-  background-color: var(--ifm-color-emphasis-100, #f5f5f5) !important;
-  color: var(--ifm-font-color-secondary, #555) !important;
+  color: var(--neutral-500) !important
 }
 
-/* --- Dark Mode --- */
-html[data-theme="dark"] .DocSearch-Button {
-  border-color: #ffffff3d !important;
-}
-html[data-theme="dark"] .DocSearch-Button-Placeholder {
-  color: #ffffffcc !important;
-  font-size: 0.875rem;
-  font-weight: 500;
-}
-html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
-  color: var(--neutral-600)
-}
 
-/* Dark Mode Key Styling */
-html[data-theme="dark"] kbd.DocSearch-Button-Key {
-  border-color: var(--ifm-color-emphasis-500, #555) !important;
-  background-color: var(--ifm-color-emphasis-300, #333) !important;
-  color: var(--ifm-color-emphasis-800, #ddd) !important;
-}
 
-/* --- Hover State (Main Button) --- */
-.DocSearch-Button:hover {
-  border-color: var(--ifm-color-primary, #6851d6) !important;
-  background-color: var(--ifm-hover-overlay) !important;
-  box-shadow: none !important;
-}
 
 /* ======================================== */
 /* End Algolia DocSearch Styling          */
@@ -384,8 +343,8 @@ html[data-theme="dark"] kbd.DocSearch-Button-Key {
   padding: 0 8px;
   border-radius: 6px;
   border: 1px solid var(--ifm-color-emphasis-300);
-  background-color: var(--ifm-background-surface-color);
-  color: var(--ifm-font-color-base);
+  background-color: var(--background-01);
+  color: var(--text-primary);
   font-size: 0.8rem;
   font-weight: 500;
   transition: background-color 0.2s, border-color 0.2s;
@@ -399,14 +358,6 @@ html[data-theme="dark"] kbd.DocSearch-Button-Key {
   color: var(--ifm-font-color-base);
 }
 
-html[data-theme="dark"] .dashboard-button {
-  border-color: var(--ifm-color-emphasis-400); /* Darker border */
-}
-html[data-theme="dark"] .dashboard-button:hover {
-  background-color: var(--ifm-color-emphasis-200);
-  border-color: var(--ifm-color-emphasis-500);
-}
-
 .contact-button {
   display: flex;
   align-items: center;
@@ -415,7 +366,7 @@ html[data-theme="dark"] .dashboard-button:hover {
   padding: 0 8px;
   border-radius: 6px;
   background-color: var(--neutral-900);
-  color: var(--ifm-button-color, #ffffff);
+  color: var(--neutral-50);
   font-size: 0.8rem;
   font-weight: 500;
   transition: background-color 0.2s, border-color 0.2s;
@@ -423,61 +374,47 @@ html[data-theme="dark"] .dashboard-button:hover {
   white-space: nowrap; /* Prevent wrapping */
 }
 
-html[data-theme="dark"] .contact-button {
-  background-color: var(--ifm-color-emphasis-700);
-}
-html[data-theme="dark"] .contact-button:hover {
-  background-color: var(--ifm-color-emphasis-500);
-  border-color: var(--ifm-color-emphasis-500);
-}
-/* ======================================== */
-/* Custom Theme Toggle Styling (Standard Structure) */
-/* ======================================== */
 
-.theme-toggle-container {
-  display: flex;
-  align-items: center;
-}
-
+/* --- Theme Toggle Container (The Box) --- */
 .theme-toggle {
-  --toggle-width: 65px; /* Your desired width */
-  --toggle-height: 30px;
-  --toggle-padding: 4px;
-  --circle-size: calc(var(--toggle-height) - (2 * var(--toggle-padding)));
-  --icon-size: 16px; /* Match your SVG size */
-
-  position: relative;
-  display: inline-block;
-  width: var(--toggle-width);
-  height: var(--toggle-height);
-  border-radius: var(--toggle-height);
+  position: relative; /* For positioning the circle and icons */
+  display: flex; /* For horizontal layout */
+  align-items: center; /* Vertically center items */
+  width: var(--toggle-width); /* Set the width of your "box" */
+  height: var(--toggle-height); /* Set the height of your "box" */
+  border-radius: var(--toggle-border-radius); /* Rounded corners */
+  background-color: var(--neutral-200); /* Toggle background color */
+  padding: var(--toggle-padding);
   cursor: pointer;
-  overflow: hidden;
-  background-color: var(--ifm-color-emphasis-200); /* Light mode bg */
-  border: 1px solid var(--ifm-color-emphasis-300);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+
+  /* Set variables for toggle appearance */
+  --toggle-width: 70px; 
+  --toggle-height: 35px;
+  --toggle-border-radius: 50px; /* Make it pill-shaped */
+  --toggle-padding: 5px; /* Space from edge */
+  --circle-size: 25px;
+  --icon-size: 15px;
 }
 
-html[data-theme="dark"] .theme-toggle {
-  background-color: var(--ifm-color-emphasis-300); /* Dark mode bg */
-  border-color: var(--ifm-color-emphasis-400);
+html[data-theme='dark'] .theme-toggle{
+  background-color: var(---neutral-100);
 }
-
 /* --- Static Icons --- */
 .sun-icon,
 .moon-icon {
-  position: absolute;
-  top: calc(50% - (var(--icon-size) / 2)); /* Vertical center */
+  position: absolute; /* Position within the toggle */
+  top: 50%; /* Vertically center */
+  transform: translateY(-50%); /* Correctly center vertically */
   height: var(--icon-size);
   width: var(--icon-size);
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 0; /* Behind the circle */
+  z-index: 2; /* Ensure icons are above the sliding circle */
   transition: color 0.3s ease;
   /* Default INACTIVE icon color */
-  color: var(--ifm-color-emphasis-600);
+  color: var( --neutral-800);
   cursor: pointer; /* Make icons clickable */
 }
 
@@ -485,62 +422,54 @@ html[data-theme="dark"] .theme-toggle {
 .moon-icon svg {
   width: 100%;
   height: 100%;
-  display: block;
 }
 
 /* Icon Positioning */
 .sun-icon {
-  /* Position slightly inside the left padding area */
-  left: calc(var(--toggle-padding) + ( (var(--circle-size) - var(--icon-size)) / 2 ) + 1px);
+  left:0.6rem; /* Space from left edge */
 }
 
 .moon-icon {
-  /* Position slightly inside the right padding area */
-  right: calc(var(--toggle-padding) + ( (var(--circle-size) - var(--icon-size)) / 2 ) + 1px);
+  right: 0.6rem; /* Space from right edge */
 }
-
-
-/* --- Icon ACTIVE State Styling --- */
-/* Style the icon when its corresponding 'active' class is added by React */
-.theme-toggle .sun-icon.active svg,
-.theme-toggle .moon-icon.active svg {
-  color: #000000 !important; /* BLACK color for active */
-}
-
-.theme-toggle .sun-icon:not(.active) svg,
-.theme-toggle .moon-icon:not(.active) svg {
-  color: var(--ifm-color-emphasis-600); /* Gray color for inactive */
-}
-
-/* Optional: Adjust active color in dark mode if pure black is too harsh */
-html[data-theme="dark"] .theme-toggle .sun-icon.active,
-html[data-theme="dark"] .theme-toggle .moon-icon.active {
-  color: #ffffff; /* White in dark mode */
-  /* Or use a lighter theme color: color: var(--ifm-font-color-base); */
-}
-
 
 /* --- Sliding Circle --- */
 .toggle-circle {
   position: absolute;
   top: var(--toggle-padding);
-  left: var(--toggle-padding); /* Default position */
+  left: var(--toggle-padding);
   width: var(--circle-size);
   height: var(--circle-size);
   border-radius: 50%;
-  background-color: #ffffff; /* WHITE circle as requested */
+  background-color: var(--background-01);
   box-shadow: var(--ifm-global-shadow-xs);
-  z-index: 1; /* Above the icons */
+  z-index: 1; 
   transition: transform 0.3s ease;
-  /* Prevent clicks on the circle itself interfering with icon clicks */
   pointer-events: none;
 }
 
-html[data-theme="dark"] .toggle-circle {
-   /* Keep white in dark mode */
-   background-color: #ffffff;
-   box-shadow: 0 0 0 1px var(--ifm-color-emphasis-400); /* Optional border */
+/* Circle on the LEFT (when .left class is present) */
+.theme-toggle .toggle-circle.left {
+  transform: translateX(0);
 }
+
+.theme-toggle .toggle-circle.right {
+    transform: translateX(calc(var(--toggle-width) - var(--circle-size) - (var(--toggle-padding) * 2))); /* Move circle to the right */
+}
+
+/* --- Icon ACTIVE State Styling --- */
+/* Style the icon when its corresponding 'active' class is added by React */
+.theme-toggle .sun-icon.active svg,
+.theme-toggle .moon-icon.active svg {
+  color: var(--text-primary) !important; /* BLACK color for active */
+}
+
+.theme-toggle .sun-icon:not(.active) svg,
+.theme-toggle .moon-icon:not(.active) svg {
+  color: var(--neutral-500); /* Gray color for inactive */
+}
+
+
 
 /* --- Toggle States (Circle Movement based on class) --- */
 
@@ -650,7 +579,7 @@ html[data-theme="dark"] .toggle-circle {
       /* Make icon bigger */
       width: 16px !important; /* Increased from 20px */
       height: 16px !important; /* Keep square aspect ratio */
-      color: var(--ifm-navbar-link-color) !important;
+      /* color: var(--ifm-navbar-link-color) !important; */
       margin: 0 !important; /* Removed invalid margin-top */
       /* Make icon bolder */
       stroke-width: 2 !important; /* Increased from inherit (default ~1.6) */
@@ -664,6 +593,8 @@ html[data-theme="dark"] .toggle-circle {
       height: 0 !important;
       overflow: hidden !important;
       visibility: hidden !important;
+      background-color: var(--background-01) !important;
+
     }
   }
 }
