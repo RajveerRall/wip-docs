@@ -4,6 +4,7 @@
   /* Assuming Layout provides max-width and centering (mx-auto) */
   padding: 1.5rem 12rem;
   width: 100%; /* Ensure it takes available width within the Layout container */
+  background-color: var(--background-01);
 }
 
 @media (max-width: 800px) {

@@ -283,6 +283,12 @@ html[data-theme="dark"] .divider {
   color: var( --text-white)!important
 }
 
+/* Dark mode */
+html[data-theme="dark"] .bookSlotButton {
+  background-color: var(--extended-primary-900)!important; /* dark:bg-[...] */
+  color: var(--static-white) !important
+}
+
 /* --- Office Hours Image --- */
 .officeHoursImage {
   position: absolute; /* absolute */

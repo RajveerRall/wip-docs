@@ -15,12 +15,14 @@
 
 .apiCard {
   flex: 1;
-  background-color: white;
   padding: 32px;
   display: flex;
   flex-direction: column;
   transition: all 0.3s ease;
   border-radius: 0;
+  background-color: var(
+    --background-01
+  );
 }
 
 /* Add a subtle separator between cards */
@@ -32,9 +34,7 @@ html[data-theme="dark"] .apiCardsContainer {
   border-color: #333;
 }
 
-html[data-theme="dark"] .apiCard {
-  background-color: #1a1a1a;
-}
+
 
 html[data-theme="dark"] .apiCard:first-child {
   border-right-color: #333;

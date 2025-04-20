@@ -28,6 +28,7 @@ html[data-theme="dark"] .gridDescription {
   width: 100%; /* w-full */
   flex-direction: column; /* flex-col */
   gap: 0.7rem; /* gap-6 */
+  
 }
 
 @media (min-width: 768px) {
@@ -49,6 +50,9 @@ html[data-theme="dark"] .gridDescription {
   border: 1px solid var(--ifm-color-emphasis-200); /* border border-[...] */
   background-color: var(--ifm-card-background-color); /* bg-[...] */
   padding: 1rem; /* p-4 */
+  background-color: var(
+    --background-01
+  );
 
   /* Shadow & Transition */
   box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */

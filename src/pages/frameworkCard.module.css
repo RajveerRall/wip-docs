@@ -16,10 +16,10 @@
   display: flex; /* flex */
   height: 100%; /* h-full */
   align-items: center; /* items-center */
-  border-radius: 0.5rem; /* rounded-lg */
-  border: 1px solid var(--neutral-300); /* border border-[--ifm-color-emphasis-200] */
+  border-radius: 0.5rem; /* rounded-lg  */
+  border: 0.001rem solid var(--neutral-400);
   background-color: var(
-    --ifm-card-background-color
+    --background-01
   ); /* bg-[--ifm-card-background-color] */
   box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
   transition: all 200ms ease-out; /* transition-all duration-200 ease-out */
@@ -42,6 +42,7 @@
   .cardBody {
     padding: 1rem; /* lg:p-4 */
     gap: 1rem; /* lg:space-x-4 equivalent */
+    opacity: 0.9;
   }
 }
 
@@ -121,7 +122,7 @@ html[data-theme="dark"] .cardLink:hover .cardBody {
 
 /* --- Version Badge --- */
 .versionBadge {
-  margin-top: 0.1rem; /* Approximating mt-0.4 */
+  margin-top: 0.2rem; /* Approximating mt-0.4 */
   display: inline-flex; /* inline-flex */
   width: fit-content; /* w-fit */
   align-items: center; /* items-center */
@@ -130,7 +131,9 @@ html[data-theme="dark"] .cardLink:hover .cardBody {
   border: 1px solid var(--neutral-300); /* border-2 border-[...] */
   color: var(--ifm-color-emphasis-700); /* text-[...] */
   font-weight: var(--ifm-font-weight-medium); /* font-medium */
-
+  background-color: var(
+    --background-01
+  );
   /* Responsive Padding */
   padding: 0.2rem; /* py-0 px-1 */
 }
@@ -141,12 +144,6 @@ html[data-theme="dark"] .cardLink:hover .cardBody {
   line-height: 1; /* Adjust line-height for small font */
 }
 
-/* Dark Mode Badge Styles */
-html[data-theme="dark"] .versionBadge {
-  border-color: var(--ifm-color-emphasis-300); /* dark:border-[...] */
-  background-color: var(--ifm-color-emphasis-200); /* dark:bg-[...] */
-  color: var(--ifm-color-emphasis-600); /* dark:text-[...] */
-}
 
 @media (max-width: 996px) {
   .cardTitle {
