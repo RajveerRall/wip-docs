@@ -145,9 +145,9 @@ html[data-theme="dark"] .logo-dark {
 /* Headings */
 .menu-heading {
   color: var(--ifm-font-color-base);
-  margin-bottom: 10px;
-  padding-bottom: 5px;
-  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  margin-bottom: 5px;
+  padding-bottom: 3px;
+  /* border-bottom: 1px solid var(--ifm-color-emphasis-200); */
 }
 
 /* Item Containers (Base) */
