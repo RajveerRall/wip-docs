@@ -66,11 +66,11 @@ const config: Config = {
         includeCurrentVersion: true, // Serve current content at the base routeBasePath
         lastVersion: "current", // Treat 'current' as the latest stable (change after creating named versions)
         // Define specific versions if you have created them:
-        // versions: {
-        //   current: { label: 'Next 🚧', path: 'next' }, // Example 'next' version
-        //   '2.0': { label: 'v2.0', path: '2.0' },      // Example '2.0' version
-        //   '1.0': { label: 'v1.0', path: '1.0' },      // Example '1.0' version
-        // },
+        versions: {
+          // current: { label: 'Next 🚧', path: 'next' }, // Example 'next' version
+          // '2.0': { label: 'v2.0', path: '2.0' },      // Example '2.0' version
+          '1.0': { label: 'v1.0', path: '1.0' },      // Example '1.0' version
+        },
       },
     ],
     // Add other plugins here if needed (e.g., for Flutter Kit if it also needs separate versioning)

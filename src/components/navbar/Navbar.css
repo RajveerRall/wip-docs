@@ -597,7 +597,6 @@ html[data-theme='dark'] .theme-toggle{
       overflow: hidden !important;
       visibility: hidden !important;
       background-color: var(--background-01) !important;
-
     }
   }
 }

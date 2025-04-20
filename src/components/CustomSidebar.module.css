@@ -1,164 +1,181 @@
-
+/* Main container for the custom sidebar elements */
 .sidebarContainer {
   padding: 0.75rem 0.5rem;
-  /* Assuming --ifm-navbar-height is globally defined */
-  padding-top: calc(var(--ifm-navbar-height, 60px) + 1.5rem); /* Added fallback */
-  position: relative;
-  z-index: 100;
-  margin-bottom: -30px; /* Kept original */
+  /* Adjust top padding to account for fixed navbar height */
+  /* Use Docusaurus variable with a sensible fallback */
+  padding-top: calc(var(--ifm-navbar-height, 60px) + 1.5rem);
+  position: relative; /* Establishes stacking context */
+  z-index: 100; /* Below dropdowns */
+  /* NOTE: Negative margin can cause overlap issues. Review if needed. */
+  margin-bottom: -30px;
   display: flex;
   flex-direction: column;
-  gap: 0.375rem;
+  gap: 0.375rem; /* Spacing between selectors */
 }
 
-/* Common dropdown styles */
+/* Wrapper for each dropdown selector */
 .selectorWrapper {
-  position: relative;
+  position: relative; /* Crucial for absolute positioning of dropdownMenu */
   width: 100%;
 }
 
+/* The clickable button for opening a dropdown */
 .dropdownButton {
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Pushes arrow to the right */
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--docs-color-border);        /* Applied Theme */
+  border: 1px solid var(--ifm-color-emphasis-300, #d1d5db); /* Use theme border, with fallback */
   border-radius: 0.5rem;
-  background-color: var(--docs-color-background-100); /* Applied Theme */
+  /* Use theme background, with fallback */
+  background-color: var(--ifm-background-color, white);
   cursor: pointer;
-  justify-content: space-between;
   width: 100%;
-  color: var(--docs-color-text);                   /* Applied Theme */
-  min-height: 2.5rem;
+  color: var(--ifm-font-color-base, black); /* Use theme text color, with fallback */
+  min-height: 2.5rem; /* Consistent height */
   box-sizing: border-box;
+  transition: border-color 0.2s, background-color 0.2s; /* Smooth transitions */
 }
 
-/* This rule might be redundant as styles are same as .dropdownButton */
-.versionSelector .dropdownButton {
-  padding: 0.5rem 0.75rem;
-  min-height: 2.5rem;
-  display: flex;
-  align-items: center;
+.dropdownButton:hover {
+  border-color: var(--ifm-color-emphasis-500, #9ca3af); /* Slightly darker border on hover */
 }
 
-/* This rule might be redundant as styles are same as .dropdownItem */
-.versionSelector .dropdownMenu .dropdownItem {
-  padding: 0.5rem 0.75rem;
-  min-height: 2.25rem;
-  display: flex;
-  align-items: center;
-}
-
+/* Label text inside the dropdown button */
 .dropdownLabel {
   font-weight: 500;
   font-size: 0.9rem;
-  flex: 1;
-  /* Added for safety */
+  flex: 1; /* Takes available space */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-right: 0.25rem;
+  margin-right: 0.5rem; /* Space before arrow/checkbox */
+  margin-left: 0.25rem; /* Space after logo/checkbox */
 }
 
+/* Arrow icon in the dropdown button */
 .dropdownArrow {
-  color: var(--docs-color-text-100); /* Applied Theme (muted text) */
-  margin-left: 0.25rem; /* Original */
-  flex-shrink: 0; /* Added for safety */
+  color: var(--ifm-color-emphasis-700, #4b5563); /* Muted text color, with fallback */
+  margin-left: 0.25rem;
+  flex-shrink: 0; /* Prevent shrinking */
+  transition: transform 0.2s ease-in-out; /* Animate arrow rotation if needed */
 }
 
+/* The dropdown menu itself */
 .dropdownMenu {
   position: absolute;
-  top: calc(100% + 0.25rem); /* Combined top/margin */
+  top: calc(100% + 0.25rem); /* Position below the button with small gap */
   left: 0;
-  right: 0;
-  background-color: var(--docs-color-background-100); /* Applied Theme */
-  border: 1px solid var(--docs-color-border);        /* Applied Theme */
+  right: 0; /* Span full width of wrapper */
+  /* --- FIX: Added Fallback Background Color --- */
+  background-color: var(--ifm-background-surface-color, white); /* Use theme surface color, **with fallback** */
+  border: 1px solid var(--ifm-color-emphasis-300, #d1d5db); /* Use theme border, with fallback */
   border-radius: 0.5rem;
-  overflow: hidden; /* Keep for border-radius */
-  z-index: 120;
-  box-shadow: 0 4px 6px -1px var(--dropdown-shadow), 0 2px 4px -1px var(--dropdown-shadow); /* Applied Theme */
-  max-height: 300px; /* Added for long lists */
-  overflow-y: auto;  /* Added for long lists */
+  overflow: hidden; /* Clip content to rounded corners */
+  z-index: 120; /* Ensure it's above other sidebar elements */
+  /* Use theme shadow variable or provide a sensible default */
+  box-shadow: var(--ifm-global-shadow-lw, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  max-height: 300px; /* Prevent excessively long dropdowns */
+  overflow-y: auto; /* Allow scrolling for long lists */
+  padding: 0.25rem 0; /* Add some vertical padding inside the menu */
 }
 
+/* Individual items within the dropdown menu */
 .dropdownItem {
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   font-size: 0.9rem;
-  color: var(--docs-color-text);                  /* Applied Theme */
-  min-height: 2.25rem;
+  color: var(--ifm-font-color-base, black); /* Use theme text color, with fallback */
+  min-height: 2.25rem; /* Consistent height */
   display: flex;
   align-items: center;
-  white-space: nowrap; /* Added */
-  overflow: hidden; /* Added */
-  text-overflow: ellipsis; /* Added */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: background-color 0.15s ease-in-out;
 }
 
 .dropdownItem:hover {
-  background-color: var(--docs-color-background-200); /* Applied Theme */
+  background-color: var(--ifm-hover-overlay, rgba(0, 0, 0, 0.05)); /* Use theme hover overlay */
 }
 
+/* Style for the currently selected/active item in the dropdown */
+.dropdownItem.active {
+  font-weight: 600;
+  /* Optionally add a background or different text color for active */
+  /* background-color: var(--ifm-color-primary-lightest, #e0f2fe); */
+  color: var(--ifm-color-primary, #2563eb); /* Use theme primary color */
+}
+
+/* Specific styles for the React logo */
 .reactLogo {
   width: 20px;
   height: 20px;
   margin-right: 0.5rem;
-  color: #61dafb; /* Kept specific brand color */
+  color: #61dafb; /* Keep specific brand color */
   flex-shrink: 0;
 }
 
-/* Version selector styles */
+/* Wrapper specific to the version selector part */
 .versionSelector {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  margin-bottom: -50px; /* Kept original */
-  position: relative;
-  z-index: 110;
-  width: 100%;
+  /* This wrapper might not need special styles if .selectorWrapper is sufficient */
+  /* NOTE: Negative margin can cause overlap issues. Review if needed. */
+   margin-bottom: -50px;
+   position: relative; /* Needed if it were to have its own absolutely positioned children */
+   z-index: 110; /* Above sidebar container, below dropdown menu */
 }
 
+/* Custom checkbox style for version selector */
 .versionCheckbox {
-  appearance: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  border: 1px solid var(--docs-color-border);       /* Applied Theme */
+  appearance: none; /* Remove default browser styling */
+  width: 1.15rem; /* Slightly smaller */
+  height: 1.15rem;
+  border: 1px solid var(--ifm-color-emphasis-500, #9ca3af); /* Use theme border, with fallback */
   border-radius: 0.25rem;
   margin-right: 0.5rem;
-  position: relative;
-  cursor: pointer;
+  position: relative; /* For positioning the checkmark */
+  cursor: default; /* Checkbox isn't interactive itself here */
   background-color: transparent;
   flex-shrink: 0;
-  transition: background-color 0.2s, border-color 0.2s; /* Added */
+  display: inline-block; /* Ensure proper layout */
+  vertical-align: middle; /* Align with text */
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
+/* Checked state for the custom checkbox */
 .versionCheckbox:checked {
-  background-color: var(--docs-color-primary);     /* Applied Theme */
-  border-color: var(--docs-color-primary);         /* Applied Theme */
+  background-color: var(--ifm-color-primary, #2563eb); /* Use theme primary color */
+  border-color: var(--ifm-color-primary, #2563eb);
 }
 
-/* Adjust the checkmark position for the larger checkbox */
+/* Custom checkmark using ::after pseudo-element */
 .versionCheckbox:checked::after {
   content: '';
   position: absolute;
-  left: 6px;
-  top: 3px;
+  /* Adjust positioning for the 1.15rem size */
+  left: 5px;
+  top: 2px;
   width: 4px;
   height: 8px;
   border: solid white; /* Checkmark color */
-  border-width: 0 2px 2px 0;
+  border-width: 0 2px 2px 0; /* Creates the check shape */
   transform: rotate(45deg);
 }
 
-/* Add focus state for accessibility */
-.versionCheckbox:focus-visible {
-  outline: 2px solid var(--docs-color-primary);
-  outline-offset: 2px;
+/* Style for when no versions are available */
+.noVersions {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.85rem;
+  color: var(--ifm-color-emphasis-700, #4b5563); /* Muted text color */
+  font-style: italic;
 }
 
-/* Override global Docusaurus menu styles */
+
+/* --- Global Docusaurus Menu Overrides --- */
+/* Apply padding consistently */
 :global(.menu) {
-  /* Kept !important from original, consider removing if possible */
-  padding: 0.75rem 0.5rem !important;
-  font-size: 0.875rem;
+  padding: 0.75rem 0.5rem !important; /* Match sidebar padding */
+  font-size: 0.875rem; /* Slightly smaller base font for menu */
 }
 
 :global(.menu__list) {
@@ -167,77 +184,79 @@
 }
 
 :global(.menu__list-item) {
-  margin: 0.125rem 0;
+  margin: 0; /* Remove default margins */
 }
 
 :global(.menu__link) {
   padding: 0.5rem 0.75rem;
-  border-radius: 0.25rem;
+  border-radius: 0.375rem; /* Slightly smaller radius */
   font-weight: 400;
-  transition: background-color 0.2s, color 0.2s;
-  color: var(--docs-color-text);                    /* Applied Theme */
-  display: block; /* Added */
-  width: 100%;    /* Added */
-  box-sizing: border-box; /* Added */
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  color: var(--ifm-font-color-secondary, #4a5568); /* Use secondary text color for non-active links */
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.4; /* Improve readability */
 }
 
 :global(.menu__link--active) {
-  background-color: transparent; /* Keep transparent */
-  font-weight: 500;
-  color: var(--docs-color-primary);                  /* Applied Theme */
+  background-color: transparent; /* Active link shouldn't have default bg */
+  font-weight: 500; /* Slightly bolder */
+  color: var(--ifm-color-primary, #2563eb); /* Use theme primary color */
 }
 
-/* Use theme tint for hover */
-:global(.menu__link:hover),
+:global(.menu__link:hover) {
+  background-color: var(--ifm-hover-overlay, rgba(0, 0, 0, 0.05)); /* Subtle hover */
+  color: var(--ifm-font-color-base, black); /* Use base text color on hover */
+}
+
+/* Ensure active link hover is consistent */
 :global(.menu__link--active:hover) {
-  background-color: var(--docs-color-primary-tint); /* Applied Theme */
+  background-color: var(--ifm-hover-overlay, rgba(0, 0, 0, 0.05));
+  /* Keep primary color on hover for active link */
+  color: var(--ifm-color-primary, #2563eb);
 }
 
-/* Dark mode overrides already handled by the [data-theme="dark"] definition */
-/* The --docs-color-primary-tint variable changes in dark mode */
-
-/* Category headers */
-:global(.menu__list-item-collapsible) {
-   /* font-weight: 500; /* This is often inherited or set on the link */
-   margin-bottom: 0.25rem; /* Optional spacing */
+/* Category headers (Collapsible items) */
+:global(.menu__list-item--collapsible > .menu__link) {
+  font-weight: 500;
+  color: var(--ifm-font-color-base, black); /* Base text color for categories */
 }
 
-/* Target the link *inside* the collapsible item */
-:global(.menu__list-item-collapsible > .menu__link) {
-  font-weight: 500; /* Apply weight here */
-  color: var(--docs-color-text); /* Applied Theme (dropdown-text was likely main text) */
+/* Caret icon for collapsible items */
+:global(.menu__link--sublist-caret) {
+  /* Ensure link takes full width even with caret */
+  padding-right: 1.75rem !important;
 }
 
-/* Ensure hover state consistency */
-:global(.menu__list-item-collapsible > .menu__link:hover) {
-  background-color: var(--docs-color-primary-tint); /* Applied Theme */
-}
-
-/* Remove redundant hover rule (covered by the general link hover) */
-/*
-:global(.menu__list-item-collapsible:hover) {
-  background-color: transparent;
-}
-*/
-
-/* Right arrow indicator for collapsible menu items */
 :global(.menu__link--sublist-caret::after) {
-  content: '›';
-  font-size: 1.2rem;
-  line-height: 1;
-  transform: translateY(-50%) rotate(90deg); /* Centered vertically */
-  background: none !important; /* Ensure no theme bg image */
-  border: none; /* Ensure no theme border */
-  position: absolute; /* Needed for positioning */
-  right: 0.75rem; /* Position from right */
-  top: 50%; /* Position vertically */
-  transition: transform 0.2s ease; /* Smooth animation */
-  width: auto; /* Override defaults */
-  height: auto; /* Override defaults */
-  margin: 0; /* Override defaults */
-  color: var(--docs-color-text-100); /* Use muted color for icon */
+  /* Using mask for SVG icon is more robust than content:'›' */
+  content: '';
+  display: block;
+  width: 0.8rem;
+  height: 0.8rem;
+  background-color: var(--ifm-color-emphasis-700, #4b5563); /* Icon color */
+  mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%) rotate(0deg); /* Start pointing down */
+  transition: transform 0.2s ease-in-out, background-color 0.2s;
+  /* Remove Docusaurus defaults */
+  background-image: none !important;
+  border: none !important;
+  margin: 0 !important;
 }
 
+/* Rotate caret when item is collapsed (points right) */
 :global(.menu__list-item--collapsed > .menu__link--sublist-caret::after) {
-  transform: translateY(-50%) rotate(0deg); /* Rotate back when collapsed */
+  transform: translateY(-50%) rotate(-90deg);
+}
+
+:global(.menu__link--sublist-caret:hover::after) {
+   background-color: var(--ifm-color-primary, #2563eb); /* Change caret color on hover */
 }

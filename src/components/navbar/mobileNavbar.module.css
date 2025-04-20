@@ -5,6 +5,9 @@
 /* .navbarHeader {} */
 /* Add specific overrides or additional styles if needed */
 
+.navbar{
+  padding:0!important;
+}
 .navbarHeader {
   position: fixed; /* No quotes! */
   top: 0; /* Added: Usually needed with position:fixed */
@@ -37,8 +40,7 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-left: 1rem; /* px-4 */
-  padding-right: 1rem; /* px-4 */
+  padding-right: 0.5rem;
 }
 
 /* --- Logo Container --- */
@@ -82,7 +84,7 @@
   height: 1.3rem; /* h-9 */
   width: 1.3rem; /* w-9 */
   border: 1px solid var(--ifm-color-emphasis-500); /* border border-[...] */
-  background-color: var(--ifm-hover-overlay); /* bg-[--ifm-hover-overlay] */
+  background-color: var(--background-01); /* bg-[--ifm-hover-overlay] */
   border-radius: 0.2rem; /* rounded-md */
   cursor: pointer; /* cursor-pointer */
   transition: background-color 0.2s ease, border-color 0.2s ease; /* transition-colors */
@@ -182,7 +184,7 @@ html[data-theme="dark"] .optionsButtonWrapper {
   visibility: hidden !important;
 }
 
-html:not([data-theme="dark"]) .DocSearch-Button .DocSearch-Search-Icon {
+.DocSearch-Button .DocSearch-Search-Icon {
   /* stroke: var(--ifm-font-color-secondary, #555) !important; */
-  color: var(--docs-color-background-500) !important;
+  color: var(--natural-500) !important;
 }
