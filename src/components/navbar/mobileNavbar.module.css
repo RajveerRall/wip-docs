@@ -14,12 +14,8 @@
   left: 0; /* Added: Usually needed with position:fixed */
   width: 100%; /* Added: Usually needed with position:fixed */
   z-index: 1000; /* Added: Ensure it stays on top */
-  /* Inherits background etc from theme's .navbar */
-  /* You might need to explicitly set background-color here too */
-  background-color: var(
-    --ifm-navbar-background-color,
-    var(--ifm-background-surface-color)
-  );
+
+  background-color: var(--background-01)
 }
 .docsMenuTriggerButton {
   background: none;
@@ -52,13 +48,13 @@
 
 .darkLogo {
   display: block; /* block */
-  height: 1rem; /* h-7 */
+  height: 1.1rem; /* h-7 */
   width: auto; /* w-auto */
 }
 
 .lightLogo {
   display: block; /* block */
-  height: 1.5rem; /* h-7 */
+  height: 1.6rem; /* h-7 */
   width: auto; /* w-auto */
 }
 
@@ -81,9 +77,9 @@
   display: inline-flex; /* inline-flex */
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
-  height: 1.3rem; /* h-9 */
-  width: 1.3rem; /* w-9 */
-  border: 1px solid var(--ifm-color-emphasis-500); /* border border-[...] */
+  height: 1.8rem; /* h-9 */
+  width: 1.8rem; /* w-9 */
+  border: 1px solid var(--neutral-300); /* border border-[...] */
   background-color: var(--background-01); /* bg-[--ifm-hover-overlay] */
   border-radius: 0.2rem; /* rounded-md */
   cursor: pointer; /* cursor-pointer */
@@ -106,7 +102,7 @@ html[data-theme="dark"] .optionsButtonWrapper {
 .optionsIcon {
   height: 0.8rem; /* h-5 */
   width: 0.8rem; /* w-5 */
-  color: var(--ifm-navbar-link-color); /* text-[--ifm-navbar-link-color] */
+  color: var( --neutral-500)!important; /* text-[--ifm-navbar-link-color] */
 }
 
 /* --- Close Button --- */
@@ -186,5 +182,5 @@ html[data-theme="dark"] .optionsButtonWrapper {
 
 .DocSearch-Button .DocSearch-Search-Icon {
   /* stroke: var(--ifm-font-color-secondary, #555) !important; */
-  color: var(--natural-500) !important;
+  color: var(--natural-600) !important;
 }

@@ -4,6 +4,8 @@ import ThemeToggle from "./theme-toggle"; // Assuming this handles its own style
 import MobileIntegrate from "./mobileIntegration"; // Assuming uses its own styles or passed classNames
 import MobilePlatform from "./mobilePlatform"; // Assuming uses its own styles or passed classNames
 import styles from "./mobileMenu.module.css"; // Import the CSS Module
+import Drawer from 'react-modern-drawer';
+import 'react-modern-drawer/dist/index.css';
 
 interface MobileMenuProps {
   isOpen: boolean;
@@ -13,6 +15,7 @@ interface MobileMenuProps {
 const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   const [isDisplayIntegration, setDisplayIntegration] = useState(false);
   const [isDisplayPlatform, setDisplayPlatform] = useState(false);
+
 
   if (!isOpen) {
     return null;
@@ -24,12 +27,18 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
   };
 
   return (
-    // Overlay container
-    <div className={styles.mobileMenuOverlay} aria-modal="true">
-      {/* Main Content Area */}
-      <div className={styles.mainContent}>
-        {/* --- START: Navigation Section with CSS Modules --- */}
-        <nav className={styles.navSection}>
+    <Drawer
+      open={isOpen}
+      onClose={onClose}
+      lockBackgroundScroll={isOpen}
+
+      direction='left'
+      size={'100vw'}
+
+    >
+      <div style={{ padding: '20px', height: '100%', boxSizing: 'border-box', overflowY: 'auto' }}>
+        {/* Add more content here */}
+        <div style={{ marginTop: '3rem' }}>
           <dl>
             {/* Integrate Section Toggle */}
             <dt>
@@ -54,7 +63,6 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <MobileIntegrate />
             )}
 
-            {/* Platform Section Toggle */}
             <dt>
               <button // Using button for better accessibility for toggle actions
                 type="button"
@@ -77,32 +85,24 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
               <MobilePlatform />
             )}
           </dl>
-        </nav>
-        {/* --- END: Navigation Section --- */}
 
-        {/* Action Buttons */}
-        <div className={styles.actionButtonsContainer}>
-          {/* Dashboard Button */}
-          <div onClick={handleLinkClick} className={styles.dashboardButton}>
-            Dashboard
+          <div className={styles.actionButtonsContainer}>
+            <div onClick={handleLinkClick} className={styles.dashboardButton}>
+              Dashboard
+            </div>
+            <div onClick={handleLinkClick} className={styles.contactButton}>
+              Contact Support
+            </div>
+
           </div>
-
-          {/* Contact Support Button */}
-          <div onClick={handleLinkClick} className={styles.contactButton}>
-            Contact Support
-          </div>
-        </div>
-
-        {/* Spacer to push theme toggle to bottom */}
-        <div className={styles.spacer}></div>
-
-        {/* Theme Toggle Section */}
-        <div className={styles.themeToggleContainer}>
+          <div className={styles.spacer}></div>
+          <div className={styles.themeToggleContainer}>
           {/* ThemeToggle should ideally handle its own styles */}
           <ThemeToggle />
         </div>
+        </div>
       </div>
-    </div>
+    </Drawer>
   );
 };
 

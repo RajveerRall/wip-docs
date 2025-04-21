@@ -5,19 +5,16 @@
 }
 .mobileMenuOverlay {
   position: fixed;
-  width: 100vw;
+  width: 100dvw;
   top: 50px;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 1000;
-  display: flex;
+  z-index: 20000;
+  display: inherit;
   flex-direction: column;
-  background-color: var(--docs-color-background-100);
+  background-color: var(--background-01);
   box-shadow: 0 -4px 6px -1px var(--toggle-shadow, rgba(0, 0, 0, 0.1));
-}
-html[data-theme="dark"] .mobileMenuOverlay {
-  background-color: var(--docs-color-background);
 }
 
 .mobileMenuHeader {
