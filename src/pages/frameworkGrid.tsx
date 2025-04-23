@@ -1,5 +1,6 @@
 import React from "react";
 import FrameworkCard from "./frameworkCard"; // Assuming FrameworkCard is styled independently
+import { useWindowSize } from "@docusaurus/theme-common/internal";
 
 // Import the CSS Module
 import styles from "./frameworkGrid.module.css"; // Correct path to the CSS module
@@ -25,13 +26,15 @@ export default function FrameworkGrid({
   description,
   frameworks,
 }: FrameworkGridProps): React.ReactElement {
+  const windowSize = useWindowSize();
+  const isMobile = windowSize === "mobile";
   return (
     // Use CSS module class for the section container
     <div className={styles.gridSection}>
       {/* Use CSS module class for the Section Title */}
-      <p className={`${styles.gridTitle} text-h2 font-semibold`}>{title}</p>
+      <p className={`${styles.gridTitle} ${isMobile?'text-h3':'text-h2'} font-semibold`}>{title}</p>
       {/* Use CSS module class for the Section Description */}
-      <p className={`${styles.gridDescription} text-body-2`}>{description}</p>
+      <p className={`${styles.gridDescription} ${isMobile?'text-caption-1':'text-body-2'}`}>{description}</p>
 
       {/* Use CSS module class for the Grid Layout */}
       <div className={styles.frameworkItemsGrid}>

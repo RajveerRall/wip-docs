@@ -22,6 +22,7 @@ html[data-theme="dark"] .gridDescription {
 
 @media (max-width: 996px) {
   .gridDescription {
+    max-width: 100vw;
     font-size: 0.8rem !important; /* lg:text-5xl */
   }
 }

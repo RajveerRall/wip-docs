@@ -1,108 +1,144 @@
-import React, { useState } from "react"; // Re-added useState for integrate/platform toggle
-import { IoChevronForward, IoChevronDownOutline } from "react-icons/io5";
-import ThemeToggle from "./theme-toggle"; // Assuming this handles its own styles/imports
-import MobileIntegrate from "./mobileIntegration"; // Assuming uses its own styles or passed classNames
-import MobilePlatform from "./mobilePlatform"; // Assuming uses its own styles or passed classNames
-import styles from "./mobileMenu.module.css"; // Import the CSS Module
-import Drawer from 'react-modern-drawer';
-import 'react-modern-drawer/dist/index.css';
+import React, { useState, useEffect } from "react";
+import { IoChevronForward, IoChevronDownOutline, IoClose } from "react-icons/io5";
+import ThemeToggle from "./theme-toggle";
+import MobileIntegrate from "./mobileIntegration";
+import MobilePlatform from "./mobilePlatform";
+import styles from "./mobileMenu.module.css"; // Your CSS module
 
-interface MobileMenuProps {
-  isOpen: boolean;
-  onClose: () => void;
-}
+// Example Close Function (replace with your actual logic)
+const handleClose = () => {
+  console.log("Close menu clicked");
+  // --- Add your logic here to hide the menu ---
+  document.body.style.overflow = ''; // Re-enable scroll on close
+};
 
-const MobileMenu: React.FC<MobileMenuProps> = ({ isOpen, onClose }) => {
+const MobileMenu = () => {
   const [isDisplayIntegration, setDisplayIntegration] = useState(false);
   const [isDisplayPlatform, setDisplayPlatform] = useState(false);
 
+  // Effect to disable body scroll when the menu is open
+  useEffect(() => {
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = originalOverflow || '';
+    };
+  }, []);
 
-  if (!isOpen) {
-    return null;
-  }
-
-  // Function to close the menu when a navigational link is clicked
-  const handleLinkClick = () => {
-    onClose();
+  // Click handler for the Integrate button
+  const handleIntegrateClick = () => {
+    const nextState = !isDisplayIntegration; // Calculate next state before setting
+    setDisplayIntegration(nextState);
+    if (nextState) { // If we are turning Integrate ON
+      setDisplayPlatform(false); // Turn Platform OFF
+    }
   };
 
+  // Click handler for the Platform button
+  const handlePlatformClick = () => {
+    const nextState = !isDisplayPlatform; // Calculate next state before setting
+    setDisplayPlatform(nextState);
+    if (nextState) { // If we are turning Platform ON
+      setDisplayIntegration(false); // Turn Integrate OFF
+    }
+  };
+
+
   return (
-    <Drawer
-      open={isOpen}
-      onClose={onClose}
-      lockBackgroundScroll={isOpen}
+    // Main overlay container
+    <div className={styles.mobileMenuOverlay}>
 
-      direction='left'
-      size={'100vw'}
-
-    >
-      <div style={{ padding: '20px', height: '100%', boxSizing: 'border-box', overflowY: 'auto' }}>
-        {/* Add more content here */}
-        <div style={{ marginTop: '3rem' }}>
-          <dl>
-            {/* Integrate Section Toggle */}
-            <dt>
-              <button // Using button for better accessibility for toggle actions
-                type="button"
-                onClick={() => {
-                  setDisplayIntegration(!isDisplayIntegration);
-                  setDisplayPlatform(false);
-                }}
-                className={styles.navLink} // Use button specific styles if needed, or share navLink
-              >
-                <span>Integrate</span>
-                {isDisplayIntegration ? (
-                  <IoChevronDownOutline className={styles.chevronIcon} />
-                ) : (
-                  <IoChevronForward className={styles.chevronIcon} />
-                )}
-              </button>
-            </dt>
-            {isDisplayIntegration && (
-              // Pass necessary styles or let component handle it
-              <MobileIntegrate />
-            )}
-
-            <dt>
-              <button // Using button for better accessibility for toggle actions
-                type="button"
-                onClick={() => {
-                  setDisplayPlatform(!isDisplayPlatform);
-                  setDisplayIntegration(false);
-                }}
-                className={styles.navLink} // Use button specific styles if needed, or share navLink
-              >
-                <span>Platform</span>
-                {isDisplayPlatform ? (
-                  <IoChevronDownOutline className={styles.chevronIcon} />
-                ) : (
-                  <IoChevronForward className={styles.chevronIcon} />
-                )}
-              </button>
-            </dt>
-            {isDisplayPlatform && (
-              // Pass necessary styles or let component handle it
-              <MobilePlatform />
-            )}
-          </dl>
-
-          <div className={styles.actionButtonsContainer}>
-            <div onClick={handleLinkClick} className={styles.dashboardButton}>
-              Dashboard
-            </div>
-            <div onClick={handleLinkClick} className={styles.contactButton}>
-              Contact Support
-            </div>
-
-          </div>
-          <div className={styles.spacer}></div>
-          <div className={styles.themeToggleContainer}>
-          {/* ThemeToggle should ideally handle its own styles */}
-          <ThemeToggle />
-        </div>
-        </div>
+      {/* 1. Header (Fixed Top) */}
+      <div className={styles.mobileMenuHeader}>
+        <span className={styles.menuTitle}>Menu</span>
+        <button
+          type="button"
+          className={styles.closeButton}
+          onClick={handleClose}
+          aria-label="Close menu"
+        >
+          <IoClose size={24} />
+        </button>
       </div>
-    </Drawer>
+
+      {/* 2. Main Content (Scrollable Area) */}
+      <div className={styles.mainContent}>
+
+        {/* --- Navigation Buttons --- */}
+        {/* Removed dl/dt structure */}
+        <div className={styles.navSection}> {/* Using navSection for spacing */}
+          {/* Integrate Button */}
+          <button
+            type="button"
+            onClick={handleIntegrateClick} // Use specific handler
+            className={styles.navLink} // Use navLink style for the button
+             // Indicate active state visually via icon or different style if needed
+             aria-pressed={isDisplayIntegration} // Use aria-pressed for toggle buttons controlling other regions
+          >
+            <span>Integrate</span>
+             {/* Icon can indicate state or just presence */}
+            {isDisplayIntegration ? (
+                <IoChevronDownOutline className={styles.chevronIcon} />
+              ) : (
+                <IoChevronForward className={styles.chevronIcon} />
+            )}
+          </button>
+          <div className={styles.dynamicContentSection}> {/* Add spacing/styling via CSS */}
+          {isDisplayIntegration && (
+              <MobileIntegrate />
+          )}
+        </div>
+
+          {/* Platform Button */}
+          <button
+            type="button"
+            onClick={handlePlatformClick} // Use specific handler
+            className={styles.navLink} // Use navLink style for the button
+             aria-pressed={isDisplayPlatform} // Use aria-pressed
+          >
+            <span>Platform</span>
+             {/* Icon can indicate state or just presence */}
+            {isDisplayPlatform ? (
+                <IoChevronDownOutline className={styles.chevronIcon} />
+              ) : (
+                <IoChevronForward className={styles.chevronIcon} />
+            )}
+          </button>
+        </div>
+        {/* --- End Navigation Buttons --- */}
+
+
+        {/* --- Conditionally Rendered Content Area --- */}
+        {/* This div appears below the buttons when a corresponding state is true */}
+        <div className={styles.dynamicContentSection}> {/* Add spacing/styling via CSS */}
+          {isDisplayPlatform && (
+              <MobilePlatform />
+          )}
+        </div>
+        {/* --- End Conditionally Rendered Content Area --- */}
+
+        {/* --- Action Buttons --- */}
+        {/* These appear below the navigation buttons and the dynamic content area */}
+        <div className={styles.actionButtonsContainer}>
+          <a href="/dashboard" className={`${styles.dashboardButton} text-content-1`}>
+            Dashboard
+          </a>
+          <a href="/contact" className={`${styles.contactButton} text-footnote`}>
+            Contact Support
+          </a>
+        </div>
+        {/* --- End Action Buttons --- */}
+
+      </div> {/* End of mainContent */}
+
+
+      {/* 3. Footer (Fixed Bottom) */}
+      <div className={styles.themeToggleContainer}>
+        <span className="text-footnote">Theme:</span>
+        <ThemeToggle />
+      </div>
+
+    </div> // End of mobileMenuOverlay
   );
 };
 

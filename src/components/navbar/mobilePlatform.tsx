@@ -146,7 +146,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
       {/* Icon and Title Row */}
       <div className={styles.cardHeader}>
         <div className={styles.cardIconContainer}>{icon}</div>
-        <h3 className={styles.cardTitle}>{title}</h3>
+        <p className={`${styles.cardTitle} font-semibold`}>{title}</p>
       </div>
       {/* Description */}
       {description && description.trim() && (
@@ -183,13 +183,12 @@ const PlatformButton: React.FC<{
   return (
     <Link to={href} className={styles.platformButton}>
       {/* Icon container */}
-      <span className={styles.buttonIconContainer}>
-        {" "}
-        {/* Use a distinct name if styles differ */}
+      <span className={styles.iconContainer}>
+        {/* The icon prop will now contain the <img> tag */}
         {icon}
       </span>
       {/* Text */}
-      <span>{text}</span>
+      <span className="text-caption-2 font-semibold">{text}</span>
     </Link>
   );
 };
@@ -288,7 +287,6 @@ const MobilePlatform: React.FC = () => {
       {/* --- Sample Apps Section --- */}
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Sample Apps</h2>
-        <div className={styles.gridContainer}>
           {sampleApps.map((item) => (
             <PlatformButton
               key={`sample-${item.name}`} // Use name for key
@@ -313,7 +311,6 @@ const MobilePlatform: React.FC = () => {
           See All Apps
         </Link>
       </div>
-    </div>
   );
 };
 

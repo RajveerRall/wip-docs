@@ -66,7 +66,7 @@ const PlatformButton: React.FC<{
         {icon}
       </span>
       {/* Text */}
-      <span>{text}</span>
+      <span className="text-caption-2 font-semibold">{text}</span>
     </Link>
   );
 };
@@ -86,7 +86,7 @@ const MobileIntegrate: React.FC = () => {
       <div className={styles.section}>
         {" "}
         {/* Added section class */}
-        <h2 className={styles.sectionTitle}>UI Kits</h2>
+        <p className={`${styles.sectionTitle} text-context-2 font-medium`}>UI Kits</p>
         <div className={styles.gridContainer}>
           {uiKitsList.map((item) => (
             <PlatformButton
@@ -112,7 +112,7 @@ const MobileIntegrate: React.FC = () => {
       <div className={styles.section}>
         {" "}
         {/* Added section class */}
-        <h2 className={styles.sectionTitle}>SDKs</h2>
+        <p className={`${styles.sectionTitle} text-context-2 font-medium`}>SDKs</p>
         <div className={styles.gridContainer}>
           {sdks.map((item) => (
             <PlatformButton
@@ -138,23 +138,23 @@ const MobileIntegrate: React.FC = () => {
       <div className={styles.section}>
         {" "}
         {/* Added section class */}
-        <h2 className={styles.sectionTitle}>Widgets</h2>
-        <div className={styles.gridContainer}>
+        <p className={`${styles.sectionTitle} text-context-2 font-medium`}>Widgets</p>
           {widgets.map((item) => (
-            <PlatformButton
-              key={`widget-${item.name}`}
-              icon={
-                <img
-                  src={item.icon}
-                  alt={`${item.name} icon`}
-                  className={styles.iconImage} // Style the image itself
-                />
-              }
-              text={item.name}
-              href={item.href ?? generateHref("widgets", item.name)}
-            />
+            <div style={{marginBottom:'0.5rem'}}>
+              <PlatformButton
+                key={`widget-${item.name}`}
+                icon={
+                  <img
+                    src={item.icon}
+                    alt={`${item.name} icon`}
+                    className={styles.iconImage} // Style the image itself
+                  />
+                }
+                text={item.name}
+                href={item.href ?? generateHref("widgets", item.name)}
+              />
+            </div>
           ))}
-        </div>
       </div>
     </div>
   );

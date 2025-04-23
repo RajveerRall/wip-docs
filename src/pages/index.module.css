@@ -95,3 +95,10 @@
     margin-bottom: 4rem; /* md:my-16 */
   }
 }
+
+@media(max-width: 996px){
+  .heroDescription {
+    max-width: 100vw;/* max-w-3xl */
+    margin-bottom: 2rem;
+  }
+}

@@ -9,10 +9,13 @@ import ApiCardsRow from "./apiCardRow"; // Assuming these use their own styling 
 import SampleAppsSection from "./sampleApps"; // Assuming these use their own styling or will be refactored
 import AdditionalResources from "./additionalResource"; // Assuming these use their own styling or will be refactored
 import "../css/custom.css";
+import { useWindowSize } from "@docusaurus/theme-common/internal";
 // Import the CSS Module
 import styles from "./index.module.css"; // Make sure the path is correct
 
 export default function Homepage() {
+  const windowSize = useWindowSize();
+  const isMobile = windowSize === "mobile";
   // Data remains the same
   const data = {
     title: "Get Started",
@@ -142,8 +145,8 @@ export default function Homepage() {
 
         {/* Hero Section with CSS Module classes */}
         <div>
-          <p className={`${styles.heroTitle} text-title-28 font-semibold`}>{data.title}</p>
-          <p className={`${styles.heroDescription} text-body-2`}>{data.content}</p>
+          <p className={`${styles.heroTitle} ${isMobile?'text-h2':'text-title-28'} font-semibold`}>{data.title}</p>
+          <p className={`${styles.heroDescription}  ${isMobile?'text-caption-1':'text-body-2'}`}>{data.content}</p>
         </div>
 
         {/* Render Child Components */}

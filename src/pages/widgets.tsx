@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 // import useBaseUrl from '@docusaurus/useBaseUrl'; // Keep if needed elsewhere
+import { useWindowSize } from "@docusaurus/theme-common/internal";
 
 // Import the CSS Modules
 import gridStyles from "./widgets.module.css";
@@ -53,14 +54,17 @@ const WidgetsGrid: React.FC<WidgetsGridProps> = ({
   description,
   widgets,
 }) => {
+  const windowSize = useWindowSize();
+  const isMobile = windowSize === "mobile";
+
   return (
     // Use CSS module class for the Section Container
     <section className={gridStyles.gridSection}>
       {/* Use CSS module class for the Section Title */}
-      <p className={`${gridStyles.gridTitle} text-h2 font-semibold`}>{title}</p>
+      <p className={`${gridStyles.gridTitle}  ${isMobile?'text-h3':'text-h2'} font-semibold`}>{title}</p>
 
       {/* Use CSS module class for the Section Description */}
-      <p className={`${gridStyles.gridDescription} text-body-2`}>{description}</p>
+      <p className={`${gridStyles.gridDescription} ${isMobile?'text-caption-1':'text-body-2'}`}>{description}</p>
 
       {/* Use CSS module class for the Widgets Container */}
       <div className={gridStyles.widgetsContainer}>

@@ -40,38 +40,35 @@ html[data-theme='dark'] {
 /* --- Component Styles --- */
 
 .integrateContainer {
-    padding: var(--integrate-padding);
-    background-color: var(--integrate-bg);
-    box-shadow: var(--integrate-shadow); /* Shadow applied to main container */
-    /* Using flex and gap to replicate space-y-8 */
+    padding: 0.4rem;
+    background-color: var(--background-02);
+    border-color: var(--border-dark);
+    box-shadow: 0px 0.011px 5px var(--border-dark); /* Shadow applied to main container */
     display: flex;
     flex-direction: column;
-    gap: var(--integrate-section-gap);
+    border-radius: 0.4rem;
+    gap: 1rem;
 }
 
-/* No explicit style needed if gap on container works, but can add if needed */
-.section {
-    /* Potential overrides or specific section styles here */
+.section{
+    padding:0rem 0.3rem;
 }
-
 
 .sectionTitle {
-    font-size: 1.125rem; /* text-lg */
-    line-height: 1.75rem;
-    font-weight: 600; /* font-semibold */
-    margin-bottom: 1rem; /* mb-4 */
-    color: var(--integrate-title-text);
+    font-size: 12px!important;
+    margin-bottom: 0.3rem; /* mb-4 */
+    color: var(--text-primary);
 }
 
 .gridContainer {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
-    gap: var(--integrate-grid-gap); /* gap-3 */
+    gap:0.4rem
 }
 
 .divider {
     border: none; /* Reset default hr border */
-    border-top: 1px solid var(--integrate-divider-color);
+    border-top: 1px solid var(--border-dark);
     margin: 0; /* Reset default hr margin */
     height: 0;
 }
@@ -81,19 +78,14 @@ html[data-theme='dark'] {
     /* Layout & Box Model */
     display: flex;
     align-items: center;
-    padding: 0.5rem 1rem; /* px-4 py-2 */
+    padding: 0.7rem 0.6rem;
     border: 1px solid var(--integrate-button-border);
     border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: var(--integrate-shadow); /* shadow-md */
+    box-shadow: 0px 0.011rem 0 var(--border-dark );
 
     /* Colors & Background */
-    background-color: var(--integrate-button-bg);
-    color: var(--integrate-button-text);
-
-    /* Typography */
-    font-size: 0.875rem; /* text-sm */
-    line-height: 1.25rem;
-    font-weight: 500; /* font-medium */
+    background-color: var(--background-01);
+    color: var(--integrate-button-text);  
     text-decoration: none; /* Remove Link underline */
 
     /* Transitions */
@@ -109,8 +101,8 @@ html[data-theme='dark'] {
 .platformButton:focus {
     outline: none; /* focus:outline-none */
     /* Replicating focus:ring-2 focus:ring-offset-1 */
-    box-shadow: 0 0 0 1px var(--integrate-button-focus-offset-color), /* ring-offset-1 */
-                0 0 0 3px var(--integrate-focus-ring); /* ring-2 */
+    /* box-shadow: 0 0 0 1px var(--integrate-button-focus-offset-color), 
+                0 0 0 3px var(--integrate-focus-ring);  */
 }
 
 .iconContainer {

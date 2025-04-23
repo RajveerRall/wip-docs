@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "@docusaurus/Link";
 import useBaseUrl from "@docusaurus/useBaseUrl";
+import { useWindowSize } from "@docusaurus/theme-common/internal";
 
 // Import the CSS Module
 import styles from "./sampleApps.module.css"; // Make sure path is correct
@@ -25,6 +26,8 @@ const GithubIcon = (
 );
 
 const SampleAppsSection = () => {
+  const windowSize = useWindowSize();
+  const isMobile = windowSize === "mobile";
   const sampleApps = [
     // Data remains the same
     {
@@ -67,7 +70,7 @@ const SampleAppsSection = () => {
       {/* Section Header */}
       <div className={styles.sectionHeader}>
         {/* Section Title */}
-        <span className={`${styles.sectionTitle} text-h2 font-semibold`}>Sample Apps</span>
+        <span className={`${styles.sectionTitle} ${isMobile?'text-h3':'text-h2'} font-semibold`}>Sample Apps</span>
 
         {/* View All Button */}
         <Link
@@ -81,7 +84,7 @@ const SampleAppsSection = () => {
       </div>
 
       {/* Section Description */}
-      <p className={`${styles.sectionDescription} text-body-2`}>
+      <p className={`${styles.sectionDescription} ${isMobile?'text-caption-1':'text-body-2'}`}>
         Explore practical examples of what you can achieve, and don't forget to
         check out our Interactive Demo.
       </p>

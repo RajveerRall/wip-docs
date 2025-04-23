@@ -7,7 +7,8 @@ import SearchBar from "@theme/SearchBar";
 import { FaEllipsisVertical } from "react-icons/fa6";
 import { FiMenu } from "react-icons/fi"; // <-- Import menu icon
 import { IoCloseSharp } from "react-icons/io5";
-
+import Drawer from 'react-modern-drawer';
+import 'react-modern-drawer/dist/index.css';
 // Import the CSS Module
 import styles from "./mobileNavbar.module.css";
 
@@ -132,10 +133,15 @@ export default function MobileNavbar() {
       {/* This is the actual menu panel that slides out/appears */}
       {/* It's rendered conditionally based on the state */}
       {isDisplayMobileMenu && (
-        <MobileMenu
-          isOpen={isDisplayMobileMenu}
-          onClose={closeMenu} // Pass the close function
-        />
+          <Drawer
+          open={isDisplayMobileMenu}
+          onClose={()=>setIsDisplayMobileMenu(false)}
+          lockBackgroundScroll={isDisplayMobileMenu}
+          direction='left'
+          size={'100vw'}
+        >
+          <MobileMenu />
+          </Drawer>
       )}
     </>
   );

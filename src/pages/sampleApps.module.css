@@ -283,11 +283,6 @@ html[data-theme="dark"] .divider {
   color: var( --text-white)!important
 }
 
-/* Dark mode */
-html[data-theme="dark"] .bookSlotButton {
-  background-color: var(--extended-primary-900)!important; /* dark:bg-[...] */
-  color: var(--static-white) !important
-}
 
 /* --- Office Hours Image --- */
 .officeHoursImage {
@@ -328,8 +323,14 @@ html[data-theme="dark"] .bookSlotButton {
     padding-right: 0; /* px-4 */
   }
   .sectionDescription {
-    font-size: 0.8rem; /* text-base */
-    margin-bottom: 1.5rem;
+    max-width: 100vw;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .appsColumn {
+    gap: 0.5rem; /* gap-4 */
+    padding-bottom: 0.1rem; /* py-2 */
   }
 
 }
