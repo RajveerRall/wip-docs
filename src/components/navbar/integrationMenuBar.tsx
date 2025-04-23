@@ -81,6 +81,7 @@ const IntegrationDropdownMenu: React.FC = () => {
   return (
     <div className="dropdown-content">
       <div className="main-menu-container">
+        {/* Column 1: UI Kits */}
         <div className="menu-col-1">
           <span className="menu-heading text-body-2 font-semibold">
             UI Kits
@@ -107,7 +108,11 @@ const IntegrationDropdownMenu: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Vertical Separator 1 */}
         <div className="vertical-line"></div>
+
+        {/* Column 2: SDKs */}
         <div className="menu-col-1">
           <span className="menu-heading text-body-2 font-semibold">SDKs</span>
           {sdks.map((item, index) => (
@@ -126,8 +131,13 @@ const IntegrationDropdownMenu: React.FC = () => {
             </div>
           ))}
         </div>
+
+        {/* Vertical Separator 2 */}
         <div className="vertical-line"></div>
+
+        {/* Column 3: Widgets & APIs */}
         <div className="menu-col-1">
+          {/* Widgets Section */}
           <div>
             <span className="menu-heading text-body-2 font-semibold">
               Widgets
@@ -147,14 +157,20 @@ const IntegrationDropdownMenu: React.FC = () => {
                 <span style={{ fontWeight: 600 }}>{item.name}</span>
               </div>
             ))}
-            <div className="vertical-line"></div>
-            <div
-              className="horizontal-line"
-              style={{ marginTop: "10px", marginBottom: "10px" }}
-            ></div>
+          </div>
+
+          {/* Horizontal Separator */}
+          {/* No inline style needed here - handled by CSS */}
+          <div
+            className="horizontal-line"
+            style={{ marginTop: "10px", marginBottom: "10px" }} // Add margin here to space out sections
+          ></div>
+
+          {/* APIs Section */}
+          <div>
             <span
               className="menu-heading text-body-2 font-semibold"
-              style={{ marginBottom: "20px!important" }}
+             // style={{ marginBottom: "20px!important" }} // Can control spacing via margin-top on this span or margin-bottom on horizontal line
             >
               APIs
             </span>

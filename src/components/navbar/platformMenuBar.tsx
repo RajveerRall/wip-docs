@@ -9,8 +9,9 @@ import {
 } from "react-icons/md";
 import { FaShapes } from "react-icons/fa";
 import { BiTransfer } from "react-icons/bi";
-import { VscFileCode } from "react-icons/vsc";
+import { RiFileCodeFill } from "react-icons/ri";
 import { FaShield, FaRobot } from "react-icons/fa6";
+import Link from "@docusaurus/Link";
 // Define types for the items in the lists
 interface MenuItem {
   icon: string;
@@ -43,7 +44,7 @@ const PlatformDropdownMenu: React.FC = () => {
     },
     {
       name: "Webhooks",
-      icon: VscFileCode,
+      icon: RiFileCodeFill,
       description: "Receive real-time CometChat events via HTTP requests.",
     },
   ];
@@ -153,6 +154,13 @@ const PlatformDropdownMenu: React.FC = () => {
               <span style={{ fontWeight: 600 }}>{item.name}</span>
             </div>
           ))}
+        <div onClick={()=>{
+          window.location.href = "/docs/sample-apps" 
+        }} className={'see-all-apps-link text-caption-2'}>
+          {" "}
+          {/* Adjust href as needed */}
+          See All Apps
+        </div>
         </div>
       </div>
     </div>

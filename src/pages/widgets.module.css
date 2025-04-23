@@ -16,11 +16,6 @@
   color:var(--neutral-500)!important;
 }
 
-html[data-theme="dark"] .gridDescription {
-  color: var(
-    --ifm-color-emphasis-300
-  ) !important; /* dark:!text-[--ifm-color-emphasis-600] */
-}
 
 /* --- Widgets Container --- */
 .widgetsContainer {

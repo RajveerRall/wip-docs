@@ -127,10 +127,10 @@ html[data-theme="dark"] .logo-dark {
   max-width: calc(100vw - 40px); /* Prevent horizontal overflow */
   width: max-content; /* Size to content */
   margin: 0; /* Reset margins */
-  padding: 1rem;
+  /* REMOVE padding: 1rem; */
+  /* REMOVE gap: 20px; */
   border-radius: 8px;
-  display: flex;
-  gap: 20px;
+  display: flex; /* Keep display flex */
   box-shadow: var(--ifm-global-shadow-lg); /* Use theme shadow */
   border: 1px solid var(--ifm-color-emphasis-300);
 }
@@ -140,6 +140,9 @@ html[data-theme="dark"] .logo-dark {
   display: flex;
   flex-direction: column;
   min-width: 150px; /* Adjust as needed */
+  /* Ensure this padding is present as it was originally */
+  padding: 1rem 20px; /* 1rem top/bottom, 20px left/right */
+  flex-shrink: 0;
 }
 
 /* Headings */
@@ -231,30 +234,32 @@ html[data-theme="dark"] .item-container-desc {
 .vertical-line,
 .horizontal-line {
   background-color: var(--ifm-color-emphasis-300);
+  flex-shrink: 0; 
 }
+
+
 .vertical-line {
   width: 1px;
   align-self: stretch; /* Make it full height */
 }
 .horizontal-line {
   height: 1px;
-  width: 100%;
-  margin: 10px 0;
+  /* Calculate width: 100% + left padding (20px) + right padding (20px) */
+  width: calc(100% + 40px);
+  margin-left: -20px;
+  background-color: var(--ifm-color-emphasis-300); /* Re-stated for clarity */
+  flex-shrink: 0; /* Re-stated for clarity */
 }
 
 /* "See All Apps" Link */
 .see-all-apps-link {
   margin-left: 10px;
   margin-top: 15px;
-  color: var(--ifm-link-color);
+  color: var(--primary);
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
+  text-decoration: none;
 }
-.see-all-apps-link:hover {
-  text-decoration: underline;
-  color: var(--ifm-link-hover-color);
-}
+
 
 /* ======================================== */
 /* Algolia DocSearch Styling              */

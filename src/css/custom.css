@@ -359,3 +359,24 @@
     margin: 0 0 0.25rem 0;
     padding: 0;
 }
+
+
+
+/* === MARKDOWN CONTENT STYLING & SPACING === */
+/* Apply your defined typography and add specific spacing */
+
+/* --- Main H1 Title ("Core") Styling & Spacing --- */
+/* Target the main H1. **VERIFY SELECTOR WITH INSPECT ELEMENT** */
+.markdown > h1,
+.docItemHeading_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, /* Example */
+main .container h1:first-of-type {
+  /* Apply styles similar to one of your .text-h* or .text-title-* classes */
+  font-size: 28px; /* Example: Match .text-title-28 */
+  line-height: 120%; /* Example: Match .text-title-28 */
+  font-weight: 600; /* Example: Match .font-semibold */
+  color: var(--text-primary);
+
+  /* ** KEY: Add the large spacing from the screenshot ** */
+  margin-top: 2.5rem;    /* << ADJUST AS NEEDED */
+  margin-bottom: 3rem;   /* << ADJUST AS NEEDED */
+}

@@ -14,7 +14,7 @@ import {
 } from "react-icons/md";
 import { FaShapes } from "react-icons/fa";
 import { BiTransfer } from "react-icons/bi";
-import { VscFileCode } from "react-icons/vsc";
+import { RiFileCodeFill } from "react-icons/ri";
 import { FaShield, FaRobot } from "react-icons/fa6";
 
 // --- Import CSS Module ---
@@ -71,7 +71,7 @@ const chatsAndCalling: NewCardItem[] = [
   {
     id: "webhooks",
     name: "Webhooks",
-    icon: VscFileCode,
+    icon: RiFileCodeFill,
     description: "Receive real-time CometChat events via HTTP requests.",
   },
 ];

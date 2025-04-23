@@ -16,10 +16,6 @@
   color:var(--neutral-500)!important;
 }
 
-html[data-theme="dark"] .gridDescription {
-  color: var(--ifm-color-emphasis-300) !important;
-}
-
 @media (max-width: 996px) {
   .gridDescription {
     max-width: 100vw;

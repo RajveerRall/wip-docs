@@ -52,13 +52,6 @@ html[data-theme="dark"] .apiCard:first-child {
   margin-bottom: 24px;
 }
 
-/* Handle dark mode for description */
-html[data-theme="dark"] .apiCardDescription {
-  color: var(
-    --ifm-color-emphasis-300
-  ) !important; /* dark:!text-[--ifm-color-emphasis-600] */
-}
-
 .apiCardFooter {
   margin-top: auto;
 }

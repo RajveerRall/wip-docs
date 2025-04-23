@@ -66,13 +66,6 @@ html[data-theme="dark"] .viewAllButton:hover {
   margin-bottom: 2.5rem; /* Equivalent to mb-10 */
   max-width: 70vw; /* Equivalent to max-w-3xl */
   color:var(--neutral-500)!important;
-
-}
-
-html[data-theme="dark"] .sectionDescription {
-  color: var(
-    --ifm-color-emphasis-300
-  ) !important; /* dark:!text-[--ifm-color-emphasis-600] */
 }
 
 /* --- Apps Grid Container --- */
