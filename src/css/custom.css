@@ -301,3 +301,61 @@
     letter-spacing: 0%;
   }
 }
+
+
+/* src/css/custom.css */
+
+/* --- Make sure this initial selector MATCHES your HTML --- */
+.theme-doc-toc-desktop .table-of-contents__link {
+  display: block;
+  color: #374151; /* Default link color */
+  text-decoration: none;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+  padding: 0.25rem 0 0.25rem 1rem; /* Indentation */
+  border-left: 2px solid transparent; /* Reserve space for active border */
+  transition: color 0.2s ease, border-color 0.2s ease;
+  border-radius: 0 4px 4px 0; /* Slightly rounded corners on the right */
+  background-color: transparent;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link:hover {
+  color: #4f46e5; /* Hover color - Or use var(--ifm-color-primary) */
+}
+
+/* --- Also check if this active class appears when scrolling --- */
+.theme-doc-toc-desktop .table-of-contents__link--active {
+  color: #8b5cf6; /* Active purple color */
+  font-weight: 500;
+  border-left-color: #8b5cf6; /* Active purple border */
+}
+
+/* Style nested links (indentation) */
+.theme-doc-toc-desktop .toc-item .toc-item .table-of-contents__link { /* Level 2 */
+  padding-left: 2rem;
+}
+.theme-doc-toc-desktop .toc-item .toc-item .toc-item .table-of-contents__link { /* Level 3 */
+  padding-left: 3rem;
+}
+
+/* Style the "On this page" title - Adjust selector if needed */
+.theme-doc-toc-desktop .table-of-contents__title,
+.theme-doc-toc-desktop h2,
+.theme-doc-toc-desktop h3 {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem; /* Optional alignment */
+}
+
+ /* Remove default list styling */
+ .theme-doc-toc-desktop .table-of-contents {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+ .theme-doc-toc-desktop .toc-item {
+    margin: 0 0 0.25rem 0;
+    padding: 0;
+}

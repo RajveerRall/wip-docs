@@ -199,11 +199,6 @@
   line-height: 1.4; /* Improve readability */
 }
 
-:global(.menu__link--active) {
-  background-color: transparent; /* Active link shouldn't have default bg */
-  font-weight: 500; /* Slightly bolder */
-  color: var(--primary); /* Use theme primary color */
-}
 
 :global(.menu__link:hover) {
   background-color: var(--ifm-hover-overlay, rgba(0, 0, 0, 0.05)); /* Subtle hover */
@@ -260,3 +255,63 @@
 :global(.menu__link--sublist-caret:hover::after) {
    background-color: var(--primary); /* Change caret color on hover */
 }
+
+.iconImage {
+  object-fit: contain; /* object-contain */
+  /* Responsive Icon Size */
+  height: 1.5rem; /* h-6 */
+  width: 1.5rem; /* w-6 */
+}
+
+:global(.menu__link--active) {
+  
+  font-weight: 600; 
+  color: var(--primary)!important;
+  border-left: 2px solid var(--primary);
+  border-radius: 0.175rem;
+}
+
+/* --- Right-Hand Table of Contents (TOC) Styles (Exact Match for Prerequisites Image) --- */
+
+/* Base styling for ALL TOC links */
+:global(.table-of-contents .toc-link) {
+  display: block; /* Helps with spacing and applying padding */
+  /* Use secondary text color for *all* TOC links, including active */
+  color: var(--text-secondary);
+  font-weight: 400; /* Normal font weight */
+  font-size: 0.875rem; /* Adjust size as needed */
+  text-decoration: none; /* No underline */
+  padding: 0.2rem 0; /* Adjust vertical padding */
+  line-height: 1.5; /* Adjust line spacing */
+  /* Ensure no borders or backgrounds */
+  border: none !important;
+  background-color: transparent !important;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out; /* Smooth hover transition */
+}
+
+/* Hover state for ALL TOC links */
+:global(.table-of-contents .toc-link:hover) {
+ /* Use primary text color on hover for slight emphasis */
+ color: var(--text-primary);
+}
+
+/* Optional: Control overall list appearance (usually handled by theme) */
+:global(.table-of-contents ul) {
+   list-style: none; /* Remove default bullets */
+   padding-left: 0; /* Remove default ul padding */
+   margin: 0;
+}
+:global(.table-of-contents li) {
+   margin: 0;
+}
+
+/* Rely on Docusaurus default classes for indentation (e.g., toc-list-item--level-X) */
+/* Example: These rules might exist in the core theme */
+/*
+:global(.toc-list-item--level-2 > .toc-link) { padding-left: 1rem; }
+:global(.toc-list-item--level-3 > .toc-link) { padding-left: 2rem; }
+*/
+
+/* --- REMOVED Active State Styling --- */
+/* NO special rules for .toc-link--active */
