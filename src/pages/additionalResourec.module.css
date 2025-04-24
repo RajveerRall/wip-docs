@@ -26,7 +26,7 @@
   text-decoration: none;
   cursor: pointer;
   height: 100%;
-  border: 1px solid var(--ifm-color-emphasis-200); /* border border-[--ifm-color-emphasis-200] */
+  border: 1px solid var(---btn-white-pressed); /* border border-[--ifm-color-emphasis-200] */
   background-color: var(
     --ifm-card-background-color
   );

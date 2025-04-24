@@ -17,7 +17,7 @@
   height: 100%; /* h-full */
   align-items: center; /* items-center */
   border-radius: 0.5rem; /* rounded-lg  */
-  border: 0.001rem solid var(--neutral-400);
+  border: 1px solid var(--btn-white-pressed);
   background-color: var(
     --background-01
   ); /* bg-[--ifm-card-background-color] */

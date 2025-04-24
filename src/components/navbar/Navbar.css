@@ -13,7 +13,7 @@
   background-color: var(--background-01); 
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   box-shadow: var(--ifm-navbar-shadow); /* Use theme shadow */
-  width: 100%;
+  width: 100dvw;
 }
 
 .navbar-content {
@@ -22,8 +22,7 @@
   justify-content: space-between;
   height: 60px !important; /* Your desired navbar height */
   padding: 0 24px;
-  width: 100%;
-  margin: 0 auto;
+  width: 100dvw;
 }
 
 .navbar-logo {
@@ -67,7 +66,7 @@ html[data-theme="dark"] .logo-dark {
 
 .dropdown-container {
   position: relative; /* Crucial for positioning the dropdown content */
-  margin-right: 20px;
+  margin-right: 5px;
 }
 
 .dropdown-button {
@@ -75,10 +74,10 @@ html[data-theme="dark"] .logo-dark {
   align-items: center;
   background: none;
   border: none;
-  padding: 10px 0;
   color: var(--neutral-600);
   cursor: pointer;
   transition: color 0.2s;
+  padding: 0.3rem;
 }
 
 .dropdown-arrow {
@@ -91,8 +90,7 @@ html[data-theme="dark"] .logo-dark {
   border-color: var(--ifm-color-emphasis-500);
   text-decoration: none;
   border-radius: 0.5rem;
-  color: var(--neutral-900);
-  padding: 0.3rem;
+  color: var(--neutral-900); 
   background-color: var(--neutral-200);
 }
 
@@ -462,7 +460,7 @@ html[data-theme='dark'] .theme-toggle{
 }
 
 .theme-toggle .toggle-circle.right {
-    transform: translateX(calc(var(--toggle-width) - var(--circle-size) - (var(--toggle-padding) * 2))); /* Move circle to the right */
+  transform: translateX(0);
 }
 
 /* --- Icon ACTIVE State Styling --- */

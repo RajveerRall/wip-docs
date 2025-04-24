@@ -65,7 +65,7 @@ html[data-theme="dark"] .viewAllButton:hover {
 .sectionDescription {
   margin-bottom: 2.5rem; /* Equivalent to mb-10 */
   max-width: 70vw; /* Equivalent to max-w-3xl */
-  color:var(--neutral-500)!important;
+  color:var(--neutral-600)!important;
 }
 
 /* --- Apps Grid Container --- */
@@ -88,7 +88,7 @@ html[data-theme="dark"] .viewAllButton:hover {
   display: flex; /* flex */
   flex: 1 1 0%; /* flex-1 */
   flex-direction: column; /* flex-col */
-  gap: 1.6rem; /* gap-4 */
+  gap: 1.4rem; /* gap-4 */
 }
 
 @media (min-width: 768px) {
@@ -279,15 +279,20 @@ html[data-theme="dark"] .divider {
 
 /* --- Office Hours Image --- */
 .officeHoursImage {
-  position: absolute; /* absolute */
-  bottom: 1.1rem; /* bottom-0 */
-  right: 0.8rem; /* right-0 */
-  display: none; /* hidden */
-  height: 30vh; /* h-auto */
-  object-fit: contain; /* object-contain */
-  width: 120px; /* w-[120px] */
-  opacity: 0.5; /* opacity-50 */
+  position: absolute;       /* Keep absolute positioning */
+  /* Adjust positioning: Move slightly up and left from the extreme edge */
+  bottom: -1rem;          
+  right: 1.5rem;            
+  display: none;            /* Still hidden on mobile */
+  height: auto;             /* REMOVED fixed vh, let width/contain drive height */
+  object-fit: contain;      /* Keep aspect ratio */
+  /* Adjust base width if needed */
+  width: 50px;
+  /* Set the desired FAINT opacity */
+  opacity: 0.4;             /* Lowered opacity (adjust 0.3-0.5) */
+  z-index: 5;               /* Ensure it's behind content (z-10) but above bg */
 }
+
 
 @media (min-width: 768px) {
   /* md breakpoint */

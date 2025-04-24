@@ -32,6 +32,7 @@ const config: Config = {
           id: "default", // Explicitly set ID (good practice)
           path: "docs", // Assumes your main docs are in the 'docs' folder
           routeBasePath: "/", // Makes these docs the root content after baseUrl
+          breadcrumbs: true, 
 
           // === REMOVE VERSIONING HERE if only React Kit should be versioned ===
           // lastVersion: 'current', // Remove this

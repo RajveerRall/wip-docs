@@ -146,7 +146,7 @@ export default function Homepage() {
         {/* Hero Section with CSS Module classes */}
         <div>
           <p className={`${styles.heroTitle} ${isMobile?'text-h2':'text-title-28'} font-semibold`}>{data.title}</p>
-          <p className={`${styles.heroDescription}  ${isMobile?'text-caption-1':'text-body-2'}`}>{data.content}</p>
+          <p className={`${styles.heroDescription}  ${isMobile?'text-caption-1':'text-body-1'}`}>{data.content}</p>
         </div>
 
         {/* Render Child Components */}

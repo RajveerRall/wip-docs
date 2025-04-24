@@ -170,7 +170,7 @@ const SampleAppsSection = () => {
             {/* Book Slot Button */}
             <div
               // to="https://www.cometchat.com/office-hours"
-              className={`${styles.bookSlotButton} text-caption-2`} // Use module class
+              className={`${styles.bookSlotButton} text-caption-1 font-medium`} // Use module class
               // target="_blank"
               // rel="noopener noreferrer"
             >

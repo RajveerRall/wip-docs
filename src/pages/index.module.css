@@ -78,7 +78,7 @@
 
 .heroDescription {
   max-width: 70vw;/* max-w-3xl */
-  color:var(--neutral-500)!important;
+  color:var(--neutral-600)!important;
   margin-bottom: 3rem;
 }
 

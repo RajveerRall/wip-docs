@@ -34,7 +34,7 @@ export const WidgetCard: React.FC<WidgetCardProps> = ({ widget }) => {
       />
       {/* Widget Title */}
       <span
-        className={`${cardStyles.widgetTitle} text-body-2 font-medium`} // Use CSS module class
+        className={`${cardStyles.widgetTitle} text-body-2 font-semibold`} // Use CSS module class
       >
         {widget.title}
       </span>
