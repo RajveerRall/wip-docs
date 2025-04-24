@@ -1,0 +1,64 @@
+---
+sidebar_position: 1
+title: Overview
+sidebar_label: Overview
+---
+import StepBlock from '@site/src/components/StepBlock';
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import FeatureCard from '@site/src/components/FeatureCard'; 
+import CheckListItem from '@site/src/components/CheckListItem';
+import FolderStructureImg from "./assets/1623200303.png";
+
+import DependenciesImg from "./assets/1634634559.png";
+import CometChatUIImg from "./assets/1623200307.gif";
+import ReactUIKitImg from "./assets/1623200296.png";
+
+
+<StepBlock label="Step 01">
+  This is the content for the **first step**. Filters allow you to customize the data displayed
+  in a list within a Component. You can filter the list based on your specific criteria,
+  allowing for a more customized. Filters can be applied using `RequestBuilders` of Chat SDK.
+</StepBlock>
+---
+:::info Recording Feature (Beta for SDK v2.x)
+    For the beta recording feature available in SDK v2.x, a specific beta version is needed. Refer to the [Recording (Beta)](/sdk/javascript/2.0/calling-recording) docs.
+
+    - **npm:** `npm install @cometchat-pro/chat@2.4.1-beta1 --save`
+    - **yarn:** `yarn add @cometchat-pro/chat@2.4.1-beta1`
+      :::
+---
+
+ <FeatureCard
+    number="05"
+    title="Gif"
+    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
+  />
+
+---
+  <CheckListItem>
+  Filters allow you to customize the data displayed in a list within a Component. You can filter the list based on your specific criteria, allowing for a more customized.
+</CheckListItem>
+
+<CheckListItem>
+  Filters can be applied using `RequestBuilders` of Chat SDK. Make sure you understand the different builder types.
+</CheckListItem>
+
+---
+  <TabItem value="methods" label="Tab 01" default>
+
+    | Methods           | Type              | Description                                                               |
+    |-------------------|-------------------|---------------------------------------------------------------------------|
+    | `setLimit`        | number            | sets the number users that can be fetched in a single request, suitable for pagination |
+    | `setSearchKeyword`| String            | used for fetching users matching the passed string                         |
+    | `hideBlockedUsers`| boolean           | used for fetching all those users who are not blocked by the logged in user |
+    | `friendsOnly`     | boolean           | used for fetching only those users in which logged in user is a member      |
+    | `setRoles`        | `List<String>`    | used for fetching users containing the passed tags                        |
+    | `setTags`         | `List<String>`    | used for fetching users containing the passed tags                        |
+    | `withTags`        | boolean           | used for fetching users containing tags                                   |
+    | `setStatus`       | String            | used for fetching users by their status online or offline                 |
+    | `setUIDs`         | `List<String>`    | used for fetching the passed users                                        |
+
+  </TabItem>
+
+```

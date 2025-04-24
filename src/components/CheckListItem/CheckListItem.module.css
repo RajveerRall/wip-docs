@@ -1,0 +1,119 @@
+/* src/components/CheckListItem/CheckListItem.module.css */
+
+.checkListItemContainer {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 0.75rem;
+    padding-left: 0;
+    cursor: pointer; /* Indicate it's clickable */
+    position: relative; /* Needed for absolute positioning of hidden checkbox if desired */
+    /* Improve focus outline visibility */
+    outline-offset: 2px;
+  }
+  .checkListItemContainer:focus-visible {
+    outline: 2px solid var(--ifm-color-primary); /* Docusaurus primary color focus */
+  }
+  
+  /* Wrapper for the custom icon pseudo-elements */
+  .customCheckboxIcon {
+    flex-shrink: 0;
+    width: 1.1em; /* Reserve space for the icon box */
+    height: 1.1em; /* Ensure height matches line-height roughly */
+    margin-right: 0.75em; /* Space between icon and text */
+    position: relative; /* For positioning checkmark pseudo-element */
+    margin-top: 0.18em; /* Fine-tune vertical alignment */
+  }
+  
+  /* The box (unchecked state) */
+  .customCheckboxIcon::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Fill the wrapper */
+    height: 100%;
+    border: 1.5px solid #7a7a7a;
+    border-radius: 2px;
+    background-color: transparent;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; /* Smooth transition */
+  }
+  
+  /* The checkmark (hidden by default, shown when parent has .checked class) */
+  .customCheckboxIcon::after {
+    content: '';
+    position: absolute;
+    /* Positioning the checkmark inside the box */
+    left: 0.3em;
+    top: 0.1em;
+    width: 0.3em;
+    height: 0.6em;
+  
+    /* Creating the checkmark shape with borders */
+    border: solid #ededed; /* Checkmark color (dark theme) */
+    border-width: 0 2px 2px 0; /* Only right and bottom borders */
+  
+    /* Rotate to form checkmark */
+    transform: rotate(45deg);
+  
+    /* Hide by default */
+    opacity: 0;
+    transition: opacity 0.15s ease-in-out;
+  }
+  
+  
+  /* --- Checked State Styles --- */
+  .checkListItemContainer.checked .customCheckboxIcon::before {
+    background-color: #5a5a5a; /* Background color when checked (dark theme) */
+    border-color: #7a7a7a; /* Border color when checked (dark theme) */
+  }
+  
+  .checkListItemContainer.checked .customCheckboxIcon::after {
+    opacity: 1; /* Show the checkmark */
+  }
+  
+  
+  /* --- Content Styling --- */
+  .checkListItemContent {
+    flex-grow: 1;
+    min-width: 0;
+    line-height: var(--ifm-line-height-base, 1.65);
+    user-select: none; /* Prevent text selection when clicking */
+  }
+  
+  
+  /* --- Visually Hidden Checkbox --- */
+  .hiddenCheckbox {
+    /* Position it off-screen or hide visually */
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+  }
+  
+  
+  /* ========================================== */
+  /* --- Optional: Light Theme Adjustments --- */
+  /* ========================================== */
+  html[data-theme='light'] .customCheckboxIcon::before {
+     border-color: #adadad; /* Lighter border for light theme */
+  }
+  
+  html[data-theme='light'] .checkListItemContainer.checked .customCheckboxIcon::before {
+    background-color: #007bff; /* Example primary blue for checked bg */
+    border-color: #0069d9; /* Darker blue border */
+  }
+  
+  html[data-theme='light'] .customCheckboxIcon::after {
+     border-color: #ffffff; /* White checkmark for light theme */
+  }
+  
+  /* Text color adjustment for light theme (usually handled by theme) */
+  /* html[data-theme='light'] .checkListItemContent { */
+     /* color: var(--ifm-font-color-base); */
+  /* } */

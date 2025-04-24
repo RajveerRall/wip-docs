@@ -1,0 +1,168 @@
+/* src/css/custom.css */
+
+/* =============================================== */
+/* --- Custom Tabs Styling (Dark Theme Focus) --- */
+/* =============================================== */
+
+/* Tab List Container */
+.tabs {
+  margin-bottom: 0; /* Remove default bottom margin if panel handles spacing */
+  padding-left: 0; /* Remove default padding */
+  border-bottom: 1px solid #333; /* Subtle bottom border for the whole tab list */
+}
+
+/* Individual Tab Item (Inactive State) */
+.tabs__item {
+  /* Reset default theme styles */
+  border: none;
+  border-radius: 0;
+  background-color: transparent;
+  padding: 1rem 1.25rem; /* Adjust padding */
+  margin: 0;
+  transition: color 0.2s ease;
+
+  /* --- Styling from Image (Inactive) --- */
+  color: #8e8e8e; /* Medium grey for inactive text */
+  border-bottom: 2px solid transparent; /* Placeholder for alignment */
+}
+
+/* Hover state for inactive tabs (optional) */
+.tabs__item:not(.tabs__item--active):hover {
+  color: #cccccc; /* Slightly lighten on hover */
+}
+
+/* Active Tab Item */
+.tabs__item--active {
+  /* --- Styling from Image (Active) --- */
+  color: #ededed; /* Bright text for active tab */
+  /* Purple underline indicator */
+  border-bottom: 2px solid #8a3ffc; /* Adjust purple color if needed */
+  background-color: transparent; /* Ensure no background */
+}
+
+/* Remove focus outline if desired, or customize it */
+.tabs__item:focus {
+  outline: none;
+}
+.tabs__item:focus-visible {
+ /* Example focus style */
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: -2px;
+}
+
+/* ================================================== */
+/* --- Custom Table Styling inside Tab Panel --- */
+/* ================================================== */
+
+/* Target tables specifically within tab panels */
+/* Note: This assumes the table is directly inside, adjust if nested deeper */
+div[role="tabpanel"] table {
+  /* --- Card-like Appearance for Table --- */
+  background-color: #1e1e1e; /* Dark background for the table 'card' */
+  border-radius: 8px;       /* Rounded corners for the table */
+  border: 1px solid #333333; /* Subtle border */
+  overflow: hidden;         /* Ensures corners clip content */
+  border-collapse: collapse;/* Use collapse for cleaner borders */
+  border-spacing: 0;        /* Remove spacing between cells */
+  width: 100%;              /* Make table take full width */
+  margin-top: 1.5rem;       /* Space between tabs and table */
+  margin-bottom: 1rem;
+}
+
+/* Table Header */
+div[role="tabpanel"] table thead {
+  background-color: #2c2c2c; /* Slightly lighter background for header */
+}
+
+div[role="tabpanel"] table th {
+  padding: 0.8rem 1rem;     /* Padding within header cells */
+  text-align: left;
+  font-weight: 600;         /* Bold header text */
+  color: #ededed;           /* Light header text */
+  border-bottom: 1px solid #404040; /* Border below header */
+  border-right: 1px solid #404040; /* Vertical border */
+}
+div[role="tabpanel"] table th:last-child {
+  border-right: none; /* Remove right border on last header cell */
+}
+
+/* Table Body Cells */
+div[role="tabpanel"] table td {
+  padding: 0.8rem 1rem;     /* Padding within body cells */
+  color: #b0b0b0;           /* Medium grey for body text */
+  border-bottom: 1px solid #404040; /* Horizontal border */
+  border-right: 1px solid #404040; /* Vertical border */
+  vertical-align: top;      /* Align text to top */
+  line-height: 1.5;
+}
+div[role="tabpanel"] table td:last-child {
+  border-right: none; /* Remove right border on last cell */
+}
+
+/* Remove bottom border on the very last row */
+div[role="tabpanel"] table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Styling for first column (Methods) if needed - e.g., monospace */
+div[role="tabpanel"] table td:first-child {
+  /* Apply code font if desired */
+  font-family: var(--ifm-font-family-monospace);
+  color: #cccccc; /* Slightly brighter grey for methods */
+}
+
+/* Code elements within the table */
+div[role="tabpanel"] table code {
+  background-color: transparent; /* Remove default code background */
+  padding: 0;
+  font-size: inherit; /* Inherit size */
+  color: inherit; /* Inherit color */
+  border: none;
+  border-radius: 0;
+}
+
+
+/* ========================================= */
+/* --- Light Theme Adjustments (Example) --- */
+/* ========================================= */
+
+html[data-theme='light'] .tabs {
+  border-bottom-color: #e0e0e0; /* Lighter border for tab list */
+}
+
+html[data-theme='light'] .tabs__item {
+  color: #525252; /* Darker grey for inactive text */
+  border-bottom-color: transparent;
+}
+
+html[data-theme='light'] .tabs__item:not(.tabs__item--active):hover {
+  color: #1c1e21; /* Darken on hover */
+}
+
+html[data-theme='light'] .tabs__item--active {
+  color: #1c1e21; /* Dark text for active tab */
+  border-bottom-color: var(--ifm-color-primary); /* Use theme primary color */
+}
+
+html[data-theme='light'] div[role="tabpanel"] table {
+  background-color: #ffffff;
+  border-color: #e0e0e0;
+}
+
+html[data-theme='light'] div[role="tabpanel"] table thead {
+  background-color: #f7f7f7; /* Light grey header */
+}
+
+html[data-theme='light'] div[role="tabpanel"] table th {
+  color: #1c1e21;
+  border-color: #e0e0e0;
+}
+
+html[data-theme='light'] div[role="tabpanel"] table td {
+  color: #525252;
+  border-color: #e0e0e0;
+}
+
+html[data-theme='light'] div[role="tabpanel"] table td:first-child {
+  color: #333333;
+}

@@ -1,0 +1,43 @@
+/* src/components/StepBlock.module.css */
+
+.stepBlockContainer {
+    /* Spacing below the entire step block */
+    margin-bottom: 1.75rem; /* Adjust as needed for spacing between steps */
+  }
+  
+  .stepLabel {
+    /* --- Styling Estimated from Image --- */
+    background-color: #cccccc; /* Dark grey background */
+    color: #ededed;           /* Light grey/off-white text */
+    padding: 4px 12px;       /* Vertical (4px) and Horizontal (12px) padding */
+    border-radius: 4px;      /* Slightly rounded corners */
+    font-size: 0.875em;      /* Slightly smaller than base font size */
+    font-weight: 600;        /* Semi-bold weight */
+    line-height: 1.4;        /* Adjust line height if needed */
+    display: inline-block;   /* Make the box fit the content width */
+    margin-bottom: 0.8rem;   /* Space between label and content below */
+    /* Ensure text isn't selectable if desired */
+    /* user-select: none; */
+  }
+  
+  .stepContent {
+    /* Styling for the text content below the label */
+    /* Inherits base font color and size by default */
+    line-height: var(--ifm-line-height-base, 1.65); /* Standard Docusaurus line height */
+    /* Ensure text color is appropriate for dark theme (usually handled by Docusaurus theme) */
+    /* color: var(--ifm-font-color-base); */
+  }
+  
+  /* --- Optional: Light Theme Adjustments --- */
+  /* Makes the label look distinct in light mode */
+  html[data-theme='light'] .stepLabel {
+     background-color: #eeeeee; /* Lighter grey background */
+     color: #242526;           /* Darker text (matches Docusaurus dark text) */
+     /* Optional: Add a subtle border in light mode */
+     /* border: 1px solid #d0d0d0; */
+  }
+  
+  /* Ensure content text color is correct in light mode (usually handled by theme) */
+  /* html[data-theme='light'] .stepContent { */
+     /* color: var(--ifm-font-color-base); */
+  /* } */

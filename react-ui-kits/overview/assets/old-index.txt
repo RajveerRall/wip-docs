@@ -3,11 +3,11 @@ sidebar_position: 1
 title: Overview
 sidebar_label: Overview
 ---
-
+import StepBlock from '@site/src/components/StepBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
-// Assuming these assets are correctly placed relative to the MDX file
-
+import FeatureCard from '@site/src/components/FeatureCard'; 
+import CheckListItem from '@site/src/components/CheckListItem';
 import FolderStructureImg from "./assets/1623200303.png";
 
 import DependenciesImg from "./assets/1634634559.png";
@@ -15,12 +15,51 @@ import CometChatUIImg from "./assets/1623200307.gif";
 
 import ReactUIKitImg from "./assets/1623200296.png";
 
+
+
+<StepBlock label="Step 01">
+  This is the content for the **first step**. Filters allow you to customize the data displayed
+  in a list within a Component. You can filter the list based on your specific criteria,
+  allowing for a more customized. Filters can be applied using `RequestBuilders` of Chat SDK.
+</StepBlock>
+
+:::info Recording Feature (Beta for SDK v2.x)
+    For the beta recording feature available in SDK v2.x, a specific beta version is needed. Refer to the [Recording (Beta)](/sdk/javascript/2.0/calling-recording) docs.
+
+    - **npm:** `npm install @cometchat-pro/chat@2.4.1-beta1 --save`
+    - **yarn:** `yarn add @cometchat-pro/chat@2.4.1-beta1`
+      :::
+
+
+ <FeatureCard
+    number="05"
+    title="Gif"
+    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
+  />
+
+  <CheckListItem>
+  Filters allow you to customize the data displayed in a list within a Component. You can filter the list based on your specific criteria, allowing for a more customized.
+</CheckListItem>
+
+<CheckListItem>
+  Filters can be applied using `RequestBuilders` of Chat SDK. Make sure you understand the different builder types.
+</CheckListItem>
+
+
+
+
+
+
 The CometChat React UI Kit is developed with developers in mind and aims to significantly reduce development efforts.
 
 <!-- Use className for styling defined in CSS -->
 <div className="image-wrapper">
   <img src={ReactUIKitImg} alt="React UI Kit Showcase" width="700"/>
 </div>
+
+
+
+
 
 The UI Kit’s customizable UI components simplify the process of integrating text chat and voice/video calling features into your website or mobile application in minutes.
 
@@ -155,12 +194,7 @@ Follow these steps to integrate the CometChat React UI Kit v2 into your applicat
     </TabItem>
     </Tabs>
 
-    :::info Recording Feature (Beta for SDK v2.x)
-    For the beta recording feature available in SDK v2.x, a specific beta version is needed. Refer to the [Recording (Beta)](/sdk/javascript/2.0/calling-recording) docs.
-
-    - **npm:** `npm install @cometchat-pro/chat@2.4.1-beta1 --save`
-    - **yarn:** `yarn add @cometchat-pro/chat@2.4.1-beta1`
-      :::
+    
 
 ### Configure CometChat in Your App
 
