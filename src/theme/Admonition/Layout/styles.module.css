@@ -1,200 +1,80 @@
 /* src/theme/Admonition/Layout/styles.module.css */
-/* Complete File - Re-emphasizing Layout + Code Styling */
 
-
-/* --- Define Local Variables (Adjust as needed) --- */
-:root {
-  --admonition-icon-size: 1.2em; /* Icon size */
-  --admonition-icon-spacing: 0.8rem; /* Space between icon and text */
-  --admonition-border-radius: 8px; /* Rounded corners */
-  --admonition-padding-vertical: 1rem; /* Padding */
-  --admonition-padding-horizontal: 1rem; /* Padding */
-  --admonition-code-bg-light: rgba(210, 210, 210, 0.3); /* Code bg - light */
-  --admonition-code-border-light: rgba(180, 180, 180, 0.4); /* Code border - light */
-  --admonition-code-bg-dark: rgba(255, 255, 255, 0.12); /* Code bg - dark */
-  --admonition-code-border-dark: rgba(255, 255, 255, 0.2); /* Code border - dark */
-}
-
-
-/* --- Base Admonition Layout Style --- */
+/* --- Main Admonition Container --- */
 .admonition {
-  /* Theme-Specific Variables */
-  --admonition-effective-border-left-width: 4px; /* Default for light */
-  --admonition-effective-border-color: transparent; /* Default */
-
-  /* Base Structural Styles */
-  border-radius: var(--admonition-border-radius);
-  padding: 0.4rem; /* Padding will be on the content container instead */
-  margin-bottom: var(--ifm-leading, 1.5rem);
-  overflow: hidden;
-  border: 1px solid transparent; /* Base border for layout */
-  border-left-width: var(--admonition-effective-border-left-width);
-  border-left-color: var(--admonition-effective-border-color);
-  color: var(--ifm-font-color-base); /* Default text color */
-}
-
-
-/* --- Layout Rules for Icon and Text --- */
-.contentContainer {
-  /* THIS IS THE FLEX CONTAINER */
+  /* Use Flexbox for side-by-side layout */
   display: flex;
-  align-items: flex-start; /* Align tops */
-  /* Apply padding here instead of .admonition */
-  padding: var(--admonition-padding-vertical) var(--admonition-padding-horizontal);
-  width: 100%;
+  /* Align items to the top. Use 'center' if you prefer vertical centering. */
+  align-items: flex-start;
+  /* Add space between the heading/icon area and the content area */
+  gap: 0.8rem; /* Adjust as needed */
+
+  /* Keep your existing padding, margins, borders etc. */
+  padding: 1rem;
+  margin-bottom: 1rem; /* Default Docusaurus margin */
+  border-radius: var(--ifm-alert-border-radius);
+  border: 1px solid transparent; /* Base border */
+  border-left-width: 4px; /* Keep if you like the side border */
+  overflow: hidden; /* Helps contain floats if needed, good practice */
+
+  /* Colors are typically handled by ThemeClassNames */
+  color: var(--ifm-font-color-base);
 }
 
+/* --- Admonition Heading Area (will contain Icon and Title) --- */
+.admonitionHeading {
+  /* Make the heading area only as wide as its content (the icon) */
+  /* It becomes the first flex item */
+  flex-shrink: 0; /* Prevent shrinking */
+  display: flex; /* To help align icon if title were present */
+  align-items: flex-start; /* Align icon/title at the top */
+
+  /* Remove default margins Docusaurus might add */
+  margin: 0;
+  padding: 0;
+
+  /* If you *never* have titles, you might not need display:flex here,
+     but it doesn't hurt and handles the case where the component *could* have one. */
+}
+
+
+
+/* --- Admonition Icon Styling --- */
 .admonitionIcon {
-  /* Item 1: Icon Wrapper */
-  flex-shrink: 0; /* *** KEY: Prevents icon from shrinking *** */
-  width: var(--admonition-icon-size); /* Reserve horizontal space */
-  margin-right: var(--admonition-icon-spacing); /* Space to the right */
-  margin-top: 0.1em; /* Vertical alignment tweak */
-  line-height: 1;
-  display: inline-flex; /* Align SVG inside */
-  align-items: center;
+  /* Give the icon a little space from the top edge if needed */
+  /* Adjust based on your icon size and text line-height */
+  margin-top: 0.1em;
+  display: block; /* Ensure it behaves predictably */
 }
 
 .admonitionIcon svg {
-  /* The actual SVG */
-  height: var(--admonition-icon-size);
-  width: var(--admonition-icon-size);
-  fill: currentColor; /* Inherits color from parent */
-  display: block;
+  width: 16.67px; /* Keep size rule from fix #1 */
+  height: 16.67px; /* Keep size rule from fix #1 */
+  display: inline-block;
+  vertical-align: middle;
+
+  /* --- Add this line --- */
+  fill: currentColor; /* Make SVG color match surrounding text color */
 }
 
-.textContent {
-  /* Item 2: Text Content Wrapper */
-  flex-grow: 1; /* *** KEY: Allows text to take all remaining space *** */
-  min-width: 0; /* *** KEY: Ensures text wraps correctly in flex item *** */
+
+/* --- Admonition Content Area (Main Text) --- */
+.admonitionContent {
+  /* Allow the content area to take up the remaining space */
+  flex-grow: 1;
+  /* Important for text wrapping within flex items */
+  min-width: 0;
+
+  /* Remove default margins Docusaurus might add */
   margin: 0;
   padding: 0;
-  text-align: left;
 }
 
-/* Remove margin from first/last element within text content */
-.textContent > :first-child { margin-top: 0; }
-.textContent > :last-child { margin-bottom: 0; }
-
-
-/* ================================================================== */
-/* --- Light Theme Colors (Using colors from 'ref code') --- */
-/* ================================================================== */
-.admonitionLight.admonitionNote, .admonitionNoteLight { /* etc */
-  --admonition-bg-color: #f5f5f5;
-  --admonition-text-color: #424242;
-  --admonition-effective-border-color: #424242;
-  --admonition-effective-border-left-width: 4px;
-}
-.admonitionLight.admonitionTip, .admonitionTipLight { /* etc */
-  --admonition-bg-color: #e0f7ff;
-  --admonition-text-color: #006f99;
-  --admonition-effective-border-color: #006f99;
-  --admonition-effective-border-left-width: 4px;
-}
-.admonitionLight.admonitionInfo, .admonitionInfoLight { /* etc */
-  --admonition-bg-color: #e0f7ff;
-  --admonition-text-color: #006f99;
-  --admonition-effective-border-color: #006f99;
-  --admonition-effective-border-left-width: 4px;
-}
-.admonitionLight.admonitionWarning, .admonitionWarningLight { /* etc */
-  --admonition-bg-color: #fff8e1;
-  --admonition-text-color: #8c5a00;
-  --admonition-effective-border-color: #8c5a00;
-  --admonition-effective-border-left-width: 4px;
-}
-.admonitionLight.admonitionDanger, .admonitionDangerLight { /* etc */
-  --admonition-bg-color: #ffebee;
-  --admonition-text-color: #c62828;
-  --admonition-effective-border-color: #c62828;
-  --admonition-effective-border-left-width: 4px;
-}
-/* Add Caution if used */
-.admonitionLight.admonitionCaution, .admonitionCautionLight { /* etc */
-  --admonition-bg-color: #fff8e1;
-  --admonition-text-color: #8c5a00;
-  --admonition-effective-border-color: #8c5a00;
-  --admonition-effective-border-left-width: 4px;
+/* --- Clean up margins inside the content area --- */
+.admonitionContent > *:first-child {
+  margin-top: 0;
 }
 
-
-/* ==================================================================== */
-/* --- Dark Theme Colors (Sampled/Estimated from SECOND User Image) --- */
-/* ==================================================================== */
-.admonitionDark.admonitionNote, .admonitionNoteDark { /* etc */
-  --admonition-bg-color: #313131;
-  --admonition-text-color: #a0a0a0;
-  --admonition-effective-border-color: transparent;
-  --admonition-effective-border-left-width: 0px; /* Dark theme NO border */
-}
-.admonitionDark.admonitionInfo, .admonitionInfoDark { /* etc */
-  --admonition-bg-color: #1c3d5d;
-  --admonition-text-color: #5c9eed;
-  --admonition-effective-border-color: transparent;
-  --admonition-effective-border-left-width: 0px;
-}
-.admonitionDark.admonitionTip, .admonitionTipDark { /* etc */
-  --admonition-bg-color: #1e4431;
-  --admonition-text-color: #6cc38b;
-  --admonition-effective-border-color: transparent;
-  --admonition-effective-border-left-width: 0px;
-}
-.admonitionDark.admonitionWarning, .admonitionWarningDark { /* etc */
-  --admonition-bg-color: #5a3a1a;
-  --admonition-text-color: #e6a559;
-  --admonition-effective-border-color: transparent;
-  --admonition-effective-border-left-width: 0px;
-}
-.admonitionDark.admonitionDanger, .admonitionDangerDark { /* etc */
-  --admonition-bg-color: #5d2b2b;
-  --admonition-text-color: #e87d7d;
-  --admonition-effective-border-color: transparent;
-  --admonition-effective-border-left-width: 0px;
-}
-/* Add Caution if used */
-.admonitionDark.admonitionCaution, .admonitionCautionDark { /* etc */
-  --admonition-bg-color: #5a3a1a;
-  --admonition-text-color: #e6a559;
-  --admonition-effective-border-color: transparent;
-  --admonition-effective-border-left-width: 0px;
-}
-
-
-/* ============================================================= */
-/* --- Apply Colors Using Variables (Applies to BOTH themes) --- */
-/* ============================================================= */
-/* Apply background and text/icon colors */
-.admonitionNote,
-.admonitionTip,
-.admonitionInfo,
-.admonitionWarning,
-.admonitionDanger,
-.admonitionCaution {
-  background-color: var(--admonition-bg-color);
-  color: var(--admonition-text-color); /* Icon inherits via fill: currentColor */
-}
-
-
-/* ========================================================= */
-/* --- Code Styling (Matching latest image) --- */
-/* ========================================================= */
-.admonition code {
-  /* Style similar to image: light grey bg, subtle border */
-  border-radius: 4px; /* Slightly rounded */
-  padding: 0.2em 0.4em; /* Padding inside */
-  font-size: 0.9em; /* Slightly smaller font */
-  margin: 0 0.1em; /* Tiny horizontal space around */
-  /* Theme-specific colors using variables defined at :root */
-  background-color: var(--admonition-code-bg-light);
-  border: 1px solid var(--admonition-code-border-light);
-  color: inherit; /* Inherit base text color from admonition */
-}
-
-/* Dark theme override for code background/border */
-.admonitionDark code {
-   background-color: var(--admonition-code-bg-dark);
-   border-color: var(--admonition-code-border-dark);
-   /* Optional: slightly different text color for code in dark mode */
-   /* color: #d0d0d0; */
+.admonitionContent > *:last-child {
+  margin-bottom: 0;
 }

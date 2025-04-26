@@ -25,14 +25,14 @@ const FeatureCard: React.FC<Props> = ({
     // Use the determined container element and props
     <ContainerElement {...containerProps}>
       {/* Numbered Box */}
-      <div className={styles.numberBox}>
+      <div className={`${styles.numberBox} text-h4 font-semibold`}>
         {number}
       </div>
 
       {/* Content Area (Title + Description) */}
       <div className={styles.contentArea}>
-        <div className={styles.title}>{title}</div>
-        <div className={styles.description}>{description}</div>
+        <div className={`${styles.title} text-h4 font-semibold`}>{title}</div>
+        <div className={`${styles.description} text-body-1 font-regular`}>{description}</div>
       </div>
     </ContainerElement>
   );

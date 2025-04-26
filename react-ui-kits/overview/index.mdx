@@ -9,7 +9,7 @@ import TabItem from '@theme/TabItem';
 import FeatureCard from '@site/src/components/FeatureCard'; 
 import CheckListItem from '@site/src/components/CheckListItem';
 import FolderStructureImg from "./assets/1623200303.png";
-
+import FeatureShowcase from '@site/src/components/FeatureShowcase'; 
 import DependenciesImg from "./assets/1634634559.png";
 import CometChatUIImg from "./assets/1623200307.gif";
 import ReactUIKitImg from "./assets/1623200296.png";
@@ -20,21 +20,62 @@ import ReactUIKitImg from "./assets/1623200296.png";
   in a list within a Component. You can filter the list based on your specific criteria,
   allowing for a more customized. Filters can be applied using `RequestBuilders` of Chat SDK.
 </StepBlock>
----
-:::info Recording Feature (Beta for SDK v2.x)
-    For the beta recording feature available in SDK v2.x, a specific beta version is needed. Refer to the [Recording (Beta)](/sdk/javascript/2.0/calling-recording) docs.
 
-    - **npm:** `npm install @cometchat-pro/chat@2.4.1-beta1 --save`
-    - **yarn:** `yarn add @cometchat-pro/chat@2.4.1-beta1`
-      :::
 ---
 
- <FeatureCard
-    number="05"
-    title="Gif"
+:::note
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+:::
+
+:::info
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+:::
+
+:::tip
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+:::
+
+:::success
+This should look the same as TIP. Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
+:::
+
+:::warning
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+:::
+
+:::caution
+This should look the same as WARNING. Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
+:::
+
+
+:::danger
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+:::
+
+---
+
+ <FeatureShowcase>
+  <FeatureCard
+    number="01"
+    title="Gif Processing"
     description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
   />
-
+  <FeatureCard
+    number="02"
+    title="Video Analysis"
+    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
+  />
+  <FeatureCard
+    number="03"
+    title="Image Tagging"
+    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
+  />
+  <FeatureCard
+    number="04"
+    title="Data Export"
+    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
+  />
+</FeatureShowcase>
 ---
   <CheckListItem>
   Filters allow you to customize the data displayed in a list within a Component. You can filter the list based on your specific criteria, allowing for a more customized.

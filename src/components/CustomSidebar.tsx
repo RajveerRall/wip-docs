@@ -184,7 +184,7 @@ function CustomSidebar() {
                         {Object.values(frameworkConfigs).map((framework) => (
                             <div
                                 key={framework.value}
-                                className={`${styles.dropdownItem} ${selectedFramework === framework.label ? styles.active : ''}`}
+                                className={`${styles.dropdownItem} text-caption-1 font-regular ${selectedFramework === framework.label ? styles.active : ''}`}
                                 onClick={() => handleFrameworkChange(framework.label)}
                             >
                                 {framework.label}

@@ -1,8 +1,6 @@
 /* Main container for the custom sidebar elements */
 .sidebarContainer {
-  padding: 0.75rem 0.5rem;
-  /* Adjust top padding to account for fixed navbar height */
-  /* Use Docusaurus variable with a sensible fallback */
+  padding: 0.75rem 1rem;
   padding-top: calc(var(--ifm-navbar-height, 60px) + 1.5rem);
   position: relative; /* Establishes stacking context */
   z-index: 100; /* Below dropdowns */
@@ -25,10 +23,10 @@
   align-items: center;
   justify-content: space-between; /* Pushes arrow to the right */
   padding: 0.5rem 0.75rem;
-  border: 1px solid var(--ifm-color-emphasis-300, #d1d5db); /* Use theme border, with fallback */
-  border-radius: 0.5rem;
+  border: 1px solid var(--border-default); /* Use theme border, with fallback */
+  border-radius: 8px;
   /* Use theme background, with fallback */
-  background-color: var(--ifm-background-color, white);
+  background-color: var(--background-01);
   cursor: pointer;
   width: 100%;
   color: var(--ifm-font-color-base, black); /* Use theme text color, with fallback */
@@ -55,7 +53,7 @@
 
 /* Arrow icon in the dropdown button */
 .dropdownArrow {
-  color: var(--ifm-color-emphasis-700, #4b5563); /* Muted text color, with fallback */
+  color: var(--icon-secondary); /* Muted text color, with fallback */
   margin-left: 0.25rem;
   flex-shrink: 0; /* Prevent shrinking */
   transition: transform 0.2s ease-in-out; /* Animate arrow rotation if needed */
@@ -84,8 +82,7 @@
 .dropdownItem {
   padding: 0.5rem 0.75rem;
   cursor: pointer;
-  font-size: 0.9rem;
-  color: var(--ifm-font-color-base, black); /* Use theme text color, with fallback */
+  color: var(--text-primary); /* Use theme text color, with fallback */
   min-height: 2.25rem; /* Consistent height */
   display: flex;
   align-items: center;
@@ -259,8 +256,8 @@
 .iconImage {
   object-fit: contain; /* object-contain */
   /* Responsive Icon Size */
-  height: 1rem; /* h-6 */
-  width: 1rem; /* w-6 */
+  height: 7.4px; /* h-6 */
+  width: 4.3px; /* w-6 */
 }
 
 :global(.menu__link--active) {

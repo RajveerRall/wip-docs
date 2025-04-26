@@ -15,10 +15,10 @@ const StepBlock: React.FC<Props> = ({ label, children }) => {
     <div className={styles.stepBlockContainer}>
       {/* The styled label box */}
       {/* We ensure label exists before rendering */}
-      {label && <div className={styles.stepLabel}>{label}</div>}
+      {label && <div className={`${styles.stepLabel} text-caption-1 font-medium`}>{label}</div>}
 
       {/* The main content area */}
-      <div className={styles.stepContent}>{children}</div>
+      <div className={`${styles.stepContent} text-body-1 font-regular`}>{children}</div>
     </div>
   );
 };

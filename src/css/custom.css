@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"); /* Added 700 for Bold */
 
 /* === BASE LAYER STYLES === */
-@layer base {
+/* @layer base { */
   /* --- Light Theme Variables (Default) --- */
   :root {
     --primary: #6852d6;
@@ -300,7 +300,7 @@
     line-height: 120%; /* Tighter line height for buttons */
     letter-spacing: 0%;
   }
-}
+/* } */
 
 
 /* src/css/custom.css */
