@@ -63,11 +63,11 @@ html[data-theme="dark"] .apiCard:first-child {
   background-color: transparent;
   border: 1px solid var(--btn-white-pressed);
   color: var(--text-primary);
-  padding: 8px 16px;
-  border-radius: 0.5rem; /* More rounded button corners */
+  padding: 8px 20px;
+  border-radius: 8px; /* More rounded button corners */
   text-decoration: none;
   transition: all 0.2s ease;
-  height: 34px;
+  height: 32px;
   width: 120px;
 }
 

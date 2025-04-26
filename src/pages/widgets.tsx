@@ -34,7 +34,7 @@ export const WidgetCard: React.FC<WidgetCardProps> = ({ widget }) => {
       />
       {/* Widget Title */}
       <span
-        className={`${cardStyles.widgetTitle} text-body-2 font-semibold`} // Use CSS module class
+        className={`${cardStyles.widgetTitle} text-body-1 font-regular`} // Use CSS module class
       >
         {widget.title}
       </span>
@@ -61,10 +61,10 @@ const WidgetsGrid: React.FC<WidgetsGridProps> = ({
     // Use CSS module class for the Section Container
     <section className={gridStyles.gridSection}>
       {/* Use CSS module class for the Section Title */}
-      <p className={`${gridStyles.gridTitle}  ${isMobile?'text-h3':'text-h2'} font-semibold`}>{title}</p>
+      <p className={`${gridStyles.gridTitle}  ${isMobile?'text-h3':'text-h1'} font-semibold`}>{title}</p>
 
       {/* Use CSS module class for the Section Description */}
-      <p className={`${gridStyles.gridDescription} ${isMobile?'text-caption-1':'text-body-2'}`}>{description}</p>
+      <p className={`${gridStyles.gridDescription} ${isMobile?'text-caption-1':'text-body-1'} font-regular`}>{description}</p>
 
       {/* Use CSS module class for the Widgets Container */}
       <div className={gridStyles.widgetsContainer}>

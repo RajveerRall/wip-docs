@@ -133,20 +133,20 @@ export default function Homepage() {
       <main className={styles.pageContainer}>
         {/* Breadcrumbs with CSS Module classes */}
         <div className={styles.breadcrumbs}>
-          <Link to="/" className={`${styles.breadcrumbLink} text-caption-2`}>
+          <Link to="/" className={`${styles.breadcrumbLink} text-caption-1 font-medium`}>
             Home
           </Link>
           <MdOutlineKeyboardArrowRight
             className={styles.breadcrumbSeparator}
             aria-hidden="true"
           />
-          <span className={`${styles.breadcrumbCurrent} text-caption-2`}>Docs</span>
+          <span className={`${styles.breadcrumbCurrent} text-caption-1 font-medium`}>Docs</span>
         </div>
 
         {/* Hero Section with CSS Module classes */}
         <div>
-          <p className={`${styles.heroTitle} ${isMobile?'text-h2':'text-title-28'} font-semibold`}>{data.title}</p>
-          <p className={`${styles.heroDescription}  ${isMobile?'text-caption-1':'text-body-1'}`}>{data.content}</p>
+          <p className={`${styles.heroTitle} ${isMobile?'text-h2':'text-title-32'} font-semibold`}>{data.title}</p>
+          <p className={`${styles.heroDescription}  ${isMobile?'text-caption-1':'text-body-1'} font-regular`}>{data.content}</p>
         </div>
 
         {/* Render Child Components */}

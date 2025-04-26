@@ -1,0 +1,85 @@
+/* src/components/OfficeHoursCard.module.css */
+
+.cardContainer {
+    display: flex;
+    justify-content: space-between; /* Push content and icon apart */
+    align-items: center; /* Vertically center items */
+    gap: 32px; /* Space between content and icon if they wrap */
+    padding: 12px 20px; /* Generous padding inside the card */
+    background-color: var(--background-02); /* Primary white/dark background */
+    border:1px solid var(--border-default);
+    border-radius: 18px; /* Significant rounding */
+    overflow: hidden; /* Ensure content respects border-radius */
+    position: relative; /* For potential future absolute elements */
+  }
+  
+  .contentArea {
+    display: flex;
+    flex-direction: column;
+    gap: 16px; /* Space between title, description, and button */
+    flex-shrink: 1; /* Allow content to shrink if needed */
+    /* Limit width to prevent text getting too wide */
+    max-width: 65%; /* Adjust as needed */
+  }
+  
+  .title {
+    color: var(--text-primary);
+    margin: 0; /* Remove default heading margin */
+    line-height: 120%;
+  }
+  
+  .description {
+    /* Use body text styles from your theme if available */
+    color: var(--text-secondary);
+    margin: 0;
+  }
+  
+  .bookButton {
+    /* Fixed dimensions */
+    height: 32px;
+    width: 120px;
+  
+    /* Flexbox for centering */
+    display: inline-flex; /* Use flex but flow like inline element */
+    align-items: center; /* Vertically center content */
+    justify-content: center; /* Horizontally center content */
+  
+    /* Appearance */
+    background-color: var(--primary-btn-bg-sp); /* Use your variable */
+    color: var(--static-white);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none; /* Remove underline from Link */
+  
+    /* Text style */
+    font-size: 14px; /* Or use --button-text variable */
+    font-weight: 500; /* Or use --button-text variable */
+    white-space: nowrap; /* Prevent text wrapping */
+  
+    /* Transition */
+    transition: background-color 0.2s ease;
+  
+    /* Remove padding that interferes with flex centering within fixed dimensions */
+    padding: 0;
+    /* text-align: center; /* Not needed with justify-content: center */
+  }
+  
+  
+  .iconContainer {
+    flex-shrink: 0; /* Prevent icon container from shrinking */
+    /* Center the icon visually if needed - usually handled by align-items on parent */
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center icon vertically */
+    justify-content: center; /* Center icon horizontally */
+  }
+  
+  .clockIcon {
+    font-size: 96px; /* Large icon size */
+    /* Very light grey, subtle color */
+    /* --neutral-300 (#e8e8e8) or --neutral-200 (#f5f5f5) */
+    color: var(--neutral-200); /* Fainter grey */
+    /* Optional: reduce opacity slightly if color isn't faint enough */
+    /* opacity: 0.8; */
+  }
+  

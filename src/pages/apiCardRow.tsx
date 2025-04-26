@@ -15,10 +15,10 @@ const ApiCard: React.FC<ApiCardProps> = ({
 }) => {
   return (
     <div className={styles.apiCard}>
-      <p className={`${styles.apiCardTitle} text-h3 font-semibold`}>{title}</p>
-      <p className={`${styles.apiCardDescription} font-regular text-body-2`}>{description}</p>
+      <p className={`${styles.apiCardTitle} text-h2 font-semibold`}>{title}</p>
+      <p className={`${styles.apiCardDescription} font-regular text-body-1`}>{description}</p>
       <div className={styles.apiCardFooter}>
-        <Link to={learnMoreLink} className={`${styles.learnMoreButton} text-caption-2 font-medium`}>
+        <Link to={learnMoreLink} className={`${styles.learnMoreButton} text-button font-medium`}>
           Learn More
         </Link>
       </div>

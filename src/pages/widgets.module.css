@@ -13,7 +13,7 @@
 .gridDescription {
   margin-bottom: 1.5rem; /* Equivalent to mb-10 */
   max-width: 70vw; /* Equivalent to max-w-3xl */
-  color:var(--neutral-600)!important;
+  color:var(--text-secondary)!important;
 }
 
 
@@ -22,7 +22,7 @@
   display: flex; /* flex */
   width: 100%; /* w-full */
   flex-direction: column; /* flex-col */
-  gap: 0.7rem; /* gap-6 */
+  gap: 12px; /* gap-6 */
   
 }
 
@@ -39,12 +39,12 @@
   display: flex; /* flex */
   flex: 1 1 0%; /* flex-1 */
   align-items: center; /* items-center */
-
-  gap: 1rem; /* space-x-4 */
-  border-radius: 0.3rem; /* rounded-lg */
-  border: 1px solid var(--ifm-color-emphasis-200); /* border border-[...] */
-  background-color: var(--ifm-card-background-color); /* bg-[...] */
-  padding: 1.1rem; /* p-4 */
+  height:74px;
+  gap: 12px; /* space-x-4 */
+  border-radius: 12px; /* rounded-lg */
+  border: 1px solid var(--border-default); /* border border-[...] */
+  background-color: var(--background-01); /* bg-[...] */
+  padding: 16px; /* p-4 */
   background-color: var(
     --background-01
   );
@@ -63,12 +63,6 @@
   border-color: var(--ifm-color-emphasis-400);
   text-decoration: none;
   color: var(--ifm-font-color-base);
-}
-
-/* --- Dark Mode Styles --- */
-html[data-theme="dark"] .widgetLinkCard {
-  border-color: var(--ifm-color-emphasis-300); /* dark:border-[...] */
-  /* dark:bg handled by variable */
 }
 
 html[data-theme="dark"] .widgetLinkCard:hover {
@@ -91,9 +85,6 @@ html[data-theme="dark"] .widgetLinkCard:hover {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; /* truncate */
-
-  /* Responsive Title Size */
-  line-height: var(--ifm-line-height-base);
 }
 
 @media (max-width: 996px) {

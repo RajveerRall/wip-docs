@@ -31,13 +31,15 @@
 
 /* --- View All Button --- */
 .viewAllButton {
+  height: 32px;
+  width:120px;
   display: inline-flex; /* inline-flex */
   flex-shrink: 0; /* flex-shrink-0 */
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
   white-space: nowrap; /* whitespace-nowrap */
-  border-radius:0.5rem;
-  border: 1px solid var(--ifm-color-emphasis-300); /* border border-[...] */
+  border-radius:8px;
+  border: 1px solid var(--border-dark); /* border border-[...] */
   padding: 0.275rem 1.6rem; /* py-1.5 px-4 */
   text-decoration: none; /* no-underline */
   background-color: transparent; /* bg-transparent */
@@ -65,7 +67,7 @@ html[data-theme="dark"] .viewAllButton:hover {
 .sectionDescription {
   margin-bottom: 2.5rem; /* Equivalent to mb-10 */
   max-width: 70vw; /* Equivalent to max-w-3xl */
-  color:var(--neutral-600)!important;
+  color:var(--text-secondary)!important;
 }
 
 /* --- Apps Grid Container --- */
@@ -196,118 +198,6 @@ html[data-theme="dark"] .cloneButton:hover {
 /* Dark mode */
 html[data-theme="dark"] .divider {
   background-color: var(--ifm-color-emphasis-300); /* dark:bg-[...] */
-}
-
-/* --- Office Hours Section --- */
-.officeHoursSection {
-  margin-top: 3rem; /* mt-12 */
-  width: 100%; /* w-full */
-  font-family: "Inter", sans-serif;
-}
-
-/* --- Office Hours Card --- */
-.officeHoursCard {
-  position: relative; /* relative */
-  display: flex; /* flex */
-  flex-direction: column; /* flex-col */
-  overflow: hidden; /* overflow-hidden */
-  border-radius: 1rem; /* rounded-2xl */
-  border: 1px solid var(--ifm-color-emphasis-200); /* border border-[...] */
-  padding: 1.5rem; /* p-6 */
-  box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
-  background-color: var(--background-02); /* bg-[...] */
-}
-
-@media (min-width: 768px) {
-  /* md breakpoint */
-  .officeHoursCard {
-    flex-direction: row; /* md:flex-row */
-    align-items: center; /* md:items-center */
-    justify-content: space-between; /* md:justify-between */
-    padding: 2rem; /* md:p-8 */
-  }
-}
-
-
-/* --- Office Hours Content --- */
-.officeHoursContent {
-  position: relative; /* relative */
-  z-index: 10; /* z-10 */
-  width: 100%; /* w-full */
-}
-
-@media (min-width: 768px) {
-  /* md breakpoint */
-  .officeHoursContent {
-    width: 66.666667%; /* md:w-2/3 */
-  }
-}
-
-@media (min-width: 996px) {
-  /* lg breakpoint */
-  .officeHoursContent {
-    width: 60%; /* lg:w-3/5 */
-  }
-}
-
-/* --- Office Hours Title --- */
-.officeHoursTitle {
-  margin-bottom: 1rem; /* mb-4 */
-  color: var(--text-primary) !important; /* !text-[--ifm-heading-color] */
-}
-
-/* --- Office Hours Description --- */
-.officeHoursDescription {
-  /* margin-bottom: 1.5rem;  */
-  color:var(--neutral-500)!important;
-}
-
-
-/* --- Book Slot Button --- */
-.bookSlotButton {
-  display: inline-flex; /* inline-flex */
-  align-items: center; /* items-center */
-  justify-content: center; /* justify-center */
-  border-radius: 0.5rem; /* rounded-xl */
-  background-color: var(--primary); /* bg-[#6852D6] */
-  padding: 0.325rem 0.8rem; /* py-2.5 px-5 */
-  text-decoration: none; /* no-underline */
-  transition: background-color 200ms ease; /* transition-colors duration-200 */
-  color: var( --text-white)!important
-}
-
-
-/* --- Office Hours Image --- */
-.officeHoursImage {
-  position: absolute;       /* Keep absolute positioning */
-  /* Adjust positioning: Move slightly up and left from the extreme edge */
-  bottom: -1rem;          
-  right: 1.5rem;            
-  display: none;            /* Still hidden on mobile */
-  height: auto;             /* REMOVED fixed vh, let width/contain drive height */
-  object-fit: contain;      /* Keep aspect ratio */
-  /* Adjust base width if needed */
-  width: 50px;
-  /* Set the desired FAINT opacity */
-  opacity: 0.4;             /* Lowered opacity (adjust 0.3-0.5) */
-  z-index: 5;               /* Ensure it's behind content (z-10) but above bg */
-}
-
-
-@media (min-width: 768px) {
-  /* md breakpoint */
-  .officeHoursImage {
-    display: block; /* md:block */
-    width: 180px; /* md:w-[180px] */
-    opacity: 1; /* md:opacity-100 */
-  }
-}
-
-@media (min-width: 996px) {
-  /* lg breakpoint */
-  .officeHoursImage {
-    width: 200px; /* lg:w-[200px] */
-  }
 }
 
 /* Responsive adjustments */

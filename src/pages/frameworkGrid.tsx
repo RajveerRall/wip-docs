@@ -32,9 +32,9 @@ export default function FrameworkGrid({
     // Use CSS module class for the section container
     <div className={styles.gridSection}>
       {/* Use CSS module class for the Section Title */}
-      <p className={`${styles.gridTitle} ${isMobile?'text-h3':'text-h2'} font-semibold`}>{title}</p>
+      <p className={`${styles.gridTitle} ${isMobile?'text-h3':'text-h1'} font-semibold`}>{title}</p>
       {/* Use CSS module class for the Section Description */}
-      <p className={`${styles.gridDescription} ${isMobile?'text-caption-1':'text-body-2'}`}>{description}</p>
+      <p className={`${styles.gridDescription} ${isMobile?'text-caption-1':'text-body-1'} font-regular`}>{description}</p>
 
       {/* Use CSS module class for the Grid Layout */}
       <div className={styles.frameworkItemsGrid}>

@@ -46,7 +46,7 @@ export default function FrameworkCard({
         <div className={styles.cardContent}>
           {/* Title */}
           <span
-            className={`${styles.cardTitle} font-semibold text-h4`} // Use CSS module class for the title
+            className={`${styles.cardTitle} font-semibold text-body-2`} // Use CSS module class for the title
             title={title} // Keep title attribute for accessibility on truncation
           >
             {title}

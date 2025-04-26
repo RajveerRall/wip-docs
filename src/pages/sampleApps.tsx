@@ -5,6 +5,7 @@ import { useWindowSize } from "@docusaurus/theme-common/internal";
 
 // Import the CSS Module
 import styles from "./sampleApps.module.css"; // Make sure path is correct
+import OfficeHoursCard from "./OfficeHoursCard";
 
 // GitHub Icon component - Modified to use currentColor and accept className
 const GithubIcon = (
@@ -70,12 +71,12 @@ const SampleAppsSection = () => {
       {/* Section Header */}
       <div className={styles.sectionHeader}>
         {/* Section Title */}
-        <span className={`${styles.sectionTitle} ${isMobile?'text-h3':'text-h2'} font-semibold`}>Sample Apps</span>
+        <span className={`${styles.sectionTitle} ${isMobile?'text-h3':'text-h1'} font-semibold`}>Sample Apps</span>
 
         {/* View All Button */}
         <Link
           to="https://github.com/cometchat"
-          className={`${styles.viewAllButton} text-caption-1`} // Use module class
+          className={`${styles.viewAllButton} text-button font-medium`} // Use module class
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -84,7 +85,7 @@ const SampleAppsSection = () => {
       </div>
 
       {/* Section Description */}
-      <p className={`${styles.sectionDescription} ${isMobile?'text-caption-1':'text-body-2'}`}>
+      <p className={`${styles.sectionDescription} ${isMobile?'text-caption-1':'text-body-1'} font-regular`}>
         Explore practical examples of what you can achieve, and don't forget to
         check out our Interactive Demo.
       </p>
@@ -142,50 +143,9 @@ const SampleAppsSection = () => {
           ))}
         </div>
       </div>
-
+      
       {/* Office Hours Section */}
-      <div className={styles.officeHoursSection}>
-        {/* Office Hours Card */}
-        <div className={styles.officeHoursCard}>
-          {" "}
-          {/* Use module class */}
-          {/* Content */}
-          <div className={styles.officeHoursContent}>
-            {" "}
-            {/* Use module class */}
-            {/* Title */}
-            <p className={`${styles.officeHoursTitle} font-semibold text-h2`}>
-              {" "}
-              {/* Use module class */}
-              CometChat Solutions Office Hours
-            </p> 
-
-            {/* Description */}
-            <p className={`${styles.officeHoursDescription} font-regular text-body-2`}>
-              Join our solutions office hours to brainstorm and ideate on your
-              use cases, get guidance on integration from our solution
-              engineers.
-            </p>
-           
-            {/* Book Slot Button */}
-            <div
-              // to="https://www.cometchat.com/office-hours"
-              className={`${styles.bookSlotButton} text-caption-1 font-medium`} // Use module class
-              // target="_blank"
-              // rel="noopener noreferrer"
-            >
-              Book Your Slot
-            </div>
-          </div>
-          {/* Image */}
-          <img
-            src={useBaseUrl("imgs/clock-bg.svg")}
-            alt="Office Hours"
-            className={styles.officeHoursImage} // Use module class
-            aria-hidden="true"
-          />
-        </div>
-      </div>
+      <OfficeHoursCard buttonLink="/contact" />
     </section>
   );
 };

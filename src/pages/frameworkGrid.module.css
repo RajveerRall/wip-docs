@@ -13,7 +13,7 @@
 .gridDescription {
   margin-bottom: 1.5rem; /* Equivalent to mb-10 */
   max-width: 70vw; /* Equivalent to max-w-3xl */
-  color:var(--neutral-600)!important;
+  color:var(--text-secondary)!important;
 }
 
 @media (max-width: 996px) {

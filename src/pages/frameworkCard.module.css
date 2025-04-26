@@ -16,8 +16,8 @@
   display: flex; /* flex */
   height: 100%; /* h-full */
   align-items: center; /* items-center */
-  border-radius: 0.5rem; /* rounded-lg  */
-  border: 1px solid var(--btn-white-pressed);
+  border-radius: 12px; /* rounded-lg  */
+  border: 1px solid var(--border-default);
   background-color: var(
     --background-01
   ); /* bg-[--ifm-card-background-color] */
@@ -25,8 +25,8 @@
   transition: all 200ms ease-out; /* transition-all duration-200 ease-out */
 
   /* Responsive Padding & Spacing (using gap instead of space-x) */
-  padding: 0.5rem; /* p-2 */
-  gap: 0.25rem; /* space-x-1 equivalent */
+  padding: 16px; /* p-2 */
+  gap: 12px; /* space-x-1 equivalent */
 }
 
 @media (min-width: 768px) {
@@ -115,27 +115,24 @@ html[data-theme="dark"] .cardLink:hover .cardBody {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap; /* truncate (overrides text-wrap/whitespace-normal) */
-  /* Responsive Title Size (approximating 'text-s' as 14px) */
-  font-size: 0.9rem; /* text-s (14px) */
-  line-height: 1.25rem; /* line-height for 14px */
 }
 
 /* --- Version Badge --- */
 .versionBadge {
   margin-top: 0.2rem; /* Approximating mt-0.4 */
   display: inline-flex; /* inline-flex */
-  width: fit-content; /* w-fit */
+  width: 24px; /* w-fit */
+  height:22px;
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
-  border-radius: 0.2rem; /* rounded */
-  border: 1px solid var(--neutral-300); /* border-2 border-[...] */
-  color: var(--ifm-color-emphasis-700); /* text-[...] */
+  border-radius: 4px; /* rounded */
+  border: 1px solid var(--border-default); /* border-2 border-[...] */
+  color: var(--text-secondary); /* text-[...] */
   font-weight: var(--ifm-font-weight-medium); /* font-medium */
   background-color: var(
     --background-01
   );
   /* Responsive Padding */
-  padding: 0.2rem; /* py-0 px-1 */
 }
 
 /* Responsive Badge Text Size (approximating 'text-s' as 10px) */
