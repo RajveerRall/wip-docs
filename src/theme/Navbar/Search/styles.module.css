@@ -1,0 +1,92 @@
+/* src/theme/Navbar/Search/styles.module.css */
+
+/* Styles for your custom visible button */
+.searchButton {
+    display: inline-flex;
+    align-items: center;
+    width: auto;
+    min-width: 200px;
+    padding: 6px 10px;
+    background-color: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+    appearance: none;
+    text-align: left;
+    color: inherit;
+  }
+  
+  .searchButton:hover {
+    border-color: #d1d1d1;
+  }
+  
+  .searchIcon {
+    flex-shrink: 0;
+    color: #999999;
+    margin-right: 8px;
+    font-size: 16px;
+    stroke-width: 2;
+  }
+  
+  .searchPlaceholder {
+    flex-grow: 1;
+    color: #999999;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .searchShortcut {
+    flex-shrink: 0;
+    margin-left: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: inherit;
+    font-size: 0.75rem;
+    color: #666666;
+    background-color: #f7f7f7;
+    border: 1px solid #eaeaea;
+    border-radius: 6px;
+    padding: 2px 6px;
+    white-space: nowrap;
+  }
+  
+  .searchShortcutCmd {
+    font-size: 1.1em;
+    margin-top: -1px;
+  }
+  
+  /* Style to hide the container of the original search component */
+  /* This attempts to hide it visually but keep it functional for refs/modals */
+  .hiddenOriginalSearch {
+    /* Make it take no space and be invisible */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px; /* Prevent potential border/margin from showing */
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Clip visually */
+    white-space: nowrap; /* Prevent line breaks */
+    border-width: 0; /* Remove border */
+  
+    /* Ensure it's behind other content if needed, although usually */
+    /* absolute positioning + clip is enough */
+    /* z-index: -1; */
+  }
+  
+  /* Alternative / Additional approach if the above isn't enough: */
+  /* Try explicitly hiding the button *inside* the original search component. */
+  /* You might need to inspect the HTML to get the right selector. */
+  /* .hiddenOriginalSearch > button {
+    display: none !important;
+  } */
+  
+  /* Or target Algolia's specific class if you know it */
+  /* .hiddenOriginalSearch .DocSearch-Button {
+    display: none !important;
+  } */

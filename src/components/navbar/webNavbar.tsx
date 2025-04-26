@@ -91,7 +91,7 @@ function WebNavbar(): React.ReactNode {
             {/* Position relative */}
             <button
                ref={buttonRef}
-              className={clsx("dropdown-button  text-caption-1", {
+              className={clsx("dropdown-button  text-body-2 font-medium", {
                 active: activeDropdown === "integrate",
               })}
               onMouseEnter={() => handleDropdownToggle("integrate")}
@@ -162,9 +162,8 @@ function WebNavbar(): React.ReactNode {
 
         {/* Action Buttons */}
         <div className="navbar-actions">
-          <button className="dashboard-button">Dashboard</button>
-          <button className="contact-button">Contact Support</button>
-
+          <button className={`dashboard-button text-button font-medium`}>Dashboard</button>
+          <button className={`contact-button text-button font-medium`}>Contact Support</button>
           {/* Theme Toggle Switch */}
           <ThemeToggle />
         </div>

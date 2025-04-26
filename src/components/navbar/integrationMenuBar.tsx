@@ -83,12 +83,12 @@ const IntegrationDropdownMenu: React.FC = () => {
       <div className="main-menu-container">
         {/* Column 1: UI Kits */}
         <div className="menu-col-1">
-          <span className="menu-heading text-body-2 font-semibold">
+          <span className="menu-heading text-caption-1 font-semibold">
             UI Kits
           </span>
           {uiKitsList.map((item, index) => (
             <div
-              className="item-container text-caption-1 font-semibold"
+              className="item-container text-body-2 font-medium"
               key={index}
             >
               <img
@@ -99,9 +99,7 @@ const IntegrationDropdownMenu: React.FC = () => {
                 alt={item.name}
               />
               <span
-                style={{
-                  fontWeight: 600,
-                }}
+               
               >
                 {item.name}
               </span>
@@ -114,10 +112,10 @@ const IntegrationDropdownMenu: React.FC = () => {
 
         {/* Column 2: SDKs */}
         <div className="menu-col-1">
-          <span className="menu-heading text-body-2 font-semibold">SDKs</span>
+          <span className="menu-heading text-caption-1 font-semibold">SDKs</span>
           {sdks.map((item, index) => (
             <div
-              className="item-container text-caption-1 font-semibold"
+              className="item-container text-body-2 font-medium"
               key={index}
             >
               <img
@@ -127,7 +125,7 @@ const IntegrationDropdownMenu: React.FC = () => {
                 width={"20px"}
                 alt={item.name}
               />
-              <span style={{ fontWeight: 600 }}>{item.name}</span>
+              <span>{item.name}</span>
             </div>
           ))}
         </div>
@@ -135,16 +133,17 @@ const IntegrationDropdownMenu: React.FC = () => {
         {/* Vertical Separator 2 */}
         <div className="vertical-line"></div>
 
+
         {/* Column 3: Widgets & APIs */}
         <div className="menu-col-1">
           {/* Widgets Section */}
           <div>
-            <span className="menu-heading text-body-2 font-semibold">
+            <span className="menu-heading text-caption-1 font-semibold">
               Widgets
             </span>
             {widgets.map((item, index) => (
               <div
-                className="item-container text-caption-1 font-semibold"
+                className="item-container text-body-2 font-medium"
                 key={index}
               >
                 <img
@@ -154,7 +153,7 @@ const IntegrationDropdownMenu: React.FC = () => {
                   width={"20px"}
                   alt={item.name}
                 />
-                <span style={{ fontWeight: 600 }}>{item.name}</span>
+                <span>{item.name}</span>
               </div>
             ))}
           </div>
@@ -169,18 +168,18 @@ const IntegrationDropdownMenu: React.FC = () => {
           {/* APIs Section */}
           <div>
             <span
-              className="menu-heading text-body-2 font-semibold"
+              className="menu-heading text-caption-1 font-semibold"
              // style={{ marginBottom: "20px!important" }} // Can control spacing via margin-top on this span or margin-bottom on horizontal line
             >
               APIs
             </span>
             {apis.map((item, index) => (
               <div
-                className="item-container text-caption-1 font-semibold"
+                className="item-container text-body-2 font-medium"
                 key={index}
               >
                 <item.icon className="item-icon-react" /> {/* Added class */}
-                <span style={{ fontWeight: 600 }}>{item.name}</span>
+                <span>{item.name}</span>
               </div>
             ))}
           </div>

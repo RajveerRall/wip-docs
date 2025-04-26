@@ -1,94 +1,54 @@
-// import React from 'react';
-// import { useColorMode } from '@docusaurus/theme-common';
-// import './Navbar.css';
-
-// const ThemeToggle = () => {
-//   const { colorMode, setColorMode } = useColorMode();
-
-//   return (
-//     <div className="theme-toggle-container">
-//       <div className="theme-toggle">
-//         {/* Sun icon - fixed position on left */}
-//         <div
-//           className={`sun-icon ${colorMode === 'light' ? 'active' : ''}`}
-//           onClick={() => setColorMode('light')}
-//         >
-//           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-//             <circle cx="12" cy="12" r="5"></circle>
-//             <line x1="12" y1="1" x2="12" y2="3"></line>
-//             <line x1="12" y1="21" x2="12" y2="23"></line>
-//             <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-//             <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-//             <line x1="1" y1="12" x2="3" y2="12"></line>
-//             <line x1="21" y1="12" x2="23" y2="12"></line>
-//             <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-//             <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-//           </svg>
-//         </div>
-        
-//         {/* Moon icon - fixed position on right */}
-//         <div
-//           className={`moon-icon ${colorMode === 'dark' ? 'active' : ''}`}
-//           onClick={() => setColorMode('dark')}
-//         >
-//           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-//             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-//           </svg>
-//         </div>
-        
-//         {/* Sliding circle indicator */}
-//         <div className={`toggle-circle ${colorMode === 'dark' ? 'right' : 'left'}`}></div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default ThemeToggle;
-
-
 import React from 'react';
 import { useColorMode } from '@docusaurus/theme-common';
-import './Navbar.css';
+import clsx from 'clsx';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
-const ThemeToggle = () => {
+import styles from './themeToggle.module.css';
+
+export default function ThemeToggle(): JSX.Element {
   const { colorMode, setColorMode } = useColorMode();
+  const isDarkTheme = colorMode === 'dark';
+
+  const toggleTheme = () => {
+    setColorMode(isDarkTheme ? 'light' : 'dark');
+  };
+
+  // Colors for the icons permanently in the background track
+  const backgroundSunColor = 'var(--icon-secondary)';
+  const backgroundMoonColor = 'var(--icon-secondary)';
+
+  // Color for the icon ON the sliding thumb (always primary)
+  const activeIconColor = 'var(--icon-primary)';
 
   return (
-    <div className="theme-toggle-container">
-      <div className="theme-toggle">
-        {/* Sun icon - fixed position on left */}
-        <div
-          className={`sun-icon ${colorMode === 'light' ? 'active' : ''}`}
-          onClick={() => setColorMode('light')}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <circle cx="12" cy="12" r="5"></circle>
-            <line x1="12" y1="1" x2="12" y2="3"></line>
-            <line x1="12" y1="21" x2="12" y2="23"></line>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-            <line x1="1" y1="12" x2="3" y2="12"></line>
-            <line x1="21" y1="12" x2="23" y2="12"></line>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-          </svg>
-        </div>
-        
-        {/* Moon icon - fixed position on right */}
-        <div
-          className={`moon-icon ${colorMode === 'dark' ? 'active' : ''}`}
-          onClick={() => setColorMode('dark')}
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-          </svg>
-        </div>
-        
-        {/* Sliding circle indicator */}
-        <div className={`toggle-circle ${colorMode === 'dark' ? 'right' : 'left'}`}></div>
+    <button
+      type="button"
+      className={clsx(styles.toggleContainer, {
+        [styles.darkMode]: isDarkTheme,
+      })}
+      onClick={toggleTheme}
+      title={`Switch to ${isDarkTheme ? 'light' : 'dark'} mode`}
+      aria-label={`Switch to ${isDarkTheme ? 'light' : 'dark'} mode`}
+      aria-live="polite"
+    >
+      {/* 1. Background Icons Wrapper (Static, Behind) */}
+      <div className={styles.backgroundIconsWrapper}>
+        <span className={clsx(styles.iconWrapper, styles.sunIcon)}>
+          <FiSun size="18" style={{ color: backgroundSunColor }} />
+        </span>
+        <span className={clsx(styles.iconWrapper, styles.moonIcon)}>
+          <FiMoon size="15" style={{ color: backgroundMoonColor }} />
+        </span>
       </div>
-    </div>
-  );
-};
 
-export default ThemeToggle;
+      {/* 2. Sliding Thumb containing the ACTIVE icon */}
+      <div className={styles.slidingIconThumb}>
+        {isDarkTheme ? (
+          <FiMoon size="15" style={{ color: activeIconColor }} />
+        ) : (
+          <FiSun size="18" style={{ color: activeIconColor }} />
+        )}
+      </div>
+    </button>
+  );
+}

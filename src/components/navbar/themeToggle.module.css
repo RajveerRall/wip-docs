@@ -1,0 +1,77 @@
+/* src/components/navbar/ThemeToggle.module.css */
+
+.toggleContainer {
+    /* --- Container Size & Shape - UPDATED WIDTH --- */
+    width: 84px; /* Changed from 72px */
+    height: 32px;
+    border-radius: 9999px;
+    padding: 2px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border: none;
+    display: flex;
+    align-items: center;
+  
+    /* --- Container Colors --- */
+    background-color: var(--background-03);
+    transition: background-color 0.3s ease;
+  }
+  
+  .toggleContainer:hover {
+    background-color: var(--background-04);
+  }
+  
+  /* --- Wrapper for static background icons --- */
+  .backgroundIconsWrapper {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    right: 2px;
+    bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Adjust padding for wider container - Experiment as needed */
+    padding: 0 10px; /* Increased padding from 5px */
+    z-index: 0;
+  }
+  
+  /* --- Basic wrapper for individual icons --- */
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sunIcon { }
+  .moonIcon { }
+  
+  
+  /* --- The SLIDING THUMB element --- */
+  .slidingIconThumb {
+    /* --- Thumb Size & Shape (Unchanged from previous "pill" version) --- */
+    height: 28px;
+    width: 40px;
+    border-radius: 9999px;
+  
+    /* --- Thumb Colors & Shadow --- */
+    background-color: var(--background-01);
+    box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  
+    /* --- Positioning & Animation --- */
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+  }
+  
+  /* --- Dark Mode State: Move the sliding thumb - UPDATED translateX --- */
+  .toggleContainer.darkMode .slidingIconThumb {
+    /* Calculate translation: NEW container width - thumb width - (2 * padding) */
+    /* 84px - 40px - (2 * 2px) = 40px */
+    transform: translateX(40px); /* Changed from 28px */
+  }

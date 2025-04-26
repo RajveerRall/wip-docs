@@ -87,7 +87,7 @@ const PlatformDropdownMenu: React.FC = () => {
       icon: "https://img.icons8.com/color/144/swift.png",
     },
     {
-      name: "Android chat App (JAVA)",
+      name: "Android chat App (Java)",
       icon: "https://img.icons8.com/color/144/android-os.png",
     },
     {
@@ -100,7 +100,7 @@ const PlatformDropdownMenu: React.FC = () => {
     <div className="dropdown-content">
       <div className="main-menu-container">
         <div className="menu-col-1">
-          <span className="menu-heading text-body-2 font-semibold">
+          <span className="menu-heading text-caption-1 font-semibold">
             Chats & Calling
           </span>
           {chatsAndCalling.map((item, index) => (
@@ -110,9 +110,9 @@ const PlatformDropdownMenu: React.FC = () => {
                 key={index}
               >
                 <item.icon className="item-icon-react" />
-                <span className="text-caption-2">{item.name}</span>
+                <span className="text-body-2 font-semibold">{item.name}</span>
               </div>
-              <div className="text-caption-2" key={index}>
+              <div className="text-caption-1 font-regular" key={index}>
                 <span className="txtDesc">{item.description}</span>
               </div>
             </div>
@@ -120,7 +120,7 @@ const PlatformDropdownMenu: React.FC = () => {
         </div>
         <div className="vertical-line"></div>
         <div className="menu-col-1">
-          <span className="menu-heading text-body-2 font-semibold">Extend</span>
+          <span className="menu-heading text-caption-1 font-semibold">Extend</span>
           {extendData.map((item, index) => (
             <div className="item-container-platform">
               <div
@@ -128,9 +128,9 @@ const PlatformDropdownMenu: React.FC = () => {
                 key={index}
               >
                 <item.icon className="item-icon-react" />
-                <span className="text-caption-2">{item.name}</span>
+                <span className="text-body-2 font-semibold">{item.name}</span>
               </div>
-              <div className="text-caption-2" key={index}>
+              <div className="text-caption-1 font-regular" key={index}>
                 <span className="txtDesc">{item.description}</span>
               </div>
             </div>
@@ -138,25 +138,25 @@ const PlatformDropdownMenu: React.FC = () => {
         </div>
         <div className="vertical-line"></div>
         <div className="menu-col-1">
-          <span className="menu-heading text-body-2 font-semibold">SDKs</span>
+          <span className="menu-heading text-caption-1 font-semibold">SDKs</span>
           {sampleApps.map((item, index) => (
             <div
-              className="item-container text-caption-1 font-semibold "
+              className="item-container text-body-2 font-medium"
               key={index}
             >
               <img
                 src={item.icon}
                 style={{ marginRight: "10px" }}
-                height={"15px"}
-                width={"15px"}
+                height={"16px"}
+                width={"16px"}
                 alt={item.name}
               />
-              <span style={{ fontWeight: 600 }}>{item.name}</span>
+              <span>{item.name}</span>
             </div>
           ))}
         <div onClick={()=>{
           window.location.href = "/docs/sample-apps" 
-        }} className={'see-all-apps-link text-caption-2'}>
+        }} className={'see-all-apps-link text-caption-1 font-medium'}>
           {" "}
           {/* Adjust href as needed */}
           See All Apps
