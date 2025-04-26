@@ -371,12 +371,105 @@
 .docItemHeading_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, /* Example */
 main .container h1:first-of-type {
   /* Apply styles similar to one of your .text-h* or .text-title-* classes */
-  font-size: 28px; /* Example: Match .text-title-28 */
-  line-height: 120%; /* Example: Match .text-title-28 */
-  font-weight: 600; /* Example: Match .font-semibold */
-  color: var(--text-primary);
-
   /* ** KEY: Add the large spacing from the screenshot ** */
   margin-top: 2.5rem;    /* << ADJUST AS NEEDED */
   margin-bottom: 3rem;   /* << ADJUST AS NEEDED */
+}
+
+
+/* Target tables specifically within the main content area */
+main table,
+.markdown table {
+  /* ... existing styles ... */
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border-default);
+  margin-bottom: var(--ifm-leading);
+  display: table;
+  background-color: var(--background-01);
+}
+
+/* Table header styling */
+main table thead th,
+.markdown table thead th {
+ /* ... existing styles ... */
+  background-color: var(--neutral-200); /* Header background */
+  text-align: left;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+
+/* --- ADD THIS RULE TO REMOVE ZEBRA STRIPING --- */
+/* Override Docusaurus's default alternating row background */
+main table tbody tr,
+.markdown table tbody tr {
+   /* Ensures all rows inherit the main table background or are transparent */
+   background-color: transparent !important;
+}
+/* --- END OF ADDED RULE --- */
+
+
+/* Table body cell styling (keep padding, border, etc.) */
+main table tbody td,
+.markdown table tbody td {
+  border-bottom: 1px solid var(--ifm-table-border-color, #e0e0e0); /* Row separator */
+  text-align: left;
+  padding: 0.75rem 1rem; /* Body cell padding */
+  vertical-align: top; /* Align content to top */
+  color: var(--text-secondary)!important; /* Body text color */
+  font-weight: 400;
+  font-size: 14px;
+  /* No background-color needed here - it inherits from the TR */
+}
+
+/* Remove bottom border from the last row in the body */
+main table tbody tr:last-child td,
+.markdown table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Style code elements within the table */
+main table code,
+.markdown table code {
+ /* ... existing styles ... */
+  background-color: var(--ifm-code-background, #f2f2f2);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+ 
+  color: var(--ifm-code-color);
+}
+
+
+/* listStyles.module.css */
+
+/* Style for the ordered list that should use Roman numerals */
+.listRomanUpper {
+  list-style-type: upper-roman; /* Use uppercase Roman numerals */
+  /* Adjust padding/margin to match Docusaurus defaults or your preference */
+  /* Docusaurus usually handles nested list padding automatically */
+  /* You might only need margin adjustments */
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+  padding-left: 2.5rem; /* Adjust if needed based on theme */
+}
+
+/* Style for list items within the Roman numeral list */
+.listRomanUpper li {
+  margin-bottom: 0.75rem; /* Add space between Roman numeral items */
+}
+
+/* Style for the indented description paragraph */
+.listDescription {
+  margin-top: 0.25rem; /* Small space below the list item title */
+  margin-bottom: 0;    /* No extra space below the description */
+  margin-left: 0;      /* Indentation is handled by the parent li padding */
+  padding-left: 0;
+  color: var(--ifm-font-color-secondary); /* Make text slightly dimmer */
+  /* Optional: Adjust font size if needed */
+  /* font-size: 90%; */
 }

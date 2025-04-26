@@ -47,7 +47,7 @@ const CheckListItem: React.FC<Props> = ({ children, initialChecked = false }) =>
       <div className={styles.customCheckboxIcon}></div>
 
       {/* The actual content */}
-      <div className={styles.checkListItemContent}>{children}</div>
+      <div className={`${styles.checkListItemContent} text-body-1 font-regular`}>{children}</div>
     </div>
   );
 };

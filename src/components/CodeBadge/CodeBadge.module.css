@@ -1,0 +1,16 @@
+/* src/components/CodeBadge/CodeBadge.module.css */
+
+.codeBadge {
+    display: inline-block; /* Allows padding/margin and keeps it inline */
+    padding: 0.2em 0.6em; /* Vertical and horizontal padding */
+    margin-left: 0.5em;  /* Space between preceding text and badge */
+    font-size: 85%;      /* Slightly smaller than surrounding text */
+    line-height: 1.4;    /* Adjust for vertical alignment if needed */
+    border-radius: 4px;  /* Rounded corners */
+    border: 1px solid var(--ifm-color-emphasis-300, #dcdcdc); /* Subtle border */
+    /* Use a light background - table stripe or code bg often work well */
+    background-color: var(--ifm-table-stripe-background, var(--ifm-color-emphasis-100, #f5f5f5));
+    color: var(--ifm-code-color, var(--ifm-color-emphasis-800, #333)); /* Code text color */
+    vertical-align: baseline; /* Align with surrounding text */
+  }
+  

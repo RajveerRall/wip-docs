@@ -13,6 +13,37 @@ import FeatureShowcase from '@site/src/components/FeatureShowcase';
 import DependenciesImg from "./assets/1634634559.png";
 import CometChatUIImg from "./assets/1623200307.gif";
 import ReactUIKitImg from "./assets/1623200296.png";
+import CodeBadge from '@site/src/components/CodeBadge'; 
+import TabbedCodeBlock from '@site/src/components/TabbedCodeBlock'
+
+export const userDemoTsCode = `
+import { CometChatUsers } from "@cometchat/chat-uikit-react";
+import type { CometChat } from "@cometchat/chat-sdk-javascript";
+
+function UsersDemo() {
+  function handleOnItemClick(user: CometChat.User): void {
+    console.log(user, "your custom on item click action");
+  }
+
+  return <CometChatUsers onItemClick={handleOnItemClick} />;
+}
+
+export default UsersDemo;
+`;
+
+export const userDemoJsCode = `
+import { CometChatUsers } from "@cometchat/chat-uikit-react";
+
+function UsersDemo() {
+  function handleOnItemClick(user) {
+    console.log(user, "your custom on item click action");
+  }
+
+  return <CometChatUsers onItemClick={handleOnItemClick} />;
+}
+
+export default UsersDemo;
+`;
 
 
 <StepBlock label="Step 01">
@@ -102,4 +133,58 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 
   </TabItem>
 
+
+  ---
+  * Node
+  * npm
+  * React <CodeBadge>npm install react@18.2.0</CodeBadge>
+  * React DOM <CodeBadge>npm install react-dom@18.0.2</CodeBadge>
+
+----
+# Bullet Points
+
+1.  Numbered List
+    *   Set up the environment
+    *   Write clean code
+    *   Use version control
+    *   Test & debug
+    *   Optimize performance
+    *   Deploy & monitor
+
+2.  Roman Numerals
+    {/* Use an ordered list with a custom class */}
+    <ol className='listRomanUpper'>
+      <li>
+        Development Lifecycle
+        {/* Add the description paragraph inside the list item */}
+        <p className='listDescription'>
+          Plan, design, code, test, deploy
+        </p>
+      </li>
+      <li>
+        Best Practices
+        <p className='listDescription'>
+          Follow standards, write modular code, handle errors
+        </p>
+      </li>
+      <li>
+        DevOps
+        <p className='listDescription'>
+          CI/CD, automation, security
+        </p>
+      </li>
+    </ol>
+
+---
+
+<TabbedCodeBlock
+  codes={[
+    { label: 'TypeScript', value: 'ts', language: 'tsx', code: userDemoTsCode, title: 'UsersDemo.tsx' },
+    { label: 'JavaScript', value: 'js', language: 'jsx', code: userDemoJsCode, title: 'UsersDemo.jsx' }
+  ]}
+    defaultTabValue="ts"
+/>
+
+
 ```
+

@@ -1,0 +1,115 @@
+/* src/components/ClerkCodeBlock/ClerkCodeBlock.module.css */
+
+/* --- Main Wrapper --- */
+.clerkCodeWrapper {
+    background-color: #171717; /* Clerk's dark background */
+    border: 1px solid #333;   /* Subtle border */
+    border-radius: 10px;       /* Clerk's corner rounding */
+    overflow: hidden;
+    margin-bottom: var(--ifm-leading);
+    position: relative;
+  }
+  
+  /* --- Tabs Container Customization --- */
+  /* Target the Docusaurus Tabs component *within* our wrapper */
+  /* :global() is needed to select theme-generated class names */
+  .clerkCodeWrapper :global(.tabs-container) {
+    /* Remove any default margin the theme might add below tabs */
+    margin-bottom: 0 !important;
+  }
+  /* Add our own class to the Tabs component for easier targeting if needed */
+  .codeTabs :global(ul.tabs) {
+    background-color: #1C1C1C; /* Slightly different bg for tab bar */
+    margin: 0;
+    padding: 0.4rem 1rem 0 1rem;
+    border-bottom: 1px solid #333; /* Separator line */
+  }
+  
+  /* --- Individual Tab Styling --- */
+  .codeTabs :global(li.tabs__item) {
+    padding: 0.6rem 1rem;
+    margin: 0 0.2rem;
+    border: none;
+    /* Active indicator using bottom border */
+    border-bottom: 2px solid transparent;
+    /* Pull tabs down slightly to sit on the border */
+    margin-bottom: -20px;
+    color: #a0a0a0; /* Inactive tab text color */
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    transition: color 0.2s ease, border-color 0.2s ease;
+    background-color: transparent !important; /* Override theme bg */
+  }
+  .codeTabs :global(li.tabs__item:hover) {
+     color: #e0e0e0; /* Lighter grey on hover */
+  }
+  
+  /* --- Active Tab Styling --- */
+  .codeTabs :global(li.tabs__item.tabs__item--active) {
+    color: #ffffff; /* White text for active */
+    font-weight: 600;
+    border-bottom-color: #e0e0e0; /* Light grey active indicator */
+  }
+  
+  /* --- CodeBlock Integration --- */
+  /* Reset the default CodeBlock container *inside* a tab item */
+  .clerkCodeWrapper :global(div[class*='tabItem_']) > :global(div[class*='codeBlockContainer_']) {
+    margin: 0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    /* Make it transparent so the wrapper bg shows */
+    background-color: transparent !important;
+  }
+  
+  /* Style the PRE tag inside the CodeBlock */
+  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre {
+     background-color: #171717 !important; /* Match wrapper bg */
+     border-radius: 0 0 9px 9px !important; /* Bottom rounding ONLY */
+     margin: 0 !important;
+     padding: 1rem 1.25rem !important; /* Adjust padding */
+     box-shadow: none !important;
+  }
+  
+  /* --- Line Number Styling --- */
+  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre .token-line::before,
+  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre span[class*='lineNumber_'] {
+    /* Ensure no conflicting background */
+    background-color: transparent !important;
+    color: #666; /* Dim color for line numbers */
+    /* Potentially adjust width/padding if alignment is off */
+    /* padding-right: 1rem; */
+  }
+   /* Ensure code doesn't have odd background/padding */
+  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre code {
+    background-color: transparent !important;
+    padding: 0;
+  }
+  /* Remove potential extra padding */
+  .clerkCodeWrapper :global(div[class*='codeBlockContent_']) {
+    padding: 0 !important;
+  }
+  
+  
+  /* --- Copy Button Styling --- */
+  /* Position relative to the main wrapper */
+  .clerkCodeWrapper :global(button[class*='copyButton_']) {
+     position: absolute;
+     top: 0.6rem; /* Adjust position */
+     right: 0.6rem; /* Adjust position */
+     background-color: rgba(200, 200, 200, 0.1); /* Subtle bg */
+     border-radius: 6px; /* Clerk's button rounding */
+     padding: 0.3rem 0.5rem;
+     border: 1px solid rgba(255, 255, 255, 0.1);
+     transition: background-color 0.2s ease;
+     opacity: 0.7; /* Slightly transparent */
+   }
+   .clerkCodeWrapper :global(button[class*='copyButton_']):hover {
+      background-color: rgba(200, 200, 200, 0.2);
+      opacity: 1.0;
+   }
+   .clerkCodeWrapper :global(button[class*='copyButton_']) svg {
+      color: #bdbdbd; /* Icon color */
+      width: 14px;
+      height: 14px;
+    }
