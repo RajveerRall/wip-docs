@@ -1,115 +1,94 @@
-/* src/components/ClerkCodeBlock/ClerkCodeBlock.module.css */
+/* src/components/EasyTabbedCode/ReactTabsCodeBlock.module.css */
 
-/* --- Main Wrapper --- */
-.clerkCodeWrapper {
-    background-color: #171717; /* Clerk's dark background */
-    border: 1px solid #333;   /* Subtle border */
-    border-radius: 10px;       /* Clerk's corner rounding */
-    overflow: hidden;
-    margin-bottom: var(--ifm-leading);
-    position: relative;
-  }
-  
-  /* --- Tabs Container Customization --- */
-  /* Target the Docusaurus Tabs component *within* our wrapper */
-  /* :global() is needed to select theme-generated class names */
-  .clerkCodeWrapper :global(.tabs-container) {
-    /* Remove any default margin the theme might add below tabs */
-    margin-bottom: 0 !important;
-  }
-  /* Add our own class to the Tabs component for easier targeting if needed */
-  .codeTabs :global(ul.tabs) {
-    background-color: #1C1C1C; /* Slightly different bg for tab bar */
-    margin: 0;
-    padding: 0.4rem 1rem 0 1rem;
-    border-bottom: 1px solid #333; /* Separator line */
-  }
-  
-  /* --- Individual Tab Styling --- */
-  .codeTabs :global(li.tabs__item) {
-    padding: 0.6rem 1rem;
-    margin: 0 0.2rem;
-    border: none;
-    /* Active indicator using bottom border */
-    border-bottom: 2px solid transparent;
-    /* Pull tabs down slightly to sit on the border */
-    margin-bottom: -20px;
-    color: #a0a0a0; /* Inactive tab text color */
-    font-size: 0.875rem; /* 14px */
-    font-weight: 500;
-    transition: color 0.2s ease, border-color 0.2s ease;
-    background-color: transparent !important; /* Override theme bg */
-  }
-  .codeTabs :global(li.tabs__item:hover) {
-     color: #e0e0e0; /* Lighter grey on hover */
-  }
-  
-  /* --- Active Tab Styling --- */
-  .codeTabs :global(li.tabs__item.tabs__item--active) {
-    color: #ffffff; /* White text for active */
-    font-weight: 600;
-    border-bottom-color: #e0e0e0; /* Light grey active indicator */
-  }
-  
-  /* --- CodeBlock Integration --- */
-  /* Reset the default CodeBlock container *inside* a tab item */
-  .clerkCodeWrapper :global(div[class*='tabItem_']) > :global(div[class*='codeBlockContainer_']) {
-    margin: 0 !important;
-    border-radius: 0 !important;
-    box-shadow: none !important;
-    border: none !important;
-    /* Make it transparent so the wrapper bg shows */
-    background-color: transparent !important;
-  }
-  
-  /* Style the PRE tag inside the CodeBlock */
-  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre {
-     background-color: #171717 !important; /* Match wrapper bg */
-     border-radius: 0 0 9px 9px !important; /* Bottom rounding ONLY */
-     margin: 0 !important;
-     padding: 1rem 1.25rem !important; /* Adjust padding */
-     box-shadow: none !important;
-  }
-  
-  /* --- Line Number Styling --- */
-  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre .token-line::before,
-  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre span[class*='lineNumber_'] {
-    /* Ensure no conflicting background */
-    background-color: transparent !important;
-    color: #666; /* Dim color for line numbers */
-    /* Potentially adjust width/padding if alignment is off */
-    /* padding-right: 1rem; */
-  }
-   /* Ensure code doesn't have odd background/padding */
-  .clerkCodeWrapper :global(div[class*='codeBlockContainer_']) pre code {
-    background-color: transparent !important;
-    padding: 0;
-  }
-  /* Remove potential extra padding */
-  .clerkCodeWrapper :global(div[class*='codeBlockContent_']) {
-    padding: 0 !important;
-  }
-  
-  
-  /* --- Copy Button Styling --- */
-  /* Position relative to the main wrapper */
-  .clerkCodeWrapper :global(button[class*='copyButton_']) {
-     position: absolute;
-     top: 0.6rem; /* Adjust position */
-     right: 0.6rem; /* Adjust position */
-     background-color: rgba(200, 200, 200, 0.1); /* Subtle bg */
-     border-radius: 6px; /* Clerk's button rounding */
-     padding: 0.3rem 0.5rem;
-     border: 1px solid rgba(255, 255, 255, 0.1);
-     transition: background-color 0.2s ease;
-     opacity: 0.7; /* Slightly transparent */
-   }
-   .clerkCodeWrapper :global(button[class*='copyButton_']):hover {
-      background-color: rgba(200, 200, 200, 0.2);
-      opacity: 1.0;
-   }
-   .clerkCodeWrapper :global(button[class*='copyButton_']) svg {
-      color: #bdbdbd; /* Icon color */
-      width: 14px;
-      height: 14px;
-    }
+/* Import default react-tabs styles first (optional, but can be helpful) */
+/* If you don't have this, you might need more base styling */
+/* @import 'react-tabs/style/react-tabs.css'; */
+
+/* --- Overall Wrapper --- */
+.wrapper {
+  background-color: var(--background-02); /* Dark background like the image */
+  border-radius: 8px;       /* Rounded corners for the whole container */
+  overflow: hidden;         /* Clip children (CodeBlock) to the rounded corners */
+  margin-bottom: var(--ifm-leading); /* Space below the component */
+  /* Add a subtle border if needed */
+  /* border: 1px solid #333; */
+}
+
+.tabList {
+  list-style-type: none; /* Remove default list bullets */
+  margin: 0;             /* Remove default margin */
+  padding: 0.6rem 1rem 0 0; /* CHANGE: Padding: top right bottom left (left is now 0) */
+  border-bottom: 1px solid #3a3a3a; /* Line below tabs */
+  display: flex;         /* Align tabs horizontally */
+  position: relative;
+}
+
+.tab {
+  padding: 0.5rem 1rem;   /* Padding inside each tab button */
+  margin: 0 0.25rem -1px 0; /* Right margin, negative bottom margin to overlap border */
+  cursor: pointer;
+  color: #a0a0a0;         /* Default/inactive tab text color */
+  border: none;           /* Remove default borders */
+  border-bottom: 2px solid transparent; /* Placeholder for active indicator */
+  background: none;       /* No background for tabs */
+  font-size: 0.9em;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text-primary);         /* Tab text color on hover */
+}
+
+/* Style for the selected tab using ARIA attribute */
+.tab[aria-selected='true'] {
+  color: var(--text-primary);         /* Active tab text color */
+  font-weight: 600;
+  /* Active tab indicator color (purple like image) */
+  border-bottom-color: var(--primary);
+}
+
+/* --- Tab Panel --- */
+.tabPanel {
+  margin: 0;
+  padding: 0; /* Remove padding, let CodeBlock handle internal padding */
+}
+
+/* --- Docusaurus CodeBlock Overrides --- */
+/* Target the Docusaurus CodeBlock specifically inside our panel */
+/* Need :global as these classes come from @theme/CodeBlock */
+.tabPanel > :global(div[class*="codeBlockContainer_"]),
+.tabPanel > :global(div.theme-code-block) {
+  margin-top: 0 !important; /* CRITICAL: Remove space above CodeBlock */
+  border: none !important; /* Remove default CodeBlock border if any */
+  box-shadow: none !important; /* Remove default shadow if any */
+
+  /* CRITICAL: Flatten top corners of the CodeBlock to meet the TabList */
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+
+  /* IMPORTANT: Ensure bottom corners remain rounded to match the wrapper */
+  border-bottom-left-radius: 8px !important; /* Match .wrapper */
+  border-bottom-right-radius: 8px !important; /* Match .wrapper */
+
+  /* Ensure CodeBlock background matches or is transparent */
+  background-color: transparent !important; /* Let .wrapper bg show through */
+}
+
+/* Optional: Adjust code block title bar if present and needs styling */
+/* .tabPanel > :global(div[class*="codeBlockContent_"]) > :global(div[class*="codeBlockTitle_"]) {
+  background-color: #333 !important;
+  border-bottom: 1px solid #444 !important;
+  margin-bottom: 0 !important;
+} */
+
+/* Ensure the code itself (<pre>) inside CodeBlock has appropriate styling */
+.tabPanel > :global(div[class*="codeBlockContent_"]) > :global(pre) {
+   /* Override background if necessary, usually handled by prism theme */
+   /* background-color: #1e1e1e !important; */
+   /* Adjust padding if needed */
+   padding-top: 1rem !important;
+   padding-bottom: 1rem !important;
+}
