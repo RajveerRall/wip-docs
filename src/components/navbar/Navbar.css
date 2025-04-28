@@ -547,8 +547,8 @@ html[data-theme='dark'] .theme-toggle{
   @media (max-width: 996px) {
     .DocSearch-Button {
       /* Increase button size to comfortably fit a larger icon */
-      width: 36px !important; /* e.g., matches h-9/w-9 */
-      height: 36px !important;
+      width: 17px !important; /* e.g., matches h-9/w-9 */
+      height: 17px !important;
       min-width: 36px !important;
       padding: 0 !important;
       margin: 0 !important;

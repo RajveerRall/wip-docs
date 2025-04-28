@@ -77,8 +77,8 @@
   display: inline-flex; /* inline-flex */
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
-  height: 1.8rem; /* h-9 */
-  width: 1.8rem; /* w-9 */
+  height: 32px; /* h-9 */
+  width: 32px; /* w-9 */
   border: 1px solid var(--neutral-300); /* border border-[...] */
   background-color: var(--background-01); /* bg-[--ifm-hover-overlay] */
   border-radius: 0.2rem; /* rounded-md */

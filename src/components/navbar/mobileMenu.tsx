@@ -75,7 +75,7 @@ const MobileMenu = () => {
              // Indicate active state visually via icon or different style if needed
              aria-pressed={isDisplayIntegration} // Use aria-pressed for toggle buttons controlling other regions
           >
-            <span>Integrate</span>
+            <span className="text-body-2 font-regular">Integrate</span>
              {/* Icon can indicate state or just presence */}
             {isDisplayIntegration ? (
                 <IoChevronDownOutline className={styles.chevronIcon} />
@@ -96,7 +96,7 @@ const MobileMenu = () => {
             className={styles.navLink} // Use navLink style for the button
              aria-pressed={isDisplayPlatform} // Use aria-pressed
           >
-            <span>Platform</span>
+            <span className="text-body-2 font-regular">Platform</span>
              {/* Icon can indicate state or just presence */}
             {isDisplayPlatform ? (
                 <IoChevronDownOutline className={styles.chevronIcon} />

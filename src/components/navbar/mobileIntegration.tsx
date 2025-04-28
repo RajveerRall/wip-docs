@@ -66,7 +66,7 @@ const PlatformButton: React.FC<{
         {icon}
       </span>
       {/* Text */}
-      <span className="text-caption-2 font-semibold">{text}</span>
+      <span className="text-body-2 font-medium">{text}</span>
     </Link>
   );
 };
@@ -86,7 +86,7 @@ const MobileIntegrate: React.FC = () => {
       <div className={styles.section}>
         {" "}
         {/* Added section class */}
-        <p className={`${styles.sectionTitle} text-context-2 font-medium`}>UI Kits</p>
+        <p className={`${styles.sectionTitle} text-context-1 font-semibold`}>UI Kits</p>
         <div className={styles.gridContainer}>
           {uiKitsList.map((item) => (
             <PlatformButton
@@ -112,7 +112,7 @@ const MobileIntegrate: React.FC = () => {
       <div className={styles.section}>
         {" "}
         {/* Added section class */}
-        <p className={`${styles.sectionTitle} text-context-2 font-medium`}>SDKs</p>
+        <p className={`${styles.sectionTitle} text-context-1 font-semibold`}>SDKs</p>
         <div className={styles.gridContainer}>
           {sdks.map((item) => (
             <PlatformButton
@@ -138,7 +138,7 @@ const MobileIntegrate: React.FC = () => {
       <div className={styles.section}>
         {" "}
         {/* Added section class */}
-        <p className={`${styles.sectionTitle} text-context-2 font-medium`}>Widgets</p>
+        <p className={`${styles.sectionTitle} text-context-1 font-semibold`}>Widgets</p>
           {widgets.map((item) => (
             <div style={{marginBottom:'0.5rem'}}>
               <PlatformButton
