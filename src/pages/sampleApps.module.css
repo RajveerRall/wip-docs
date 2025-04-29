@@ -143,11 +143,12 @@ html[data-theme="dark"] .appTitleText {
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
   gap: 0.5rem; /* gap-2 */
+  font-size: 13px;
+  font-weight: 500 !important;
   white-space: nowrap; /* whitespace-nowrap */
   border-radius: var(--ifm-button-border-radius, 0.5rem); /* rounded-lg */
-  border: 1px solid var(--ifm-color-emphasis-300); /* border border-[...] */
+  border: 1px solid var(--border-default); /* border border-[...] */
   padding: 0.35rem 0.95rem; /* py-1 px-3 */
-  font-size: 0.7rem;
   text-decoration: none; /* no-underline */
   background-color: transparent; /* bg-transparent */
   color: var(--text-primary); /* text-[...] */
@@ -155,20 +156,9 @@ html[data-theme="dark"] .appTitleText {
 }
 
 .cloneButton:hover {
-  background-color: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-400);
+  background-color: var(--background-03);
   text-decoration: none;
-  color: var(--ifm-font-color-base);
-}
-
-/* Dark mode */
-html[data-theme="dark"] .cloneButton {
-  border-color: var(--ifm-color-emphasis-400); /* dark:border-[...] */
-  color: var(--ifm-font-color-base); /* dark:text-[...] */
-}
-
-html[data-theme="dark"] .cloneButton:hover {
-  background-color: var(--ifm-hover-overlay); /* dark:hover:bg-[...] */
+  color: var(--text-primary);
 }
 
 /* --- GitHub Icon inside Button --- */

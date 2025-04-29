@@ -72,6 +72,8 @@
 
     --btn-white-hover: #fafafa;
     --btn-white-pressed: #e8e8e8; /* Corrected spelling */
+
+    --font-family-sans-serif: 'Inter', sans-serif;
   }
 
   /* --- Dark Theme Variables --- */
@@ -142,11 +144,12 @@
 
     --btn-white-hover: #1a1a1a;
     --btn-white-pressed: #383838; /* Corrected spelling */
+    --font-family-inter: 'Inter', sans-serif;
   }
 
   /* --- Base Body Styles --- */
   body {
-    font-family: "Inter", sans-serif; /* Apply Inter font globally */
+    font-family: 'Inter', sans-serif !important;
     background-color: var(--background-01);
     color: var(--text-primary);
     /* Add smooth transitions for color changes */
@@ -174,11 +177,14 @@
     font-size: 32px;
     line-height: 120%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
   }
   .text-title-28 {
     font-size: 28px;
     line-height: 120%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
+
   }
 
   /* Heading 1 Styles */
@@ -186,6 +192,8 @@
     font-size: 24px;
     line-height: 120%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
+
   }
 
   /* Heading 2 Styles */
@@ -198,6 +206,8 @@
     font-size: 20px;
     line-height: 135%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
+
   }
 
   /* Heading 3 Styles */
@@ -205,17 +215,21 @@
     font-size: 18px;
     line-height: 120%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
   }
   .text-h3-loose {
     font-size: 18px;
     line-height: 135%;
     letter-spacing: 0%;
+        font-family: var(--font-family-inter);
+
   }
 
   /* Heading 4 Styles */
   .text-h4 {
     font-size: 16px;
     line-height: 120%;
+    font-family: var(--font-family-inter);
   }
 
   /* Body 1 Styles */
@@ -223,6 +237,7 @@
     font-size: 15px;
     line-height: 150%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
   }
 
   /* Body 2 Styles */
@@ -230,6 +245,7 @@
     font-size: 14px;
     line-height: 150%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
   }
 
   /* Underline Body Styles (Size/Line Height same as Body 2) */
@@ -238,6 +254,7 @@
     line-height: 150%;
     letter-spacing: 0%;
     text-decoration: underline;
+    font-family: var(--font-family-inter);
   }
 
   /* Italic Body Styles (Size/Line Height same as Body 2) */
@@ -246,12 +263,14 @@
     line-height: 150%;
     letter-spacing: 0%;
     font-style: italic;
+    font-family: var(--font-family-inter);
   }
 
   /* Caption 1 Styles */
   .text-caption-1 {
     font-size: 13px;
     line-height: 150%;
+    font-family: var(--font-family-inter);
     /* letter-spacing: 0%; */
   }
 
@@ -260,6 +279,7 @@
     font-size: 12px;
     line-height: 150%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
   }
 
   /* Footnote Styles */
@@ -267,6 +287,7 @@
     font-size: 10px;
     line-height: 120%;
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
   }
 
   /* Link Styles (Using Body 2 / 14px as a common base, adjust if needed) */
@@ -277,9 +298,11 @@
     color: var(--link-btn); /* Use link color variable */
     text-decoration: none; /* Or underline */
     cursor: pointer;
+    font-family: var(--font-family-inter);
   }
   .text-link:hover {
     text-decoration: underline;
+    font-family: var(--font-family-inter);
   }
 
   /* Code Styles */
@@ -292,6 +315,7 @@
     padding: 0.1em 0.3em;
     border-radius: 4px;
     color: var(--text-secondary); /* Adjust color as needed */
+    font-family: var(--font-family-inter);
   }
 
   /* Button Text Styles (Using 14px as a common size, spec had multiple) */
@@ -299,6 +323,7 @@
     font-size: 14px; /* Common button text size */
     line-height: 120%; /* Tighter line height for buttons */
     letter-spacing: 0%;
+    font-family: var(--font-family-inter);
   }
 /* } */
 

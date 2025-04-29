@@ -125,7 +125,7 @@ function WebNavbar(): React.ReactNode {
            
            {/* Position relative */}
             <button
-              className={clsx("dropdown-button text-caption-1", {
+              className={clsx("dropdown-button text-body-2 font-medium", {
                 active: activeDropdown === "platform",
               })}
               onMouseEnter={() => handleDropdownToggle("platform")}

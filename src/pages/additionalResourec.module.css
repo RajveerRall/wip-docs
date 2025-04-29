@@ -32,21 +32,10 @@
   );
 }
 
-html[data-theme="dark"] .resourceCard {
-  background-color: var(--button-bg-dark);
-}
-
 .resourceCard:hover {
-  background-color: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-400);
-  text-decoration: none;
-  color: var(--ifm-font-color-base);
+  background-color: var(--background-03);
 }
 
-html[data-theme="dark"] .resourceCard:hover {
-  background-color: var(--button-bg-dark-hover);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
 
 .iconBox {
   display: flex;

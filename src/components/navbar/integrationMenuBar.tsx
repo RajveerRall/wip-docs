@@ -2,6 +2,7 @@ import React from "react";
 import "./Navbar.css";
 import { RiUserSettingsLine } from "react-icons/ri";
 import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import useBaseUrl from "@docusaurus/useBaseUrl";
 
 // Define props for the DropdownMenu component
 
@@ -10,10 +11,12 @@ const IntegrationDropdownMenu: React.FC = () => {
     {
       name: "React",
       icon: "https://img.icons8.com/color/144/react-native.png",
+      link: useBaseUrl("ui-kit/react/overview"),
     },
     {
       name: "React Native",
       icon: "https://img.icons8.com/color/144/react-native.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "ios",
@@ -22,10 +25,12 @@ const IntegrationDropdownMenu: React.FC = () => {
     {
       name: "Android",
       icon: "https://img.icons8.com/color/144/android-os.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "Flutter",
       icon: "https://img.icons8.com/color/144/flutter.png",
+      link: useBaseUrl("/"),
     },
   ];
 
@@ -33,26 +38,32 @@ const IntegrationDropdownMenu: React.FC = () => {
     {
       name: "React",
       icon: "https://img.icons8.com/color/144/react-native.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "React Native",
       icon: "https://img.icons8.com/color/144/react-native.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "ios",
       icon: "https://img.icons8.com/color/144/swift.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "Android",
       icon: "https://img.icons8.com/color/144/android-os.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "Flutter",
       icon: "https://img.icons8.com/color/144/flutter.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "Ionic/Capacitor",
       icon: "https://img.icons8.com/external-tal-revivo-color-tal-revivo/96/external-ionic-a-complete-open-source-sdk-for-hybrid-mobile-app-development-logo-color-tal-revivo.png",
+      link: useBaseUrl("/"),
     },
   ];
 
@@ -60,10 +71,12 @@ const IntegrationDropdownMenu: React.FC = () => {
     {
       name: "Wordpress /BuddyPress",
       icon: "https://img.icons8.com/color/144/wordpress.png",
+      link: useBaseUrl("/"),
     },
     {
       name: "HTML/ Bootstrap/ JQuery",
       icon: "https://img.icons8.com/color/144/html-5--v1.png",
+      link: useBaseUrl("/"),
     },
   ];
 
@@ -71,10 +84,12 @@ const IntegrationDropdownMenu: React.FC = () => {
     {
       name: "Chat APIs",
       icon: IoChatboxEllipsesOutline,
+      link: useBaseUrl("/"),
     },
     {
       name: "Managment API",
       icon: RiUserSettingsLine,
+      link: useBaseUrl("/"),
     },
   ];
 
@@ -90,6 +105,9 @@ const IntegrationDropdownMenu: React.FC = () => {
             <div
               className="item-container text-body-2 font-medium"
               key={index}
+              onClick={() => {
+                window.location.href = item.link;
+              }}
             >
               <img
                 src={item.icon}
@@ -117,6 +135,9 @@ const IntegrationDropdownMenu: React.FC = () => {
             <div
               className="item-container text-body-2 font-medium"
               key={index}
+              onClick={() => {
+                window.location.href = item.link;
+              }}
             >
               <img
                 src={item.icon}
@@ -145,6 +166,9 @@ const IntegrationDropdownMenu: React.FC = () => {
               <div
                 className="item-container text-body-2 font-medium"
                 key={index}
+                onClick={() => {
+                  window.location.href = item.link;
+                }}
               >
                 <img
                   src={item.icon}
@@ -177,6 +201,9 @@ const IntegrationDropdownMenu: React.FC = () => {
               <div
                 className="item-container text-body-2 font-medium"
                 key={index}
+                onClick={() => {
+                  window.location.href = item.link;
+                }}
               >
                 <item.icon className="item-icon-react" /> {/* Added class */}
                 <span>{item.name}</span>

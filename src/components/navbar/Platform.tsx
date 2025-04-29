@@ -15,30 +15,35 @@ const DATA = [
         title: "Overview",
         icon: "message-chat-circle.svg",
         description: "What is CometChat?",
-        link: "/fundamentals/overview",
+        // link: "/fundamentals/overview",
+        link: useBaseUrl("/"),
       },
       {
         title: "Features",
         icon: "puzzle.svg",
         description: "Enhance in-app messaging with CometChat Extensions.",
-        link: "/fundamentals/features-core",
+        // link: "/fundamentals/features-core",
+        link: useBaseUrl("/"),
       },
       {
         title: "Multi-tenancy",
         icon: "dataflow.svg",
-        link: "/fundamentals/multi-tenancy-overview",
+        // link: "/fundamentals/multi-tenancy-overview",
         description: "Multi-tenancy for better management.",
+        link: useBaseUrl("/"),
       },
       {
         title: "Data migration",
         icon: "folder.svg",
-        link: "/fundamentals/data-import-and-migration-overview",
+        // link: "/fundamentals/data-import-and-migration-overview",
         description: "Migrate from your current chat provider to CometChat.",
+        link: useBaseUrl("/"),
       },
       {
         title: "Webhooks",
         icon: "terminal.svg",
-        link: "/fundamentals/webhooks-overview",
+        // link: "/fundamentals/webhooks-overview",
+        link: useBaseUrl("/"),
         description:
           "Subscribe to CometChat events and receive them via HTTP Post requests on your server.",
       },
@@ -50,28 +55,32 @@ const DATA = [
       {
         title: "Notifications",
         icon: "notifications-bell.svg",
-        link: "/notifications/overview",
+        // link: "/notifications/overview",
+        link: useBaseUrl("/"),
         description:
           "Increase user engagement by sending them updates via notifications.",
       },
       {
         title: "Moderation",
         icon: "moderation.svg",
-        link: "/moderation/overview",
+        // link: "/moderation/overview",
+        link: useBaseUrl("/"),
         description:
           "Maintain platform integrity with advanced content rule and keyword management.",
       },
       {
         title: "AI Chatbots",
         icon: "bots.svg",
-        link: "/ai-chatbots/overview",
+        // link: "/ai-chatbots/overview",
+        link: useBaseUrl("/"),
         description:
           "Ignite natural and organic conversations using CometChat AI.",
       },
       {
         title: "Insights",
         icon: "insights.svg",
-        link: "/insights",
+        // link: "/insights",
+        link: useBaseUrl("/"),
         description:
           "Ignite natural and organic conversations using CometChat AI.",
       },
@@ -174,6 +183,9 @@ function CardOverview({ title, items }) {
             className="w-[100%] hover:no-underline md:w-[30%] "
             href={item.link}
             key={idx}
+            onClick={() => {
+              window.location.href = item.link;
+            }}
           >
             <div className="card-nav-bar flex flex-col  justify-start">
               <div

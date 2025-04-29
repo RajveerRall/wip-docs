@@ -47,26 +47,9 @@
 }
 
 .cardBody:hover {
-  background-color: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-400);
-  text-decoration: none;
-  color: var(--ifm-font-color-base);
+  background-color: var(--background-03);
 }
 
-/* --- Dark Mode Styles --- */
-html[data-theme="dark"] .cardBody {
-  border-color: var(
-    --ifm-color-emphasis-300
-  ); /* dark:border-[--ifm-color-emphasis-300] */
-  /* dark:bg is handled by --ifm-card-background-color variable */
-}
-
-html[data-theme="dark"] .cardLink:hover .cardBody {
-  border-color: var(
-    --ifm-color-emphasis-400
-  ); /* dark:group-hover:border-[--ifm-color-emphasis-400] */
-  box-shadow: var(--ifm-global-shadow-lg); /* dark:group-hover:shadow-lg */
-}
 
 /* --- Icon Container --- */
 .iconContainer {
@@ -123,9 +106,10 @@ html[data-theme="dark"] .cardLink:hover .cardBody {
   display: inline-flex; /* inline-flex */
   width: 24px; /* w-fit */
   height:22px;
+  padding: 2px 4px;
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
-  border-radius: 4px; /* rounded */
+  border-radius: 4px !important; /* rounded */
   border: 1px solid var(--border-default); /* border-2 border-[...] */
   color: var(--text-secondary); /* text-[...] */
   font-weight: var(--ifm-font-weight-medium); /* font-medium */

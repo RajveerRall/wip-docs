@@ -55,7 +55,7 @@ export default function FrameworkCard({
           {/* Version Badge */}
           {version && (
             <span
-              className={styles.versionBadge} // Use CSS module class for the badge
+              className={`${styles.versionBadge} text-caption-2 font-medium`} // Use CSS module class for the badge
             >
               V{version}
             </span>

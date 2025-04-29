@@ -59,16 +59,11 @@
 }
 
 .widgetLinkCard:hover {
-  background-color: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-400);
+  background-color: var(--background-03);
   text-decoration: none;
-  color: var(--ifm-font-color-base);
+  color: var(--text-primary);
 }
 
-html[data-theme="dark"] .widgetLinkCard:hover {
-  border-color: var(--ifm-color-emphasis-400); /* dark:hover:border-[...] */
-  box-shadow: var(--ifm-global-shadow-lg); /* dark:hover:shadow-lg */
-}
 
 /* --- Widget Icon --- */
 .widgetIcon {

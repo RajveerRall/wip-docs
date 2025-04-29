@@ -14,6 +14,7 @@
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   box-shadow: var(--ifm-navbar-shadow); /* Use theme shadow */
   width: 100dvw;
+  font-family: 'Inter', sans-serif;
 }
 
 .navbar-content {
@@ -100,11 +101,12 @@ html[data-theme="dark"] .logo-dark {
 .dropdown-content {
   position: absolute;
   top: calc(100% + 5px);
-  left: 0;
+  left: 8px;
   width: auto;
   min-width: 200px;
   z-index: 99999 !important;
 }
+
 
 /* Backdrop for closing dropdowns */
 .dropdown-backdrop {
@@ -145,6 +147,7 @@ html[data-theme="dark"] .logo-dark {
   flex-shrink: 0;
 }
 
+
 /* Headings */
 .menu-heading {
   color: var(--text-primary);
@@ -169,12 +172,21 @@ html[data-theme="dark"] .logo-dark {
   margin-top: 5px;
 }
 
+.item-container:hover {
+  background-color: var(--border-default);
+}
+
+
 /* Platform Item Layout (with description) */
 .item-container-platform {
   flex-direction: column;
   margin-top: 5px;
   width: 220px; /* Adjust as needed */
   padding: 6px;
+}
+
+.item-container-platform:hover {
+  background-color: var(--border-default);
 }
 .item-container-platform-sub {
   display: flex;
@@ -368,8 +380,8 @@ kbd.DocSearch-Button-Key {
   height: 32px;
   max-width: 128px;
   padding: 8px 20px;
+  border: none;
   border-radius: 8px;
-  border: 1px solid var(--border-dark);
   background-color: var(--neutral-900);
   color: var(--neutral-50);
   transition: background-color 0.2s, border-color 0.2s;

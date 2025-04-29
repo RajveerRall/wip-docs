@@ -131,13 +131,13 @@ const SampleAppsSection = () => {
             </div>
             <Link
               to={app.link}
-              className={`${styles.cloneButton} font-semibold`}
+              className={`${styles.cloneButton}`}
               target="_blank"
               rel="noopener noreferrer"
             >
               <GithubIcon className={styles.githubIcon} />{" "}
               {/* Use module class */}
-              Clone
+              <span className="text-caption-1">Clone</span>
             </Link>
           </div>
           ))}
