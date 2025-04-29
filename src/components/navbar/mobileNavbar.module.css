@@ -114,11 +114,11 @@ html[data-theme="dark"] .optionsButtonWrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 1rem; /* Match options button tap target size */
-  width: 1rem;
+  height: 13.18px; /* Match options button tap target size */
+  width: 13.18px;
 }
 .closeIcon {
-  color: var(--docs-color-background-400);
+  color: var(--icon-secondary);
 }
 
 .closeButton:hover {

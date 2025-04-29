@@ -75,3 +75,9 @@
     /* 84px - 40px - (2 * 2px) = 40px */
     transform: translateX(40px); /* Changed from 28px */
   }
+
+  @media (max-width: 996px) {
+    .iconWrapper {
+      margin-bottom: 10px;
+     }
+  }

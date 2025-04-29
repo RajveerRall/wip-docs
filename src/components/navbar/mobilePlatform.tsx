@@ -116,7 +116,7 @@ const sampleApps: NewCardItem[] = [
   },
   { name: "iOS chat App", icon: "https://img.icons8.com/color/144/swift.png" },
   {
-    name: "Android chat App (JAVA)",
+    name: "Android chat App (Java)",
     icon: "https://img.icons8.com/color/144/android-os.png",
   },
   {
@@ -146,11 +146,11 @@ const InfoCard: React.FC<InfoCardProps> = ({
       {/* Icon and Title Row */}
       <div className={styles.cardHeader}>
         <div className={styles.cardIconContainer}>{icon}</div>
-        <p className={`${styles.cardTitle} font-semibold`}>{title}</p>
+        <p className={`${styles.cardTitle} text-body-2 font-semibold`}>{title}</p>
       </div>
       {/* Description */}
       {description && description.trim() && (
-        <p className={styles.cardDescription}>{description}</p>
+        <p className={`${styles.cardDescription} text-caption-1 font-regular`}>{description}</p>
       )}
     </>
   );
