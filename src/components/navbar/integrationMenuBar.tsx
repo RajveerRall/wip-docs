@@ -1,7 +1,7 @@
 import React from "react";
 import "./Navbar.css";
 import { RiUserSettingsLine } from "react-icons/ri";
-import { IoChatboxEllipsesOutline } from "react-icons/io5";
+import { MdChat } from "react-icons/md";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
 // Define props for the DropdownMenu component
@@ -83,7 +83,7 @@ const IntegrationDropdownMenu: React.FC = () => {
   const apis = [
     {
       name: "Chat APIs",
-      icon: IoChatboxEllipsesOutline,
+      icon: MdChat,
       link: useBaseUrl("/"),
     },
     {

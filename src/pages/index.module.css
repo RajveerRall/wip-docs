@@ -26,6 +26,12 @@
   color: var(--ifm-color-emphasis-600); /* text-[--ifm-color-emphasis-600] */
   margin-bottom: 2rem; /* mb-6 */
   margin-top: 1.2rem;
+  text-decoration: none;
+}
+
+html[data-theme='dark'] .breadcrumbs {
+  color:#8C78F0;
+  text-decoration: none;
 }
 
 @media (max-width: 768px) {

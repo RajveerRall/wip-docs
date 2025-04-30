@@ -7,7 +7,7 @@ import {
   MdNotificationsActive,
   MdInsights,
 } from "react-icons/md";
-import { FaShapes } from "react-icons/fa";
+import { FaShapes } from "react-icons/fa6";
 import { BiTransfer } from "react-icons/bi";
 import { RiFileCodeFill } from "react-icons/ri";
 import { FaShield, FaRobot } from "react-icons/fa6";
