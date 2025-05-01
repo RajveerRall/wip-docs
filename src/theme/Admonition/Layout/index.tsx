@@ -8,7 +8,41 @@ import type {Props} from '@theme/Admonition/Layout';
 
 import styles from './styles.module.css'; // Make sure this path is correct
 
-// Keep AdmonitionContainer as is
+// --- Define your Custom Icons Here ---
+// Option 1: Import SVG files as React Components (Recommended for custom icons)
+// Make sure your build setup supports this (Docusaurus usually does via SVGR)
+// Place your SVGs somewhere like `src/components/icons/`
+// import NoteIcon from '@site/src/components/icons/note.svg';
+// import TipIcon from '@site/src/components/icons/tip.svg';
+// import WarningIcon from '@site/src/components/icons/warning.svg';
+// import DangerIcon from '@site/src/components/icons/danger.svg';
+// import InfoIcon from '@site/src/components/icons/info.svg'; // Default/fallback
+
+// Option 2: Use an Icon Library (Example: react-icons)
+import {
+    IoInformationCircleOutline,
+    IoCheckmarkCircleOutline,
+    IoWarningOutline,
+    IoCloseCircleOutline,
+    IoBookOutline, // Example for 'note'
+} from 'react-icons/io5';
+
+// --- Create the Icon Mapping ---
+// Map the 'type' string to the corresponding icon component
+const AdmonitionIconComponents = {
+    note: IoBookOutline, // Replace with NoteIcon if using custom SVG
+    tip: IoCheckmarkCircleOutline, // Replace with TipIcon
+    warning: IoWarningOutline, // Replace with WarningIcon
+    danger: IoCloseCircleOutline, // Replace with DangerIcon
+    info: IoInformationCircleOutline, // Replace with InfoIcon
+    // Add mappings for any other custom types you might have
+    // You can also define a default/fallback icon
+    default: IoInformationCircleOutline, // Replace with InfoIcon or your preferred default
+};
+// --- End Icon Definitions ---
+
+
+// AdmonitionContainer remains the same
 function AdmonitionContainer({
   type,
   className,
@@ -16,10 +50,11 @@ function AdmonitionContainer({
 }: Pick<Props, 'type' | 'className'> & {children: ReactNode}) {
   return (
     <div
+      // Apply base classes, type-specific class (for CSS styling), and custom class
       className={clsx(
         ThemeClassNames.common.admonition,
-        ThemeClassNames.common.admonitionType(type),
-        styles.admonition, // Keep this class for the main container
+        ThemeClassNames.common.admonitionType(type), // e.g., 'admonition-note'
+        styles.admonition,
         className,
       )}>
       {children}
@@ -27,28 +62,31 @@ function AdmonitionContainer({
   );
 }
 
-// No longer need AdmonitionHeading as a separate component here
-// Keep AdmonitionContent as is
+// AdmonitionContent remains the same
 function AdmonitionContent({children}: Pick<Props, 'children'>) {
-  // Render null if children is null/undefined/false etc.
   return children ? (
     <div className={styles.admonitionContent}>{children}</div>
   ) : null;
 }
 
 // *** MODIFIED AdmonitionLayout ***
-export default function AdmonitionLayout(props: Props): ReactNode {
-  const {type, icon, title, children, className} = props;
+export default function AdmonitionLayout(props: Props): JSX.Element {
+  const {type,children, className} = props;
+
+  // Select the correct Icon Component based on the type
+  const IconComponent =
+    AdmonitionIconComponents[type] || AdmonitionIconComponents.default;
 
   return (
     <AdmonitionContainer type={type} className={className}>
-      {/* Render the icon directly - it will be the first flex item */}
-      <span className={styles.admonitionIcon}>{icon}</span>
+      {/* Render the selected Icon Component */}
+      <span className={styles.admonitionIconContainer}> {/* Optional: Container for styling */}
+        <IconComponent className={styles.admonitionIconSvg} /> {/* Apply styling class */}
+      </span>
 
-      {/* Create a wrapper for the title and the main content */}
-      <div className={`${styles.admonitionTextContent} text-body-2 font-regular`}>
-        {/* Conditionally render the title *inside* the text wrapper */}
-        {/* Render the main content */}
+      {/* Wrapper for the main content (no title needed as per your previous code) */}
+      {/* Apply text styling classes here if desired, or in CSS */}
+      <div className={styles.admonitionTextContent} >
         <AdmonitionContent>{children}</AdmonitionContent>
       </div>
     </AdmonitionContainer>

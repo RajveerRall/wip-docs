@@ -6,6 +6,7 @@
   display: flex;
   /* Align items to the top. Use 'center' if you prefer vertical centering. */
   align-items: flex-start;
+
   /* Add space between the heading/icon area and the content area */
   gap: 0.8rem; /* Adjust as needed */
 
@@ -58,6 +59,8 @@
 }
 
 
+
+
 /* --- Admonition Content Area (Main Text) --- */
 .admonitionContent {
   /* Allow the content area to take up the remaining space */
@@ -78,3 +81,4 @@
 .admonitionContent > *:last-child {
   margin-bottom: 0;
 }
+
