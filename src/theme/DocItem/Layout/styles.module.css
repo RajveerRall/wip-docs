@@ -51,14 +51,14 @@
 .copyPageButton {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
+  width: 98px;
+  height: 32px;
+  gap: 4px;
+  padding:8px;
   background-color: transparent;
   border: none;
-  border-radius: 6px;
-  color: var(--text-secondary, var(--ifm-color-secondary-darkest));
-  font-size: 0.8rem;
-  font-weight: 500;
+  border-radius: 8px;
+  color: var(--text-secondary);
   white-space: nowrap;
   cursor: pointer;
   transition: color 0.2s ease, background-color 0.2s ease;
@@ -72,8 +72,10 @@
 
 /* Style for the icon inside the copy button */
 .copyIcon {
-  font-size: 0.9rem;
-  color: inherit; /* Inherits color from button */
+  width:16px;
+  height: 16px;
+  color: var(--icon-secondary);
+  transform: scaleY(-1);
 }
 
 

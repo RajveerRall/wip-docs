@@ -498,3 +498,33 @@ main table code,
   /* Optional: Adjust font size if needed */
   /* font-size: 90%; */
 }
+
+.main-wrapper {
+  background-color: var(--background-01) !important; /* Ensure it overrides defaults */
+}
+main[class*='docPage_'], /* Target main element with class containing 'docPage_' */
+div[class*='docItemContainer_'] /* Target div with class containing 'docItemContainer_' */
+ {
+  background-color: var(--background-01) !important; /* Ensure it overrides defaults */
+}
+html {
+  background-color: var(--background-01);
+}
+
+@media (min-width: 997px) {
+  /*
+   * Use the EXACT hashed class name you see in Dev Tools.
+   * WARNING: This hash (_njMd) might change in future builds/updates!
+   * If spacing breaks later, inspect element again to find the new class name.
+   */
+  .sidebar_njMd { /* <<< USE THE CLASS NAME FROM YOUR DEV TOOLS */
+    /* Override the theme's default top padding */
+    padding-top: 0px !important;
+    width: 100%;
+    align-items: center !important;
+    /* flex-shrink: 0; */
+  }
+}
+.theme-doc-sidebar-container {
+  width:260px
+}

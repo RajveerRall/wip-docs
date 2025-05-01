@@ -4,11 +4,12 @@ import {
     useActiveDocContext,
     useVersions,
 } from "@docusaurus/plugin-content-docs/client";
-import { IoFolderOutline, IoChevronDownOutline } from "react-icons/io5"; // Using Io5 icons
+import { IoChevronDownOutline } from "react-icons/io5";
+import { FaRegFolder } from "react-icons/fa";
 import styles from "./CustomSidebar.module.css";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
-// Define framework configurations
+// Define framework configurations (keep as is)
 const frameworkConfigs = {
     React: {
         label: "React",
@@ -16,45 +17,27 @@ const frameworkConfigs = {
         pluginId: "react-kit",
         logo: ({ className }) => (
             <img
-                src={useBaseUrl('/imgs/logos/react.svg')} // Ensure this path is correct
+                src={useBaseUrl('/imgs/logos/react.svg')}
                 alt="React Logo"
-                // Use class from CSS module for consistent sizing and margin
                 className={`${styles.reactLogo} ${className || ''}`}
             />
         ),
-        routeBasePath: "ui-kit/react",
+        routeBasePath: "ui-kit/react", // Ensure this matches your config
     },
     // Add other frameworks here
 };
-
-// --- Style for the "LATEST" badge ---
-// Keep this inline or move to CSS if preferred, but inline is fine for a specific element
-const latestBadgeStyle = {
-    backgroundColor: 'var(--ifm-color-emphasis-200, #e5e7eb)', // Use theme variable with fallback
-    color: 'var(--ifm-color-emphasis-700, #4b5563)',     // Use theme variable with fallback
-    padding: '0.15rem 0.5rem',
-    fontSize: '0.7rem',
-    fontWeight: '600',
-    borderRadius: '0.75rem',
-    marginLeft: '0.5rem',
-    textTransform: 'uppercase',
-    lineHeight: '1',
-    verticalAlign: 'middle',
-    whiteSpace: 'nowrap', // Prevent wrapping
-    flexShrink: 0, // Prevent shrinking
-};
-// ---
 
 function CustomSidebar() {
     const history = useHistory();
     const location = useLocation();
 
+    // Hooks remain the same...
     const reactKitPluginId = frameworkConfigs.React.pluginId;
     const reactKitVersions = useVersions(reactKitPluginId);
     const { activeVersion: reactKitActiveVersion } = useActiveDocContext(reactKitPluginId);
 
     const [frameworkDropdownOpen, setFrameworkDropdownOpen] = useState(false);
-    const [selectedFramework, setSelectedFramework] = useState(frameworkConfigs.React.label);
+    const [selectedFramework, setSelectedFramework] = useState(frameworkConfigs.React.label); // Default to React
 
     const [versionDropdownOpen, setVersionDropdownOpen] = useState(false);
     const [selectedVersionObject, setSelectedVersionObject] = useState(null);
@@ -64,16 +47,16 @@ function CustomSidebar() {
     const frameworkDropdownRef = useRef(null);
     const versionDropdownRef = useRef(null);
 
-    const mapVersionLabels = (versions) => {
+    // mapVersionLabels remains the same...
+     const mapVersionLabels = (versions) => {
         return versions.map(v => ({
             ...v,
-            // Use the actual version label (like V5) for display primarily
-            // 'displayLabel' might be more for internal logic or dropdown list clarity
-            displayLabel: v.isLast ? "Latest" : v.label
+            displayLabel: v.isLast ? "Latest" : v.label // Use 'Latest' for display in dropdown
         }));
     };
 
-    useEffect(() => {
+    // useEffect for versions remains the same...
+     useEffect(() => {
         let versionsToShow = [];
         let versionObjectToSelect = null;
         const currentFrameworkConfig = Object.values(frameworkConfigs).find(
@@ -86,21 +69,27 @@ function CustomSidebar() {
             return;
         }
 
+        // Logic to determine relevant versions based on selectedFramework
+        // This example assumes only React has versions for now
         if (currentFrameworkConfig.pluginId === reactKitPluginId && reactKitVersions.length > 0) {
             const mappedVersions = mapVersionLabels(reactKitVersions);
             versionsToShow = mappedVersions;
 
+            // Try to find the active version first
             if (reactKitActiveVersion) {
                 versionObjectToSelect = mappedVersions.find(v => v.name === reactKitActiveVersion.name);
             }
+            // If no active version match (e.g., on framework root), select the latest
             if (!versionObjectToSelect) {
                 versionObjectToSelect = mappedVersions.find(v => v.isLast);
             }
+             // Fallback to the first version if none else found
             if (!versionObjectToSelect && mappedVersions.length > 0) {
-                versionObjectToSelect = mappedVersions[0];
+                 versionObjectToSelect = mappedVersions[0];
             }
+
         } else {
-            versionsToShow = [];
+            versionsToShow = []; // No versions for this framework
             versionObjectToSelect = null;
         }
 
@@ -109,11 +98,13 @@ function CustomSidebar() {
 
     }, [
         selectedFramework,
-        location.pathname,
+        location.pathname, // Re-evaluate if path changes
         reactKitVersions,
-        reactKitActiveVersion,
+        reactKitActiveVersion, // Re-evaluate if active version changes
     ]);
 
+
+    // useEffect for click outside remains the same...
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (frameworkDropdownRef.current && !frameworkDropdownRef.current.contains(event.target)) {
@@ -127,42 +118,82 @@ function CustomSidebar() {
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
 
+
+    // handleVersionChange remains mostly the same...
     const handleVersionChange = (targetVersionObject) => {
+        if (!targetVersionObject || targetVersionObject.name === selectedVersionObject?.name) {
+             setVersionDropdownOpen(false);
+             return; // No change needed
+        }
+
         setSelectedVersionObject(targetVersionObject);
         setVersionDropdownOpen(false);
 
-        const activeVersionForPathContext = reactKitActiveVersion; // Use Docusaurus context for current page
-
-        if (!targetVersionObject) return;
-
-        const currentPath = location.pathname;
-        let docPath = "";
-
-        if (activeVersionForPathContext && currentPath.startsWith(activeVersionForPathContext.path)) {
-            docPath = currentPath.slice(activeVersionForPathContext.path.length);
-            if (docPath && !docPath.startsWith('/')) {
-                docPath = '/' + docPath;
-            }
-        } else {
-            docPath = ''; // Navigate to root of target version
+        // Determine the base path of the *currently viewed* page's version context
+        // This relies on the pluginId matching the selected framework
+        const currentFrameworkConfig = Object.values(frameworkConfigs).find(fw => fw.label === selectedFramework);
+        if (!currentFrameworkConfig || currentFrameworkConfig.pluginId !== reactKitPluginId) {
+            console.warn("Version change logic currently only supports React Kit plugin ID");
+             // Potentially navigate to the root of the target version for the selected framework if defined
+             history.push(targetVersionObject.path);
+            return;
         }
 
-        const newVersionBasePath = targetVersionObject.path;
-        const newPath = newVersionBasePath.replace(/\/$/, '') + (docPath === '/' ? '' : docPath);
+        const activeVersionForPathContext = reactKitActiveVersion; // Use Docusaurus context
 
+        const currentPath = location.pathname;
+        let relativeDocPath = ""; // Path relative to the version base
+
+        // Check if the current path starts with the active version's path
+        if (activeVersionForPathContext && currentPath.startsWith(activeVersionForPathContext.path)) {
+            relativeDocPath = currentPath.substring(activeVersionForPathContext.path.length);
+            // Ensure it starts with / or is empty
+             if (relativeDocPath && !relativeDocPath.startsWith('/')) {
+                 relativeDocPath = '/' + relativeDocPath;
+             } else if (relativeDocPath === '/') {
+                 relativeDocPath = ''; // Don't keep trailing slash if it's the root
+             }
+        } else {
+            // If not in a versioned path (e.g., root, or different plugin),
+            // default to navigating to the root of the target version.
+            relativeDocPath = '';
+        }
+
+        const newVersionBasePath = targetVersionObject.path.replace(/\/$/, ''); // Remove trailing slash
+        const newPath = newVersionBasePath + (relativeDocPath || '/'); // Add '/' if navigating to root
+
+        // Avoid redundant navigation
         if (newPath !== currentPath) {
             history.push(newPath);
         }
     };
 
+    // handleFrameworkChange remains the same...
     const handleFrameworkChange = (frameworkLabel) => {
+        if(frameworkLabel === selectedFramework) {
+             setFrameworkDropdownOpen(false);
+             return; // No change
+        }
         setSelectedFramework(frameworkLabel);
         setFrameworkDropdownOpen(false);
+
+        // --- Navigation Logic on Framework Change ---
+        // Decide where to navigate: root of framework, or try to preserve doc path?
+        // Option 1: Navigate to the framework's root path (simplest)
+        const targetFrameworkConfig = frameworkConfigs[frameworkLabel];
+        if (targetFrameworkConfig?.routeBasePath) {
+             history.push(useBaseUrl(`/${targetFrameworkConfig.routeBasePath}`));
+        } else {
+             console.warn(`No routeBasePath defined for framework: ${frameworkLabel}`);
+             // history.push('/'); // Fallback to site root maybe?
+        }
+        // Option 2 (More Complex): Try to find equivalent doc in new framework/version
+        // This is significantly harder and depends on identical doc IDs/paths across frameworks.
+        // For now, Option 1 is recommended.
     };
 
     const LogoComponent = frameworkConfigs[selectedFramework]?.logo || (() => null);
-    // Use the actual version label from the selected object for the button
-    const versionButtonLabel = selectedVersionObject?.label ?? 'Select Version';
+    const versionButtonLabel = selectedVersionObject?.label ?? 'Select Version'; // Use the actual label (e.g., 'V5')
 
     return (
         <div className={styles.sidebarContainer}>
@@ -171,12 +202,13 @@ function CustomSidebar() {
                 <div
                     className={styles.dropdownButton}
                     onClick={() => setFrameworkDropdownOpen(!frameworkDropdownOpen)}
+                    style={{ justifyContent: 'space-between', }} // Ensure space between logo/label and arrow
                 >
-                    <LogoComponent /> {/* Logo uses styles.reactLogo from CSS */}
-                    {/* Label uses styles.dropdownLabel which has flex: 1 */}
-                    <span className={styles.dropdownLabel}>{selectedFramework}</span>
-                    {/* Arrow uses styles.dropdownArrow */}
-                    <IoChevronDownOutline className={styles.dropdownArrow} />
+                    <LogoComponent /> {/* Logo */}
+                    <span className={`${styles.dropdownLabel} ${styles.dropdownLabelReact} text-caption-1 font-regular`}> {/* Label */}
+                        {selectedFramework}
+                    </span>
+                    <IoChevronDownOutline className={styles.dropdownArrow} /> {/* Arrow */}
                 </div>
 
                 {frameworkDropdownOpen && (
@@ -184,7 +216,7 @@ function CustomSidebar() {
                         {Object.values(frameworkConfigs).map((framework) => (
                             <div
                                 key={framework.value}
-                                className={`${styles.dropdownItem} text-caption-1 font-regular ${selectedFramework === framework.label ? styles.active : ''}`}
+                                className={`${styles.dropdownItem} ${selectedFramework === framework.label ? styles.active : ''}`}
                                 onClick={() => handleFrameworkChange(framework.label)}
                             >
                                 {framework.label}
@@ -194,57 +226,48 @@ function CustomSidebar() {
                 )}
             </div>
 
-            {/* Version selector group */}
+            {/* Version selector group - Only show if relevant versions exist */}
             {relevantVersions.length > 0 && (
-                <div className={styles.versionSelector}>
-                    <div className={styles.selectorWrapper} ref={versionDropdownRef}>
-                        <div
-                            className={styles.dropdownButton}
-                            onClick={() => setVersionDropdownOpen(!versionDropdownOpen)}
-                            // Override justify-content for version selector to keep items grouped left
-                            style={{ justifyContent: 'flex-start' }}
-                        >
-                            {/* Folder Icon: Reuse iconImage class for size if defined, add margin */}
-                            <IoFolderOutline
-                                className={styles.iconImage} // Make sure .iconImage has height/width
-                                style={{ marginRight: '0.5rem', flexShrink: 0 }}
-                            />
-                            {/* Version Label: Don't let it grow, adjust margin */}
-                            <span
-                                className={styles.dropdownLabel}
-                                style={{ flex: '0 1 auto', marginRight: '0', marginLeft: '0' }} // Prevent growth, remove default margins
-                            >
-                                {versionButtonLabel} {/* e.g., "V5" */}
-                            </span>
-                            {/* "LATEST" Badge (conditional) */}
-                            {selectedVersionObject?.isLast && (
-                                <span style={latestBadgeStyle}>LATEST</span>
-                            )}
-                            {/* Spacer takes remaining space */}
-                            <span style={{ flex: '1 1 auto' }}></span>
-                            {/* Arrow uses styles.dropdownArrow */}
-                            <IoChevronDownOutline className={styles.dropdownArrow} />
-                        </div>
-
-                        {versionDropdownOpen && (
-                            <div className={styles.dropdownMenu}>
-                                {relevantVersions.map((version) => (
-                                    <div
-                                        key={version.name}
-                                        className={`${styles.dropdownItem} ${selectedVersionObject?.name === version.name ? styles.active : ''}`}
-                                        onClick={() => handleVersionChange(version)}
-                                    >
-                                        {/* Show "Latest" or the actual label in dropdown */}
-                                        {version.displayLabel}
-                                    </div>
-                                ))}
-                            </div>
+                <div className={styles.selectorWrapper} ref={versionDropdownRef}>
+                    <div
+                        className={styles.dropdownButton}
+                        onClick={() => setVersionDropdownOpen(!versionDropdownOpen)}
+                        style={{ justifyContent: 'flex-start' }} // Align items left
+                    >
+                        <FaRegFolder className={styles.folderIcon} /> {/* Folder Icon */}
+                        <span className={`${styles.dropdownLabel} ${styles.dropdownLabelVersion} text-caption-1 font-regular`}> {/* Version Label */}
+                            {versionButtonLabel} {/* e.g., "V5" */}
+                        </span>
+                        {/* "LATEST" Badge (conditional) */}
+                        {selectedVersionObject?.isLast && (
+                            <span className={`${styles.latestBadge} text-footnote font-regular`}>LATEST</span>
                         )}
+                        {/* Arrow pushed to the right */}
+                        <IoChevronDownOutline
+                            className={`${styles.dropdownArrow} ${styles.dropdownArrowVersion}`}
+                            style={{ marginLeft: 'auto' }} // Push arrow right
+                        />
                     </div>
+
+                    {versionDropdownOpen && (
+                        <div className={styles.dropdownMenu}>
+                            {relevantVersions.map((version) => (
+                                <div
+                                    key={version.name}
+                                    className={`${styles.dropdownItem} ${selectedVersionObject?.name === version.name ? styles.active : ''}`}
+                                    onClick={() => handleVersionChange(version)}
+                                >
+                                    {/* Show "Latest" or the actual label in dropdown */}
+                                    {version.displayLabel}
+                                </div>
+                            ))}
+                        </div>
+                    )}
                 </div>
             )}
-            {/* Message if no versions */}
-            {relevantVersions.length === 0 && selectedFramework && (
+
+            {/* Message if no versions for the selected framework */}
+            {relevantVersions.length === 0 && selectedFramework && frameworkConfigs[selectedFramework] /* Ensure config exists */ && (
                 <div className={styles.noVersions}>No versions available for {selectedFramework}</div>
             )}
         </div>

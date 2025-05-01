@@ -12,7 +12,7 @@ import DocItemContent from '@theme/DocItem/Content';
 import DocBreadcrumbs from '@theme/DocBreadcrumbs';
 import ContentVisibility from '@theme/ContentVisibility';
 import type { Props } from '@theme/DocItem/Layout';
-import { FiCopy } from 'react-icons/fi'; // <-- Import copy icon
+import { MdOutlineContentCopy } from "react-icons/md";
 
 import styles from './styles.module.css';
 
@@ -67,9 +67,8 @@ export default function DocItemLayout({ children }: Props): ReactNode {
         {/* <DocVersionBanner /> */}
 
         <div className={clsx(styles.docItemContainer, styles.docItemContainerWithTopMargin)}>
-          <article>
-            <DocBreadcrumbs />
-            {/* <DocVersionBadge /> */}
+          <article>   
+          <DocBreadcrumbs/>       
 
             {/* === CUSTOM TITLE AND COPY BUTTON AREA === */}
             <div className={styles.titleHeader}>
@@ -80,7 +79,7 @@ export default function DocItemLayout({ children }: Props): ReactNode {
                 onClick={handleCopyPageUrl}
                 aria-label="Copy page URL"
               >
-                <FiCopy className={styles.copyIcon} />
+                <MdOutlineContentCopy className={styles.copyIcon} />
                 <span>{copyButtonText}</span>
               </button>
             </div>
