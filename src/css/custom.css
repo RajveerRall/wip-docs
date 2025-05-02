@@ -457,39 +457,41 @@ main table code,
   background-color: var(--ifm-code-background, #f2f2f2);
   padding: 0.2em 0.4em;
   border-radius: 3px;
-
   color: var(--ifm-code-color);
 }
 
 /* listStyles.module.css */
-
-/* Style for the ordered list that should use Roman numerals */
-.listRomanUpper {
-  list-style-type: upper-roman; /* Use uppercase Roman numerals */
-  /* Adjust padding/margin to match Docusaurus defaults or your preference */
-  /* Docusaurus usually handles nested list padding automatically */
-  /* You might only need margin adjustments */
-  margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  padding-left: 2.5rem; /* Adjust if needed based on theme */
+ol ul li {
+  list-style-type: disc; /* Use a filled circle */
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+  font-weight: 400;
 }
-
-/* Style for list items within the Roman numeral list */
-.listRomanUpper li {
-  margin-bottom: 0.75rem; /* Add space between Roman numeral items */
-}
-
-/* Style for the indented description paragraph */
 .listDescription {
-  margin-top: 0.25rem; /* Small space below the list item title */
-  margin-bottom: 0; /* No extra space below the description */
-  margin-left: 0; /* Indentation is handled by the parent li padding */
+  /* Explicitly set margin-top to 0, overriding browser defaults */
+  margin-top: 0 !important; /* Try adding !important as a test if needed */
+
+  /* Keep your other styles */
+  margin-left: 0;
   padding-left: 0;
-  color: var(--ifm-font-color-secondary); /* Make text slightly dimmer */
-  /* Optional: Adjust font size if needed */
-  /* font-size: 90%; */
+  color: var(--ifm-font-color-secondary);
 }
 
+/* Keep the rest of your styles */
+.listRomanUpper {
+  list-style-type: upper-roman;
+  margin-top: 0.1rem;
+  padding-left: 2.5rem;
+}
+
+.listRomanUpper li {
+  margin-bottom: 2rem;
+  line-height: 0.5; 
+  color:var(--text-secondary)
+}
 .main-wrapper {
   background-color: var(
     --background-01

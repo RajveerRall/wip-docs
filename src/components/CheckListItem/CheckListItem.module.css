@@ -3,7 +3,7 @@
 .checkListItemContainer {
   display: flex;
   align-items: flex-start;
-  margin-bottom: 0.75rem;
+  margin: 1rem;
   padding-left: 0;
   cursor: pointer; /* Indicate it's clickable */
   position: relative; /* Needed for absolute positioning of hidden checkbox if desired */
@@ -17,8 +17,8 @@
 /* Wrapper for the custom icon pseudo-elements */
 .customCheckboxIcon {
   flex-shrink: 0;
-  width: 1.1em; /* Reserve space for the icon box */
-  height: 1.1em; /* Ensure height matches line-height roughly */
+  width:15px; /* Reserve space for the icon box */
+  height: 15px; /* Ensure height matches line-height roughly */
   margin-right: 0.75em; /* Space between icon and text */
   position: relative; /* For positioning checkmark pseudo-element */
   margin-top: 0.18em; /* Fine-tune vertical alignment */
@@ -81,6 +81,7 @@
 /* --- Content Styling --- */
 .checkListItemContent {
   flex-grow: 1;
+  margin-top: 0.1rem;
   min-width: 0;
   user-select: none; /* Prevent text selection when clicking */
   color:var(--text-secondary)
