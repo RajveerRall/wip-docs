@@ -2,24 +2,22 @@
 
 /* --- Main Admonition Container --- */
 .admonition {
+  font-family: var(--font-family-sans-serif);
   /* Use Flexbox for side-by-side layout */
   display: flex;
   /* Align items to the top. Use 'center' if you prefer vertical centering. */
   align-items: flex-start;
+  min-height: 74px;
+  min-width: 760px;
+  border-radius: 12px;
+  padding: 12px;
+  gap:12px;
 
-  /* Add space between the heading/icon area and the content area */
-  gap: 0.8rem; /* Adjust as needed */
 
-  /* Keep your existing padding, margins, borders etc. */
-  padding: 1rem;
   margin-bottom: 1rem; /* Default Docusaurus margin */
-  border-radius: var(--ifm-alert-border-radius);
   border: 1px solid transparent; /* Base border */
   border-left-width: 4px; /* Keep if you like the side border */
   overflow: hidden; /* Helps contain floats if needed, good practice */
-
-  /* Colors are typically handled by ThemeClassNames */
-  color: var(--ifm-font-color-base);
 }
 
 /* --- Admonition Heading Area (will contain Icon and Title) --- */

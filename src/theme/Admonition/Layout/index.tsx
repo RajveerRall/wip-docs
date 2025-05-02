@@ -26,14 +26,15 @@ import {
     IoCloseCircleOutline,
     IoBookOutline, // Example for 'note'
 } from 'react-icons/io5';
+import { CgDanger } from "react-icons/cg";
 
 // --- Create the Icon Mapping ---
 // Map the 'type' string to the corresponding icon component
 const AdmonitionIconComponents = {
-    note: IoBookOutline, // Replace with NoteIcon if using custom SVG
+    note: IoInformationCircleOutline, // Replace with NoteIcon if using custom SVG
     tip: IoCheckmarkCircleOutline, // Replace with TipIcon
     warning: IoWarningOutline, // Replace with WarningIcon
-    danger: IoCloseCircleOutline, // Replace with DangerIcon
+    danger: CgDanger, // Replace with DangerIcon
     info: IoInformationCircleOutline, // Replace with InfoIcon
     // Add mappings for any other custom types you might have
     // You can also define a default/fallback icon
@@ -86,7 +87,7 @@ export default function AdmonitionLayout(props: Props): JSX.Element {
 
       {/* Wrapper for the main content (no title needed as per your previous code) */}
       {/* Apply text styling classes here if desired, or in CSS */}
-      <div className={styles.admonitionTextContent} >
+      <div className={`${styles.admonitionTextContent} text-body-2 font-regular`} >
         <AdmonitionContent>{children}</AdmonitionContent>
       </div>
     </AdmonitionContainer>
