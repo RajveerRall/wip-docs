@@ -15,6 +15,8 @@ import CometChatUIImg from "./assets/1623200307.gif";
 import ReactUIKitImg from "./assets/1623200296.png";
 import CodeBadge from '@site/src/components/CodeBadge'; 
 import TabbedCodeBlock from '@site/src/components/TabbedCodeBlock'
+import MuiStyledTable from '@site/src/components/Table'
+
 
 export const userDemoTsCode = `
 import { CometChatUsers } from "@cometchat/chat-uikit-react";
@@ -44,6 +46,8 @@ function UsersDemo() {
 
 export default UsersDemo;
 `;
+
+
 
 
 <StepBlock label="Step 01">
@@ -108,21 +112,21 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 </CheckListItem>
 
 
-  <TabItem value="methods" label="Tab 01" default>
+<MuiStyledTable
+  headers={['Methods', 'Type', 'Description']}
+  rows={[
+  ['setLimit', 'number', 'sets the number users that can be fetched in a single request, suitable for pagination'],
+  ['setSearchKeyword', 'String', 'used for fetching users matching the passed string'],
+  ['hideBlockedUsers', 'boolean', 'used for fetching all those users who are not blocked by the logged in user'],
+  ['friendsOnly', 'boolean', 'used for fetching only those users in which logged in user is a member'],
+  ['setRoles', `List<Sting>`, 'used for fetching users containing the passed tags'],
+  ['setTags',` List<String>`, 'used for fetching users containing the passed tags'],
+  ['withTags', 'boolean', 'used for fetching users containing tags'],
+  ['setStatus', 'String', 'used for fetching users by their status online or offline'],
+  ['setUIDs',` List`, 'used for fetching users containing the passed users'],
+]}
+/>
 
-    | Methods           | Type              | Description                                                               |
-    |-------------------|-------------------|---------------------------------------------------------------------------|
-    | `setLimit`        | number            | sets the number users that can be fetched in a single request, suitable for pagination |
-    | `setSearchKeyword`| String            | used for fetching users matching the passed string                         |
-    | `hideBlockedUsers`| boolean           | used for fetching all those users who are not blocked by the logged in user |
-    | `friendsOnly`     | boolean           | used for fetching only those users in which logged in user is a member      |
-    | `setRoles`        | `List<String>`    | used for fetching users containing the passed tags                        |
-    | `setTags`         | `List<String>`    | used for fetching users containing the passed tags                        |
-    | `withTags`        | boolean           | used for fetching users containing tags                                   |
-    | `setStatus`       | String            | used for fetching users by their status online or offline                 |
-    | `setUIDs`         | `List<String>`    | used for fetching the passed users                                        |
-
-  </TabItem>
 
 
 

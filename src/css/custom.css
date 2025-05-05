@@ -396,64 +396,114 @@ main .container h1:first-of-type {
   margin-bottom: 3rem; /* << ADJUST AS NEEDED */
 }
 
+
 /* Target tables specifically within the main content area */
 main table,
 .markdown table {
-  /* ... existing styles ... */
-  border-collapse: collapse;
+  /* Use separate borders for table and cells */
+  border-collapse: separate; /* --- MODIFIED --- */
+  border-spacing: 0;      /* --- ADDED --- Removes gaps between cells */
   width: 100%;
-  border-radius: 12px;
-  overflow: hidden;
-  border: 1px solid var(--border-default);
+  border-radius: 12px;    /* Rounded corners for the outer table */
+  overflow: hidden;         /* Clips cell corners to the table's border-radius */
+  border: 1px solid var(--border-default); /* --- RE-ENABLED --- The main outer border */
   margin-bottom: var(--ifm-leading);
   display: table;
-  background-color: var(--background-01);
+  background-color: var(--background-01); /* Background for the table area */
 }
 
 /* Table header styling */
 main table thead th,
 .markdown table thead th {
-  /* ... existing styles ... */
-  background-color: var(--neutral-200); /* Header background */
+  background-color: var(--neutral-100); /* Header background */
   text-align: left;
   padding: 0.75rem 1rem;
   font-weight: 500;
   font-size: 14px;
   color: var(--text-primary);
+  /* Border for each header cell */
+  border: 1px solid var(--ifm-table-border-color, #e0e0e0); /* --- KEPT --- */
+  /* Remove specific side borders if they double up with the table border (optional refinement) */
+  /* border-top: none; */ /* Example: remove top if it touches table top border */
+  /* border-left: none; */ /* Example: remove left if it touches table left border */
 }
 
-/* --- ADD THIS RULE TO REMOVE ZEBRA STRIPING --- */
+/* --- Refine header cell borders to avoid doubling up with the main table border --- */
+main table thead tr:first-child th,
+.markdown table thead tr:first-child th {
+    border-top: 1px solid var(--border-default); /* No top border for cells in the very first row */
+}
+main table thead th:first-child,
+.markdown table thead th:first-child {
+    border-left: 1px solid var(--border-default); /* No left border for the very first cell in each header row */
+}
+main table thead th:last-child,
+.markdown table thead th:last-child {
+    border-right: none; /* No right border for the very last cell in each header row */
+}
+/* --- End of refinement --- */
+
+
 /* Override Docusaurus's default alternating row background */
 main table tbody tr,
 .markdown table tbody tr {
-  /* Ensures all rows inherit the main table background or are transparent */
-  background-color: transparent !important;
+  background-color: transparent !important; /* Keep this to remove zebra striping */
 }
-/* --- END OF ADDED RULE --- */
 
-/* Table body cell styling (keep padding, border, etc.) */
+/* Table body cell styling */
 main table tbody td,
 .markdown table tbody td {
-  border-bottom: 1px solid var(--ifm-table-border-color, #e0e0e0); /* Row separator */
+  /* Border for each body cell */
+  border: 1px solid var(--border-default); /* --- KEPT --- */
   text-align: left;
-  padding: 0.75rem 1rem; /* Body cell padding */
-  vertical-align: top; /* Align content to top */
-  color: var(--text-secondary) !important; /* Body text color */
+  padding: 0.75rem 1rem;
+  vertical-align: top;
+  color: var(--text-secondary) !important;
   font-weight: 400;
   font-size: 14px;
-  /* No background-color needed here - it inherits from the TR */
+   /* Remove specific side borders if they double up (optional refinement) */
+   /* border-top: none; */ /* Handled by border on previous row's cell */
+   /* border-left: none; */ /* Handled by border on cell to the left */
 }
 
-/* Remove bottom border from the last row in the body */
+
+/* --- Refine body cell borders to avoid doubling up --- */
+main table tbody td {
+  border-top: none; /* Each cell relies on the bottom border of the cell above it */
+  border-left: none;/* Each cell relies on the right border of the cell beside it */
+}
+
+/* Add back bottom border for the *last* row */
+main table tbody tr:last-child td,
+.markdown table tbody tr:last-child td {
+  border-bottom: 1px solid var(--ifm-table-border-color, #e0e0e0);
+}
+
+/* Add back left border for the *first* cell in each body row */
+main table tbody td:first-child,
+.markdown table tbody td:first-child {
+    border-left: 1px solid var(--ifm-table-border-color, #e0e0e0);
+}
+
+/* Add back right border for the *last* cell in each body row */
+main table tbody td:last-child,
+.markdown table tbody td:last-child {
+    border-right: 1px solid var(--border-default)!important;
+}
+/* --- End of refinement --- */
+
+
+/* Remove bottom border rule is no longer needed in this setup */
+/*
 main table tbody tr:last-child td,
 .markdown table tbody tr:last-child td {
   border-bottom: none;
 }
+*/
 
 /* Style code elements within the table */
 main table code,
 .markdown table code {
-  /* ... existing styles ... */
   background-color: var(--ifm-code-background, #f2f2f2);
   padding: 0.2em 0.4em;
   border-radius: 3px;

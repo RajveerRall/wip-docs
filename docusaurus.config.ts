@@ -108,8 +108,8 @@ const config: Config = {
       searchPagePath: "search",
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
       additionalLanguages: ["java", "kotlin", "swift", "typescript", "bash"],
     },
     // ... other themeConfig like footer ...

@@ -71,6 +71,7 @@ const TabbedsCodeBlock: React.FC<Props> = ({
               language={codeInfo.language}
               showLineNumbers={codeInfo.showLineNumbers ?? true} // Default false unless specified
               metastring={codeInfo.showLineNumbers ? '{showLineNumbers}' : ''} // Control line numbers via metastring
+              
             >
               {codeInfo.code} {/* Pass the code string */}
             </CodeBlock>

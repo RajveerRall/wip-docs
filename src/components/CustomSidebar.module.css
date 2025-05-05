@@ -183,9 +183,9 @@
 
 :global(.menu) {
   /* Match sidebar padding, no extra top/bottom needed here */
-  padding: 0 1rem !important;
+  /* padding: 0 1rem !important; */
   font-size: 14px;
-  width: 85%;
+  width: 210px;
   box-sizing: border-box;
   margin-top: 0; /* Remove potential top margin */
 }
