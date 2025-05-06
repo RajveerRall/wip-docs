@@ -12,7 +12,7 @@
     padding: 4px 10px;       /* Vertical (4px) and Horizontal (12px) padding */
     border-radius: 4px;      /* Slightly rounded corners */
     height:26px;
-    width:67px;
+    min-width:67px;
     display: inline-block;   /* Make the box fit the content width */
     margin-bottom: 0.8rem;   /* Space between label and content below */
     /* Ensure text isn't selectable if desired */

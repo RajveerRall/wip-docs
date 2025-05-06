@@ -11,18 +11,12 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 // Using Box as a styled wrapper instead of Paper to avoid default elevation/styles
 import Box from '@mui/material/Box';
+import { useColorMode } from '@docusaurus/theme-common'; // Import the hook
+
+
 
 // --- Helper: Define CSS Variable Fallbacks (adjust if your variables differ) ---
-const V = {
-  borderColor: 'var(--border-default)',
-  headerBg: 'var(--neutral-100,)',
-  headerColor: 'var(--text-primary, #333333)',
-  bodyColor: 'var(--text-secondary, #555555)',
-  tableBg: 'var(--background-01, #ffffff)',
-  codeBg: 'var(--ifm-code-background, #f2f2f2)',
-  codeColor: 'var(--ifm-code-color, inherit)',
-  leading: 'var(--ifm-leading, 1.5rem)',
-};
+
 
 // --- The React Component ---
 
@@ -31,6 +25,20 @@ const V = {
  * Accepts headers and rows data, suitable for MDX usage.
  */
 function MuiStyledTable({ headers, rows, caption }) {
+  const { colorMode, setColorMode } = useColorMode(); // 'light' or 'dark'
+  const isDarkMode = colorMode === 'dark';
+
+  const V = {
+    borderColor: `${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`,
+    headerBg: 'var(--neutral-100,)',
+    headerColor: 'var(--text-primary)',
+    bodyColor: 'var(--text-secondary)',
+    tableBg: 'var(--background-01)',
+    codeBg: 'var(--ifm-code-background)',
+    codeColor: 'var(--ifm-code-color)',
+  };
+
+  
    // Basic validation
    if (!headers || !Array.isArray(headers) || headers.length === 0) {
     console.warn('MuiStyledTable: `headers` prop is required and must be a non-empty array.');
@@ -52,16 +60,17 @@ function MuiStyledTable({ headers, rows, caption }) {
             <TableRow sx={{
                '& th': { // Target header cells
                     backgroundColor: V.headerBg,
-                    color: V.headerColor,
+                    color: `var(--text-primary)!important`,
                     fontWeight: 500,
+                    height:'40px!important',
                     fontSize: '14px',
                     fontFamily:'var(--font-family-sans-serif)',
                     padding: '0.75rem 1rem',
                     textAlign: 'left',
                     verticalAlign: 'top',
                     // Border Logic (mimic collapse)
-                    borderBottom: `1px solid ${V.borderColor}`, // Always have bottom border
-                    borderLeft: `1px solid ${V.borderColor}`, // Add left border by default
+                    borderBottom: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Always have bottom border
+                    borderLeft: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Add left border by default
                     borderRight: `none`, // No right border by default (cell to the right will add its left)
                     borderTop: `none`, // No top border needed (handled by wrapper/tablecontainer border)
 
@@ -76,7 +85,7 @@ function MuiStyledTable({ headers, rows, caption }) {
                }
             }}>
               {headers.map((header, index) => (
-                <TableCell key={`header-${index}`} sx={{minWidth:'160px'}} component="th" scope="col">
+                <TableCell key={`header-${index}`} sx={{minWidth:'160px', height:'40px!important'}} component="th" scope="col">
                     {/* Render header content (string or JSX node) */}
                     {header}
                 </TableCell>
@@ -114,8 +123,8 @@ function MuiStyledTable({ headers, rows, caption }) {
                             textAlign: 'left',
                             verticalAlign: 'top',
                             // Border Logic (mimic collapse)
-                            borderBottom: `1px solid ${V.borderColor}`, // Standard bottom border for row separation
-                            borderLeft: `1px solid ${V.borderColor}`, // Add left border
+                            borderBottom: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Standard bottom border for row separation
+                            borderLeft: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Add left border
                             borderRight: `none`, // No right border (next cell adds left)
                             borderTop: 'none', // Top border provided by row above
 

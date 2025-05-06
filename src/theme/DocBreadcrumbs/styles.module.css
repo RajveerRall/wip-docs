@@ -1,9 +1,9 @@
 .breadcrumbs {
-  margin-top: 80px; /* Add space for fixed navbar */
+  margin-top: 80px;
   margin-bottom: 1rem;
   --ifm-breadcrumb-separator-size-multiplier: 1.2;
   font-size: 0.85rem;
-  padding: 0 20px;
+  padding: 0 px;
 }
 
 /* Reset padding/margin on list */

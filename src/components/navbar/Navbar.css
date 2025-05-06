@@ -282,6 +282,7 @@ html[data-theme="dark"] .item-container-desc {
 }
 /* Base styles for the main button */
 .DocSearch-Button {
+  font-family: 'Inter', sans-serif;
   min-width: 300px !important;
   border-radius: 8px !important;
   border: 1px solid var(--border-default);
@@ -313,9 +314,10 @@ html[data-theme="dark"] .item-container-desc {
 
 /* --- Individual Key Styling (kbd tag) --- */
 kbd.DocSearch-Button-Key {
+
   display: inline-block !important; /* Make sure it's visible */
   padding: 1px; /* << Increase this value (was 5px) */
-  font-family: inherit;
+  font-family: 'Inter', sans-serif;
   background-color: var(--background-01) !important;
   font-size: 11px;
   font-weight: 600;
@@ -335,7 +337,8 @@ kbd.DocSearch-Button-Key {
 }
 
 .DocSearch-Button-Placeholder{
-  font-size:0.8rem;
+  font-size:13px;
+  font-weight: 400;
   color: var(--neutral-500) !important
 
 }

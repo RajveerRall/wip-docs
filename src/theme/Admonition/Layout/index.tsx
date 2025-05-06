@@ -36,6 +36,7 @@ const AdmonitionIconComponents = {
     warning: IoWarningOutline, // Replace with WarningIcon
     danger: CgDanger, // Replace with DangerIcon
     info: IoInformationCircleOutline, // Replace with InfoIcon
+    success:IoCheckmarkCircleOutline,
     // Add mappings for any other custom types you might have
     // You can also define a default/fallback icon
     default: IoInformationCircleOutline, // Replace with InfoIcon or your preferred default
@@ -81,9 +82,9 @@ export default function AdmonitionLayout(props: Props): JSX.Element {
   return (
     <AdmonitionContainer type={type} className={className}>
       {/* Render the selected Icon Component */}
-      <span className={styles.admonitionIconContainer}> {/* Optional: Container for styling */}
-        <IconComponent className={styles.admonitionIconSvg} /> {/* Apply styling class */}
-      </span>
+      <span className={styles.admonitionIcon}> {/* Use the class defined in your CSS for the icon wrapper */}
+  <IconComponent /> {/* The class `${styles.admonitionIconSvg}-${type}` is not strictly needed here if sizing is handled by `.admonitionIcon svg` and color by the global type class */}
+</span>
 
       {/* Wrapper for the main content (no title needed as per your previous code) */}
       {/* Apply text styling classes here if desired, or in CSS */}

@@ -7,7 +7,7 @@
 /* --- Overall Wrapper --- */
 .wrapper {
   background-color: #1e1e1e; /* Dark background like the image */
-  border-radius: 8px;       /* Rounded corners for the whole container */
+  border-radius: 12px;       /* Rounded corners for the whole container */
   overflow: hidden;         /* Clip children (CodeBlock) to the rounded corners */
   margin-bottom: var(--ifm-leading); /* Space below the component */
   /* Add a subtle border if needed */
@@ -18,7 +18,7 @@
   list-style-type: none; /* Remove default list bullets */
   margin: 0;             /* Remove default margin */
   padding: 0.6rem 1rem 0 0; /* CHANGE: Padding: top right bottom left (left is now 0) */
-  border-bottom: 1px solid #3a3a3a; /* Line below tabs */
+  border-bottom: 2px solid #3a3a3a; /* Line below tabs */
   display: flex;         /* Align tabs horizontally */
   position: relative;
 }
@@ -43,7 +43,7 @@
 .tab[aria-selected='true'] {
   color: var(--static-white);         /* Active tab text color */
   /* Active tab indicator color (purple like image) */
-  border-bottom-color: var(--primary);
+  border-bottom-color:#8A77E5;
 }
 
 /* --- Tab Panel --- */

@@ -390,10 +390,6 @@ body {
 .markdown > h1,
 .docItemHeading_node_modules-\@docusaurus-theme-classic-lib-theme-DocItem-Layout-styles-module, /* Example */
 main .container h1:first-of-type {
-  /* Apply styles similar to one of your .text-h* or .text-title-* classes */
-  /* ** KEY: Add the large spacing from the screenshot ** */
-  margin-top: 2.5rem; /* << ADJUST AS NEEDED */
-  margin-bottom: 3rem; /* << ADJUST AS NEEDED */
 }
 
 
@@ -527,7 +523,7 @@ ol ul li {
   /* Keep your other styles */
   margin-left: 0;
   padding-left: 0;
-  color: var(--ifm-font-color-secondary);
+  color: var(--text-secondary);
 }
 
 /* Keep the rest of your styles */
@@ -535,6 +531,7 @@ ol ul li {
   list-style-type: upper-roman;
   margin-top: 0.1rem;
   padding-left: 2.5rem;
+  
 }
 
 .listRomanUpper li {
@@ -552,6 +549,7 @@ div[class*='docItemContainer_'] /* Target div with class containing 'docItemCont
   background-color: var(
     --background-01
   ) !important; /* Ensure it overrides defaults */
+  
 }
 html {
   background-color: var(--background-01);
@@ -581,6 +579,16 @@ html {
 }
 .alert--secondary p {
   color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
+}
+
+html[data-theme='dark'] .alert--secondary p{
+  color: var(--static-white);
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
 }
 
 .alert--info {
@@ -588,13 +596,42 @@ html {
 }
 .alert--info p {
   color: #094f90;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
 }
+
+html[data-theme='dark'] .alert--info {
+  --ifm-alert-background-color: #1C2B50;
+}
+
+html[data-theme='dark'] .alert--info p{
+  color: #A8BEFF;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
+}
+
 
 .alert--success {
   --ifm-alert-background-color: #e9f6e9;
 }
 .alert--success p {
   color: #006514;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
+}
+
+
+html[data-theme='dark']  .alert--success {
+  --ifm-alert-background-color: #1B2A20;
+}
+html[data-theme='dark']  .alert--success p {
+  color: #73D586;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
 }
 
 .alert--warning {
@@ -604,9 +641,32 @@ html {
   color: #ab6400;
 }
 
+html[data-theme='dark']  .alert--warning {
+  --ifm-alert-background-color: #302010;
+}
+html[data-theme='dark']  .alert--warning p {
+  color: #FFCA16;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
+}
+
 .alert--danger {
   --ifm-alert-background-color: #FEEBE7;
 }
 .alert--warning p {
   color: #CD2200;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
+}
+
+html[data-theme='dark']  .alert--danger {
+  --ifm-alert-background-color: #391716;
+}
+html[data-theme='dark']  .alert--danger p {
+  color: #FF977D;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-sans-serif);
 }

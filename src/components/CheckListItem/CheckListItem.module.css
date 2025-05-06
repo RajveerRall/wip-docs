@@ -3,13 +3,21 @@
 .checkListItemContainer {
   display: flex;
   align-items: flex-start;
-  margin: 1rem;
+  /* MODIFIED: Only bottom margin for spacing between items vertically */
+  /* Adjust 0.25rem to your desired spacing. 0 means no extra space. */
+  margin-top: 0;
+  margin-right: 0; /* Or set to 0.5rem if you want side spacing from a parent container */
+  margin-left: 0;  /* Or set to 0.5rem if you want side spacing from a parent container */
+  /* Alternatively, for just bottom margin and no side margins:
+     margin: 0 0 0.25rem 0;
+  */
   padding-left: 0;
   cursor: pointer; /* Indicate it's clickable */
   position: relative; /* Needed for absolute positioning of hidden checkbox if desired */
   /* Improve focus outline visibility */
   outline-offset: 2px;
 }
+
 .checkListItemContainer:focus-visible {
   outline: 2px solid var(--ifm-color-primary); /* Docusaurus primary color focus */
 }
@@ -21,7 +29,7 @@
   height: 15px; /* Ensure height matches line-height roughly */
   margin-right: 0.75em; /* Space between icon and text */
   position: relative; /* For positioning checkmark pseudo-element */
-  margin-top: 0.18em; /* Fine-tune vertical alignment */
+  margin-top: 0.18em; /* Fine-tune vertical alignment of the checkbox itself */
 }
 
 /* The box (unchecked state) */
@@ -32,35 +40,30 @@
   left: 0;
   width: 100%; /* Fill the wrapper */
   height: 100%;
-  border: 1.5px solid var(--border-default, #ccc); /* Added fallback */
+  border: 1.5px solid var(--border-default, #ccc);
   border-radius: 2px;
   background-color: transparent;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out; /* Smooth transition */
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 
 /* The checkmark (hidden by default, shown when parent has .checked class) */
 .customCheckboxIcon::after {
   content: '';
   position: absolute;
-  box-sizing: border-box; /* Ensure padding/border are included in width/height */
+  box-sizing: border-box;
 
-  /* Positioning the checkmark inside the box */
-  left: 0.40em;  /* Adjusted slightly */
-  top: 0.15em;   /* Adjusted slightly */
-  width: 0.35em; /* Adjusted slightly */
-  height: 0.65em;/* Adjusted slightly */
-  /* color: var(--background-01); */ /* REMOVE THIS - not used for border */
+  left: 0.35em;
+  top: 0.1em;
+  bottom: 0.3rem;
+  width: 0.35em;
+  height: 0.65em;
 
-  /* Creating the checkmark shape with borders */
-  border-style: solid; /* <<< ADD THIS */
-  border-color: #ffffff; /* <<< ADD THIS - Set explicit contrast color (e.g., white) */
-                         /*      Or use a variable like var(--ifm-contrast-color, #fff) */
-  border-width: 0 2px 2px 0; /* Only right and bottom borders */
+  border-style: solid;
+  border-color: #ffffff; /* Color of the checkmark itself */
+  border-width: 0 2px 2px 0; /* Only right and bottom borders to form the checkmark shape */
 
-  /* Rotate to form checkmark */
   transform: rotate(45deg);
 
-  /* Hide by default */
   opacity: 0;
   transition: opacity 0.15s ease-in-out;
 }
@@ -68,9 +71,8 @@
 
 /* --- Checked State Styles --- */
 .checkListItemContainer.checked .customCheckboxIcon::before {
-  /* Ensure --icon-highlight is defined and contrasts with the checkmark color */
-  background-color: var(--icon-highlight, var(--ifm-color-primary, blue)); /* Added fallbacks */
-  border-color: var(--icon-highlight, var(--ifm-color-primary, blue)); /* Added fallbacks */
+  background-color: var(--icon-highlight, var(--ifm-color-primary, blue));
+  border-color: var(--icon-highlight, var(--ifm-color-primary, blue));
 }
 
 .checkListItemContainer.checked .customCheckboxIcon::after {
@@ -81,20 +83,20 @@
 /* --- Content Styling --- */
 .checkListItemContent {
   flex-grow: 1;
-  margin-top: 0.1rem;
+  margin-top: 3px;
+  line-height: 1.5; /* Added to ensure consistent line height for text content */
   min-width: 0;
-  user-select: none; /* Prevent text selection when clicking */
-  color:var(--text-secondary)
+  user-select: none;
+  color: var(--text-secondary);
 }
 
 
 /* --- Visually Hidden Checkbox --- */
 .hiddenCheckbox {
-  /* Position it off-screen or hide visually */
   position: absolute;
   opacity: 0;
-  width: 1px;  /* Minimize size */
-  height: 1px; /* Minimize size */
+  width: 1px;
+  height: 1px;
   margin: -1px;
   padding: 0;
   overflow: hidden;

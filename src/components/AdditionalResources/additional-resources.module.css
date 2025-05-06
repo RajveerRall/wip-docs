@@ -1,0 +1,127 @@
+/* src/components/resources/additional-resources.module.css */
+
+.resourcesSection {
+  padding: 0 0;
+  margin: 0 auto;
+}
+
+.title {
+  margin-top: 0;
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
+}
+
+.description{
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+
+.resourceGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.resourceCard {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  height: 100%;
+  border: 1px solid var(--border-default); /* border border-[--ifm-color-emphasis-200] */
+  background-color: var(
+    --background-01
+  );
+}
+
+.resourceCard:hover {
+  background-color: var(--background-03);
+}
+
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-01)!important;
+  border: 1.06px solid var(--border-default); /* border border-[--ifm-color-emphasis-200] */
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  color:var(--icon-secondary)!important
+}
+
+.contentContainer {
+  flex: 1;
+}
+
+.resourceTitle {
+  margin-bottom: 0.3rem;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.resourceDescription {
+  text-decoration: none;
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .resourceGrid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+    gap: 0.4rem;
+  }
+  .resourcesSection {
+    padding: 0;
+  }
+  .resourceTitle {
+    font-size: 0.8rem;
+  }
+  .title {
+    font-size: 1rem !important; /* Equivalent to text-2xl */
+  }
+  .resourceDescription {
+    font-size: 0.775rem;
+  }
+  .icon {
+    width: 15px;
+    height: 15px;
+  }
+  .iconBox {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .resourceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .resourceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* .resourcesSection {
+    padding: 1.5rem 1rem;
+  } */
+}

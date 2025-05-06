@@ -3,75 +3,57 @@
 /* --- Main Admonition Container --- */
 .admonition {
   font-family: var(--font-family-sans-serif);
-  /* Use Flexbox for side-by-side layout */
   display: flex;
-  /* Align items to the top. Use 'center' if you prefer vertical centering. */
   align-items: flex-start;
   min-height: 74px;
   min-width: 760px;
   border-radius: 12px;
   padding: 12px;
   gap:12px;
-
-
-  margin-bottom: 1rem; /* Default Docusaurus margin */
-  border: 1px solid transparent; /* Base border */
-  border-left-width: 4px; /* Keep if you like the side border */
-  overflow: hidden; /* Helps contain floats if needed, good practice */
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-left-width: 4px;
+  overflow: hidden;
 }
 
 /* --- Admonition Heading Area (will contain Icon and Title) --- */
 .admonitionHeading {
-  /* Make the heading area only as wide as its content (the icon) */
-  /* It becomes the first flex item */
-  flex-shrink: 0; /* Prevent shrinking */
-  display: flex; /* To help align icon if title were present */
-  align-items: flex-start; /* Align icon/title at the top */
-
-  /* Remove default margins Docusaurus might add */
+  flex-shrink: 0;
+  display: flex;
+  align-items: flex-start;
   margin: 0;
   padding: 0;
-
-  /* If you *never* have titles, you might not need display:flex here,
-     but it doesn't hurt and handles the case where the component *could* have one. */
 }
-
-
 
 /* --- Admonition Icon Styling --- */
 .admonitionIcon {
-  /* Give the icon a little space from the top edge if needed */
-  /* Adjust based on your icon size and text line-height */
-  margin-top: 0.1em;
-  display: block; /* Ensure it behaves predictably */
+  /* This class is applied to the span wrapping the SVG icon */
+  margin-top: 0.1em; /* Adjust as needed */
+  display: block; /* Or flex, if you need to align multiple things inside */
+  line-height: 1; /* Helps with consistent vertical alignment if icon is slightly off */
 }
 
+/* --- Styles for the SVG icon itself --- */
+/* This targets any SVG inside an element with the .admonitionIcon class */
 .admonitionIcon svg {
-  width: 16.67px; /* Keep size rule from fix #1 */
-  height: 16.67px; /* Keep size rule from fix #1 */
-  display: inline-block;
-  vertical-align: middle;
+  width: 16.67px;
+  height: 16.67px;
+  display: inline-block; /* Changed from block to better align with text if title was present */
+  vertical-align: middle; /* Good for inline-block alignment */
+  /* Default color, can be overridden by specific types */
+  color: var(--ifm-color-emphasis-700); /* Default color */
 
-  /* --- Add this line --- */
-  fill: currentColor; /* Make SVG color match surrounding text color */
 }
-
-
 
 
 /* --- Admonition Content Area (Main Text) --- */
 .admonitionContent {
-  /* Allow the content area to take up the remaining space */
   flex-grow: 1;
-  /* Important for text wrapping within flex items */
   min-width: 0;
-
-  /* Remove default margins Docusaurus might add */
   margin: 0;
   padding: 0;
 }
 
-/* --- Clean up margins inside the content area --- */
 .admonitionContent > *:first-child {
   margin-top: 0;
 }
@@ -80,3 +62,43 @@
   margin-bottom: 0;
 }
 
+:global(.theme-admonition-note) .admonitionIcon svg {
+  color: var(--text-secondary);
+} 
+
+html[data-theme='dark'] :global(.theme-admonition-note) .admonitionIcon svg {
+  color: var(--static-white);
+}
+
+:global(.theme-admonition-info) .admonitionIcon svg {
+  color: #094f90;
+} 
+
+html[data-theme='dark'] :global(.theme-admonition-info) .admonitionIcon svg {
+  color: #A8BEFF;
+}
+
+:global(.theme-admonition-success) .admonitionIcon svg {
+  color: #006514;
+} 
+
+html[data-theme='dark'] :global(.theme-admonition-success) .admonitionIcon svg {
+  color: #73D586;
+}
+
+
+:global(.theme-admonition-warning) .admonitionIcon svg {
+  color: #ab6400;
+} 
+
+html[data-theme='dark'] :global(.theme-admonition-warning) .admonitionIcon svg {
+  color: #FFCA16;
+}
+
+:global(.theme-admonition-danger) .admonitionIcon svg {
+  color: #CD2200;
+} 
+
+html[data-theme='dark'] :global(.theme-admonition-danger) .admonitionIcon svg {
+  color: #FF977D;
+}

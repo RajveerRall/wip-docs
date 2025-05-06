@@ -1,16 +1,25 @@
 /* src/components/CodeBadge/CodeBadge.module.css */
 
 .codeBadge {
-    display: inline-block; /* Allows padding/margin and keeps it inline */
-    padding: 0.2em 0.6em; /* Vertical and horizontal padding */
-    margin-left: 0.5em;  /* Space between preceding text and badge */
-    font-size: 85%;      /* Slightly smaller than surrounding text */
-    line-height: 1.4;    /* Adjust for vertical alignment if needed */
-    border-radius: 4px;  /* Rounded corners */
-    border: 1px solid var(--ifm-color-emphasis-300, #dcdcdc); /* Subtle border */
-    /* Use a light background - table stripe or code bg often work well */
-    background-color: var(--ifm-table-stripe-background, var(--ifm-color-emphasis-100, #f5f5f5));
-    color: var(--ifm-code-color, var(--ifm-color-emphasis-800, #333)); /* Code text color */
-    vertical-align: baseline; /* Align with surrounding text */
-  }
-  
+  display: inline-flex;  /* Use inline-flex for internal alignment */
+  align-items: center;   /* Vertically center content within the flex container */
+  justify-content: center; /* Optional: horizontally center if text is short */
+  height: 22px;          /* Your desired fixed height */
+  padding: 0 6px;        /* Horizontal padding only, vertical centering by align-items */
+  border-radius: 4px;
+  border: 1px solid var(--border-dark);
+  background-color: var(--background-01);
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+  color: var(--text-primary);
+  vertical-align: baseline; /* Still useful for aligning the whole badge with text outside it */
+  font-size:13px; /* Or your desired font size */
+  font-weight: 500;
+  font-family: var(--font-family-sans-serif);
+  /* line-height is less critical for centering when using flex align-items */
+}
+
+html[data-theme='dark'] .codeBadge{
+  color: var(--text-secondary);
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+
+}

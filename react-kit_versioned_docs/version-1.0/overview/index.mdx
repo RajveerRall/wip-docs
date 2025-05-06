@@ -15,6 +15,9 @@ import CometChatUIImg from "./assets/1623200307.gif";
 import ReactUIKitImg from "./assets/1623200296.png";
 import CodeBadge from '@site/src/components/CodeBadge'; 
 import TabbedCodeBlock from '@site/src/components/TabbedCodeBlock'
+import MuiStyledTable from '@site/src/components/Table'
+import AdditionalResources from '@site/src/components/AdditionalResources'
+
 
 export const userDemoTsCode = `
 import { CometChatUsers } from "@cometchat/chat-uikit-react";
@@ -49,21 +52,22 @@ export default UsersDemo;
 <StepBlock label="Step 01">
   This is the content for the **first step**. Filters allow you to customize the data displayed
   in a list within a Component. You can filter the list based on your specific criteria,
-  allowing for a more customized. Filters can be applied using `RequestBuilders` of Chat SDK.
+  allowing for a more customized. Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK 
+</StepBlock>
+
+<StepBlock label="Step 02">
+  This is the content for the **first step**. Filters allow you to customize the data displayed
+  in a list within a Component. You can filter the list based on your specific criteria,
+  allowing for a more customized. Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK 
 </StepBlock>
 
 
-
 :::note
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
 :::
 
 :::info
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
-:::
-
-:::tip
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. 
 :::
 
 :::success
@@ -71,19 +75,12 @@ This should look the same as TIP. Lorem ipsum dolor sit amet consectetur. Porta 
 :::
 
 :::warning
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. 
 :::
-
-:::caution
-This should look the same as WARNING. Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
-:::
-
 
 :::danger
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. `code sample`
+Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
 :::
-
-
 
  <FeatureShowcase>
   <FeatureCard
@@ -113,32 +110,24 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 </CheckListItem>
 
 <CheckListItem>
-  Filters can be applied using `RequestBuilders` of Chat SDK. Make sure you understand the different builder types.
+  Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK. Make sure you understand the different builder types.
 </CheckListItem>
 
 
-  <TabItem value="methods" label="Tab 01" default>
-
-    | Methods           | Type              | Description                                                               |
-    |-------------------|-------------------|---------------------------------------------------------------------------|
-    | `setLimit`        | number            | sets the number users that can be fetched in a single request, suitable for pagination |
-    | `setSearchKeyword`| String            | used for fetching users matching the passed string                         |
-    | `hideBlockedUsers`| boolean           | used for fetching all those users who are not blocked by the logged in user |
-    | `friendsOnly`     | boolean           | used for fetching only those users in which logged in user is a member      |
-    | `setRoles`        | `List<String>`    | used for fetching users containing the passed tags                        |
-    | `setTags`         | `List<String>`    | used for fetching users containing the passed tags                        |
-    | `withTags`        | boolean           | used for fetching users containing tags                                   |
-    | `setStatus`       | String            | used for fetching users by their status online or offline                 |
-    | `setUIDs`         | `List<String>`    | used for fetching the passed users                                        |
-
-  </TabItem>
-
-
-
-  * Node
-  * npm
-  * React <CodeBadge>npm install react@18.2.0</CodeBadge>
-  * React DOM <CodeBadge>npm install react-dom@18.0.2</CodeBadge>
+<MuiStyledTable
+  headers={['Methods', 'Type', 'Description']}
+  rows={[
+  ['setLimit', 'number', 'sets the number users that can be fetched in a single request, suitable for pagination'],
+  ['setSearchKeyword', 'String', 'used for fetching users matching the passed string'],
+  ['hideBlockedUsers', 'boolean', 'used for fetching all those users who are not blocked by the logged in user'],
+  ['friendsOnly', 'boolean', 'used for fetching only those users in which logged in user is a member'],
+  ['setRoles', `List<Sting>`, 'used for fetching users containing the passed tags'],
+  ['setTags',` List<String>`, 'used for fetching users containing the passed tags'],
+  ['withTags', 'boolean', 'used for fetching users containing tags'],
+  ['setStatus', 'String', 'used for fetching users by their status online or offline'],
+  ['setUIDs',` List`, 'used for fetching users containing the passed users'],
+]}
+/>
 
 
 # Bullet Points
@@ -154,12 +143,12 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 2.  Roman Numerals
     {/* Use an ordered list with a custom class */}
     <ol className='listRomanUpper'>
-      <li>
+      <li className="text-body-1 font-regular">
         Development Lifecycle
         {/* Add the description paragraph inside the list item */}
-        <p className='listDescription'>
+        <div className='listDescription'>
           Plan, design, code, test, deploy
-        </p>
+        </div>
       </li>
       <li>
         Best Practices
@@ -181,4 +170,6 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
     { label: 'JavaScript', value: 'js', language: 'jsx', code: userDemoJsCode, title: 'UsersDemo.jsx' }
   ]}
 />
+
+<AdditionalResources/>
 
