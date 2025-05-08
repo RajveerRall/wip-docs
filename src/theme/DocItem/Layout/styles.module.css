@@ -29,8 +29,6 @@
   justify-content: space-between; /* Title left, button right */
   align-items: center; /* Vertically align items */
   gap: 1rem; /* Space between title and button */
-  margin-bottom: 1.5rem; /* Space below the title/button row */
-  padding-bottom: 0.5rem; /* Optional: space before potential border */
   /* Optional separator line: */
   /* border-bottom: 1px solid var(--ifm-toc-border-color); */
 }
