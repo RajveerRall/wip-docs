@@ -6,12 +6,13 @@
   padding: 1rem 1rem 0rem 1rem; /* Top padding below navbar, side padding, less bottom padding */
   padding-top: calc(var(--ifm-navbar-height, 60px) + 1.5rem);
   position: relative;
-  z-index: 100;
   display: flex;
+  flex-shrink: 0; 
   flex-direction: column;
   gap: 0.5rem; /* Space between selectors */
   align-items: center; /* Center the selector wrappers */
   width: 100%;
+  z-index: 100; 
   box-sizing: border-box;
   margin-bottom: 1rem; /* Add space before the main menu */
 }
@@ -185,15 +186,20 @@
   /* Match sidebar padding, no extra top/bottom needed here */
   /* padding: 0 1rem !important; */
   font-size: 14px;
-  width: 210px;
+  /* width: 210px; */
   box-sizing: border-box;
   margin-top: 0; /* Remove potential top margin */
 }
 
 :global(.menu__list) {
   margin: 0;
-  padding: 0; /* Reset padding */
+  /* padding: 0 1rem; */
   list-style: none;
+  font-size: 14px; /* Base font size for menu items */
+  width: 75%; /* Make the list fill the scrollable container */
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 :global(.menu__list-item) {
@@ -209,7 +215,7 @@
   font-size: 13px;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   color: var(--text-secondary);
-  width: 100%;
+  /* width: 100%; */
   box-sizing: border-box;
   line-height: 1.4;
   font-size: 14px;

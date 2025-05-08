@@ -1,16 +1,50 @@
-@media (min-width: 997px) {
-  .menu {
-    flex-grow: 1;
-    padding: 0.5rem;
-  }
-  @supports (scrollbar-gutter: stable) {
-    .menu {
-      padding: 0.5rem 0 0.5rem 0.5rem;
-      scrollbar-gutter: stable;
-    }
-  }
+.fullHeightSidebarWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: calc(85vh - var(--ifm-navbar-height));
+  background-color: var(--background-01);
+}
+.scrollableMenuArea {
+  flex-grow: 1; 
+  overflow-y: auto;
+  overflow-x: hidden; 
+}
 
-  .menuWithAnnouncementBar {
-    margin-bottom: var(--docusaurus-announcement-bar-height);
-  }
+.bottomStickyLinks {
+  flex-shrink: 0; /* Prevents this bottom section from shrinking */
+  padding: 12px 32px;
+  border-top: 1px solid var(--border-default); /* Docusaurus variable for border */
+  background-color: var(--background-01);
+  z-index: 10; /* Keep above scrolled content, but below dropdowns */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Space between links */
+}
+
+.bottomLink {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+/* .bottomLink:hover {
+  background-color: var(--ifm-menu-color-background-hover, var(--ifm-hover-overlay));
+  color: var(--ifm-menu-color-hover, var(--ifm-font-color-base));
+} */
+
+.bottomLink svg { /* For external link icons like FiExternalLink */
+  width: 16px;
+  height: 16px;
+  color: var(--icon-secondary);
+  margin-left: 0.5rem;
+  flex-shrink: 0;
 }
