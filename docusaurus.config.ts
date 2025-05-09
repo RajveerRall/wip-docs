@@ -56,6 +56,7 @@ const config: Config = {
         // --- Core Instance Settings ---
         id: "react-kit", // Unique ID for this instance
         path: "react-ui-kits", // Folder containing React Kit docs
+        breadcrumbs:true,
 
         // --- V V V --- CORRECTED routeBasePath --- V V V ---
         routeBasePath: "ui-kit/react", // <<< CHANGE THIS to match your desired URL structure

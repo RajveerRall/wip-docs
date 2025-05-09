@@ -2,7 +2,7 @@
 
 .stepBlockContainer {
     /* Spacing below the entire step block */
-    margin-bottom: 1.75rem; /* Adjust as needed for spacing between steps */
+    margin-bottom:16px; /* Adjust as needed for spacing between steps */
   }
   
   .stepLabel {

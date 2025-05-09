@@ -1,47 +1,56 @@
-.breadcrumbs {
-  margin-top: 80px;
-  margin-bottom: 1rem;
-  --ifm-breadcrumb-separator-size-multiplier: 1.2;
-  font-size: 0.85rem;
-  padding: 0 px;
+/* styles.module.css */
+
+.breadcrumbsContainer {
+  margin-bottom: 1rem; /* Example spacing */
 }
 
-/* Reset padding/margin on list */
-.breadcrumbs :global(.breadcrumbs__list) {
+.breadcrumbsContainer :global(ul.breadcrumbs) {
+  list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1em;
 }
 
-/* Override default Docusaurus breadcrumbs */
-.breadcrumbs :global(.breadcrumbs__item--separator) {
-  margin: 0 0.4rem;
-  color: var(--ifm-color-emphasis-600);
-  font-weight: normal;
+/* Separator style */
+.breadcrumbSeparator {
+  color: #7e7e94; /* Grey color for the separator (medium grey) */
+  margin-left: 0.6em;
+  margin-right: 0.6em;
+  user-select: none;
 }
 
-.breadcrumbs :global(.breadcrumbs__link) {
+/* Style for active (clickable, purple) links */
+.breadcrumbLinkIsActiveLink {
+  color: #6a4fc4 !important; /* Purple color */
   text-decoration: none;
-  color: var(--ifm-color-primary);
   font-weight: normal;
-  transition: none;
-  box-shadow: none !important;
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
 }
 
-.breadcrumbs :global(.breadcrumbs__link:hover),
-.breadcrumbs :global(.breadcrumbs__link:focus),
-.breadcrumbs :global(.breadcrumbs__link:active) {
-  text-decoration: none;
-  color: var(--ifm-color-primary-darker);
-  box-shadow: none !important;
-  background: transparent !important;
-  border: none !important;
-  outline: none !important;
+.breadcrumbLinkIsActiveLink:hover {
+  text-decoration: underline;
 }
 
-.breadcrumbs :global(.breadcrumbs__item--active .breadcrumbs__link) {
-  color: var(--ifm-font-color-base);
+/* Style for intermediate items that are NOT links (e.g., unlisted category with no href) */
+/* If item.label is empty, this will be an empty span and visually disappear if no padding/bg */
+.breadcrumbLinkIsIntermediateNonLinkable {
+  color: #7e7e94 !important; /* Grey, same as separator, or make less prominent */
   font-weight: normal;
+  cursor: default;
+}
+
+/* Style for the VERY LAST item in the breadcrumb trail (pill shape) */
+.breadcrumbLinkIsPill {
+  color: #5F6368 !important;   /* Darker grey text color inside pill */
+  background-color: #F1F3F5; /* Very light grey pill background */
+  padding: 0.3em 0.8em;     /* Adjust padding for aesthetics */
+  border-radius: 16px;      /* Adjust for roundness */
+  display: inline-block;
+  font-weight: normal;
+  cursor: default;
+  line-height: 1.1; /* Adjust for vertical centering if needed */
 }

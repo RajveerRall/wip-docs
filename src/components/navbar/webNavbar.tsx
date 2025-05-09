@@ -119,7 +119,7 @@ function WebNavbar(): React.ReactNode {
               aria-haspopup="true"
               aria-expanded={activeDropdown === 'integrate'}
             >
-              Integrate {activeDropdown === "integrate" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+              Integrate {activeDropdown === "integrate" ? <MdKeyboardArrowUp style={{marginLeft:'8px'}} /> : <MdKeyboardArrowDown  style={{marginLeft:'8px'}}/>}
             </button>
             {activeDropdown === "integrate" && (
               <div
@@ -145,7 +145,7 @@ function WebNavbar(): React.ReactNode {
               aria-haspopup="true"
               aria-expanded={activeDropdown === 'platform'}
             >
-              Platform {activeDropdown === "platform" ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+              Platform {activeDropdown === "platform" ? <MdKeyboardArrowUp style={{marginLeft:'8px'}} /> : <MdKeyboardArrowDown style={{marginLeft:'8px'}} />}
             </button>
             {activeDropdown === "platform" && (
               <div

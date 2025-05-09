@@ -5,7 +5,7 @@
   align-items: center;   /* Vertically center content within the flex container */
   justify-content: center; /* Optional: horizontally center if text is short */
   height: 22px;          /* Your desired fixed height */
-  padding: 0 6px;        /* Horizontal padding only, vertical centering by align-items */
+  padding: 0 4px;        /* Horizontal padding only, vertical centering by align-items */
   border-radius: 4px;
   border: 1px solid var(--border-dark);
   background-color: var(--background-01);

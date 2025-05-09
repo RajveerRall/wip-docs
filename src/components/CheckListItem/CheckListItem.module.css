@@ -2,105 +2,60 @@
 
 .checkListItemContainer {
   display: flex;
-  align-items: flex-start;
-  /* MODIFIED: Only bottom margin for spacing between items vertically */
-  /* Adjust 0.25rem to your desired spacing. 0 means no extra space. */
-  margin-top: 0;
-  margin-right: 0; /* Or set to 0.5rem if you want side spacing from a parent container */
-  margin-left: 0;  /* Or set to 0.5rem if you want side spacing from a parent container */
-  /* Alternatively, for just bottom margin and no side margins:
-     margin: 0 0 0.25rem 0;
-  */
-  padding-left: 0;
-  cursor: pointer; /* Indicate it's clickable */
-  position: relative; /* Needed for absolute positioning of hidden checkbox if desired */
-  /* Improve focus outline visibility */
+  align-items: flex-start; /* Align icon box and text to their tops */
+  margin-bottom: 0.5rem;
+  cursor: pointer;
   outline-offset: 2px;
+  padding: 0.25rem 0;
 }
 
 .checkListItemContainer:focus-visible {
-  outline: 2px solid var(--ifm-color-primary); /* Docusaurus primary color focus */
+  outline: 2px solid var(--border-highlight);
 }
 
-/* Wrapper for the custom icon pseudo-elements */
-.customCheckboxIcon {
+/* The visual box of the checkbox */
+.customCheckboxBox {
   flex-shrink: 0;
-  width:15px; /* Reserve space for the icon box */
-  height: 15px; /* Ensure height matches line-height roughly */
-  margin-right: 0.75em; /* Space between icon and text */
-  position: relative; /* For positioning checkmark pseudo-element */
-  margin-top: 0.18em; /* Fine-tune vertical alignment of the checkbox itself */
-}
-
-/* The box (unchecked state) */
-.customCheckboxIcon::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Fill the wrapper */
-  height: 100%;
-  border: 1.5px solid var(--border-default, #ccc);
-  border-radius: 2px;
-  background-color: transparent;
-  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
-}
-
-/* The checkmark (hidden by default, shown when parent has .checked class) */
-.customCheckboxIcon::after {
-  content: '';
-  position: absolute;
+  width: 20px;
+  height: 20px;
+  margin-right: 0.85em;
+  position: relative; /* For centering the icon if needed */
+  margin-top: 0.12em; /* Adjust for vertical alignment with text */
   box-sizing: border-box;
 
-  left: 0.35em;
-  top: 0.1em;
-  bottom: 0.3rem;
-  width: 0.35em;
-  height: 0.65em;
+  /* --- UNCHECKED STATE for the box --- */
+  border: 2px solid var(--border-default);
+  border-radius: 5px;
+  background-color: var(--background-01);
+  transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 
-  border-style: solid;
-  border-color: #ffffff; /* Color of the checkmark itself */
-  border-width: 0 2px 2px 0; /* Only right and bottom borders to form the checkmark shape */
-
-  transform: rotate(45deg);
-
-  opacity: 0;
-  transition: opacity 0.15s ease-in-out;
+  /* For centering the FaCheck icon inside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
-/* --- Checked State Styles --- */
-.checkListItemContainer.checked .customCheckboxIcon::before {
-  background-color: var(--icon-highlight, var(--ifm-color-primary, blue));
-  border-color: var(--icon-highlight, var(--ifm-color-primary, blue));
+/* --- CHECKED STATE for the box --- */
+.checkListItemContainer.checked .customCheckboxBox {
+  background-color: var(--icon-highlight);
+  border-color: var(--icon-highlight);
 }
 
-.checkListItemContainer.checked .customCheckboxIcon::after {
-  opacity: 1; /* Show the checkmark */
+/* Styling for the FaCheck icon itself */
+.checkIcon {
+  color: var(--static-white); /* White checkmark */
+  font-size: 13px; /* Adjust size of the FaCheck icon.
+                       20px box - (2*2px border) = 16px inner space.
+                       11px-12px icon size should fit well. */
+  display: block; /* Helps with some icon alignment quirks */
 }
 
 
 /* --- Content Styling --- */
 .checkListItemContent {
   flex-grow: 1;
-  margin-top: 3px;
-  line-height: 1.5; /* Added to ensure consistent line height for text content */
+  line-height: 1.6;
   min-width: 0;
   user-select: none;
   color: var(--text-secondary);
-}
-
-
-/* --- Visually Hidden Checkbox --- */
-.hiddenCheckbox {
-  position: absolute;
-  opacity: 0;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
 }
