@@ -52,7 +52,7 @@
 .icon {
   width: 16px;
   height: 16px;
-  color:var(--icon-secondary)!important
+  color:var(--background-02)!important
 }
 
 .contentContainer {

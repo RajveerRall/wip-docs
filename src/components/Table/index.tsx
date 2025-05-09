@@ -9,38 +9,31 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-// Using Box as a styled wrapper instead of Paper to avoid default elevation/styles
 import Box from '@mui/material/Box';
 import { useColorMode } from '@docusaurus/theme-common'; // Import the hook
-
-
-
-// --- Helper: Define CSS Variable Fallbacks (adjust if your variables differ) ---
-
-
-// --- The React Component ---
 
 /**
  * Renders a styled table using MUI components, matching the target design.
  * Accepts headers and rows data, suitable for MDX usage.
  */
 function MuiStyledTable({ headers, rows, caption }) {
-  const { colorMode, setColorMode } = useColorMode(); // 'light' or 'dark'
+  const { colorMode } = useColorMode(); // 'light' or 'dark'
   const isDarkMode = colorMode === 'dark';
 
+  // CSS Variable strings
   const V = {
-    borderColor: `${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`,
-    headerBg: 'var(--neutral-100,)',
-    headerColor: 'var(--text-primary)',
-    bodyColor: 'var(--text-secondary)',
-    tableBg: 'var(--background-01)',
-    codeBg: 'var(--ifm-code-background)',
-    codeColor: 'var(--ifm-code-color)',
+    borderColor: isDarkMode ? 'var(--border-light)' : 'var(--border-default)',
+    // Added example fallbacks in case CSS variables are not defined. Adjust/remove as needed.
+    headerBg: 'var(--neutral-100, #f8f9fa)',
+    headerColor: 'var(--text-primary, #212529)',
+    bodyColor: 'var(--text-secondary, #495057)',
+    tableBg: 'var(--background-01, #ffffff)',
+    codeBg: 'var(--ifm-code-background, #f1f1f1)',
+    codeColor: 'var(--ifm-code-color, #c7254e)', // Example, Docusaurus usually handles this well
   };
 
-  
-   // Basic validation
-   if (!headers || !Array.isArray(headers) || headers.length === 0) {
+  // Basic validation
+  if (!headers || !Array.isArray(headers) || headers.length === 0) {
     console.warn('MuiStyledTable: `headers` prop is required and must be a non-empty array.');
     return <Box sx={{ padding: 2, border: `1px solid ${V.borderColor}`, borderRadius: '12px', color: 'red' }}>Error: Missing table headers.</Box>;
   }
@@ -49,44 +42,65 @@ function MuiStyledTable({ headers, rows, caption }) {
      return <Box sx={{ padding: 2, border: `1px solid ${V.borderColor}`, borderRadius: '12px', color: 'red' }}>Error: Missing table rows.</Box>;
   }
 
-  return (
-    // Use Box for the outer container with border-radius and border
-    <Box>
-      {/* TableContainer is good practice for accessibility and potential scrolling */}
-      <TableContainer >
-        <Table stickyHeader aria-label={caption || 'Styled data table'}>
+  return ( 
+      <TableContainer sx={{
+          backgroundColor: V.tableBg, // Apply background to the table area
+          // No fixed height here, so it expands with content.
+          // This prevents vertical scrollbars on the TableContainer itself.
+      }}>
+        <Table
+          stickyHeader // Makes table headers stick to the top of the TableContainer when it scrolls.
+                       // If TableContainer doesn't scroll (our case), it has minimal effect.
+          aria-label={caption || 'Styled data table'}
+          sx={{
+            tableLayout: 'fixed', // CRITICAL: Allows text wrapping and predictable column behavior.
+            width: '100%',        // Table will take the full width of its container.
+            minWidth: '100%',     // Ensures it tries to occupy full space for layout.
+            // borderCollapse: 'collapse', // Alternative to manual border logic below if simpler borders are okay
+          }}
+        >
           <TableHead>
-            {/* Apply styling targeting TH cells within this TableHead */}
             <TableRow sx={{
-               '& th': { // Target header cells
+               '& th': {
                     backgroundColor: V.headerBg,
-                    color: `var(--text-primary)!important`,
+                    color: `${V.headerColor}!important`, // Retained !important from original
                     fontWeight: 500,
-                    height:'40px!important',
                     fontSize: '14px',
                     fontFamily:'var(--font-family-sans-serif)',
                     padding: '0.75rem 1rem',
                     textAlign: 'left',
-                    verticalAlign: 'top',
-                    // Border Logic (mimic collapse)
-                    borderBottom: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Always have bottom border
-                    borderLeft: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Add left border by default
-                    borderRight: `none`, // No right border by default (cell to the right will add its left)
-                    borderTop: `none`, // No top border needed (handled by wrapper/tablecontainer border)
+                    verticalAlign: 'top', // Better for multi-line wrapped content
 
-                    // First header cell: no left border (uses container border)
+                    // Text wrapping for header cells
+                    whiteSpace: 'normal',
+                    wordBreak: 'break-word', // Allow long words to break and wrap
+                    overflowWrap: 'break-word', // Alias for word-break
+
+                    // Border Logic (mimic collapse)
+                    borderBottom: `1px solid ${V.borderColor}`,
+                    borderLeft: `1px solid ${V.borderColor}`,
+                    borderRight: 'none',
+                    borderTop: 'none',
+
                     '&:first-of-type': {
-                         borderLeft: 'none',
+                         borderLeft: 'none', // First header cell uses container's left border
                     },
-                    // Last header cell: add right border (uses container border)
-                     '&:last-of-type': {
-                        borderRight: `none`, // Keep this none, as the container provides the edge
-                    },
+                    // Last header cell's right border is effectively the container's right border
                }
             }}>
               {headers.map((header, index) => (
-                <TableCell key={`header-${index}`} sx={{minWidth:'160px', height:'40px!important'}} component="th" scope="col">
-                    {/* Render header content (string or JSX node) */}
+                <TableCell
+                    key={`header-${index}`}
+                    component="th"
+                    scope="col"
+                    sx={{
+                        // maxWidth:'160px', // Retained from original: Caps column width.
+                                           // Can be removed if fully dynamic width is preferred.
+                        // maxHeight:'40px!important', // REMOVED: This prevents text wrapping.
+                        // For explicit column width distribution with tableLayout: 'fixed':
+                        // width: headers.length > 0 ? `${100 / headers.length}%` : 'auto',
+                    }}
+                >
                     {header}
                 </TableCell>
               ))}
@@ -94,48 +108,45 @@ function MuiStyledTable({ headers, rows, caption }) {
           </TableHead>
           <TableBody>
             {rows.map((row, rowIndex) => {
-                // --- Row Data Validation (Optional but recommended) ---
+                // Row data validation (as in original)
                 let validatedRow = row;
                 if (!Array.isArray(row)) {
-                    console.warn(`MuiStyledTable: Row data at index ${rowIndex} is not an array. Rendering placeholder.`);
-                    // Create a placeholder row array matching header length
                     validatedRow = Array(headers.length).fill(`Invalid data at row ${rowIndex}`);
                 } else if (row.length !== headers.length) {
-                    console.warn(`MuiStyledTable: Row at index ${rowIndex} has ${row.length} cells, expected ${headers.length}. Padding/truncating.`);
-                     // Pad or truncate the row to match header length
                      validatedRow = [...row];
                      while (validatedRow.length < headers.length) validatedRow.push("Missing");
                      while (validatedRow.length > headers.length) validatedRow.pop();
                 }
-                // --- End Row Data Validation ---
 
               return (
                 <TableRow
                     key={`row-${rowIndex}`}
                     sx={{
-                        backgroundColor: 'transparent !important', // Ensure no theme zebra striping overrides
-                        '& td': { // Target body cells
-                            color: V.bodyColor + ' !important', // Add !important if needed to override MUI specifics
+                        backgroundColor: 'transparent !important',
+                        '& td': {
+                            color: `${V.bodyColor}!important`, // Retained !important
                             fontWeight: 400,
                             fontFamily:'var(--font-family-sans-serif)',
                             fontSize: '14px',
-                            padding: '0.75rem 1rem',
+                            // padding: '0.75rem 1rem',
                             textAlign: 'left',
-                            verticalAlign: 'top',
-                            // Border Logic (mimic collapse)
-                            borderBottom: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Standard bottom border for row separation
-                            borderLeft: `1px solid ${isDarkMode?'var(--border-light) !important':'var(--border-default) !important'}`, // Add left border
-                            borderRight: `none`, // No right border (next cell adds left)
-                            borderTop: 'none', // Top border provided by row above
+                            verticalAlign: 'top', // Better for multi-line wrapped content
 
-                            '&:first-of-type': { // First cell in row
-                                borderLeft: 'none', // Use container border
-                            },
-                             '&:last-of-type': { // Last cell in row
-                                borderRight: 'none', // Use container border
+                            // Text wrapping for body cells
+                            whiteSpace: 'normal',
+                            wordBreak: 'break-word',
+                            overflowWrap: 'break-word',
+
+                            borderBottom: `1px solid ${V.borderColor}`,
+                            borderLeft: `1px solid ${V.borderColor}`,
+                            borderRight: 'none',
+                            borderTop: 'none',
+
+                            '&:first-of-type': {
+                                borderLeft: 'none', // First cell uses container's left border
                             },
 
-                            // Style embedded code elements
+                            // Style embedded code elements for better wrapping
                             '& code': {
                                 backgroundColor: V.codeBg,
                                 color: V.codeColor,
@@ -143,10 +154,11 @@ function MuiStyledTable({ headers, rows, caption }) {
                                 margin: '0 0.1em',
                                 borderRadius: '3px',
                                 fontSize: '0.9em',
-                                whiteSpace: 'nowrap',
+                                whiteSpace: 'pre-wrap', // Allows wrapping but respects spaces/newlines
+                                wordBreak: 'break-all', // More aggressive for long unbroken code strings
                             }
                         },
-                        // Remove bottom border ONLY for the very last row's cells
+                        // Remove bottom border ONLY for the cells in the very last row
                         '&:last-child td': {
                              borderBottom: 'none',
                         },
@@ -154,7 +166,6 @@ function MuiStyledTable({ headers, rows, caption }) {
                 >
                   {validatedRow.map((cell, cellIndex) => (
                     <TableCell key={`cell-${rowIndex}-${cellIndex}`} component="td" scope="row">
-                      {/* Render cell content (string or JSX node like <code>) */}
                       {cell}
                     </TableCell>
                   ))}
@@ -164,18 +175,15 @@ function MuiStyledTable({ headers, rows, caption }) {
           </TableBody>
         </Table>
       </TableContainer>
-    </Box>
+    
   );
 }
 
-// --- Prop Type Definitions ---
+// Prop Type Definitions (as in original)
 MuiStyledTable.propTypes = {
-  /** An array of strings or React nodes for table headers (th). */
   headers: PropTypes.arrayOf(PropTypes.node).isRequired,
-  /** An array of arrays. Each inner array is a row (tr), containing cell (td) data (strings or React nodes). */
   rows: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.node)).isRequired,
-  /** Optional caption for table accessibility. */
   caption: PropTypes.string,
 };
 
-export default MuiStyledTable; // Make sure to export!
+export default MuiStyledTable;

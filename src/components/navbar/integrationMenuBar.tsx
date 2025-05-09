@@ -1,6 +1,6 @@
 import React from "react";
 import "./Navbar.css";
-import { RiUserSettingsLine } from "react-icons/ri";
+import { RiUserSettingsFill } from "react-icons/ri";
 import { MdChat } from "react-icons/md";
 import useBaseUrl from "@docusaurus/useBaseUrl";
 
@@ -88,7 +88,7 @@ const IntegrationDropdownMenu: React.FC = () => {
     },
     {
       name: "Managment API",
-      icon: RiUserSettingsLine,
+      icon: RiUserSettingsFill,
       link: useBaseUrl("/"),
     },
   ];

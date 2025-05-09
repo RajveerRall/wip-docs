@@ -1,8 +1,4 @@
-/* src/components/EasyTabbedCode/ReactTabsCodeBlock.module.css */
-
-/* Import default react-tabs styles first (optional, but can be helpful) */
-/* If you don't have this, you might need more base styling */
-/* @import 'react-tabs/style/react-tabs.css'; */
+/* src/components/EasyTabbedCode/TabbedCodeBlock.module.css */
 
 /* --- Overall Wrapper --- */
 .wrapper {
@@ -14,18 +10,32 @@
   /* border: 1px solid #333; */
 }
 
+/* NEW: Container for TabList and Custom Copy Button */
+.tabListContainer {
+  display: flex;
+  align-items: center; /* Vertically aligns TabList and copy button */
+  /* Padding: Top Right Bottom Left. Right padding adjusted for copy button space. */
+  padding: 0 0.75rem 0 1rem; /* Left padding matches original .tabList */
+  border-bottom: 2px solid #3a3a3a; /* Line below tabs, moved from .tabList */
+  position: relative; /* If needed for absolute positioning of children */
+}
+
 .tabList {
   list-style-type: none; /* Remove default list bullets */
   margin: 0;             /* Remove default margin */
-  padding: 0.6rem 1rem 0 0; /* CHANGE: Padding: top right bottom left (left is now 0) */
-  border-bottom: 2px solid #3a3a3a; /* Line below tabs */
+  /* Padding: Top Right Bottom Left. Right/Left padding now handled by .tabListContainer */
+  padding: 0.6rem 0 0 0; /* Top padding for tab height, bottom padding is 0 */
   display: flex;         /* Align tabs horizontally */
-  position: relative;
+  flex-grow: 1;          /* Allows TabList to take up available space */
+  /* border-bottom: 2px solid #3a3a3a; -- MOVED to .tabListContainer */
+  /* position: relative; -- Already on .tabListContainer, might not be needed here */
 }
 
 .tab {
   padding: 0.5rem 1rem;   /* Padding inside each tab button */
-  margin: 0 0.25rem -1px 0; /* Right margin, negative bottom margin to overlap border */
+  /* Negative bottom margin makes tab border overlap container border */
+  /* Keep left margin 0 if first tab should align with container padding */
+  margin: 0 0.25rem -2px 0; /* Adjusted -1px to -2px because container border is 2px */
   cursor: pointer;
   color: #a0a0a0;         /* Default/inactive tab text color */
   border: none;           /* Remove default borders */
@@ -42,8 +52,32 @@
 /* Style for the selected tab using ARIA attribute */
 .tab[aria-selected='true'] {
   color: var(--static-white);         /* Active tab text color */
-  /* Active tab indicator color (purple like image) */
-  border-bottom-color:#8A77E5;
+  border-bottom-color:#8A77E5;    /* Active tab indicator color (purple like image) */
+}
+
+/* --- Custom Copy Button Styles --- */
+.customCopyButton {
+  background-color: transparent;
+  border: none;
+  color: #a0a0a0; /* Match inactive tab color */
+  cursor: pointer;
+  padding: 0.4rem; /* Adjust for visual balance with tabs */
+  margin-left: auto; /* Pushes it to the far right */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px; /* Optional: for hover effect */
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+.customCopyButton:hover {
+  color: var(--static-white); /* Brighter on hover */
+  background-color: rgba(255, 255, 255, 0.08); /* Subtle hover background */
+}
+
+.customCopyButton svg { /* For react-icons */
+  width: 20px;  /* Adjust size as needed */
+  height: 20px; /* Adjust size as needed */
 }
 
 /* --- Tab Panel --- */
@@ -52,43 +86,34 @@
   padding: 0; /* Remove padding, let CodeBlock handle internal padding */
 }
 
-/* --- Docusaurus CodeBlock Overrides --- */
-/* Target the Docusaurus CodeBlock specifically inside our panel */
-/* Need :global as these classes come from @theme/CodeBlock */
+/* --- Docusaurus CodeBlock Overrides (from your provided CSS) --- */
 .tabPanel > :global(div[class*="codeBlockContainer_"]),
 .tabPanel > :global(div.theme-code-block) {
-  margin-top: 0 !important; /* CRITICAL: Remove space above CodeBlock */
-  border: none !important; /* Remove default CodeBlock border if any */
-  box-shadow: none !important; /* Remove default shadow if any */
-
-  /* CRITICAL: Flatten top corners of the CodeBlock to meet the TabList */
+  margin-top: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
-
-  /* IMPORTANT: Ensure bottom corners remain rounded to match the wrapper */
-  border-bottom-left-radius: 8px !important; /* Match .wrapper */
-  border-bottom-right-radius: 8px !important; /* Match .wrapper */
-
-  /* Ensure CodeBlock background matches or is transparent */
-  background-color: transparent !important; /* Let .wrapper bg show through */
+  border-bottom-left-radius: 8px !important; /* Match .wrapper if .wrapper has 12px and this is slightly less for inset look */
+  border-bottom-right-radius: 8px !important;/* Or make it 12px to fully match .wrapper */
+  background-color: transparent !important;
 }
 
-/* Optional: Adjust code block title bar if present and needs styling */
-/* .tabPanel > :global(div[class*="codeBlockContent_"]) > :global(div[class*="codeBlockTitle_"]) {
-  background-color: #333 !important;
-  border-bottom: 1px solid #444 !important;
-  margin-bottom: 0 !important;
-} */
-
-.prism-code {
-  background-color: black!important;
+.prism-code { /* This class is usually on the <pre> tag or its child <code> */
+  background-color: transparent !important; /* Ensure it inherits background from .wrapper */
+                                           /* Your initial code had #1e1e1e for wrapper and black for prism-code */
+                                           /* If you want #1e1e1e for code, remove this line or set it to #1e1e1e */
 }
 
-/* Ensure the code itself (<pre>) inside CodeBlock has appropriate styling */
 .tabPanel > :global(div[class*="codeBlockContent_"]) > :global(pre) {
-   /* Override background if necessary, usually handled by prism theme */
-   /* background-color: #1e1e1e !important; */
-   /* Adjust padding if needed */
    padding-top: 1rem !important;
    padding-bottom: 1rem !important;
+   /* background-color: transparent !important; -- Already handled by .prism-code or theme */
+}
+
+/* --- Hide Docusaurus CodeBlock's built-in copy button --- */
+.tabPanel :global(div[class*="codeBlockHeader_"] button.clean-btn),
+.tabPanel :global(div[class*="codeBlockHeader_"] button[class*="copyButton_"]),
+.tabPanel :global(button[class*="codeButton_"]) {
+  display: none !important;
 }

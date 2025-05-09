@@ -22,7 +22,11 @@ export default function OfficeHoursCard({
         <p className={`${styles.title} text-h1 font-semibold`}>{title}</p>
         <p className={`${styles.description} text-body-1 font-regular`}>{description}</p>
         {buttonLink && buttonText && (
-          <div className={styles.bookButton}>
+          <div className={styles.bookButton} 
+          onClick={()=>{
+            const calendlyUrl = new URL('https://calendly.com/cometchat-office-hours/cometchat-solutions-engineering-office-hours');
+            window.open(calendlyUrl.href, '_blank', 'noopener,noreferrer');
+            }}>
             {buttonText}
           </div>
         )}

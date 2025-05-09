@@ -24,14 +24,17 @@
   display: flex;
   align-items: center;
   color: var(--ifm-color-emphasis-600); /* text-[--ifm-color-emphasis-600] */
-  margin-bottom: 2rem; /* mb-6 */
+  margin-bottom: 64px; /* mb-6 */
   margin-top: 1.2rem;
   text-decoration: none;
+  cursor:context-menu;
+  text-decoration-color: var(--ifm-color-emphasis-600)
 }
 
 html[data-theme='dark'] .breadcrumbs {
   color:#8C78F0;
   text-decoration: none;
+  text-decoration-color: var(--ifm-color-emphasis-600);
 }
 
 @media (max-width: 768px) {
@@ -81,7 +84,7 @@ html[data-theme='dark'] .breadcrumbs {
 .heroDescription {
   max-width: 70dvw;/* max-w-3xl */
   color:var(--text-secondary)!important;
-  margin-bottom: 3rem;
+  margin-bottom: 64px;
 }
 
 /* --- Section Spacing --- */

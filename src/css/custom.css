@@ -392,7 +392,7 @@ main table,
   /* Use separate borders for table and cells */
   border-collapse: separate; /* --- MODIFIED --- */
   border-spacing: 0;      /* --- ADDED --- Removes gaps between cells */
-  width: 100%;
+  max-width: 100%;
   border-radius: 12px;    /* Rounded corners for the outer table */
   overflow: hidden;         /* Clips cell corners to the table's border-radius */
   border: 1px solid var(--border-default); /* --- RE-ENABLED --- The main outer border */
@@ -410,11 +410,7 @@ main table thead th,
   font-weight: 500;
   font-size: 14px;
   color: var(--text-primary);
-  /* Border for each header cell */
   border: 1px solid var(--ifm-table-border-color, #e0e0e0); /* --- KEPT --- */
-  /* Remove specific side borders if they double up with the table border (optional refinement) */
-  /* border-top: none; */ /* Example: remove top if it touches table top border */
-  /* border-left: none; */ /* Example: remove left if it touches table left border */
 }
 
 /* --- Refine header cell borders to avoid doubling up with the main table border --- */
@@ -573,6 +569,21 @@ div[class*='docItemContainer_'] /* Target div with class containing 'docItemCont
 }
 html {
   background-color: var(--background-01);
+}
+
+@media (max-width: 997px) {
+  main article {
+  padding: 0.5rem;
+}
+.listDescription{
+  line-height: 1;
+}
+
+.listRomanUpper li {
+  margin-bottom: 2rem;
+  line-height: 0.3; 
+  color:var(--text-secondary)
+}
 }
 
 @media (min-width: 997px) {

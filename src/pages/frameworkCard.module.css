@@ -102,7 +102,7 @@
 
 /* --- Version Badge --- */
 .versionBadge {
-  margin-top: 0.2rem; /* Approximating mt-0.4 */
+  margin-top: 4px; /* Approximating mt-0.4 */
   display: inline-flex; /* inline-flex */
   width: 24px; /* w-fit */
   height:22px;

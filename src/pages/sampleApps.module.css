@@ -49,19 +49,10 @@
 
 .viewAllButton:hover {
   background-color: var(--ifm-color-emphasis-100);
-  border-color: var(--ifm-color-emphasis-400);
   text-decoration: none;
   color: var(--ifm-font-color-base);
 }
-/* Dark mode */
-html[data-theme="dark"] .viewAllButton {
-  border-color: var(--ifm-color-emphasis-400); /* dark:border-[...] */
-  color: var(--ifm-font-color-base); /* dark:text-[...] */
-}
 
-html[data-theme="dark"] .viewAllButton:hover {
-  background-color: var(--ifm-hover-overlay); /* dark:hover:bg-[...] */
-}
 
 /* --- Section Description --- */
 .sectionDescription {
@@ -173,7 +164,7 @@ html[data-theme="dark"] .appTitleText {
   margin: 1rem auto; /* my-4 mx-auto */
   height: 1px; /* h-px */
   width: 100%; /* w-full */
-  background-color: var(--ifm-color-emphasis-200); /* bg-[...] */
+  background-color: var(--border-default); /* bg-[...] */
 }
 
 @media (min-width: 768px) {
@@ -185,10 +176,7 @@ html[data-theme="dark"] .appTitleText {
   }
 }
 
-/* Dark mode */
-html[data-theme="dark"] .divider {
-  background-color: var(--ifm-color-emphasis-300); /* dark:bg-[...] */
-}
+
 
 /* Responsive adjustments */
 @media (max-width: 996px) {

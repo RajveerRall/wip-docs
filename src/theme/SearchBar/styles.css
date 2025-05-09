@@ -1,0 +1,70 @@
+/* src/theme/SearchBar/styles.css */
+
+/* Styles for the main DocSearch button (magnifying glass, "Search docs..." text) */
+.DocSearch-Button {
+  margin: 0;
+  padding: 0; /* Padding will be handled by inner elements or specific needs */
+  border: 1px solid var(--border-default); /* Light grey border */
+  border-radius: 8px;       /* Rounded corners for the main search bar */
+  background-color: var(--background-01); /* White background */
+  height: 40px;             /* Fixed height for the search bar */
+  width: auto;              /* Allow width to be determined by content or min-width */
+  min-width: 280px;         /* Example: ensure it's not too small */
+  display: flex;
+  align-items: center;
+  font-family: inherit;     /* Use the site's default font */
+  cursor: pointer;          /* Indicates the whole bar is clickable (to open search) */
+}
+
+
+/* Magnifying glass icon */
+.DocSearch-Search-Icon {
+  color: var(--icon-secondary); /* Grey icon color */
+  width: 20px;    /* Size of the icon */
+  height: 20px;   /* Size of the icon */
+  margin-left: 12px; /* Space from left edge of the search bar */
+  margin-right: 8px; /* Space between icon and placeholder text */
+  stroke-width: 1.8; /* Thickness of the icon lines */
+  flex-shrink: 0; /* Prevent icon from shrinking if placeholder text is long */
+}
+
+/* "Search docs..." placeholder text */
+.DocSearch-Button-Placeholder {
+  font-size: 14px;
+  color: var(--text-secondary); /* Grey placeholder text color */
+  flex-grow: 1;   /* Allow text to take available space */
+  line-height: 1; /* For vertical centering if needed, though flex align-items should handle it */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  pointer-events: none; /* Clicks on placeholder pass through to main DocSearch-Button */
+}
+
+/* --- STYLES FOR YOUR CUSTOM END ELEMENT (SETTINGS ICON) --- */
+.MyCustomEndElementContainer {
+  margin-left: auto;    /* Pushes it to the far right */
+  margin-right: 6px;    /* Space from the right edge of the main search bar */
+  display: flex;        /* For centering the icon inside */
+  align-items: center;
+  justify-content: center;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background-color: var(--background-01)!important;
+  border: 1px solid var(--border-default);
+  min-width: 40px;
+  min-height: 22px;         /* Takes full height of the parent .DocSearch-Button */
+  cursor: pointer;      /* Indicates this part is also clickable (for custom action) */
+}
+
+
+/* Z-index for the modal container */
+.DocSearch-Container {
+  z-index: calc(var(--ifm-z-index-fixed) + 1);
+}
+
+/* Reset default button appearance for the main .DocSearch-Button */
+button.DocSearch-Button {
+  appearance: none;
+  -webkit-appearance: none;
+  text-align: left; /* Ensure placeholder text aligns left */
+}

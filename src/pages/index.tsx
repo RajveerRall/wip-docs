@@ -133,9 +133,9 @@ export default function Homepage() {
       <main className={styles.pageContainer}>
         {/* Breadcrumbs with CSS Module classes */}
         <div className={styles.breadcrumbs}>
-          <Link to="/" className={`${styles.breadcrumbLink} text-caption-1 font-medium`}>
+          <div onClick={()=>window.location.href='/'} className={`${styles.breadcrumbLink} text-caption-1 font-medium`}>
             Home
-          </Link>
+          </div>
           <MdOutlineKeyboardArrowRight
             className={styles.breadcrumbSeparator}
             aria-hidden="true"

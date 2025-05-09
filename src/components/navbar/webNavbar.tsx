@@ -162,7 +162,8 @@ function WebNavbar(): React.ReactNode {
 
         {/* Search Box */}
         <div className="search-container">
-          <SearchBar/>
+          <SearchBar
+          />
         </div>
 
         {/* Action Buttons */}

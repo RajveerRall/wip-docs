@@ -6,7 +6,7 @@
   display: flex;
   align-items: flex-start;
   min-height: 74px;
-  min-width: 760px;
+  max-width: 760px;
   border-radius: 12px;
   padding: 12px;
   gap:12px;

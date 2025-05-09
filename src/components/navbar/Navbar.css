@@ -2,6 +2,10 @@
 /* Navbar Core Structure & Layout         */
 /* ======================================== */
 
+.navbar{
+  box-shadow: none;
+}
+
 .navbar-container {
   position: fixed;
   top: 0;
@@ -75,9 +79,8 @@ html[data-theme="dark"] .logo-dark {
   background: none;
   border: none;
   color: var( --text-secondary);
-  cursor: pointer;
   transition: color 0.2s;
-  padding: 8px 4px;
+  padding: 8px;
   max-width: 89px;
   height:32px
 }
@@ -117,6 +120,10 @@ html[data-theme="dark"] .logo-dark {
   z-index: 99998 !important;
   background-color: var(--neutral-900);
   opacity: 0.24;
+}
+
+html[data-theme="dark"] .dropdown-backdrop{
+    background-color: var(--neutral-900)!important;
 }
 
 /* ======================================== */
@@ -276,73 +283,6 @@ html[data-theme="dark"] .item-container-desc {
   justify-content: center;
   padding: 0 40px;
 }
-
-.DocSearch-SearchBar {
-  margin-top: 3.8rem;
-}
-/* Base styles for the main button */
-.DocSearch-Button {
-  font-family: 'Inter', sans-serif;
-  min-width: 300px !important;
-  border-radius: 8px !important;
-  border: 1px solid var(--border-default);
-  height: 34px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: space-between !important; /* Keep space-between */
-  padding: 10px 8px !important;
-  box-shadow: none !important;
-  background: none;
-
-}
-
-.DocSearch-Search-Icon {
-  height: 15px;
-  color:var(--neutral-300)!important
-}
-
-/* --- Container for the Keys --- */
-/* This container should now ONLY handle layout (flex, gap) */
-.DocSearch-Button-Keys {
-  display: flex;
-  align-items: center;
-  padding: 0; 
-  border-radius: 0;
-  background-color: var(--background-01) !important;
-
-}
-
-/* --- Individual Key Styling (kbd tag) --- */
-kbd.DocSearch-Button-Key {
-
-  display: inline-block !important; /* Make sure it's visible */
-  padding: 1px; /* << Increase this value (was 5px) */
-  font-family: 'Inter', sans-serif;
-  background-color: var(--background-01) !important;
-  font-size: 11px;
-  font-weight: 600;
-  line-height: 1.1; /* Adjust slightly if needed for vertical centering */
-  text-align: center; /* Center the character horizontally */
-  min-width: 18px; /* Ensure a minimum width, adjust if needed */
-  border-radius: 3px;
-  border: 1px solid;
-  border-bottom-width: 2px;
-  color: inherit; /* Set per theme */
-  box-shadow: none !important;
-  position: static !important;
-}
-
-.DocSearch-Button .DocSearch-Search-Icon {
-  color: var(--neutral-500) !important
-}
-
-.DocSearch-Button-Placeholder{
-  font-size:13px;
-  font-weight: 400;
-  color: var(--neutral-500) !important
-
-}
-
 
 
 /* ======================================== */
