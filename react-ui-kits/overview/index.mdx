@@ -18,7 +18,7 @@ import CodeBadge from '@site/src/components/CodeBadge';
 import TabbedCodeBlock from '@site/src/components/TabbedCodeBlock'
 import MuiStyledTable from '@site/src/components/Table'
 import AdditionalResources from '@site/src/components/AdditionalResources'
-
+import ImageLightbox from '@site/src/components/ImageLightbox'
 
 export const userDemoTsCode = `
 import { CometChatUsers } from "@cometchat/chat-uikit-react";
@@ -118,6 +118,12 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 <CheckListItem>
   Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK. Make sure you understand the different builder types.
 </CheckListItem>
+
+<ImageLightbox
+  src={ReactUIKitImg}
+  alt="A very cool image"
+  thumbnailWidth="400px"
+/>
 
 
 <MuiStyledTable

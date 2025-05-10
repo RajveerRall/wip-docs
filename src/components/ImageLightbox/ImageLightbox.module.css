@@ -1,0 +1,75 @@
+/* src/components/ImageLightbox.module.css */
+
+.clickableImageWrapper {
+  /* Docusaurus themes typically handle figure margins.
+     Add margin here if you need to override or ensure specific spacing. */
+  /* margin: 1em 0; */
+  /* text-align: center; */ /* If you want images centered if they are block elements */
+}
+
+/*
+  The <img> tag itself within .clickableImageWrapper will inherit Docusaurus's
+  default image styling (e.g., max-width: 100%, height: auto).
+  We just need to make it clear it's clickable.
+*/
+.clickableImageWrapper img {
+  cursor: pointer;
+  /* Optional: subtle visual cue on hover, but Docusaurus theme might have one */
+  /* transition: opacity 0.2s ease-in-out; */
+}
+
+/* .clickableImageWrapper img:hover { */
+  /* opacity: 0.85; */
+/* } */
+
+
+/* Optional: Style for the caption if Docusaurus theme doesn't cover it well enough */
+.imageCaption {
+  font-size: 0.9em;
+  color: var(--ifm-color-content-secondary, var(--text-secondary, #555)); /* Use Docusaurus or your theme variable */
+  margin-top: 0.5em;
+  text-align: center; /* Or left, depending on preference */
+}
+
+/* --- Lightbox styles (remain largely the same) --- */
+.lightboxOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Docusaurus theme might have specific z-index considerations */
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.lightboxImage {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+
+.closeButton:hover {
+  color: #ccc;
+}
