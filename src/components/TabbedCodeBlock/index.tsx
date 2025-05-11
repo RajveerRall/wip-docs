@@ -1,13 +1,15 @@
 // src/components/EasyTabbedCode/index.tsx
-import React from 'react';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+// NO CHANGES NEEDED from the previous full Headless UI version.
+// For reference, it should look like this:
+import React, { useState, Fragment } from 'react';
+import { Tab as HeadlessTab } from '@headlessui/react';
 import CodeBlock from '@theme/CodeBlock';
-import styles from './TabbedCodeBlock.module.css'; // Using this filename as per your component
-import { MdContentCopy, MdCheck } from 'react-icons/md'; // Import react-icons
+import styles from './TabbedCodeBlock.module.css';
+import { MdContentCopy, MdCheck } from 'react-icons/md';
 
 type CodeInfo = {
   label: string;
-  value: string;
+  value: string; // Used as key
   language: string;
   code: string;
   title?: string;
@@ -17,28 +19,29 @@ type CodeInfo = {
 type Props = {
   codes: CodeInfo[];
   defaultTabIndex?: number;
-  onSelect?: (index: number, lastIndex: number, event: Event) => boolean | void;
+  onSelect?: (index: number) => void;
 };
 
 const TabbedsCodeBlock: React.FC<Props> = ({
   codes = [],
   defaultTabIndex = 0,
-  onSelect: onSelectProp, // Renamed to avoid conflict with internal state/handler
+  onSelect: onSelectProp,
 }) => {
   if (!codes || codes.length === 0) {
     return null;
   }
 
-  const validDefaultIndex = defaultTabIndex >= 0 && defaultTabIndex < codes.length
-                            ? defaultTabIndex
-                            : 0;
+  const validDefaultIndex =
+    defaultTabIndex >= 0 && defaultTabIndex < codes.length
+      ? defaultTabIndex
+      : 0;
 
-  const [selectedIndex, setSelectedIndex] = React.useState(validDefaultIndex);
-  const [copyStatus, setCopyStatus] = React.useState<'idle' | 'copied' | 'failed'>('idle');
+  const [currentSelectedIndex, setCurrentSelectedIndex] = useState(validDefaultIndex);
+  const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
 
   const handleCopyCode = async () => {
-    if (codes.length === 0 || selectedIndex < 0 || selectedIndex >= codes.length) return;
-    const codeToCopy = codes[selectedIndex].code;
+    if (codes.length === 0 || currentSelectedIndex < 0 || currentSelectedIndex >= codes.length) return;
+    const codeToCopy = codes[currentSelectedIndex].code;
     try {
       await navigator.clipboard.writeText(codeToCopy);
       setCopyStatus('copied');
@@ -50,32 +53,32 @@ const TabbedsCodeBlock: React.FC<Props> = ({
     }
   };
 
-  const handleTabSelect = (index: number, lastIndex: number, event: Event) => {
-    setSelectedIndex(index);
+  const handleTabChange = (index: number) => {
+    setCurrentSelectedIndex(index);
     setCopyStatus('idle');
     if (onSelectProp) {
-      return onSelectProp(index, lastIndex, event);
+      onSelectProp(index);
     }
-    return true;
   };
 
   return (
     <div className={styles.wrapper}>
-      <Tabs
-        className={styles.tabsContainer} // Hook for potential container styling
-        defaultIndex={validDefaultIndex}
-        onSelect={handleTabSelect} // Use our internal handler
-      >
-        {/* New container for TabList and Copy Button */}
+      <HeadlessTab.Group defaultIndex={validDefaultIndex} onChange={handleTabChange}>
         <div className={styles.tabListContainer}>
-          <TabList className={styles.tabList}>
+          <HeadlessTab.List className={styles.tabList}>
             {codes.map((codeInfo) => (
-              <Tab key={codeInfo.value} className={styles.tab}>
-                {codeInfo.label}
-              </Tab>
+              <HeadlessTab key={codeInfo.value} as={Fragment}>
+                {/* {({ selected }) => ( // `selected` prop not strictly needed if relying on aria-selected for CSS */}
+                  <li
+                    className={styles.tab}
+                    // Headless UI adds aria-selected="true/false" which styles.tab[aria-selected="true"] uses
+                  >
+                    {codeInfo.label}
+                  </li>
+                {/* )} */}
+              </HeadlessTab>
             ))}
-          </TabList>
-          {/* Custom Copy Button using react-icons */}
+          </HeadlessTab.List>
           <button
             type="button"
             className={styles.customCopyButton}
@@ -86,19 +89,20 @@ const TabbedsCodeBlock: React.FC<Props> = ({
           </button>
         </div>
 
-        {codes.map((codeInfo) => (
-          <TabPanel key={codeInfo.value} className={styles.tabPanel}>
-            <CodeBlock
-              language={codeInfo.language}
-              // Use the showLineNumbers logic from your original component
-              showLineNumbers={codeInfo.showLineNumbers ?? true}
-              metastring={codeInfo.showLineNumbers !== false ? '{showLineNumbers}' : ''}
-            >
-              {codeInfo.code}
-            </CodeBlock>
-          </TabPanel>
-        ))}
-      </Tabs>
+        <HeadlessTab.Panels>
+          {codes.map((codeInfo) => (
+            <HeadlessTab.Panel key={codeInfo.value} className={styles.tabPanel} unmount={false}>
+              <CodeBlock
+                language={codeInfo.language}
+                showLineNumbers={codeInfo.showLineNumbers ?? true}
+                metastring={codeInfo.showLineNumbers !== false ? '{showLineNumbers}' : ''}
+              >
+                {codeInfo.code}
+              </CodeBlock>
+            </HeadlessTab.Panel>
+          ))}
+        </HeadlessTab.Panels>
+      </HeadlessTab.Group>
     </div>
   );
 };

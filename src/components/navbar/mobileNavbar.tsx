@@ -66,7 +66,7 @@ export default function MobileNavbar() {
                 // onClick={openMenu}
                 aria-label="Open menu"
               >
-                <FiMenu size={10} aria-hidden="true" />{" "}
+                <FiMenu style={{fontSize:'24px'}} aria-hidden="true" />{" "}
                 {/* Adjust size as needed */}
               </button>
             )}

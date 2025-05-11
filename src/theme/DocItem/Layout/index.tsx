@@ -1,30 +1,31 @@
-import React, { useState, type ReactNode } from 'react'; // <-- Import useState
-import clsx from 'clsx';
-import { useWindowSize } from '@docusaurus/theme-common';
-import { useDoc } from '@docusaurus/plugin-content-docs/client';
-import DocItemPaginator from '@theme/DocItem/Paginator';
+import React, { useState, type ReactNode } from "react"; // <-- Import useState
+import clsx from "clsx";
+import { useWindowSize } from "@docusaurus/theme-common";
+import { useDoc } from "@docusaurus/plugin-content-docs/client";
+import DocItemPaginator from "@theme/DocItem/Paginator";
 // import DocVersionBanner from '@theme/DocVersionBanner';
 // import DocVersionBadge from '@theme/DocVersionBadge';
-import DocItemFooter from '@theme/DocItem/Footer';
-import DocItemTOCMobile from '@theme/DocItem/TOC/Mobile';
-import DocItemTOCDesktop from '@theme/DocItem/TOC/Desktop';
-import DocItemContent from '@theme/DocItem/Content';
-import DocBreadcrumbs from '@theme/DocBreadcrumbs';
-import ContentVisibility from '@theme/ContentVisibility';
-import type { Props } from '@theme/DocItem/Layout';
+import DocItemFooter from "@theme/DocItem/Footer";
+import DocItemTOCMobile from "@theme/DocItem/TOC/Mobile";
+import DocItemTOCDesktop from "@theme/DocItem/TOC/Desktop";
+import DocItemContent from "@theme/DocItem/Content";
+import DocBreadcrumbs from "@theme/DocBreadcrumbs";
+import ContentVisibility from "@theme/ContentVisibility";
+import type { Props } from "@theme/DocItem/Layout";
 import { MdOutlineContentCopy } from "react-icons/md";
+import { FaCheck } from "react-icons/fa6";
 
-import styles from './styles.module.css';
+import styles from "./styles.module.css";
 
 // --- (Keep useDocTOC function as is) ---
 function useDocTOC() {
-  const {frontMatter, toc} = useDoc();
+  const { frontMatter, toc } = useDoc();
   const windowSize = useWindowSize();
   const hidden = frontMatter.hide_table_of_contents;
   const canRender = !hidden && toc.length > 0;
   const mobile = canRender ? <DocItemTOCMobile /> : undefined;
   const desktop =
-    canRender && (windowSize === 'desktop' || windowSize === 'ssr') ? (
+    canRender && (windowSize === "desktop" || windowSize === "ssr") ? (
       <DocItemTOCDesktop />
     ) : undefined;
   return { hidden, mobile, desktop };
@@ -36,7 +37,8 @@ export default function DocItemLayout({ children }: Props): ReactNode {
   const { metadata } = useDoc(); // Get metadata including title
 
   // --- State for Copy Button text ---
-  const [copyButtonText, setCopyButtonText] = useState('Copy Page');
+  const [copyButtonText, setCopyButtonText] = useState("Copy Page");
+  const [isCopy, setIsCopy] = useState(false);
   // -----------------------------------
 
   // --- Function to copy page URL ---
@@ -44,43 +46,51 @@ export default function DocItemLayout({ children }: Props): ReactNode {
     const url = window.location.href;
     navigator.clipboard.writeText(url).then(
       () => {
-        setCopyButtonText('Copied!');
+        setIsCopy(true);
         setTimeout(() => {
-          setCopyButtonText('Copy Page');
-        }, 2000); // Reset after 2 seconds
-      },
-      (err) => {
-        console.error('Failed to copy URL: ', err);
-        setCopyButtonText('Copy Failed'); // Optional: indicate failure
-         setTimeout(() => {
-          setCopyButtonText('Copy Page');
+          setIsCopy(false);
         }, 2000);
       },
+      (err) => {
+        setIsCopy(false);
+      }
     );
   };
   // ---------------------------------
 
   return (
     <div className="row">
-      <div className={clsx('col', !docTOC.hidden && styles.docItemCol)}>
+      <div className={clsx("col", !docTOC.hidden && styles.docItemCol)}>
         <ContentVisibility metadata={metadata} />
         {/* <DocVersionBanner /> */}
 
-        <div className={clsx(styles.docItemContainer, styles.docItemContainerWithTopMargin)}>
-          <article>   
-          <DocBreadcrumbs/>       
+        <div
+          className={clsx(
+            styles.docItemContainer,
+            styles.docItemContainerWithTopMargin
+          )}
+        >
+          <article>
+            <DocBreadcrumbs />
 
             {/* === CUSTOM TITLE AND COPY BUTTON AREA === */}
             <div className={styles.titleHeader}>
               <h1 className={styles.pageTitle}>{metadata.title}</h1>
-              <button
+               <button
                 type="button"
                 className={styles.copyPageButton}
                 onClick={handleCopyPageUrl}
                 aria-label="Copy page URL"
               >
-                <MdOutlineContentCopy className={styles.copyIcon} />
-                <span>{copyButtonText}</span>
+                {/* Wrap icons in a fixed-size container */}
+                <span className={styles.iconWrapper}>
+                  {!isCopy ? (
+                    <MdOutlineContentCopy className={styles.copyIcon} />
+                  ) : (
+                    <FaCheck className={styles.rightIcon} />
+                  )}
+                </span>
+                <span>Copy Page</span>
               </button>
             </div>
             {/* ========================================= */}
@@ -90,7 +100,7 @@ export default function DocItemLayout({ children }: Props): ReactNode {
             {/* IMPORTANT: Add a class to the wrapper around DocItemContent
                            so we can hide the H1 generated by markdown */}
             <div className={styles.mainContentWrapper}>
-                <DocItemContent>{children}</DocItemContent>
+              <DocItemContent>{children}</DocItemContent>
             </div>
 
             <DocItemFooter />
