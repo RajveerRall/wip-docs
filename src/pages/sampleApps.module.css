@@ -32,13 +32,13 @@
 /* --- View All Button --- */
 .viewAllButton {
   height: 32px;
-  width:120px;
+  width: 120px;
   display: inline-flex; /* inline-flex */
   flex-shrink: 0; /* flex-shrink-0 */
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
   white-space: nowrap; /* whitespace-nowrap */
-  border-radius:8px;
+  border-radius: 8px;
   border: 1px solid var(--border-dark); /* border border-[...] */
   padding: 0.275rem 1.6rem; /* py-1.5 px-4 */
   text-decoration: none; /* no-underline */
@@ -53,12 +53,11 @@
   color: var(--ifm-font-color-base);
 }
 
-
 /* --- Section Description --- */
 .sectionDescription {
   margin-bottom: 2.5rem; /* Equivalent to mb-10 */
   max-width: 70vw; /* Equivalent to max-w-3xl */
-  color:var(--text-secondary)!important;
+  color: var(--text-secondary) !important;
 }
 
 /* --- Apps Grid Container --- */
@@ -176,12 +175,10 @@ html[data-theme="dark"] .appTitleText {
   }
 }
 
-
-
 /* Responsive adjustments */
 @media (max-width: 996px) {
   .sectionTitle {
-    font-size: 1rem !important; /* Equivalent to text-2xl */
+    font-size: 20px;
   }
   .sectionContainer {
     margin-bottom: 2rem; /* mb-12 */
@@ -198,5 +195,7 @@ html[data-theme="dark"] .appTitleText {
     gap: 0.5rem; /* gap-4 */
     padding-bottom: 0.1rem; /* py-2 */
   }
-
+  .sectionContainer {
+    margin-bottom: 40px; /* mb-12 */
+  }
 }

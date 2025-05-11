@@ -77,27 +77,27 @@
   .resourceGrid {
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
-    gap: 0.4rem;
+    gap: 12px;
   }
   .resourcesSection {
     padding: 0;
   }
   .resourceTitle {
-    font-size: 0.8rem;
+    font-size: 15px!important;
   }
   .title {
-    font-size: 1rem !important; /* Equivalent to text-2xl */
+  font-size: 20px!important;
   }
   .resourceDescription {
-    font-size: 0.775rem;
+    font-size: 14px!important;
   }
   .icon {
     width: 15px;
     height: 15px;
   }
   .iconBox {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin-bottom: 0.8rem;
   }
 }
@@ -112,8 +112,5 @@
   .resourceGrid {
     grid-template-columns: repeat(2, 1fr);
   }
-
-  /* .resourcesSection {
-    padding: 1.5rem 1rem;
-  } */
+  
 }

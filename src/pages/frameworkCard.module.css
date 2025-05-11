@@ -18,9 +18,7 @@
   align-items: center; /* items-center */
   border-radius: 12px; /* rounded-lg  */
   border: 1px solid var(--border-default);
-  background-color: var(
-    --background-01
-  ); /* bg-[--ifm-card-background-color] */
+  background-color: var(--background-01); /* bg-[--ifm-card-background-color] */
   box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
   transition: all 200ms ease-out; /* transition-all duration-200 ease-out */
 
@@ -41,7 +39,7 @@
   /* lg breakpoint */
   .cardBody {
     padding: 1rem; /* lg:p-4 */
-    gap: 1rem; /* lg:space-x-4 equivalent */
+    gap: 12px; /* lg:space-x-4 equivalent */
     opacity: 0.9;
   }
 }
@@ -49,7 +47,6 @@
 .cardBody:hover {
   background-color: var(--background-03);
 }
-
 
 /* --- Icon Container --- */
 .iconContainer {
@@ -75,14 +72,6 @@
   }
 }
 
-@media (min-width: 996px) {
-  /* lg breakpoint */
-  .iconImage {
-    height: 2rem; /* lg:h-8 */
-    width: 2rem; /* lg:w-8 */
-  }
-}
-
 /* --- Card Content Area --- */
 .cardContent {
   display: flex; /* flex */
@@ -105,7 +94,7 @@
   margin-top: 4px; /* Approximating mt-0.4 */
   display: inline-flex; /* inline-flex */
   width: 24px; /* w-fit */
-  height:22px;
+  height: 22px;
   padding: 2px 4px;
   align-items: center; /* items-center */
   justify-content: center; /* justify-center */
@@ -113,9 +102,7 @@
   border: 1px solid var(--border-default); /* border-2 border-[...] */
   color: var(--text-secondary); /* text-[...] */
   font-weight: var(--ifm-font-weight-medium); /* font-medium */
-  background-color: var(
-    --background-01
-  );
+  background-color: var(--background-01);
   /* Responsive Padding */
 }
 
@@ -125,14 +112,23 @@
   line-height: 1; /* Adjust line-height for small font */
 }
 
-
 @media (max-width: 996px) {
   .cardTitle {
     font-size: 0.8rem !important; /* lg:text-5xl */
+    overflow: visible;
+    white-space: normal;
+    text-overflow: clip;
+  }
+  .cardContent {
+    margin-left: 0px;
   }
 
   .versionBadge {
     font-size: 0.6rem; /* md:text-xs (12px) */
     /* line-height: 1rem; */
+  }
+  .iconImage {
+    height: 32px; /* lg:h-8 */
+    width: 32px; /* lg:w-8 */
   }
 }

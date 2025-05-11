@@ -14,7 +14,7 @@
 .tocWrapper {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-family-sans-serif); 
+  font-family: var(--font-family-inter); 
   font-size: 13px; 
   justify-content: flex-start;
   position: sticky;
@@ -32,7 +32,7 @@
 }
 
 .tocTitle {
-  font-family: var(--font-family-sans-serif);
+  font-family: var(--font-family-inter);
   font-size: 12px; 
   font-weight: 400;
   color: var(--toc-title-color);
@@ -79,7 +79,7 @@
 }
 
 :global(a.table-of-contents__link) {
-  font-family: var(--font-family-sans-serif);
+  font-family: var(--font-family-inter);
   display: flex;
   align-items: center;
   width: 100%;

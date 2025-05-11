@@ -98,3 +98,19 @@ html[data-theme="dark"] .apiCard:first-child {
     border-bottom-color: #333;
   }
 }
+
+
+@media (max-width: 996px) {
+  .sectionContainer {
+  margin-bottom: 40px;
+}
+.apiCardTitle {
+  font-size: 18px!important;
+}
+.apiCardDescription {
+ font-size: 14px!important;
+}
+.apiCard {
+ padding: 20px 16px;
+}
+}

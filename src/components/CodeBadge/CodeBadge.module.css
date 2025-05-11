@@ -14,7 +14,7 @@
   vertical-align: baseline; /* Still useful for aligning the whole badge with text outside it */
   font-size:13px; /* Or your desired font size */
   font-weight: 500;
-  font-family: var(--font-family-sans-serif);
+  font-family: var(--font-family-inter);
   /* line-height is less critical for centering when using flex align-items */
 }
 

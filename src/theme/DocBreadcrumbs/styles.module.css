@@ -3,7 +3,7 @@
 .breadcrumbsContainer {
   margin-bottom: 1rem;
   padding:0px;
-  font-family: var(--font-family-sans-serif); /* Use your defined font */
+  font-family: var(--font-family-inter); /* Use your defined font */
 }
 
 .breadcrumbList {

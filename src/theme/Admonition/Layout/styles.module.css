@@ -2,7 +2,7 @@
 
 /* --- Main Admonition Container --- */
 .admonition {
-  font-family: var(--font-family-sans-serif);
+  font-family: var(--font-family-inter);
   display: flex;
   align-items: flex-start;
   min-height: 74px;

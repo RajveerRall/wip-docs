@@ -102,7 +102,15 @@ html[data-theme='dark'] .breadcrumbs {
 }
 
 @media(max-width: 996px){
+
+  
+.heroTitle {
+  font-size: 24px;
+  font-family: var(--font-family-inter);
+}
+
   .heroDescription {
+    font-size: 14px;
     max-width: 100vw;/* max-w-3xl */
     margin-bottom: 2rem;
   }

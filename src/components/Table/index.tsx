@@ -66,7 +66,7 @@ function MuiStyledTable({ headers, rows, caption }) {
                     color: `${V.headerColor}!important`, // Retained !important from original
                     fontWeight: 500,
                     fontSize: '14px',
-                    fontFamily:'var(--font-family-sans-serif)',
+                    fontFamily:'var(--font-family-inter)',
                     padding: '0.75rem 1rem',
                     textAlign: 'left',
                     verticalAlign: 'top', // Better for multi-line wrapped content
@@ -126,7 +126,7 @@ function MuiStyledTable({ headers, rows, caption }) {
                         '& td': {
                             color: `${V.bodyColor}!important`, // Retained !important
                             fontWeight: 400,
-                            fontFamily:'var(--font-family-sans-serif)',
+                            fontFamily:'var(--font-family-inter)',
                             fontSize: '14px',
                             // padding: '0.75rem 1rem',
                             textAlign: 'left',

@@ -6,14 +6,14 @@
 /* --- Section Title --- */
 .gridTitle {
   margin-bottom: 0.45rem;
-  color:var(--text-primary);
+  color: var(--text-primary);
 }
 
 /* --- Section Description --- */
 .gridDescription {
   margin-bottom: 1.5rem; /* Equivalent to mb-10 */
   max-width: 70vw; /* Equivalent to max-w-3xl */
-  color:var(--text-secondary)!important;
+  color: var(--text-secondary) !important;
 }
 
 @media (max-width: 996px) {
@@ -30,15 +30,25 @@
 }
 
 @media (max-width: 996px) {
-  /* lg breakpoint (Docusaurus default) */
-  .frameworkItemsGrid {
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+  .gridTitle {
+    font-size: 20px;
   }
+  .gridSection {
+    margin-bottom: 40px; /* mb-12 */
+}
+
+  .frameworkItemsGrid {
+   grid-template-columns: repeat(3, minmax(0, 1fr)); /* lg:grid-cols-3 */
+    gap: 12px;
+  }
+
 }
 
 @media (max-width: 790px) {
   /* sm breakpoint */
   .frameworkItemsGrid {
+        gap: 12px;
+
     grid-template-columns: repeat(2, minmax(0, 1fr)); /* sm:grid-cols-2 */
   }
 }

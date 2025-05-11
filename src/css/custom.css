@@ -73,7 +73,7 @@
   --btn-white-hover: #fafafa;
   --btn-white-pressed: #e8e8e8; /* Corrected spelling */
 
-  --font-family-sans-serif: "Inter", sans-serif;
+  --font-family-inter: "Inter", sans-serif;
 }
 
 /* --- Dark Theme Variables --- */
@@ -619,14 +619,14 @@ html {
   color: var(--text-secondary);
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 html[data-theme='dark'] .alert--secondary p{
   color: var(--static-white);
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 .alert--info {
@@ -636,7 +636,7 @@ html[data-theme='dark'] .alert--secondary p{
   color: #094f90;
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 html[data-theme='dark'] .alert--info {
@@ -647,7 +647,7 @@ html[data-theme='dark'] .alert--info p{
   color: #A8BEFF;
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 
@@ -658,7 +658,7 @@ html[data-theme='dark'] .alert--info p{
   color: #006514;
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 
@@ -669,7 +669,7 @@ html[data-theme='dark']  .alert--success p {
   color: #73D586;
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 .alert--warning {
@@ -686,7 +686,7 @@ html[data-theme='dark']  .alert--warning p {
   color: #FFCA16;
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 .alert--danger {
@@ -696,7 +696,7 @@ html[data-theme='dark']  .alert--warning p {
   color: #CD2200;
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }
 
 html[data-theme='dark']  .alert--danger {
@@ -706,5 +706,5 @@ html[data-theme='dark']  .alert--danger p {
   color: #FF977D;
   font-size: 14px;
   font-weight: 400;
-  font-family:  var(--font-family-sans-serif);
+  font-family:  var(--font-family-inter);
 }

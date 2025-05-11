@@ -71,7 +71,7 @@ const SampleAppsSection = () => {
       {/* Section Header */}
       <div className={styles.sectionHeader}>
         {/* Section Title */}
-        <span className={`${styles.sectionTitle} ${isMobile?'text-h3':'text-h1'} font-semibold`}>Sample Apps</span>
+        <span className={`${styles.sectionTitle} ${isMobile?'text-h2':'text-h1'} font-semibold`}>Sample Apps</span>
 
         {/* View All Button */}
         <Link
@@ -117,7 +117,7 @@ const SampleAppsSection = () => {
           ))}
         </div>
         {/* Divider */}
-        <div className={styles.divider} />
+      {!isMobile &&   <div className={styles.divider} />}
         {/* Column 2 */}
         <div className={styles.appsColumn}>
           {sampleApps.slice(4, 8).map((app) => (
