@@ -284,6 +284,12 @@ html[data-theme="dark"] .item-container-desc {
   padding: 0 40px;
 }
 
+@media (max-width: 996px) {
+    .DocSearch-Modal {
+        margin-top: 60px;
+    }
+}
+
 
 /* ======================================== */
 /* End Algolia DocSearch Styling          */

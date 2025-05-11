@@ -1,172 +1,167 @@
 /* --- Component Styles --- */
 
 .platformContainer {
-    padding: 0.4rem;
     background-color: var(--background-02);
-    border-color: var(--border-dark);
-    box-shadow: 0px 0.011px 5px var(--border-dark); /* Shadow applied to main container */
     display: flex;
     flex-direction: column;
-    border-radius: 0.4rem;
-    gap: 1rem;
+    border-radius: 8px;
+    gap: 8px;
+    border: 1px solid var(--border-default); 
 }
 
+/* NEW class for padding the content of each section */
+.paddedSectionContent {
+    padding: 16px;
+}
 
 .sectionTitle {
-    font-size: 13px!important; /* Consider using text utilities like text-xs or text-sm */
-    margin-bottom: 0.5rem; /* Reduced bottom margin */
+    font-size: 13px!important;
+    margin-bottom: 0.5rem;
     color: var(--text-primary);
-    font-weight: 600; /* Added font-semibold equivalent */
+    font-weight: 600;
 }
 
 .gridContainer {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr)); /* grid-cols-2 */
-    gap: 0.5rem; /* Reduced gap between grid items */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
 }
 
 
 .divider {
-    border: none; /* Reset default hr border */
+    border: none;
     border-top: 1px solid var(--border-dark);
-    margin: 0; /* Reset default hr margin */
+    margin: 0; /* No negative margins needed */
     height: 0;
 }
 
 /* --- InfoCard Styles --- */
 .infoCard {
-    /* Layout & Box Model */
     display: flex;
-    flex-direction: column; /* Stack header and description vertically */
+    flex-direction: column;
     height: 100%;
-    padding: 0.5rem; /* Adjusted padding */
-    border-radius: 0.5rem; /* Match platform button radius */
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     overflow: hidden;
-    /* Apply shadow/border directly here for card appearance */
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    text-decoration: none; /* Remove underline from link/a */
-    color: inherit; /* Inherit text color */
+    text-decoration: none;
+    color: inherit;
+    border: 1px solid transparent; /* Added for consistent border behavior with hover */
 }
 
 .infoCard:hover {
-    background-color: var(--background-02); /* Hover background */
-    border-color: var(--border-dark); /* Darker border on hover */
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07); /* Slightly stronger shadow */
-    text-decoration: none; /* Ensure no underline on hover */
+    background-color: var(--background-02); /* You might want a different hover bg than the main container */
+    border-color: var(--border-dark);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
+    text-decoration: none;
 }
 
 
 .cardHeader {
     display: flex;
-    align-items: flex-start; /* Align to top */
-    margin: 0; /* Explicitly remove margin */
-    /* Remove gap here, control with icon margin */
+    align-items: flex-start;
+    margin: 0;
 }
 
 .cardIconContainer {
     flex-shrink: 0;
-    margin-right: 0.5rem; /* Adjusted icon margin */
-    /* Use consistent size like h-5 w-5 */
-    height: 16px; /* h-5 */
-    width: 16px; /* w-5 */
-    color: var(--primary); /* Keep icon color */
+    margin-right: 0.5rem;
+    height: 16px;
+    width: 16px;
+    color: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 0.1rem; /* Tiny adjustment to align with first line of text */
+    margin-top: 0.1rem;
 }
 
-/* Styling for the actual icon component/image inside the container */
-.iconComponent, .iconImage {
-    width: 1rem;
-    height: 1rem;
+.iconComponent, .iconImage { /* Combined for shared properties */
+    width: 1rem;  /* 16px */
+    height: 1rem; /* 16px */
     object-fit: contain;
 }
 
 .cardTitle {
-    color: var(--text-primary); /* Use primary text color */
+    color: var(--text-primary);
     min-width: 0;
     word-wrap: break-word;
-    font-size: 0.8rem;
-    margin: 0; /* Explicitly remove margin */
-    /* Apply font size/weight via utilities, but tighten line-height here */
-     /* Font size/weight should come from utilities like 'text-body-2 font-medium' */
+    font-size: 0.8rem; /* ~12.8px */
+    margin: 0;
+    /* line-height: 1.2; */ /* Example */
 }
 
 .cardDescription {
-    color: var(--text-secondary); /* Use secondary text color */
+    color: var(--text-secondary);
     word-wrap: break-word;
-    margin: 0; /* Explicitly remove margin */
-    margin-top: 0.4rem; /* SMALL gap between title and description */
-    padding: 0; /* Ensure no padding */
-    /* Apply font size via utilities, tighten line-height */
-    font-size: 0.75rem; /* text-xs */
-    line-height: 1.4; /* Adjust as needed */
+    margin: 0;
+    margin-top: 0.4rem;
+    padding: 0;
+    font-size: 0.75rem; /* 12px */
+    line-height: 1.4;
 }
 
 
-/* --- PlatformButton Styles --- */
+/* --- PlatformButton Styles (for Sample Apps) --- */
 .platformButton {
-    /* Layout & Box Model */
     display: flex;
     align-items: center;
-    padding: 0.7rem 0.6rem;
-
-    /* Colors & Background */
+    padding: 0.7rem 0.6rem; /* This is relatively large padding for small buttons */
     color: var(--integrate-button-text);  
-    text-decoration: none; /* Remove Link underline */
-
-    /* Transitions */
-    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; /* duration-150 */
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    border-radius: 0.375rem; /* Added for consistency if desired */
+    border: 1px solid var(--border-dark); /* Example border, match your design */
+    background-color: var(--background-01); /* Example background */
 }
 
 .platformButton:hover {
     background-color: var(--integrate-button-hover-bg);
     border-color: var(--integrate-button-hover-border);
-     /* Can adjust shadow on hover if desired */
 }
 
 .platformButton:focus {
-    outline: none; /* focus:outline-none */
-    /* Replicating focus:ring-2 focus:ring-offset-1 */
+    outline: none;
     /* box-shadow: 0 0 0 1px var(--integrate-button-focus-offset-color), 
                 0 0 0 3px var(--integrate-focus-ring);  */
 }
 
-.iconContainer {
-    /* Sizing & Spacing */
-    height: 1.25rem; /* h-5 */
-    width: 1.25rem; /* w-5 */
-    margin-right: 0.5rem; /* mr-2 */
-
-    /* Flex centering (if needed, usually image handles size) */
+/* iconContainer for PlatformButton */
+.iconContainer { 
+    height: 1.25rem; /* 20px */
+    width: 1.25rem;  /* 20px */
+    margin-right: 0.5rem; /* 8px */
     display: flex;
     align-items: center;
     justify-content: center;
 }
+/* Note: .iconImage is already defined above for cards, it will apply to platform buttons too.
+   If you need different styling for platform button icons, use a more specific class
+   like '.platformButton .iconImage' or the existing .buttonIconImage (which I see you used in the original JSX).
+   I'll assume .iconImage style is acceptable for both for now.
+*/
+/* .buttonIconImage {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+} */
 
-.iconImage {
-    height: 100%; /* h-full */
-    width: 100%; /* w-full */
-    object-fit: contain; /* object-contain */
-}
 
 /* --- See All Apps Link --- */
 .seeAllAppsLink {
     display: block;
-    margin-top: 0.3rem; /* Reduced space above */
-    text-align: left; /* Align left consistent with items */
-    font-size: 0.875rem; /* text-sm */
-    font-weight: 500; /* font-medium */
-    color: var(--primary); /* Use highlight color */
+    margin-top: 0.3rem;
+    text-align: left;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--primary);
     text-decoration: none;
-    border-radius: 0.375rem; /* rounded-md */
-    margin-left: 0.6rem;
+    border-radius: 0.375rem;
+    /* margin-left: 0.6rem; */ /* Removed margin-left as it's now within a padded container */
+    padding: 0.25rem 0; /* Optional: add some padding if it looks too tight */
     transition: background-color 0.15s ease, color 0.15s ease;
 }
 
 .seeAllAppsLink:hover {
     text-decoration: underline;
-    color: var(--primary); /* Use primary color on hover */
-    /* background-color: var(--background-02); */ /* Optional subtle bg */
+    color: var(--primary);
 }

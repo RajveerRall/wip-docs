@@ -52,10 +52,16 @@
   background-color: var(--background-01)!important;
   border: 1px solid var(--border-default);
   min-width: 40px;
-  min-height: 22px;         /* Takes full height of the parent .DocSearch-Button */
-  cursor: pointer;      /* Indicates this part is also clickable (for custom action) */
+  min-height: 22px;      
+  cursor: pointer;  
 }
 
+
+@media (max-width: 996px) {
+  .MyCustomEndElementContainer {
+    display: none; /* This will hide the element completely */
+  }
+}
 
 /* Z-index for the modal container */
 .DocSearch-Container {

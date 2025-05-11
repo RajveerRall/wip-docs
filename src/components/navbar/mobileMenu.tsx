@@ -120,10 +120,10 @@ const MobileMenu = () => {
         {/* --- Action Buttons --- */}
         {/* These appear below the navigation buttons and the dynamic content area */}
         <div className={styles.actionButtonsContainer}>
-          <a href="/dashboard" className={`${styles.dashboardButton} text-content-1`}>
+          <a href="/dashboard" className={`${styles.dashboardButton}`}>
             Dashboard
           </a>
-          <a href="/contact" className={`${styles.contactButton} text-footnote`}>
+          <a href="/contact" className={`${styles.contactButton}`}>
             Contact Support
           </a>
         </div>
@@ -134,7 +134,7 @@ const MobileMenu = () => {
 
       {/* 3. Footer (Fixed Bottom) */}
       <div className={styles.themeToggleContainer}>
-        <span className="text-footnote">Theme:</span>
+        <span className="text-body-2 font-regular">Theme</span>
         <ThemeToggle />
       </div>
 

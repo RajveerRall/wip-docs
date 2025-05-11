@@ -13,7 +13,7 @@ interface NewPlatformData {
 // --- Your NEW Data Arrays --- (Keep data as is)
 const uiKitsList: NewPlatformData[] = [
   // ... (data remains the same)
-  { name: "React", icon: "https://img.icons8.com/color/144/react-native.png" },
+  { name: "React", icon: "https://img.icons8.com/color/144/react-native.png", },
   {
     name: "React Native",
     icon: "https://img.icons8.com/color/144/react-native.png",
@@ -80,12 +80,9 @@ const MobileIntegrate: React.FC = () => {
   };
 
   return (
-    // Apply styles to the main container
     <div className={styles.integrateContainer}>
       {/* UI Kits Section */}
-      <div className={styles.section}>
-        {" "}
-        {/* Added section class */}
+      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER with padding */}
         <p className={`${styles.sectionTitle} text-context-1 font-semibold`}>UI Kits</p>
         <div className={styles.gridContainer}>
           {uiKitsList.map((item) => (
@@ -95,7 +92,7 @@ const MobileIntegrate: React.FC = () => {
                 <img
                   src={item.icon}
                   alt={`${item.name} icon`}
-                  className={styles.iconImage} // Style the image itself
+                  className={styles.iconImage}
                 />
               }
               text={item.name}
@@ -105,13 +102,11 @@ const MobileIntegrate: React.FC = () => {
         </div>
       </div>
 
-      {/* Divider */}
+      {/* Divider - now naturally full-width relative to integrateContainer */}
       <hr className={styles.divider} />
 
       {/* SDKs Section */}
-      <div className={styles.section}>
-        {" "}
-        {/* Added section class */}
+      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER with padding */}
         <p className={`${styles.sectionTitle} text-context-1 font-semibold`}>SDKs</p>
         <div className={styles.gridContainer}>
           {sdks.map((item) => (
@@ -121,7 +116,7 @@ const MobileIntegrate: React.FC = () => {
                 <img
                   src={item.icon}
                   alt={`${item.name} icon`}
-                  className={styles.iconImage} // Style the image itself
+                  className={styles.iconImage}
                 />
               }
               text={item.name}
@@ -131,23 +126,20 @@ const MobileIntegrate: React.FC = () => {
         </div>
       </div>
 
-      {/* Divider */}
+      {/* Divider - now naturally full-width relative to integrateContainer */}
       <hr className={styles.divider} />
 
       {/* Widgets Section */}
-      <div className={styles.section}>
-        {" "}
-        {/* Added section class */}
+      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER with padding */}
         <p className={`${styles.sectionTitle} text-context-1 font-semibold`}>Widgets</p>
           {widgets.map((item) => (
-            <div style={{marginBottom:'0.5rem'}}>
+            <div style={{marginBottom:'0.5rem'}} key={`widget-${item.name}`}> {/* Added key here */}
               <PlatformButton
-                key={`widget-${item.name}`}
                 icon={
                   <img
                     src={item.icon}
                     alt={`${item.name} icon`}
-                    className={styles.iconImage} // Style the image itself
+                    className={styles.iconImage}
                   />
                 }
                 text={item.name}

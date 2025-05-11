@@ -7,6 +7,7 @@
 
 .navbar{
   padding:0!important;
+ 
 }
 .navbarHeader {
   position: fixed; /* No quotes! */
@@ -14,8 +15,12 @@
   left: 0; /* Added: Usually needed with position:fixed */
   width: 100%; /* Added: Usually needed with position:fixed */
   z-index: 1000; /* Added: Ensure it stays on top */
-
-  background-color: var(--background-01)
+  min-width: 393px;
+  min-height: 49px;
+  padding: 16px 20px;
+  background-color: var(--background-01);
+  border-bottom: 1px solid var(--border-dark);
+  
 }
 .docsMenuTriggerButton {
   background: none;
@@ -36,7 +41,6 @@
   width: 100%;
   align-items: center;
   justify-content: space-between;
-  padding-right: 0.5rem;
 }
 
 /* --- Logo Container --- */
@@ -48,14 +52,14 @@
 
 .darkLogo {
   display: block; /* block */
-  height: 1.1rem; /* h-7 */
-  width: auto; /* w-auto */
+  height: 32px;
+  min-width: 156px;
 }
 
 .lightLogo {
   display: block; /* block */
-  height: 1.6rem; /* h-7 */
-  width: auto; /* w-auto */
+  height: 32px;
+  min-width: 156px;
 }
 
 /* --- Right Actions Container (Search + Options) --- */
@@ -135,15 +139,13 @@ html[data-theme="dark"] .optionsButtonWrapper {
 }
 
 .mobile-navbar-context .DocSearch-Button {
-  /* Increase button size to comfortably fit a larger icon */
-  width: 36px !important; /* e.g., matches h-9/w-9 */
+  width: 36px !important;
   height: 36px !important;
   min-width: 36px !important;
   padding: 0 !important;
   margin: 0 !important;
   border-radius: 50% !important;
   border: none !important;
-  /* background: transparent !important; */
   box-shadow: none !important;
   font-size: 0 !important;
   line-height: 0 !important;

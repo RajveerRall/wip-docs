@@ -1,10 +1,6 @@
 // src/components/MobilePlatform.tsx
-
 import React from "react";
 import Link from "@docusaurus/Link";
-// Removed useBaseUrl as it's not used in the provided code snippet
-// import useBaseUrl from '@docusaurus/useBaseUrl';
-
 // --- Import Icons --- (Keep as is)
 import {
   MdDashboard,
@@ -25,7 +21,7 @@ interface NewCardItemBase {
   name: string;
   description?: string;
   link?: string;
-  id?: string; // Make id optional, use name as key fallback
+  id?: string;
 }
 interface CardItemWithComponentIcon extends NewCardItemBase {
   icon: React.ComponentType<any>;
@@ -39,93 +35,106 @@ function isIconComponent(
   return typeof icon === "function";
 }
 type NewCardItem = CardItemWithComponentIcon | CardItemWithImageUrl;
-// Removed NewSectionData interface as it's not used for mapping
 
-// --- Data Arrays --- (Keep as is, adding optional id if needed)
+// --- Data Arrays --- (Keep as is)
 const chatsAndCalling: NewCardItem[] = [
-  // ... (data remains the same)
   {
     id: "overview",
     name: "Overview",
     icon: MdDashboard,
     description: "Learn the basic of CometChat messaging system.",
+    link: "/docs/chat-and-calling/overview", // Example link
   },
   {
     id: "features",
     name: "Features",
     icon: FaShapes,
     description: "Enhance in-app messaging with CometChat's extensions.",
+    link: "/docs/chat-and-calling/features", // Example link
   },
   {
     id: "multi-tenancy",
     name: "Multi-tenancy",
     icon: MdAccountTree,
     description: "Manage multiple accounts efficiently with multi-tenancy.",
+    link: "/docs/chat-and-calling/multi-tenancy", // Example link
   },
   {
     id: "data-migration",
     name: "Data Migration",
     icon: BiTransfer,
     description: "Seamlessly migrate chats from other provider to CometChat.",
+    link: "/docs/chat-and-calling/data-migration", // Example link
   },
   {
     id: "webhooks",
     name: "Webhooks",
     icon: RiFileCodeFill,
     description: "Receive real-time CometChat events via HTTP requests.",
+    link: "/docs/chat-and-calling/webhooks", // Example link
   },
 ];
 
 const extendData: NewCardItem[] = [
-  // ... (data remains the same)
   {
     id: "notification",
     name: "Notification",
     icon: MdNotificationsActive,
     description: "Boost engagment by sending instant user notification.",
+    link: "/docs/extend/notification", // Example link
   },
   {
     id: "moderation",
     name: "Moderation",
     icon: FaShield,
     description: "Ensure safety with advance content filtering tools.",
+    link: "/docs/extend/moderation", // Example link
   },
   {
     id: "ai-chatbots",
     name: "AI Chatbots",
     icon: FaRobot,
     description: "Automate conversations using AI-powered chatbot technology.",
+    link: "/docs/extend/ai-chatbots", // Example link
   },
   {
     id: "insights",
     name: "Insights",
     icon: MdInsights,
     description: "Generate AI-powered insights for meaningful conversation.",
+    link: "/docs/extend/insights", // Example link
   },
 ];
 
 const sampleApps: NewCardItem[] = [
-  // ... (data remains the same, note: type is CardItemWithImageUrl here)
   {
     name: "React Chat App",
     icon: "https://img.icons8.com/color/144/react-native.png",
+    link: "/docs/sample-apps/react", // Example link
   },
   {
     name: "React Native Chat App",
     icon: "https://img.icons8.com/color/144/react-native.png",
+    link: "/docs/sample-apps/react-native", // Example link
   },
-  { name: "iOS chat App", icon: "https://img.icons8.com/color/144/swift.png" },
+  { 
+    name: "iOS chat App", 
+    icon: "https://img.icons8.com/color/144/swift.png",
+    link: "/docs/sample-apps/ios", // Example link 
+  },
   {
     name: "Android chat App (Java)",
     icon: "https://img.icons8.com/color/144/android-os.png",
+    link: "/docs/sample-apps/android-java", // Example link
   },
   {
     name: "Android chat App (Kotlin)",
     icon: "https://img.icons8.com/color/144/kotlin.png",
+    link: "/docs/sample-apps/android-kotlin", // Example link
   },
 ];
 
-// --- Reusable InfoCard Component (Inline with CSS Modules) ---
+// --- Reusable InfoCard Component ---
 interface InfoCardProps {
   icon: React.ReactNode;
   title: string;
@@ -143,19 +152,16 @@ const InfoCard: React.FC<InfoCardProps> = ({
 
   const content = (
     <>
-      {/* Icon and Title Row */}
       <div className={styles.cardHeader}>
         <div className={styles.cardIconContainer}>{icon}</div>
         <p className={`${styles.cardTitle} text-body-2 font-semibold`}>{title}</p>
       </div>
-      {/* Description */}
       {description && description.trim() && (
         <p className={`${styles.cardDescription} text-caption-1 font-regular`}>{description}</p>
       )}
     </>
   );
 
-  // Use the same style class for both link types
   return isExternal ? (
     <a
       href={href}
@@ -171,10 +177,8 @@ const InfoCard: React.FC<InfoCardProps> = ({
     </Link>
   );
 };
-// --- End Inline InfoCard ---
 
-// --- Reusable PlatformButton Component (Inline with CSS Modules) ---
-// This is similar/identical to the one in MobileIntegrate
+// --- Reusable PlatformButton Component ---
 const PlatformButton: React.FC<{
   icon: React.ReactNode;
   text: string;
@@ -182,56 +186,43 @@ const PlatformButton: React.FC<{
 }> = ({ icon, text, href }) => {
   return (
     <Link to={href} className={styles.platformButton}>
-      {/* Icon container */}
       <span className={styles.iconContainer}>
-        {/* The icon prop will now contain the <img> tag */}
         {icon}
       </span>
-      {/* Text */}
-      <span className="text-caption-2 font-semibold">{text}</span>
+      <span className="text-body-2 font-semibold">{text}</span>
     </Link>
   );
 };
-// --- End Inline PlatformButton ---
 
 // --- Main Exported Component ---
 const MobilePlatform: React.FC = () => {
-  // Helper function (optional, if you need dynamic links for sample apps)
-  // const generateHref = (basePath: string, name: string): string => {
-  //   const slug = name.toLowerCase().replace(/[\s/()]+/g, '-');
-  //   return `/docs/${basePath}/${slug}`;
-  // };
-
   return (
-    <div className={styles.platformContainer}>
+    <div className={styles.platformContainer}> {/* NO OVERALL PADDING HERE */}
       {/* --- Chats & Calling Section --- */}
-      <div className={styles.section}>
+      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER for padding */}
         <h2 className={styles.sectionTitle}>Chats & Calling</h2>
         <div className={styles.gridContainer}>
           {chatsAndCalling.map((item) => {
             let renderedIcon: React.ReactNode;
-            // Icon Rendering Logic (Keep as is)
             if (isIconComponent(item.icon)) {
               const IconComponent = item.icon;
-              // Apply size class if needed, or let CSS handle it
               renderedIcon = <IconComponent className={styles.iconComponent} />;
             } else {
               renderedIcon = (
                 <img
                   src={item.icon}
-                  alt=""
+                  alt="" // Consider adding meaningful alt text if icons are not purely decorative
                   aria-hidden="true"
                   className={styles.iconImage}
                   loading="lazy"
                 />
               );
             }
-            // Use placeholder '#' if link is missing
-            const linkHref = item.link ?? "#";
+            const linkHref = item.link ?? "#"; // Fallback to # if no link
 
             return (
               <InfoCard
-                key={item.id ?? item.name} // Use id or fallback to name for key
+                key={item.id ?? item.name}
                 icon={renderedIcon}
                 title={item.name}
                 description={item.description}
@@ -242,16 +233,14 @@ const MobilePlatform: React.FC = () => {
         </div>
       </div>
 
-      {/* Divider */}
-      <hr className={styles.divider} />
+      <hr className={styles.divider} /> {/* Divider is a direct child */}
 
       {/* --- Extend Section --- */}
-      <div className={styles.section}>
+      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER for padding */}
         <h2 className={styles.sectionTitle}>Extend</h2>
         <div className={styles.gridContainer}>
           {extendData.map((item) => {
             let renderedIcon: React.ReactNode;
-            // Icon Rendering Logic (Keep as is)
             if (isIconComponent(item.icon)) {
               const IconComponent = item.icon;
               renderedIcon = <IconComponent className={styles.iconComponent} />;
@@ -281,36 +270,32 @@ const MobilePlatform: React.FC = () => {
         </div>
       </div>
 
-      {/* Divider */}
-      <hr className={styles.divider} />
+      <hr className={styles.divider} /> {/* Divider is a direct child */}
 
       {/* --- Sample Apps Section --- */}
-      <div className={styles.section}>
+      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER for padding */}
         <h2 className={styles.sectionTitle}>Sample Apps</h2>
-          {sampleApps.map((item) => (
+        {/* Note: Sample Apps buttons are direct children in your structure, not in a grid */}
+        {sampleApps.map((item) => (
+          <div style={{ marginBottom: "0.5rem" }} key={`sample-${item.name}`}> {/* Added key to wrapper div */}
             <PlatformButton
-              key={`sample-${item.name}`} // Use name for key
               icon={
                 <img
                   src={item.icon}
                   alt={`${item.name} icon`}
-                  className={styles.buttonIconImage} // Style the image itself
+                  className={styles.iconImage} // Using .iconImage, ensure it's styled for buttons if different from card icons
                 />
               }
               text={item.name}
-              // Provide a placeholder href or generate one
               href={item.link ?? "#"}
-              // href={item.link ?? generateHref('sample-apps', item.name)}
             />
-          ))}
-        </div>
-        {/* Added Link component for "See All Apps" for consistency */}
+          </div>
+        ))}
         <Link to="/docs/sample-apps" className={styles.seeAllAppsLink}>
-          {" "}
-          {/* Adjust href as needed */}
           See All Apps
         </Link>
       </div>
+    </div>
   );
 };
 

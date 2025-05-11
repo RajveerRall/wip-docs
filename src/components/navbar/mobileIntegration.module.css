@@ -1,19 +1,21 @@
 /* --- Component Styles --- */
 
 .integrateContainer {
-    padding: 0.4rem;
+    /* padding: 16px; */ /* REMOVED padding from here */
     background-color: var(--background-02);
-    border-color: var(--border-default);
     display: flex;
     flex-direction: column;
-    border-radius: 16px;
-    gap: 8px;
-    box-shadow: 1px 2px 0 1px var(--border-default);
+    border-radius: 8px;
+    gap: 8px; /* This gap will apply between paddedSectionContent and dividers */
+    /* Corrected syntax for border, was 'border-color:' which is for setting only the color */
+    border: 1px solid var(--border-default); 
 }
 
-.section{
-    padding:0rem 0.3rem;
+/* NEW class for padding the content of each section */
+.paddedSectionContent {
+    padding: 16px; /* The main padding for section content is now here */
 }
+
 
 .sectionTitle {
     font-size: 12px!important;
@@ -30,7 +32,7 @@
 .divider {
     border: none; /* Reset default hr border */
     border-top: 1px solid var(--border-dark);
-    margin: 0; /* Reset default hr margin */
+    margin: 0; /* Reset default hr margin, and no negative margins needed */
     height: 0;
 }
 
@@ -39,14 +41,17 @@
     /* Layout & Box Model */
     display: flex;
     align-items: center;
-    padding: 0.7rem 0.6rem;
-    border: 1px solid var(--border-default);
+    padding: 12px;
+    /* border: 1px solid var(--border-default); */ /* This was duplicated below, using the one with var(--border-dark) based on image appearance */
     border-radius: 0.5rem; /* rounded-lg */
-    box-shadow: 0px 0.011rem 0 var(--border-dark );
+    border: 1px solid var(--border-dark);
+    font-size: 14px;
+    font-weight: 500;
+
 
     /* Colors & Background */
     background-color: var(--background-01);
-    color: var(--integrate-button-text);  
+    color: var(--text-primary);  
     text-decoration: none; /* Remove Link underline */
 
     /* Transitions */

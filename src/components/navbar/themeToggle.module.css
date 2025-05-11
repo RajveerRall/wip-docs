@@ -43,8 +43,7 @@
     align-items: center;
     justify-content: center;
   }
-  .sunIcon { }
-  .moonIcon { }
+
   
   
   /* --- The SLIDING THUMB element --- */
@@ -78,6 +77,8 @@
 
   @media (max-width: 996px) {
     .iconWrapper {
-      margin-bottom: 10px;
+      margin-bottom: 5px;
      }
+
+     
   }
