@@ -1,0 +1,76 @@
+/* MobileOfficeHoursCard.module.css */
+
+.cardContainer {
+  background-color: var(--background-02);
+  border-radius: 16px;
+  padding: 20px;
+  position: relative; /* CRUCIAL */
+  overflow: hidden;   /* CRUCIAL */
+  font-family: var(--font-family-inter) !important;
+  gap:32px
+}
+
+.contentWrapper {
+  position: relative;
+  z-index: 1; /* CRUCIAL: Content on top */
+}
+
+.title {
+  font-family: var(--font-family-inter);
+ font-size: 24px;
+  font-weight: 600!important;
+  color: var(--text-primary);
+  margin-top: 0;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.description {
+  color: var(--text-secondary);
+  font-family: var(--font-family-inter);
+  line-height: 1.6;
+  margin-bottom: 28px;
+  font-size: 14px;
+    max-width: 100%;
+
+    font-weight: 400;
+}
+
+.ctaButton {
+   background-color: var(--primary-btn-bg-sp);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  position: relative; /* Ensure button also respects z-index context */
+  z-index: 1; /* Explicitly on top */
+}
+
+ .ctaButton :hover {
+  background-color: var(--ifm-color-emphasis-100);
+  text-decoration: none;
+  color: var(--ifm-font-color-base);
+}
+
+.ctaButton:hover {
+  background-color: #6345d0;
+}
+
+.backgroundImage {
+  /* FOR TESTING - MAKE IT VERY OBVIOUS */
+  position: absolute !important; /* Force position */
+  bottom: 8px !important;       /* Force position */
+  right: 3px !important;        /* Force position */
+  width: 150px !important;       /* Force a large width */
+  height: 150px !important;      /* Force a large height */
+  opacity: 1 !important;         /* Force full opacity */
+  z-index: 1000 !important;      /* Force it to be on top of everything */
+  pointer-events: none;
+  user-select: none;
+}
+
+  

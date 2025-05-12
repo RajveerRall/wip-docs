@@ -6,6 +6,7 @@ import { useWindowSize } from "@docusaurus/theme-common/internal";
 // Import the CSS Module
 import styles from "./sampleApps.module.css"; // Make sure path is correct
 import OfficeHoursCard from "./OfficeHoursCard";
+import MobileOfficeHoursCard from "./MobileOfficeHoursCard";
 
 // GitHub Icon component - Modified to use currentColor and accept className
 const GithubIcon = (
@@ -145,7 +146,10 @@ const SampleAppsSection = () => {
       </div>
       
       {/* Office Hours Section */}
-      <OfficeHoursCard buttonLink="/contact" />
+    { !isMobile && <OfficeHoursCard buttonLink="/contact" />}
+        {isMobile && <MobileOfficeHoursCard />}
+
+
     </section>
   );
 };
