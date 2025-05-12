@@ -1,13 +1,4 @@
 :root {
-  --toc-active-border-color: var(--primary);        
-  --toc-guide-line-color: var(--border-default);     
-  --toc-link-color: var(--text-secondary);         
-  --toc-link-active-text-color: var(--text-primary);
-  --toc-link-hover-bg: var(--background-02);     
-  --toc-title-color: var(--text-tertiary);       
-  --toc-icon-color: var(--icon-secondary);        
-  --toc-border-color: var(--border-default);       
-  --toc-page-bg: var(--background-01);           
   --navbar-height-fallback: 60px;
 }
 
@@ -35,7 +26,7 @@
   font-family: var(--font-family-inter);
   font-size: 12px; 
   font-weight: 400;
-  color: var(--toc-title-color);
+  color: var(--text-tertiary);
   margin-bottom: 0;
   letter-spacing: 0.05em;
   position: sticky;
@@ -84,15 +75,15 @@
   align-items: center;
   width: 100%;
   padding: 12px; 
-  color: var(--toc-link-color);
+  color: var(--text-secondary)!important;
   text-decoration: none;
   height: 32px; /* Your specified fixed height for link */
   line-height: normal; /* Reset line-height if fixed height is used for precise centering */
-  border-left: 1px solid var(--toc-guide-line-color) !important;
+  border-left: 1px solid var(--border-default) !important;
   transition: color 0.1s ease, border-left-color 0.1s ease, background-color 0.1s ease, font-weight 0.1s ease;
   border-radius: 0 3px 3px 0;
   font-size: 12px;
-  font-weight: 400; /* Corresponds to .font-regular from your theme */
+  font-weight: 400!important; /* Corresponds to .font-regular from your theme */
   word-break: break-word; /* Allow long words to wrap to prevent overflow */
   box-sizing: border-box;
   /* For text that might wrap with fixed height: */
@@ -105,24 +96,23 @@
 }
 
 /* Hover effect (user had it commented out, keeping it commented) */
-/*
+
 :global(a.table-of-contents__link:hover) {
-  color: var(--toc-link-active-text-color);
-  background-color: var(--toc-link-hover-bg);
+  color: var(--text-primary)!important;
 }
-*/
+
 
 :global(a.table-of-contents__link--active) {
-  color: var(--toc-link-active-text-color);
+  color: var(--text-primary)!important;
   font-size: 13px;
-  border-left-color: var(--toc-active-border-color)!important;
+  border-left-color: var(--primary)!important;
   background-color: transparent; /* Ensure no hover background sticks */
 }
 
 .tocEmpty {
   padding-left: 1rem;
   font-style: italic;
-  color: var(--toc-link-color);
+  color: var(--text-secondary);
   height: 32px; /* Match item height if shown */
   display: flex; /* For centering */
   align-items: center; /* For centering */
@@ -132,7 +122,7 @@
 .tocBottomStickyLinks {
   flex-shrink: 0;
   padding: 0.75rem 0.75rem 0.75rem 1rem;
-  border-top: 1px solid var(--toc-border-color);
+  border-top: 1px solid var(--border-default);
   background-color: var(--toc-page-bg);
   z-index: 2;
   box-sizing: border-box;
@@ -144,7 +134,7 @@
   min-height: 34px;
   padding: 0.4rem 0; /* Vertical padding for each bottom link item */
   font-size: 13px; /* Base size, can use theme's .text-caption-1 if preferred */
-  color: var(--toc-link-color);
+  color: var(--text-secondary);
   text-decoration: none;
   border-radius: 3px;
   transition: background-color 0.15s ease, color 0.15s ease;
@@ -158,13 +148,13 @@
 }
 
 .bottomLink:hover {
-  color: var(--toc-link-active-text-color);
+  color: var(--text-primary);
 }
 
 .bottomLinkIcon, .bottomLinkExternalIcon {
   width: 1em;
   height: 1em;
-  color: var(--toc-icon-color);
+  color: var(--icon-secondary);
   flex-shrink: 0;
 }
 .bottomLinkIcon { margin-right: 0.6rem; }

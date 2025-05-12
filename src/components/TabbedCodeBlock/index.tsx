@@ -1,12 +1,9 @@
-// src/components/EasyTabbedCode/index.tsx
-// NO CHANGES NEEDED from the previous full Headless UI version.
-// For reference, it should look like this:
-import React, { useState, Fragment } from 'react';
-import { Tab as HeadlessTab } from '@headlessui/react';
+import React, { useState, useCallback } from 'react';
 import CodeBlock from '@theme/CodeBlock';
 import styles from './TabbedCodeBlock.module.css';
 import { MdContentCopy, MdCheck } from 'react-icons/md';
 
+// Type definitions remain the same
 type CodeInfo = {
   label: string;
   value: string; // Used as key
@@ -39,9 +36,11 @@ const TabbedsCodeBlock: React.FC<Props> = ({
   const [currentSelectedIndex, setCurrentSelectedIndex] = useState(validDefaultIndex);
   const [copyStatus, setCopyStatus] = useState<'idle' | 'copied' | 'failed'>('idle');
 
-  const handleCopyCode = async () => {
-    if (codes.length === 0 || currentSelectedIndex < 0 || currentSelectedIndex >= codes.length) return;
-    const codeToCopy = codes[currentSelectedIndex].code;
+  const activeCodeInfo = codes[currentSelectedIndex];
+
+  const handleCopyCode = useCallback(async () => {
+    if (!activeCodeInfo) return;
+    const codeToCopy = activeCodeInfo.code;
     try {
       await navigator.clipboard.writeText(codeToCopy);
       setCopyStatus('copied');
@@ -51,58 +50,72 @@ const TabbedsCodeBlock: React.FC<Props> = ({
       setCopyStatus('failed');
       setTimeout(() => setCopyStatus('idle'), 2000);
     }
-  };
+  }, [activeCodeInfo]);
 
-  const handleTabChange = (index: number) => {
+  const handleTabChange = useCallback((index: number) => {
     setCurrentSelectedIndex(index);
     setCopyStatus('idle');
     if (onSelectProp) {
       onSelectProp(index);
     }
-  };
+  }, [onSelectProp]);
 
   return (
     <div className={styles.wrapper}>
-      <HeadlessTab.Group defaultIndex={validDefaultIndex} onChange={handleTabChange}>
-        <div className={styles.tabListContainer}>
-          <HeadlessTab.List className={styles.tabList}>
-            {codes.map((codeInfo) => (
-              <HeadlessTab key={codeInfo.value} as={Fragment}>
-                {/* {({ selected }) => ( // `selected` prop not strictly needed if relying on aria-selected for CSS */}
-                  <li
-                    className={styles.tab}
-                    // Headless UI adds aria-selected="true/false" which styles.tab[aria-selected="true"] uses
-                  >
-                    {codeInfo.label}
-                  </li>
-                {/* )} */}
-              </HeadlessTab>
-            ))}
-          </HeadlessTab.List>
-          <button
-            type="button"
-            className={styles.customCopyButton}
-            onClick={handleCopyCode}
-            aria-label={copyStatus === 'copied' ? 'Code copied' : 'Copy code'}
-          >
-            {copyStatus === 'copied' ? <MdCheck /> : <MdContentCopy />}
-          </button>
-        </div>
-
-        <HeadlessTab.Panels>
-          {codes.map((codeInfo) => (
-            <HeadlessTab.Panel key={codeInfo.value} className={styles.tabPanel} unmount={false}>
-              <CodeBlock
-                language={codeInfo.language}
-                showLineNumbers={codeInfo.showLineNumbers ?? true}
-                metastring={codeInfo.showLineNumbers !== false ? '{showLineNumbers}' : ''}
-              >
-                {codeInfo.code}
-              </CodeBlock>
-            </HeadlessTab.Panel>
+      <div className={styles.tabListContainer}>
+        {/* Change <ul> to <div>, keep role="tablist" */}
+        <div className={styles.tabList} role="tablist">
+          {codes.map((codeInfo, index) => (
+            // Change <li> to <div>, keep role="tab" and other attributes
+            <div
+              key={codeInfo.value}
+              className={`${styles.tab} ${
+                currentSelectedIndex === index ? styles.activeTab : ''
+              }`}
+              onClick={() => handleTabChange(index)}
+              role="tab"
+              aria-selected={currentSelectedIndex === index}
+              aria-controls={`panel-${codeInfo.value}`}
+              id={`tab-${codeInfo.value}`}
+              tabIndex={0} // Make it focusable
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                   e.preventDefault(); // Prevent space bar scrolling
+                   handleTabChange(index);
+                }
+              }}
+            >
+              {codeInfo.label}
+            </div>
           ))}
-        </HeadlessTab.Panels>
-      </HeadlessTab.Group>
+        </div>
+        <button
+          type="button"
+          className={styles.customCopyButton}
+          onClick={handleCopyCode}
+          aria-label={copyStatus === 'copied' ? 'Code copied' : 'Copy code to clipboard'}
+          title={copyStatus === 'copied' ? 'Code copied' : 'Copy code to clipboard'}
+        >
+          {copyStatus === 'copied' ? <MdCheck /> : <MdContentCopy />}
+        </button>
+      </div>
+
+      {activeCodeInfo && (
+        <div
+          className={styles.tabPanel}
+          role="tabpanel"
+          aria-labelledby={`tab-${activeCodeInfo.value}`}
+          id={`panel-${activeCodeInfo.value}`}
+        >
+          <CodeBlock
+            language={activeCodeInfo.language}
+            showLineNumbers={activeCodeInfo.showLineNumbers ?? true}
+            metastring={activeCodeInfo.showLineNumbers !== false ? '{showLineNumbers}' : ''}
+          >
+            {activeCodeInfo.code}
+          </CodeBlock>
+        </div>
+      )}
     </div>
   );
 };

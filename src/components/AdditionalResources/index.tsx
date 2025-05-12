@@ -76,7 +76,7 @@ const resources: ResourceItem[] = [
 export default function AdditionalResources() {
   return (
     <div className={styles.resourcesSection}>
-      <p className={`${styles.title} text-h1 font-semibold`}>See Also</p>
+      <p className={`${styles.title} text-h2 font-semibold`}>See Also</p>
       <p className={`${styles.description}`}>Filters allow you to customize the data displayed in a list within a Component. You can filter the list based on your specific criteria, allowing for a more customized. Filters can be applied using RequestBuilders of Chat SDK.</p>
       <div className={styles.resourceGrid}>
         {resources.map((resource, index) => (

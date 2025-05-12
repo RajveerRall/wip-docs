@@ -11,33 +11,26 @@
 /* Container for TabList and Custom Copy Button */
 .tabListContainer {
   display: flex;
-  align-items: flex-end; /* KEY: Align children (tabList div, copyButton) to the bottom */
-  padding: 0 0.75rem 0 0;  /* Horizontal padding for the container */
-                           /* NO top/bottom padding here; space above tabs comes from .tab's top padding */
-  border-bottom: 2px solid #3a3a3a; /* Main gray line */
+  align-items: flex-end;
+  padding: 0 0.75rem 0 0;
+  border-bottom: 2px solid #3a3a3a;
   position: relative;
 }
 
-/* The <div> element rendered by HeadlessTab.List */
+/* The <div> element used for the list of tabs (was ul) */
 .tabList {
-  list-style-type: none;
+  /* list-style-type: none; /* No longer needed for div */
   margin: 0;
-  padding: 0; /* CRITICAL: No padding on this intermediate div */
+  padding: 0;
   display: flex;
   flex-grow: 1;
   width: 100%;
-  /* This div will now be exactly as tall as its <li> children (40px from .tab)
-     and sit at the bottom of .tabListContainer due to align-items: flex-end. */
 }
 
-/* Individual <li> tab items rendered within HeadlessTab */
+/* Individual <div> tab items (was li) */
 .tab {
-  /* Visual space above the text now comes from padding-top here.
-     The .tabListContainer no longer provides this "global" top space for the tab row. */
-  padding: 0.6rem 1rem 0.5rem 1rem; /* Top:0.6rem (space above text), L/R:1rem, Bottom:0.5rem (space below text) */
-                                   /* This padding contributes to the total height */
-
-  margin: 0 0.25rem -2px 0; /* Negative bottom margin for border overlap effect */
+  padding: 0.6rem 1rem 0.5rem 1rem;
+  margin: 0 0.25rem -2px 0; /* Negative bottom margin for border overlap */
   cursor: pointer;
   border: none;
   background: none;
@@ -47,25 +40,29 @@
   white-space: nowrap;
   position: relative;
   transition: color 0.2s ease, border-color 0.2s ease;
-
-  height: 40px; /* Your fixed total height for the tab clickable area */
-  width: 100px;  /* Your fixed width */
-  box-sizing: border-box; /* Padding and border are included IN the height/width */
+  height: 40px;
+  width: 100px;
+  box-sizing: border-box;
   text-align: left;
-
-  /* Vertically center text within the fixed height using flexbox on the tab itself */
   display: flex;
-  align-items: center; /* Vertically centers the text content due to height and padding */
-  /* justify-content: center; /* Uncomment if you want text horizontally centered in the 100px width */
-
-  border-bottom: 2px solid transparent; /* Tab's own border, for the active state */
+  align-items: center;
+  border-bottom: 2px solid transparent; /* Default inactive border */
 }
 
-/* Active tab state: Headless UI sets [aria-selected="true"] on the <li> */
-.tab[aria-selected="true"] {
+/* Active tab state */
+.tab.activeTab {
   color: var(--static-white);
-  border-bottom-color: #8a77e5;
-  /* margin-bottom: -2px; is CRITICALLY inherited from .tab */
+  border-bottom-color: #8a77e5; /* Active border color */
+  /* The negative margin-bottom from .tab ensures this overlaps the container border */
+}
+
+/* Focus states for accessibility */
+.tab:focus {
+  outline: 2px solid var(--ifm-color-primary-light);
+  outline-offset: 2px;
+}
+.tab:focus:not(:focus-visible) {
+    outline: none;
 }
 
 /* --- Custom Copy Button Styles --- */
@@ -74,17 +71,13 @@
   border: none;
   color: #a0a0a0;
   cursor: pointer;
-  padding: 0.4rem;
-  margin-left: auto; /* Pushes it to the far right */
-
-  /* To align with the tabs at the bottom due to .tabListContainer's align-items: flex-end */
-  /* It will naturally align its bottom edge with the bottom of the .tabList div.
-     If its content is shorter than 40px, it might appear higher.
-     Setting a height or min-height can help visual alignment if needed. */
+  /* padding: 0.4rem; */
+  margin: 5px;
+  margin-left: auto;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 40px; /* Make copy button same height as tabs for consistent bottom alignment */
+  height: 30px;
   box-sizing: border-box;
   border-radius: 4px;
   transition: color 0.2s ease, background-color 0.2s ease;
@@ -96,8 +89,16 @@
 }
 
 .customCopyButton svg {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
+}
+
+.customCopyButton:focus {
+  outline: 2px solid var(--ifm-color-primary-light);
+  outline-offset: -2px;
+}
+.customCopyButton:focus:not(:focus-visible) {
+    outline: none;
 }
 
 /* --- Tab Panel --- */
@@ -126,8 +127,6 @@
 .tabPanel > :global(div[class*="codeBlockContent_"]) > :global(pre) {
   padding-top: 1rem !important;
   padding-bottom: 1rem !important;
-  /* display: none !important;  */
-  /* visibility: hidden !important; */
 }
 
 /* --- Hide Docusaurus CodeBlock's built-in button group --- */

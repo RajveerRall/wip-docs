@@ -8,7 +8,10 @@
 .title {
   margin-top: 0;
   margin-bottom: 0.9rem;
-  color: var(--text-primary);
+  color: var(--text-primary)!important;
+  font-family: var(--font-family-inter);
+ font-size: 20px!important;
+ font-weight: 600;
 }
 
 .description{
@@ -93,9 +96,7 @@
   .resourceTitle {
     font-size: 0.8rem;
   }
-  .title {
-    font-size: 1rem !important; /* Equivalent to text-2xl */
-  }
+ 
   .resourceDescription {
     font-size: 0.775rem;
   }
