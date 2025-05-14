@@ -64,12 +64,9 @@
     padding: 0;
     /* text-align: center; /* Not needed with justify-content: center */
   }
-  
-  .bookButton :hover {
-  background-color: var(--ifm-color-emphasis-100);
-  text-decoration: none;
-  color: var(--ifm-font-color-base);
-}
+  .bookButton:hover {
+    opacity:0.75;
+  }
   
   
   .iconContainer {

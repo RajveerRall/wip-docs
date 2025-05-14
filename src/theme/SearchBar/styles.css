@@ -16,6 +16,13 @@
   cursor: pointer;          /* Indicates the whole bar is clickable (to open search) */
 }
 
+.doc-search-icon{
+  margin-left: 12px;
+  margin-right: 8px;
+  height: 15px;
+  width: 15px;
+  color: var(--icon-secondary);
+}
 
 /* Magnifying glass icon */
 .DocSearch-Search-Icon {
@@ -30,7 +37,8 @@
 
 /* "Search docs..." placeholder text */
 .DocSearch-Button-Placeholder {
-  font-size: 14px;
+  font-size: 13px;
+  font-weight:400;
   color: var(--text-secondary); /* Grey placeholder text color */
   flex-grow: 1;   /* Allow text to take available space */
   line-height: 1; /* For vertical centering if needed, though flex align-items should handle it */

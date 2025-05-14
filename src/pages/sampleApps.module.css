@@ -62,7 +62,7 @@
 
 /* --- Apps Grid Container --- */
 .appsGridContainer {
-  margin-bottom: 2.5rem; /* mb-10 */
+  margin-bottom: 4rem; /* mb-10 */
   display: flex; /* flex */
   width: 100%; /* w-full */
   flex-direction: column; /* flex-col */

@@ -32,7 +32,7 @@
 }
 
 html[data-theme='dark'] .breadcrumbs {
-  color:#8C78F0;
+  /* color:#8C78F0; */
   text-decoration: none;
   text-decoration-color: var(--ifm-color-emphasis-600);
 }
@@ -49,6 +49,11 @@ html[data-theme='dark'] .breadcrumbs {
   color: var(--text-highlight); /* text-[--ifm-color-primary] */
   text-decoration: none!important; /* no-underline */
 }
+
+html[data-theme='dark'] .breadcrumbLink {
+  color:#8C78F0!important;
+}
+
 
 .breadcrumbSeparator {
   margin-left: 0.25rem; /* mx-1 */

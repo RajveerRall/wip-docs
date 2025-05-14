@@ -32,7 +32,7 @@ import type {
   DocSearchHit,
   DocSearchButtonProps as OriginalDocSearchButtonProps,
 } from '@docsearch/react';
-
+import { ImSearch } from "react-icons/im";
 import type {AutocompleteState} from '@algolia/autocomplete-core';
 import type {FacetFilters} from 'algoliasearch/lite';
 
@@ -76,9 +76,11 @@ const CustomDocSearchButton = forwardRef<HTMLButtonElement, CustomDocSearchButto
         ref={ref}
         {...restProps} // onClick (for opening modal), onFocus, onMouseOver etc.
       >
-        <DocSearchMagnifyingGlassIcon />
+        {/* <DocSearchMagnifyingGlassIcon /> */}
+        <ImSearch className='doc-search-icon'/>
+
         <span className="DocSearch-Button-Placeholder">
-          {translations?.buttonText ?? 'Search docs...'}
+          {'Search docs...'}
         </span>
 
         {/* CUSTOM SETTINGS ICON BUTTON AT THE END */}
