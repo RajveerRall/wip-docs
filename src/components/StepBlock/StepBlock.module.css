@@ -1,9 +1,5 @@
 /* src/components/StepBlock.module.css */
 
-.stepBlockContainer {
-    /* Spacing below the entire step block */
-    margin-bottom:16px; /* Adjust as needed for spacing between steps */
-  }
   
   .stepLabel {
     /* --- Styling Estimated from Image --- */
@@ -21,10 +17,14 @@
   
   .stepContent {
     color:var(--text-secondary);
+    margin-bottom: 16px!important;
     /* Styling for the text content below the label */
     /* Inherits base font color and size by default */
-    line-height: var(--ifm-line-height-base, 1.65); /* Standard Docusaurus line height */
     /* Ensure text color is appropriate for dark theme (usually handled by Docusaurus theme) */
     /* color: var(--ifm-font-color-base); */
+  }
+
+  .stepContent p{
+    margin-bottom: 16px!important;
   }
   

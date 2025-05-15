@@ -462,7 +462,15 @@ ol ul li {
 }
 
 .markdown li > p {
-  color: var(--text-secondary);
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 15px;
+  font-family: var(--font-family-inter);
+}
+
+.markdown ul.listRomanUpper > li > p,
+.markdown ol.listRomanUpper > li > p{
+  color: var(--text-secondary)!important;
   font-weight: 600;
   font-size: 15px;
   font-family: var(--font-family-inter);
