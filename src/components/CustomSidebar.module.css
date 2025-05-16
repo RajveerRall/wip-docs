@@ -1,42 +1,133 @@
 /* src/css/CustomSidebar.module.css */
 /* === Uses variables defined in global scope (e.g., custom.css) === */
 
-/* Main container for the custom sidebar elements */
+/* Main container for the custom sidebar elements (KEEP ORIGINAL) */
 .sidebarContainer {
-  padding: 1rem 1rem 0rem 1rem; /* Top padding below navbar, side padding, less bottom padding */
+  padding: 1rem 1rem 0rem 1rem;
   padding-top: calc(var(--ifm-navbar-height, 60px) + 1.5rem);
   position: relative;
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
-  gap: 0.5rem; /* Space between selectors */
-  align-items: center; /* Center the selector wrappers */
+  gap: 0.5rem;
+  align-items: center;
   width: 100%;
   z-index: 100;
   box-sizing: border-box;
-  margin-bottom: 1rem; /* Add space before the main menu */
+  margin-bottom: 1rem;
 }
 
-/* Wrapper for each dropdown selector */
+/* --- START: NEW STYLES FOR THE MODIFIED HEADER --- */
+.sidebarHeaderRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Distribute space: text left, version right */
+  width: 196px; /* Match the previous fixed width of selectors */
+  height: 36px; /* Maintain consistent height */
+  box-sizing: border-box;
+  position: relative; /* If dropdown menu needs to be positioned relative to this row */
+}
+
+.staticFrameworkDisplay {
+  display: flex;
+  align-items: center;
+  flex-grow: 1; /* Allow it to take up space */
+  overflow: hidden; /* Prevent text overflow issues */
+}
+
+.frameworkDisplayText {
+  /* Assuming text-title-3 font-semibold are global utility classes */
+  /* Add your specific font styles here if those classes don't exist */
+  /* font-size: 16px; */ /* Example */
+  /* font-weight: 600; */ /* Example */
+  color: var(--text-primary);
+  margin-left: 8px; /* Space from logo */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+}
+
+.versionSelectorCompactWrapper {
+  position: relative; /* For dropdown menu positioning */
+  flex-shrink: 0; /* Don't let it shrink */
+}
+
+.compactVersionButton {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px; /* Compact padding */
+  gap:8px;
+  border: 1px solid var(--border-default);
+  border-radius: 8px; /* Rounded corners like image */
+  background-color: var(--background-01);
+  cursor: pointer;
+  width: 60px; /* Adjust for content like "V5" + arrow */
+  height: 32px; /* Slightly smaller height */
+  color: var(--text-primary);
+  box-sizing: border-box;
+  transition: border-color 0.2s, background-color 0.2s;
+}
+
+.compactVersionButton:hover {
+  border-color: var(--border-dark);
+}
+
+.compactVersionLabel {
+  /* Assuming text-body-2 font-regular are global utility classes */
+  /* Add your specific font styles here if those classes don't exist */
+  /* font-size: 14px; */ /* Example */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 4px; /* Space before arrow */
+}
+
+.compactVersionArrow {
+  color: var(--icon-secondary);
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.compactVersionDropdownMenu {
+  /* Based on your original .dropdownMenu, but can be styled specifically */
+  position: absolute;
+  top: calc(100% + 4px); /* Gap below button */
+  right: 0; /* Align to the right of the button/wrapper */
+  background-color: var(--background-01);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 120; /* Ensure it's above other content */
+  overflow-y: auto;
+  width: 60px; /* Adjust for content like "V5" + arrow */
+  padding: 4px; /* Slightly tighter padding for the menu */
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05); /* Original shadow */
+}
+/* --- END: NEW STYLES FOR THE MODIFIED HEADER --- */
+
+
+/* Wrapper for each dropdown selector (KEEP ORIGINAL - used by version selector's dropdown ref) */
 .selectorWrapper {
   position: relative;
-  /* Let the button define the width, center the wrapper */
-  width: 196px; /* Fixed width matching the button */
+  width: 196px;
 }
 
-/* The clickable button for opening a dropdown */
+/* The clickable button for opening a dropdown (KEEP ORIGINAL - .compactVersionButton is new for specific use) */
 .dropdownButton {
   display: flex;
   align-items: center;
-  /* justify-content will be set specifically below or via inline style */
-  padding: 8px 12px 8px 8px; /* Remove top/bottom padding, keep side */
+  font-family: var(--font-family-inter);
+  padding: 8px 12px 8px 8px;
+  border-radius: 8px;
   border: 1px solid var(--border-default);
-  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
-  border-radius: 8px; /* Slightly less rounded */
   background-color: var(--background-01);
   cursor: pointer;
-  width: 196px; /* Fixed width */
-  height: 36px; /* Fixed height */
+  width: 196px;
+  height: 36px;
   color: var(--text-primary);
   box-sizing: border-box;
   transition: border-color 0.2s, background-color 0.2s;
@@ -46,48 +137,34 @@
   border-color: var(--border-dark);
 }
 
-/* Label text inside the dropdown button */
+/* Label text inside the dropdown button (KEEP ORIGINAL) */
 .dropdownLabel {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin: 0 0.5rem; /* Vertical 0, Horizontal margin */
+  margin: 0 0.5rem;
 }
 
-/* Specific adjustments for React selector label */
-/* .dropdownLabelReact {
-  flex-grow: 1;
-  margin-left: 0.25rem;
-} */
-
-/* Specific adjustments for Version selector label */
-.dropdownLabelVersion {
-  flex-grow: 0; /* Don't grow */
-  flex-shrink: 0; /* Don't shrink */
-  margin-left: 0; /* Remove left margin if icon provides space */
-  margin-right: 0; /* Remove right margin to allow badge */
-}
-
-/* Arrow icon in the dropdown button */
+/* Arrow icon in the dropdown button (KEEP ORIGINAL) */
 .dropdownArrow {
   color: var(--icon-secondary);
   flex-shrink: 0;
-  width: 16px; /* Explicit size */
-  height: 16px; /* Explicit size */
+  width: 16px;
+  height: 16px;
   transition: transform 0.2s ease-in-out;
-  margin-left: auto; /* Push arrow to the right in React selector */
+  margin-left: auto;
 }
 
-.dropdownArrowVersion {
-  margin-left: 0.5rem; /* Add space before arrow if badge is present or not */
+.dropdownArrowVersion { /* KEEP ORIGINAL - though compactVersionArrow is preferred for new button */
+  margin-left: 0.5rem;
 }
 
-/* The dropdown menu itself */
+/* The dropdown menu itself (KEEP ORIGINAL - .compactVersionDropdownMenu is new for specific use) */
 .dropdownMenu {
   position: absolute;
-  top: calc(100% + 4px); /* 4px gap below button */
+  top: calc(100% + 4px);
   left: 0;
-  right: 0; /* Matches button width */
+  right: 0;
   background-color: var(--background-01);
   border: 1px solid var(--border-default);
   border-radius: 8px;
@@ -96,17 +173,17 @@
   max-height: 300px;
   overflow-y: auto;
   padding: 8px 12px 8px 8px;
-  width: 196px; /* Match button width */
+  width: 196px;
   gap: 8px;
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
 }
 
-/* Individual items within the dropdown menu */
+/* Individual items within the dropdown menu (KEEP ORIGINAL - used by both old and new dropdowns) */
 .dropdownItem {
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   color: var(--text-primary);
-  min-height: 32px; /* Slightly smaller min-height */
+  min-height: 32px;
   display: flex;
   align-items: center;
   white-space: nowrap;
@@ -122,31 +199,29 @@
 }
 
 .dropdownItem.active {
-  font-weight: 600;
-  color: var(--primary);
   background-color: var(--background-03);
 }
 
-/* Specific styles for the React logo */
+/* Specific styles for the React logo (KEEP ORIGINAL) */
 .reactLogo {
-  width: 20px;
-  height: 20px;
-  margin-right: 0; /* Label margin will handle spacing */
+  width: 20px; /* Or 24px if you prefer the image's look */
+  height: 20px; /* Or 24px */
+  margin-right: 0;
   flex-shrink: 0;
 }
 
-/* Version Folder Icon */
+/* Version Folder Icon (KEEP ORIGINAL - though not used in new button) */
 .folderIcon {
-  width: 16px; /* Slightly smaller? */
+  width: 16px;
   height: 16px;
-  color: var(--icon-secondary); /* Match icon color */
+  color: var(--icon-secondary);
   margin-right: 0.5rem;
   flex-shrink: 0;
 }
 
-/* Style for the LATEST badge */
+/* Style for the LATEST badge (KEEP ORIGINAL - though not used in new button) */
 .latestBadge {
-  margin-left: 0.5rem; /* Space after version label */
+  margin-left: 0.5rem;
   text-transform: uppercase;
   width: 54px;
   height: 16px;
@@ -154,46 +229,36 @@
   padding: 2px 8px;
   border: 1px solid var(--border-dark);
   background-color: var(--background-03);
-  line-height: 1.2; /* Adjust line-height */
+  line-height: 1.2;
   vertical-align: middle;
   white-space: nowrap;
   flex-shrink: 0;
 }
 
-/* Wrapper specific to the version selector part */
-/* .versionSelector (class removed, handled by general selectorWrapper) */
-
-/* Style for when no versions are available */
+/* Style for when no versions are available (KEEP ORIGINAL) */
 .noVersions {
   padding: 0.5rem 0.75rem;
   font-size: 13px;
   color: var(--text-secondary);
   font-style: italic;
-  width: 196px; /* Match button width */
+  width: 196px;
   text-align: center;
   box-sizing: border-box;
-  margin: 0 auto; /* Center if container is wider */
+  margin: 0 auto;
 }
 
-/* --- Global Docusaurus Menu Overrides --- */
-/* Apply these directly in src/css/custom.css for better organization */
-/* Or keep them here if preferred */
-
+/* --- Global Docusaurus Menu Overrides (KEEP ALL OF THESE EXACTLY AS THEY WERE) --- */
 :global(.menu) {
-  /* Match sidebar padding, no extra top/bottom needed here */
-  /* padding: 0 1rem !important; */
   font-size: 14px;
-  /* width: 210px; */
   box-sizing: border-box;
-  margin-top: 0; /* Remove potential top margin */
+  margin-top: 0;
 }
 
 :global(.menu__list) {
   margin: 0;
-  /* padding: 0 1rem; */
   list-style: none;
-  font-size: 14px; /* Base font size for menu items */
-  width: 100%; /* Make the list fill the scrollable container */
+  font-size: 14px;
+  width: 100%;
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
@@ -201,34 +266,30 @@
 }
 
 :global(.menu__list-item) {
-  margin: 0 0 2px 0; /* Add tiny space below items */
+  margin: 0 0 2px 0;
 }
 
-/* Base link style */
 :global(.menu__link) {
-  display: block; /* Make it block */
-  padding: 6px 12px; /* Adjust padding (e.g., 6px top/bottom, 12px left/right) */
-  border-radius: 4px; /* Subtle radius */
-  font-weight: 400; /* Semibold */
+  display: block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 400;
   font-size: 13px;
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
   color: var(--text-secondary);
-  /* width: 100%; */
   box-sizing: border-box;
   line-height: 1.4;
-  font-size: 14px;
-  text-decoration: none; /* Ensure no underline */
-  border-left: 3px solid transparent; /* Reserve space for active border */
+  /* font-size: 14px; */ /* Duplicate, using 13px from above */
+  text-decoration: none;
+  border-left: 3px solid transparent;
 }
 
-/* Nested link indentation */
 :global(.menu__list .menu__list .menu__link) {
-  padding-left: calc(12px + 16px); /* Base padding + indent */
+  padding-left: calc(12px + 16px);
 }
 :global(.menu__list .menu__list .menu__list .menu__link) {
-  padding-left: calc(12px + 16px + 16px); /* Base padding + 2x indent */
+  padding-left: calc(12px + 16px + 16px);
 }
-/* Add more levels if needed */
 
 :global(.menu__link:hover) {
   background-color: var(--background-02);
@@ -236,16 +297,14 @@
 }
 
 :global(.menu__link--active) {
-  font-weight: 500; /* Semibold */
+  font-weight: 500;
   font-size: 13px;
   color: var(--text-primary) !important;
-  /* Active border is now handled by the left border */
-  border-left: 3px solid var(--primary); /* Use the border */
-  /* Adjust padding-left slightly less than the border width */
+  border-left: 3px solid var(--primary);
   padding-left: calc(12px - 3px);
   background-color: var(--background-03) !important;
 }
-/* Adjust nested active links */
+
 :global(.menu__list .menu__list .menu__link--active) {
   padding-left: calc(12px + 16px - 3px);
 }
@@ -253,42 +312,37 @@
   padding-left: calc(12px + 16px + 16px - 3px);
 }
 
-/* Category headers (Collapsible items) */
 :global(.menu__list-item--collapsible > .menu__link) {
-  font-weight: 500; /* Medium weight */
+  font-weight: 500;
   color: var(--text-primary);
-  /* Ensure base padding is used, no extra indent needed on category itself */
   padding-left: 12px;
 }
 
-/* Ensure active category retains styles */
 :global(.menu__list-item--collapsible > .menu__link--active) {
-  font-weight: 600; /* Semibold when active */
+  font-weight: 600;
   color: var(--text-primary) !important;
-  background-color: var(--background-03) !important; /* Same light bg */
+  background-color: var(--background-03) !important;
   border-left: 3px solid var(--primary);
   padding-left: calc(12px - 3px);
 }
 
-/* Caret icon for collapsible items */
 :global(.menu__link--sublist-caret) {
-  /* Make room for the caret */
-  padding-right: 28px !important; /* More space for caret */
-  position: relative; /* Needed for absolute positioning of ::after */
+  padding-right: 28px !important;
+  position: relative;
 }
 
 :global(.menu__link--sublist-caret::after) {
   content: "";
   display: block;
-  width: 12px; /* Smaller caret */
-  height: 12px; /* Smaller caret */
+  width: 12px;
+  height: 12px;
   background-color: var(--icon-secondary);
   mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
   position: absolute;
-  right: 10px; /* Position from right */
+  right: 10px;
   top: 50%;
   transform: translateY(-50%) rotate(0deg);
   transition: transform 0.2s ease-in-out, background-color 0.2s;
@@ -299,22 +353,10 @@
 }
 
 :global(.menu__link--sublist-caret:hover::after) {
-  background-color: var(--primary); /* Hover color */
+  background-color: var(--primary);
 }
 
-/* Styles for the vertical line on nested lists (Infima default) */
-/* You might need to adjust colors or thickness if defaults don't match */
 :global(.menu__list .menu__list) {
   position: relative;
-  padding-left: 16px; /* Indentation space */
-  /* Optional: border for the vertical line - adjust color/width */
-  /* border-left: 1px solid var(--ifm-color-emphasis-300); */
-  /* margin-left: calc(12px + 1.5px); */ /* Align border with active marker */
+  padding-left: 16px;
 }
-/* Hide border on the last item if using borders */
-/* :global(.menu__list .menu__list > .menu__list-item:last-child) {
-    border-left-color: transparent;
-} */
-
-/* Remove TOC styles if they aren't needed in this specific module */
-/* If you need to style the right TOC, do it in src/css/custom.css */
