@@ -1,11 +1,9 @@
 // src/components/ReusableStyledTable.js or ReusableHtmlTable.js
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useColorMode } from '@docusaurus/theme-common';
 
 export default function ReusableHtmlTable({ headers, rows, caption, tableAriaLabel }) {
-  const { colorMode } = useColorMode();
-  // const isDarkMode = colorMode === 'dark';
+  // const { colorMode } = useColorMode(); // Kept for context, though not directly used in JS logic
 
   const V = {
     tableOverallBg: 'var(--background-01)',
@@ -13,10 +11,8 @@ export default function ReusableHtmlTable({ headers, rows, caption, tableAriaLab
     headerBg: 'var(--background-02)',
     headerColor: 'var(--text-primary)',
     bodyColor: 'var(--text-secondary)',
-    rowHoverBg: 'var(--background-02)',
-    codeBg: 'var(--ifm-code-background, #282C34)',
-    codeColor: 'var(--ifm-code-color, #ABB2BF)',
-    tableBorderRadius: 'var(--ifm-card-border-radius, 8px)',
+    rowHoverBg: 'var(--background-02)', // Can be same as headerBg or different
+    tableBorderRadius: '12px', // e.g., '0.5rem' or '8px'
     fontFamily: 'var(--font-family-inter)',
     alertErrorColor: 'var(--alert-error)'
   };
@@ -36,37 +32,20 @@ export default function ReusableHtmlTable({ headers, rows, caption, tableAriaLab
      );
   }
 
-  const tableContainerStyle = {
-    backgroundColor: V.tableOverallBg,
-    borderRadius: V.tableBorderRadius,
-    overflow: 'hidden',
-    border: `1px solid ${V.cellBorderColor}`,
-    // --- KEY ADJUSTMENTS FOR TIGHT FIT ---
-    padding: 0,                 // Ensure no padding inside the container
-    margin: 0,                  // Ensure no margin around the container
-    lineHeight: 1,              // Can sometimes help with tight vertical wrapping, though cell padding is main factor
-    boxSizing: 'border-box',    // Ensure border and padding are included in width/height calculation
-    // display: 'block',        // Default for div, explicitly setting it
-                               // Using `display: inline-block` might cause it to shrink wrap if table width wasn't 100%
-                               // but with table width 100%, 'block' is fine.
-  };
-
   const tableStyle = {
     width: '100%',
-    height: '100%',             // Make table attempt to fill container's height
     tableLayout: 'fixed',
     borderCollapse: 'collapse',
-    // The table borders are now handled by individual cells due to border-collapse
-    // and the outer border by the container.
-    // Remove explicit table border here if any was previously set.
-    // border: 'none', // Or remove the border property entirely
+    backgroundColor: V.tableOverallBg,
+    borderRadius: V.tableBorderRadius, // For semantic correctness; visual rounding is via cells
+    overflow: 'hidden', // Important for clipping content at table's rounded corners
   };
 
   const commonCellStyle = {
     fontFamily: V.fontFamily,
     fontSize: '14px',
     fontWeight: 500,
-    padding: '16px', // Cell padding contributes to table height
+    padding: '16px',
     textAlign: 'left',
     verticalAlign: 'top',
     whiteSpace: 'normal',
@@ -75,89 +54,136 @@ export default function ReusableHtmlTable({ headers, rows, caption, tableAriaLab
     borderRight: `1px solid ${V.cellBorderColor}`,
     borderBottom: `1px solid ${V.cellBorderColor}`,
     borderLeft: `1px solid ${V.cellBorderColor}`,
-    boxSizing: 'border-box', // Good for cells too
-    
+    boxSizing: 'border-box',
   };
 
-  const headerCellStyle = {
+  const baseHeaderCellStyle = {
     ...commonCellStyle,
-    backgroundColor: V.headerBg,
+    backgroundColor: V.headerBg, // Headers have their own distinct background
     color: V.headerColor,
-    maxWidth: '160px!important', // This will contribute to row height
   };
 
   const bodyCellStyle = {
     ...commonCellStyle,
     color: V.bodyColor,
     fontWeight: 400,
-    
+    // No explicit background color here, so it inherits from <tr> or <table>
   };
 
-  return (
-      <table
-        aria-label={caption || tableAriaLabel || 'Styled data table'}
-        style={tableStyle}
-      >
-        <thead>
-          <tr style={{ borderBottom:'none'}}>
-            {headers.map((header, index) => (
-              <th key={`header-${index}`} scope="col" style={headerCellStyle}>
-                {header}
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, rowIndex) => {
-            let validatedRow = row;
-            if (!Array.isArray(row)) {
-                validatedRow = Array(headers.length).fill(
-                  <span style={{ color: V.alertErrorColor }}>{`Invalid data at row ${rowIndex}`}</span>
-                );
-            } else if (row.length !== headers.length) {
-                 validatedRow = [...row];
-                 while (validatedRow.length < headers.length) validatedRow.push(
-                   <span style={{ fontStyle: 'italic', color: V.bodyColor }}>Missing</span>
-                 );
-                 while (validatedRow.length > headers.length) validatedRow.pop();
-            }
+  const numColumns = headers.length;
+  const columnWidth = numColumns > 0 ? `${100 / numColumns}%` : 'auto';
 
-            const rowStyle = {
-                backgroundColor: V.tableOverallBg,
+  return (
+    <table
+      aria-label={caption || tableAriaLabel || 'Styled data table'}
+      style={tableStyle}
+    >
+      <thead>
+        <tr>
+          {headers.map((header, index) => {
+            const isFirstHeader = index === 0;
+            const isLastHeader = index === numColumns - 1;
+
+            const specificHeaderStyle = {
+              ...baseHeaderCellStyle,
+              width: columnWidth,
+              overflow: 'hidden', // Clip content within rounded corners
             };
 
-            return (
-              <tr
-                key={`row-${rowIndex}`}
-                style={rowStyle}
-                // onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = V.rowHoverBg; }}
-                // onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = V.tableOverallBg; }}
-              >
-                {validatedRow.map((cellContent, cellIndex) => {
-                  const isFirstCell = cellIndex === 0;
-                  const currentBodyCellStyle = {
-                      ...bodyCellStyle,
-                      minWidth:'160px'
-                      // fontWeight: isFirstCell ? 'bold' : bodyCellStyle.fontWeight,
-                  };
+            if (isFirstHeader) {
+              specificHeaderStyle.borderTopLeftRadius = V.tableBorderRadius;
+            }
+            if (isLastHeader) {
+              specificHeaderStyle.borderTopRightRadius = V.tableBorderRadius;
+            }
 
-                  return (
-                    isFirstCell ? (
-                      <th key={`cell-${rowIndex}-${cellIndex}`} scope="row" style={currentBodyCellStyle}>
-                        {cellContent}
-                      </th>
-                    ) : (
-                      <td key={`cell-${rowIndex}-${cellIndex}`} style={currentBodyCellStyle}>
-                        {cellContent}
-                      </td>
-                    )
-                  );
-                })}
-              </tr>
+            // If no body rows, header cells also form the bottom edge of the table
+            if (rows.length === 0) {
+              if (isFirstHeader) {
+                specificHeaderStyle.borderBottomLeftRadius = V.tableBorderRadius;
+              }
+              if (isLastHeader) {
+                specificHeaderStyle.borderBottomRightRadius = V.tableBorderRadius;
+              }
+            }
+
+            return (
+              <th
+                key={`header-${index}`}
+                scope="col"
+                style={specificHeaderStyle}
+              >
+                {header}
+              </th>
             );
           })}
-        </tbody>
-      </table>
+        </tr>
+      </thead>
+      <tbody>
+        {rows.map((row, rowIndex) => {
+          let validatedRow = row;
+          if (!Array.isArray(row)) {
+              validatedRow = Array(numColumns).fill(
+                <span style={{ color: V.alertErrorColor }}>{`Invalid data at row ${rowIndex}`}</span>
+              );
+          } else if (row.length !== numColumns) {
+               validatedRow = [...row];
+               while (validatedRow.length < numColumns) validatedRow.push(
+                 <span style={{ fontStyle: 'italic', color: V.bodyColor }}>Missing</span>
+               );
+               while (validatedRow.length > numColumns) validatedRow.pop();
+          }
+
+          const isLastRow = rowIndex === rows.length - 1;
+
+          return (
+            <tr
+              key={`row-${rowIndex}`}
+              style={{ backgroundColor: V.tableOverallBg }} // Default background for rows
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = V.rowHoverBg;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = V.tableOverallBg; // Revert to default row background
+              }}
+            >
+              {validatedRow.map((cellContent, cellIndex) => {
+                const isFirstCellInRow = cellIndex === 0;
+                const isLastCellInRow = cellIndex === numColumns - 1;
+
+                // Apply bodyCellStyle to all body cells (th and td)
+                const currentCellSpecificStyle = {
+                  ...bodyCellStyle,
+                  overflow: 'hidden', // Clip content within rounded corners, especially for corner cells
+                };
+
+                if (isLastRow) {
+                  if (isFirstCellInRow) {
+                    currentCellSpecificStyle.borderBottomLeftRadius = V.tableBorderRadius;
+                  }
+                  if (isLastCellInRow) {
+                    // This specifically targets the condition: table tr:last-child td:last-child (or th:last-child)
+                    currentCellSpecificStyle.borderBottomRightRadius = V.tableBorderRadius;
+                  }
+                }
+
+                return (
+                  isFirstCellInRow ? (
+                    <th key={`cell-${rowIndex}-${cellIndex}`} scope="row" style={currentCellSpecificStyle}>
+                      {cellContent}
+                    </th>
+                  ) : (
+                    <td key={`cell-${rowIndex}-${cellIndex}`} style={currentCellSpecificStyle}>
+                      {cellContent}
+                    </td>
+                  )
+                );
+              })}
+            </tr>
+          );
+        })}
+      </tbody>
+    </table>
   );
 }
 

@@ -9,9 +9,9 @@
   margin-top: 0;
   margin-bottom: 0.9rem;
   color: var(--text-primary)!important;
-  font-family: var(--font-family-inter);
+  font-family: var(--font-family-inter)!important;
  font-size: 20px!important;
- font-weight: 600;
+ font-weight: 600!important;
 }
 
 .description{

@@ -21,7 +21,7 @@
   font-weight: 600!important;
   color: var(--text-primary);
   margin-top: 0;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
   line-height: 1.2;
 }
 
@@ -29,10 +29,9 @@
   color: var(--text-secondary);
   font-family: var(--font-family-inter);
   line-height: 1.6;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   font-size: 14px;
     max-width: 100%;
-
     font-weight: 400;
 }
 
@@ -61,10 +60,9 @@
 }
 
 .backgroundImage {
-  /* FOR TESTING - MAKE IT VERY OBVIOUS */
   position: absolute !important; /* Force position */
-  bottom: 8px !important;       /* Force position */
-  right: 3px !important;        /* Force position */
+  bottom: 3px !important;       /* Force position */
+  right:4px !important;        /* Force position */
   width: 150px !important;       /* Force a large width */
   height: 150px !important;      /* Force a large height */
   opacity: 1 !important;         /* Force full opacity */

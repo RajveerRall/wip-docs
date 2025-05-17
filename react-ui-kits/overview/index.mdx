@@ -19,6 +19,7 @@ import TabbedCodeBlock from '@site/src/components/TabbedCodeBlock'
 import MuiStyledTable from '@site/src/components/Table'
 import AdditionalResources from '@site/src/components/AdditionalResources'
 import ImageLightbox from '@site/src/components/ImageLightbox'
+import BottomSpacer from '@site/src/components/BottomSpacer'
 
 export const userDemoTsCode = `
 import { CometChatUsers } from "@cometchat/chat-uikit-react";
@@ -67,6 +68,7 @@ The UI Kit comprises a variety of components, each designed to work seamlessly w
   allowing for a more customized. Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK 
 </StepBlock>
 
+<BottomSpacer spacing={32}/>
 
 :::note
 Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
@@ -87,6 +89,10 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 :::danger
 Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
 :::
+
+<BottomSpacer/>
+
+
 ## Main2
  <FeatureShowcase>
   <FeatureCard
@@ -110,6 +116,7 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
     description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
   />
 </FeatureShowcase>
+<BottomSpacer/>
 
   <CheckListItem>
   Filters allow you to customize the data displayed in a list within a Component. You can filter the list based on your specific criteria, allowing for a more customized.
@@ -118,12 +125,15 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 <CheckListItem>
   Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK. Make sure you understand the different builder types.
 </CheckListItem>
+<BottomSpacer/>
 
 <ImageLightbox
   src={ReactUIKitImg}
   alt="A very cool image"
   thumbnailWidth="400px"
 />
+<BottomSpacer/>
+
 
 
 <MuiStyledTable
@@ -141,6 +151,7 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 ]}
 />
 
+<BottomSpacer/>
 
 # Bullet Points
 
@@ -175,6 +186,7 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
         </p>
       </li>
     </ol>
+<BottomSpacer/>
 
 <TabbedCodeBlock
   codes={[
@@ -182,6 +194,8 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
     { label: 'JavaScript', value: 'js', language: 'jsx', code: userDemoJsCode, title: 'UsersDemo.jsx' }
   ]}
 />
+
+<BottomSpacer/>
 
 <AdditionalResources/>
 

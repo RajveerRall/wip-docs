@@ -615,7 +615,7 @@ html[data-theme='dark']  .alert--warning p {
 .alert--danger {
   --ifm-alert-background-color: #FEEBE7;
 }
-.alert--warning p {
+.alert--danger p {
   color: #CD2200;
   font-size: 14px;
   font-weight: 400;
