@@ -1,77 +1,94 @@
 /* src/css/custom.css */
 
-/* --- Navbar Header Container --- */
-/* Keep Docusaurus base classes for theme consistency if desired */
-/* .navbarHeader {} */
-/* Add specific overrides or additional styles if needed */
-
-.navbar{
-  padding:0!important;
- 
+/* Reset Docusaurus default navbar padding if you're taking full control */
+.navbar {
+  padding: 0 !important;
+  /* If you're using a fixed navbarHeader, Docusaurus's default navbar might need to be display: none;
+     or its height set to 0 to avoid double space, or ensure your fixed header
+     is *outside* the Docusaurus .navbar element in the DOM.
+     For now, we assume your .navbarHeader is the primary visible header. */
 }
+
 .navbarHeader {
-  position: fixed; /* No quotes! */
-  top: 0; /* Added: Usually needed with position:fixed */
-  left: 0; /* Added: Usually needed with position:fixed */
-  width: 100%; /* Added: Usually needed with position:fixed */
-  z-index: 1000; /* Added: Ensure it stays on top */
-  min-width: 393px;
-  min-height: 49px;
-  padding: 16px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Or higher if needed, e.g., above Docusaurus's own sticky elements */
+  min-height: 49px; /* This defines the minimum height of your header */
+  /* Padding will be inside this min-height */
+  /* padding: 16px 20px; -- This was causing issues with fixed height + flexbox */
   background-color: var(--background-01);
   border-bottom: 1px solid var(--border-dark);
-  
+  box-sizing: border-box; /* Add this! */
+
+  /* --- ADD for alignment --- */
+  display: flex;
+  align-items: center; /* Vertically center .navbarContent within .navbarHeader */
+  padding: 0 20px; /* Apply horizontal padding here instead of on .navbarContent */
 }
+
+/* Hamburger menu trigger button */
 .docsMenuTriggerButton {
   background: none;
   border: none;
-  padding: 0.25rem; /* Clickable area around icon */
-  margin-right: 0.75rem; /* Space between trigger and logo */
+  /* height: 24px; -- Let flexbox alignment handle this if possible */
+  /* width: 24px; */
   cursor: pointer;
-  display: flex;
+  display: flex; /* To center the icon inside if it had padding */
   align-items: center;
-  color: var(--ifm-navbar-link-color); /* Use theme color */
-  line-height: 1; /* Prevent extra height */
+  justify-content: center; /* To center icon */
+  margin-right: 8px; /* Space between button and logo */
+  color: var(--icon-secondary);
+  padding: 4px; /* Make clickable area slightly larger than icon */
+  /* line-height: 1; -- Not strictly necessary with flex align/justify center */
 }
+/* Ensure the icon itself is sized */
+.docsMenuTriggerButton svg { /* If your icon is an SVG */
+  width: 24px;
+  height: 24px;
+}
+
 
 /* --- Main Content Wrapper inside Header --- */
 .navbarContent {
   display: flex;
-  height: 100%;
+  /* height: 100%; -- This can be tricky with min-height on parent.
+                      Let align-items on .navbarHeader manage vertical positioning. */
   width: 100%;
-  justify-content: space-between;
+  align-items: center; /* Vertically center children (logoContainer, rightActions) */
+  justify-content: space-between; /* Pushes logo to left, actions to right */
+  /* padding: 16px 20px; -- REMOVE: Padding moved to .navbarHeader */
+  gap: 16px; /* Add some gap between logo area and right actions if they get close */
 }
 
 /* --- Logo Container --- */
 .logoContainer {
-  flex-shrink: 0; /* flex-shrink-0 */
-  vertical-align: middle;
-  align-items: center;
+  display: flex; /* To align items within if there were multiple */
+  align-items: center; /* Vertically center the logo image if logoContainer had explicit height */
+  flex-shrink: 0;
+  /* vertical-align: middle; -- Not needed with flexbox */
 }
 
 /* --- Logo Image --- */
-
-.darkLogo {
-  display: block; /* block */
-  max-height: 32px;
-  max-width: 156px;
-}
-
+/* No changes needed here if the image itself is the right size */
+.darkLogo,
 .lightLogo {
-  display: block; /* block */
-  max-height: 32px;
-  max-width: 156px;
+  display: block; /* Good for images */
+  max-height: 28px; /* Adjust to fit comfortably within min-height of navbarHeader minus padding */
+  /* max-width: 156px; -- Usually fine, height is more critical for navbar */
+  /* The image should vertically center automatically due to align-items on .logoContainer or .navbarContent */
 }
 
 /* --- Right Actions Container (Search + Options) --- */
 .rightActions {
   display: flex;
-  align-items: center;
+  align-items: center; /* Vertically center search and options button */
   gap: 0.5rem; /* gap-2 */
+  flex-shrink: 0; /* Prevent shrinking if navbarContent gets crowded */
 }
 
 @media (min-width: 640px) {
-  /* sm breakpoint */
   .rightActions {
     gap: 0.75rem; /* sm:gap-3 */
   }
@@ -79,111 +96,124 @@
 
 /* --- Options Button Wrapper --- */
 .optionsButtonWrapper {
-  display: inline-flex; /* inline-flex */
-  align-items: center; /* items-center */
-  justify-content: center; /* justify-center */
-  height: 32px; /* h-9 */
-  width: 32px; /* w-9 */
-  border: 1px solid var(--neutral-300); /* border border-[...] */
-  background-color: var(--background-01); /* bg-[--ifm-hover-overlay] */
-  border-radius: 0.2rem; /* rounded-md */
-  cursor: pointer; /* cursor-pointer */
-  transition: background-color 0.2s ease, border-color 0.2s ease; /* transition-colors */
+  display: inline-flex; /* inline-flex is fine, or just flex */
+  align-items: center;
+  justify-content: center;
+  height: 32px; /* Explicit height for the button */
+  width: 32px;  /* Explicit width for the button */
+  border: 1px solid var(--neutral-300);
+  background-color: var(--background-01);
+  border-radius: 0.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  box-sizing: border-box; /* Add this */
 }
 
 .optionsButtonWrapper:hover {
-  background-color: var(
-    --ifm-hover-overlay
-  ); /* hover:bg-[--ifm-hover-overlay] - seems redundant unless base bg changes */
-  /* Add hover border change if needed */
+  background-color: var(--ifm-hover-overlay);
 }
 
-/* Dark mode styles */
 html[data-theme="dark"] .optionsButtonWrapper {
-  border-color: var(--ifm-color-emphasis-400); /* dark:border-[...] */
+  border-color: var(--ifm-color-emphasis-400);
 }
 
 /* --- Options Icon --- */
 .optionsIcon {
-  height: 0.8rem; /* h-5 */
-  width: 0.8rem; /* w-5 */
-  color: var( --neutral-500)!important; /* text-[--ifm-navbar-link-color] */
+  height: 0.8rem; /* 12.8px, ensure it fits well within 32px button with padding */
+  width: 0.8rem;
+  color: var(--neutral-500) !important; /* Ensure color is applied */
+  display: block; /* Helps with sizing and positioning of icons */
 }
 
-/* --- Close Button --- */
+/* --- Close Button (if this is for a modal or dropdown, not part of the main navbar alignment) --- */
+/* If this closeButton is supposed to be IN the navbarHeader (e.g. for closing a search overlay),
+   it would need to be part of .rightActions or similar, and `display:flex; align-items:center;`
+   on its direct parent would handle its vertical alignment. */
 .closeButton {
-  /* color: var(--ifm-navbar-link-color); */
-  cursor: pointer;
-  /* Adjust size/padding/position if needed via this class */
-  /* For example, ensure it aligns nicely */
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 13.18px; /* Match options button tap target size */
-  width: 13.18px;
+  /* height: 13.18px; -- This is very specific. If it's an icon button,
+                         give it a sensible overall height/width like 32px
+                         and let padding + icon size define the look. */
+  /* width: 13.18px;  */
+  height: 32px; /* Example: make it same size as optionsButtonWrapper */
+  width: 32px;  /* Example */
+  color: var(--icon-secondary); /* Changed from .closeIcon */
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0; /* Reset padding if sizing via height/width */
 }
-.closeIcon {
-  color: var(--icon-secondary);
+.closeIcon { /* This class is now just for the icon itself if needed for specific styling */
+  width: 16px; /* Example icon size */
+  height: 16px; /* Example icon size */
+  display: block;
 }
 
-.closeButton:hover {
-  color: var(--ifm-navbar-link-hover-color); /* Optional: Add hover effect */
-}
 
 /* --- Algolia DocSearch Button Icon-Only Style --- */
+/* These styles seem highly specific and use !important heavily.
+   This often indicates fighting against other styles.
+   Ensure they are correctly scoped or that the base DocSearch styles are managed. */
 
 .mobile-navbar-context .navbar__item.navbar__search {
-  position: fixed;
-
+  /* position: fixed; -- If this is fixed, its alignment is relative to viewport, not navbar items */
+  /* If it's part of .rightActions, it should not be fixed here. */
+  /* Let's assume it's part of the flex flow in .rightActions */
+  display: flex; /* To use align-items for the button inside */
+  align-items: center;
   padding: 0 !important;
   margin: 0 !important;
 }
 
 .mobile-navbar-context .DocSearch-Button {
-  width: 36px !important;
-  height: 36px !important;
-  min-width: 36px !important;
+  width: 32px !important; /* Match .optionsButtonWrapper height */
+  height: 32px !important;
+  /* min-width: 36px !important; -- Remove if width is fixed */
   padding: 0 !important;
   margin: 0 !important;
-  border-radius: 50% !important;
-  border: none !important;
+  border-radius: 0.2rem !important; /* Match .optionsButtonWrapper radius */
+  /* border: none !important; -- It might look better with a border like optionsButton */
+  border: 1px solid var(--neutral-300) !important; /* Example border */
   box-shadow: none !important;
-  font-size: 0 !important;
-  line-height: 0 !important;
-  color: transparent !important;
-  outline: none !important;
-  display: inline-flex !important;
+  font-size: 0 !important; /* Hides text */
+  line-height: 0 !important; /* Hides text */
+  color: transparent !important; /* Hides text */
+  /* outline: none !important; -- Focus state should be handled, perhaps by Docusaurus default */
+  display: inline-flex !important; /* or flex */
   align-items: center !important;
   justify-content: center !important;
   cursor: pointer;
   transition: background-color 0.2s ease !important;
+  background-color: var(--background-01) !important; /* Match options button */
+  box-sizing: border-box !important; /* Add this */
 }
+html[data-theme="dark"] .mobile-navbar-context .DocSearch-Button {
+  border-color: var(--ifm-color-emphasis-400) !important;
+}
+
 
 .mobile-navbar-context .DocSearch-Button:hover {
   background-color: var(--ifm-hover-overlay) !important;
 }
 
 .mobile-navbar-context .DocSearch-Button .DocSearch-Search-Icon {
-  /* Make icon bigger */
-  width: 22px !important; /* Increased from 20px */
-  height: 22px !important; /* Keep square aspect ratio */
-  color: var(--ifm-navbar-link-color) !important;
-  margin: 0 !important; /* Removed invalid margin-top */
-  /* Make icon bolder */
-  stroke-width: 2 !important; /* Increased from inherit (default ~1.6) */
+  width: 16px !important; /* Icon size, similar to optionsIcon if height is 0.8rem */
+  height: 16px !important;
+  color: var(--neutral-500) !important; /* Match optionsIcon color */
+  margin: 0 !important;
+  stroke-width: 1.5 !important; /* Default is often fine, adjust if needed */
   display: block !important;
 }
 
+/* Hide placeholder and keys - this is correct for icon-only */
 .mobile-navbar-context .DocSearch-Button .DocSearch-Button-Placeholder,
 .mobile-navbar-context .DocSearch-Button .DocSearch-Button-Keys {
   display: none !important;
-  width: 0 !important;
-  height: 0 !important;
-  overflow: hidden !important;
-  visibility: hidden !important;
 }
 
+/* General DocSearch Icon Color (Desktop) */
 .DocSearch-Button .DocSearch-Search-Icon {
-  /* stroke: var(--ifm-font-color-secondary, #555) !important; */
-  color: var(--natural-600) !important;
+  color: var(--natural-600) !important; /* Or var(--ifm-color-content-secondary) */
 }

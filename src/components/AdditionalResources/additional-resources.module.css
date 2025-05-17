@@ -111,6 +111,12 @@
   }
 }
 
+@media (max-width: 1300px) {
+  .resourceGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   .resourceGrid {
     grid-template-columns: repeat(2, 1fr);
