@@ -49,14 +49,6 @@
     border: 1px solid transparent; /* Added for consistent border behavior with hover */
 }
 
-.infoCard:hover {
-    background-color: var(--background-02); /* You might want a different hover bg than the main container */
-    border-color: var(--border-dark);
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.07);
-    text-decoration: none;
-}
-
-
 .cardHeader {
     display: flex;
     align-items: flex-start;
@@ -115,9 +107,8 @@
 }
 
 .platformButton:hover {
-    background-color: var(--integrate-button-hover-bg);
-    border-color: var(--integrate-button-hover-border);
-}
+    background-color: var(--border-default);
+  }
 
 .platformButton:focus {
     outline: none;

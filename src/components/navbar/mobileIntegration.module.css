@@ -58,11 +58,13 @@
     transition: background-color 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease; /* duration-150 */
 }
 
-.platformButton:hover {
+/* .platformButton:hover {
     background-color: var(--integrate-button-hover-bg);
     border-color: var(--integrate-button-hover-border);
-     /* Can adjust shadow on hover if desired */
-}
+} */
+.platformButton:hover {
+    background-color: var(--border-default);
+  }
 
 .platformButton:focus {
     outline: none; /* focus:outline-none */

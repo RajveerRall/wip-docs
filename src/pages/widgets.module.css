@@ -86,7 +86,9 @@
   .gridSection {
     padding-left: 0; /* md:px-0 */
     padding-right: 0; /* md:px-0 */
+    margin-bottom: 40px; /* mb-12 */
   }
+
 
   .widgetTitle {
     font-size: 0.8rem !important; /* lg:text-5xl */
