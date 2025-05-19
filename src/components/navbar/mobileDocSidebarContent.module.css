@@ -1,0 +1,58 @@
+/* wip-docs/src/components/navbar/mobileDocSidebarContent.module.css */
+.mobileDocSidebarLayoutWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Fill the drawer */
+    overflow: hidden;
+    background-color: var(--ifm-background-surface-color); /* Or your desired drawer background */
+  }
+  
+  .mobileDocSidebarTopSection {
+    padding: 10px 0;
+    flex-shrink: 0; /* Don't shrink this section */
+  }
+  
+  .mobileDocSidebarScrollableMenuArea {
+    flex-grow: 1; /* Allow this to take available space and scroll */
+    overflow-y: auto;
+    padding: 0.5rem 0;
+  }
+  
+  .mobileDocSidebarScrollableMenuArea :global(.menu__list) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .noTocMessage {
+    padding: 1rem;
+    text-align: center;
+    color: var(--ifm-color-emphasis-700);
+  }
+  
+  .mobileDocSidebarBottomLinks {
+    padding: 1rem;
+    border-top: 1px solid var(--ifm-color-emphasis-300);
+    flex-shrink: 0; /* Don't shrink this section */
+  }
+  
+  .bottomLinkItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0.5rem;
+    margin-bottom: 0.25rem;
+    cursor: pointer;
+    border-radius: var(--ifm-global-radius);
+    text-decoration: none;
+    color: var(--ifm-font-color-base);
+  }
+  
+  .bottomLinkItem:hover {
+    background-color: var(--ifm-hover-overlay);
+    color: var(--ifm-link-hover-color);
+  }
+  
+  .bottomLinkItem svg {
+    margin-left: 8px;
+    opacity: 0.7;
+  }
