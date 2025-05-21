@@ -1,0 +1,26 @@
+.externalLink {
+  display: inline-flex; 
+  align-items: center; 
+  gap: 0.003em;       
+  text-decoration: none; 
+  color: var(--primary);      
+  transition: opacity 0.2s ease-in-out;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 400;
+  font-family: var(--font-family-inter);
+  text-decoration: none;
+
+}
+
+.externalLink:hover {
+  opacity: 0.8;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.icon {
+     transform: rotate(-45deg);
+       display: inline-block;
+       margin-bottom: 2px; 
+}

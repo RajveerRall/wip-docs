@@ -88,6 +88,9 @@ export default function ReusableHtmlTable({ headers, rows, caption, tableAriaLab
               ...baseHeaderCellStyle,
               width: columnWidth,
               overflow: 'hidden', // Clip content within rounded corners
+              // --- THIS IS THE ADDED LINE ---
+              borderBottom: 'none', // This ensures the header row effectively has no bottom border
+              // --- END OF ADDED LINE ---
             };
 
             if (isFirstHeader) {
@@ -97,7 +100,9 @@ export default function ReusableHtmlTable({ headers, rows, caption, tableAriaLab
               specificHeaderStyle.borderTopRightRadius = V.tableBorderRadius;
             }
 
-            // If no body rows, header cells also form the bottom edge of the table
+            // If no body rows, header cells also form the bottom edge of the table.
+            // The borderBottom: 'none' above will still apply.
+            // The borderRadius logic below will just round the corners of these border-less bottom edges of header cells.
             if (rows.length === 0) {
               if (isFirstHeader) {
                 specificHeaderStyle.borderBottomLeftRadius = V.tableBorderRadius;

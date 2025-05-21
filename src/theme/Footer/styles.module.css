@@ -4,6 +4,7 @@
   background-color: var(--static-black);
   padding: 0.75rem 0;
   color: rgba(255, 255, 255, 0.7);
+  border-top: 1px solid var(--border-light);
 }
 
 .container {
@@ -70,9 +71,12 @@
   .socialText {
     display: none;
   }
-  
+
   .socialLinks {
     gap: 24px;
+  }
+  .footer {
+    padding: 0.4rem 0;
   }
 }
 
@@ -82,14 +86,12 @@
     gap: 1rem;
     padding: 1rem;
   }
-  
-.socialIcon {
-  height: 19px;
-  width: 19px;
- 
-}
 
-  
+  .socialIcon {
+    height: 19px;
+    width: 19px;
+  }
+
   .copyright {
     margin-bottom: 0.5rem;
   }

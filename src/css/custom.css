@@ -441,7 +441,6 @@ main table code,
   color: var(--ifm-code-color);
 }
 
-
 /* listStyles.module.css */
 ol ul li {
   list-style-type: disc; /* Use a filled circle */
