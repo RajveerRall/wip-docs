@@ -21,9 +21,9 @@
   background-color: var(--background-01); /* bg-[--ifm-card-background-color] */
   box-shadow: var(--ifm-global-shadow-sm); /* shadow-sm */
   transition: all 200ms ease-out; /* transition-all duration-200 ease-out */
-
   /* Responsive Padding & Spacing (using gap instead of space-x) */
   padding: 16px; /* p-2 */
+  cursor: pointer;
   gap: 12px; /* space-x-1 equivalent */
 }
 

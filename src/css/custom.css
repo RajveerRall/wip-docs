@@ -391,7 +391,7 @@ body {
 /* --- End of refinement --- */
 
 main article {
-  padding: 3.5rem;
+  padding: 2rem 3.5rem;
   box-sizing: border-box;
 }
 
@@ -415,6 +415,14 @@ main article {
   color: var(--text-secondary);
 }
 
+.hash-link{
+  color: var(--primary)!important;
+}
+
+.hash-link:focus, *:hover > .hash-link{
+  color: var(--primary)!important;
+}
+
 
 /* Remove bottom border rule is no longer needed in this setup */
 /*
@@ -432,6 +440,7 @@ main table code,
   border-radius: 3px;
   color: var(--ifm-code-color);
 }
+
 
 /* listStyles.module.css */
 ol ul li {

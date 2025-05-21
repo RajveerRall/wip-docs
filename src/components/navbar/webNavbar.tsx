@@ -35,7 +35,7 @@ function WebNavbar(): React.ReactNode {
   const handleMouseLeave = (): void => {
     leaveTimeoutRef.current = setTimeout(() => {
       setActiveDropdown(null);
-    }, 150);
+    }, 500);
   };
 
   const handleDropdownContentEnter = (): void => {

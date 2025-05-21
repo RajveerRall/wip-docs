@@ -63,7 +63,7 @@
   border-radius: 8px; /* Rounded corners like image */
   background-color: var(--background-01);
   cursor: pointer;
-  width: 60px; /* Adjust for content like "V5" + arrow */
+  min-width: 60px; /* Adjust for content like "V5" + arrow */
   height: 32px; /* Slightly smaller height */
   color: var(--text-primary);
   box-sizing: border-box;

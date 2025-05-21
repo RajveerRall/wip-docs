@@ -1,5 +1,5 @@
 :root {
-  --navbar-height-fallback: 60px;
+  --navbar-height-fallback: 70px;
 }
 
 .tocWrapper {
@@ -9,8 +9,9 @@
   font-size: 13px; 
   justify-content: flex-start;
   position: sticky;
-  top: var(--ifm-navbar-height, var(--navbar-height-fallback));
-  height: calc(100vh - var(--ifm-navbar-height, var(--navbar-height-fallback)));
+  top: var(--navbar-height-fallback);
+  /* top: var(--ifm-navbar-height, var(--navbar-height-fallback)); */
+  height: calc(97vh - var(--ifm-navbar-height, var(--navbar-height-fallback)));
   box-sizing: border-box;
 }
 
