@@ -1,143 +1,184 @@
-:root {
-  --navbar-height-fallback: 70px;
+/* src/theme/TOC/styles.module.css */
+:root{
+  --ifm-navbar-height: 5rem
 }
-
 .tocWrapper {
   display: flex;
   flex-direction: column;
-  font-family: var(--font-family-inter); 
-  font-size: 13px; 
+  font-family: var(--font-family-inter); /* Ensure --font-family-inter is defined in your :root styles */
   justify-content: flex-start;
   position: sticky;
-  top: var(--navbar-height-fallback);
-  /* top: var(--ifm-navbar-height, var(--navbar-height-fallback)); */
-  height: calc(97vh - var(--ifm-navbar-height, var(--navbar-height-fallback)));
+  top: var(--ifm-navbar-height, 70px); /* Default 70px if --ifm-navbar-height is not set */
+  height: calc(100vh - var(--ifm-navbar-height, 190px)); /* 1rem for some bottom spacing */
   box-sizing: border-box;
+  background-color: var(--background-01); /* Use theme variable */
 }
 
 .tocContent {
   flex-grow: 1;
   overflow-y: auto;
-  padding-top: 1.5rem; 
-  padding-bottom: 1rem; 
+  padding-bottom: 1rem; /* Space at the bottom of the scrollable list */
   box-sizing: border-box;
+  position: relative; /* For any absolutely positioned children if needed */
 }
 
 .tocTitle {
   font-family: var(--font-family-inter);
-  font-size: 12px; 
+  font-size: 12px;
   font-weight: 400;
-  color: var(--text-tertiary);
-  margin-bottom: 0;
+  color: var(--text-tertiary, #6b7280);
+  margin-bottom: 0.5rem;
   letter-spacing: 0.05em;
+  text-transform: uppercase;
   position: sticky;
   top: 0;
   padding-top: 1.5rem;
   padding-bottom: 0.5rem;
-  background-color: var(--toc-page-bg);
+  background-color: var(--background-01); /* Match wrapper */
   z-index: 1;
   box-sizing: border-box;
+  padding-left: 6px;
 }
 
-:global(div.table-of-contents) {
+:global(.theme-doc-toc-desktop div.table-of-contents) {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-:global(ul.table-of-contents) {
+:global(.theme-doc-toc-desktop ul.table-of-contents),
+:global(.theme-doc-toc-desktop ul.table-of-contents ul) {
   list-style-type: none;
   margin: 0;
-  padding-left: 1rem;
+  padding: 0;
   box-sizing: border-box;
+  border-left: none !important;
 }
 
-:global(ul.table-of-contents ul) {
-  list-style-type: none;
-  margin: 0.25rem 0;
-  padding-left: 1rem;
-  box-sizing: border-box;
-}
-
-:global(ul.table-of-contents li) {
+:global(.theme-doc-toc-desktop ul.table-of-contents li) {
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
   list-style-type: none !important;
   box-sizing: border-box;
-  height: 32px;
-  display: flex;
-  align-items: stretch;
 }
 
-:global(a.table-of-contents__link) {
+:global(.theme-doc-toc-desktop a.table-of-contents__link) {
   font-family: var(--font-family-inter);
-  display: flex;
-  align-items: center;
+  display: block;
   width: 100%;
-  padding: 12px; 
-  color: var(--text-secondary)!important;
-  text-decoration: none;
-  height: 32px; /* Your specified fixed height for link */
-  line-height: normal; /* Reset line-height if fixed height is used for precise centering */
-  border-left: 1px solid var(--border-default) !important;
-  transition: color 0.1s ease, border-left-color 0.1s ease, background-color 0.1s ease, font-weight 0.1s ease;
-  border-radius: 0 3px 3px 0;
-  font-size: 12px;
-  font-weight: 400!important; /* Corresponds to .font-regular from your theme */
-  word-break: break-word; /* Allow long words to wrap to prevent overflow */
+  padding-left: var(--toc-item-text-indent);
+  padding-right: 12px;
+  color: var(--text-secondary, #374151) !important;
+  text-decoration: none !important;
+  height: 32px;
+  line-height: 32px;
+  transition: color 0.1s ease, font-weight 0.1s ease, border-color 0.1s ease;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  word-break: break-word;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   box-sizing: border-box;
-  /* For text that might wrap with fixed height: */
-  overflow: hidden; /* Hide overflow if text is too long for fixed height */
-  /* Consider text-overflow: ellipsis; if you want '...' but it needs white-space: nowrap */
+  background-color: transparent !important;
+  position: relative;
+  /* Use the default border color for the non-active state */
+  border-left: 1px solid var(--border-default); 
 }
 
-:global(.table-of-contents__left-border){
-  border:none !important
+/* This is the visual indicator bar on the left */
+:global(.theme-doc-toc-desktop a.table-of-contents__link::before) {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  /* Positioned to overlay the very left edge of the link */
+  left: -1px;
+  background-color: transparent; /* Transparent by default */
+  transition: background-color 0.1s ease;
 }
 
-/* Hover effect (user had it commented out, keeping it commented) */
-
-:global(a.table-of-contents__link:hover) {
-  color: var(--text-primary)!important;
+:global(.theme-doc-toc-desktop a.table-of-contents__link:not(.table-of-contents__link--active):hover) {
+  color: var(--text-primary, #111827) !important;
+}
+:global(.theme-doc-toc-desktop a.table-of-contents__link:not(.table-of-contents__link--active):hover::before) {
+  /* On hover, the indicator bar uses the primary color */
+  /* background-color: var(--primary) !important;  */
 }
 
+/* --- ACTIVE LINK STYLING --- */
 
-:global(a.table-of-contents__link--active) {
-  color: var(--text-primary)!important;
-  font-size: 13px;
-  border-left-color: var(--primary)!important;
-  background-color: transparent; /* Ensure no hover background sticks */
+/* Method 1: Standard CSS classes */
+:global(.theme-doc-toc-desktop a.table-of-contents__link--active) {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  /* Change the underlying border color to primary when active */
+  border-left-color: var(--primary) !important;
 }
+
+:global(.theme-doc-toc-desktop a.table-of-contents__link--active::before) {
+  /* The active indicator bar is now primary color */
+  background-color: var(--primary) !important;
+}
+
+/* Method 2: Higher specificity selectors (for overrides) */
+:global(.theme-doc-toc-desktop ul.table-of-contents a.table-of-contents__link.table-of-contents__link--active) {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  border-left-color: var(--primary) !important;
+}
+
+:global(.theme-doc-toc-desktop ul.table-of-contents a.table-of-contents__link.table-of-contents__link--active::before) {
+  background-color: var(--primary) !important;
+}
+
+/* Method 3: Attribute-based selectors (for JS-driven states) */
+:global(.theme-doc-toc-desktop a.table-of-contents__link[data-active="true"]) {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  border-left-color: var(--primary) !important;
+}
+
+:global(.theme-doc-toc-desktop a.table-of-contents__link[data-active="true"]::before) {
+  background-color: var(--primary) !important;
+}
+/* --- End of Active Link Styling --- */
+
 
 .tocEmpty {
-  padding-left: 1rem;
+  padding-left: 6px;
   font-style: italic;
-  color: var(--text-secondary);
-  height: 32px; /* Match item height if shown */
-  display: flex; /* For centering */
-  align-items: center; /* For centering */
+  color: var(--text-secondary, #374151);
+  height: 32px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
 }
 
-/* --- Bottom Sticky Links Section --- */
 .tocBottomStickyLinks {
   flex-shrink: 0;
-  padding: 0.75rem 0.75rem 0.75rem 1rem;
-  border-top: 1px solid var(--border-default);
-  background-color: var(--toc-page-bg);
+  padding: 0.75rem;
+  padding-left: 6px;
+  border-top: 1px solid var(--border-default, #e5e7eb); 
+  background-color: var(--background-01);
   z-index: 2;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .bottomLink {
   display: flex;
   align-items: center;
   min-height: 34px;
-  padding: 0.4rem 0; /* Vertical padding for each bottom link item */
-  font-size: 13px; /* Base size, can use theme's .text-caption-1 if preferred */
-  color: var(--text-secondary);
+  padding: 0.4rem 0.5rem;
+  font-size: 13px;
+  color: var(--text-secondary, #374151);
   text-decoration: none;
-  border-radius: 3px;
+  border-radius: var(--ifm-button-border-radius, 3px);
   transition: background-color 0.15s ease, color 0.15s ease;
   font-weight: 400;
   background: none;
@@ -149,20 +190,32 @@
 }
 
 .bottomLink:hover {
-  color: var(--text-primary);
+  color: var(--text-primary, #111827);
+  background-color: var(--ifm-hover-overlay, rgba(0, 0, 0, 0.04));
 }
 
-.bottomLinkIcon, .bottomLinkExternalIcon {
+.bottomLinkIcon,
+.bottomLinkExternalIcon {
   width: 1em;
   height: 1em;
-  color: var(--icon-secondary);
+  color: currentColor;
   flex-shrink: 0;
+  opacity: 0.8;
 }
-.bottomLinkIcon { margin-right: 0.6rem; }
-.bottomLinkExternalIcon { margin-left: 0.5rem; opacity: 0.7; width: 0.9em; height: 0.9em;}
+
+.bottomLinkIcon {
+  margin-right: 0.6rem;
+}
+
+.bottomLinkExternalIcon {
+  margin-left: auto;
+  width: 0.9em;
+  height: 0.9em;
+}
 
 .bottomLink span {
   flex-grow: 1;
-  /* line-height: 1.4; */ /* Use theme's line-height or let flexbox handle vertical alignment */
-  box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

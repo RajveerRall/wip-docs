@@ -2,8 +2,8 @@
 sidebar_position: 1
 title: Overview
 sidebar_label: Overview
-
 ---
+
 import StepBlock from '@site/src/components/StepBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -21,7 +21,6 @@ import AdditionalResources from '@site/src/components/AdditionalResources'
 import ImageLightbox from '@site/src/components/ImageLightbox'
 import BottomSpacer from '@site/src/components/BottomSpacer'
 import ExternalLink from '@site/src/components/ExternalLink'
-
 
 export const userDemoTsCode = `
 import { CometChatUsers } from "@cometchat/chat-uikit-react";
@@ -52,11 +51,17 @@ function UsersDemo() {
 export default UsersDemo;
 `;
 
+# Overview
 
-## Main
-The UI Kit comprises a variety of components, each designed to work seamlessly with one another to deliver a comprehensive and intuitive chat experience. Here's how different UI Kit components work together to achieve CometChat's Core features:
+The UI Kit comprises a variety of components, each designed to work seamlessly with one another to deliver a comprehensive and intuitive chat experience.
+
 <ExternalLink href={'www.cometchat.com'}>External Link</ExternalLink> 
 
+---
+
+## 1. Getting Started
+
+### 1.1 Step-by-step Setup
 
 <StepBlock label="Step 01">
   This is the content for the **first step**. Filters allow you to customize the data displayed
@@ -65,130 +70,100 @@ The UI Kit comprises a variety of components, each designed to work seamlessly w
 </StepBlock>
 
 <StepBlock label="Step 02">
-  This is the content for the **first step**. Filters allow you to customize the data displayed
-  in a list within a Component. You can filter the list based on your specific criteria,
-  allowing for a more customized. Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK 
+  This is the content for the **second step**.
 </StepBlock>
 
 <BottomSpacer spacing={32}/>
 
+### 1.2 Notes & Alerts
+
 :::note
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
+This is a note block.
 :::
 
 :::info
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. 
+This is an info block.
 :::
 
 :::success
-This should look the same as TIP. Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
+This is a success block.
 :::
 
 :::warning
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. 
+This is a warning block.
 :::
 
 :::danger
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
+This is a danger block.
 :::
 
 <BottomSpacer/>
 
+---
 
-## Main2
- <FeatureShowcase>
-  <FeatureCard
-    number="01"
-    title="Gif Processing"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
-  <FeatureCard
-    number="02"
-    title="Video Analysis"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
-  <FeatureCard
-    number="03"
-    title="Image Tagging"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
-  <FeatureCard
-    number="04"
-    title="Data Export"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
+## 2. Core Features
+
+### 2.1 Feature Cards
+
+<FeatureShowcase>
+  <FeatureCard number="01" title="Gif Processing" description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus." />
+  <FeatureCard number="02" title="Video Analysis" description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus." />
+  <FeatureCard number="03" title="Image Tagging" description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus." />
+  <FeatureCard number="04" title="Data Export" description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus." />
 </FeatureShowcase>
+
 <BottomSpacer/>
 
-  <CheckListItem>
-  Filters allow you to customize the data displayed in a list within a Component. You can filter the list based on your specific criteria, allowing for a more customized.
+### 2.2 Checklist Items
+
+<CheckListItem>
+  Filters allow you to customize the data displayed in a list within a Component.
 </CheckListItem>
 
 <CheckListItem>
-  Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK. Make sure you understand the different builder types.
+  Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK.
 </CheckListItem>
+
 <BottomSpacer/>
+
+### 2.3 Media & Lightbox
 
 <ImageLightbox
   src={ReactUIKitImg}
   alt="A very cool image"
   thumbnailWidth="400px"
 />
+
 <BottomSpacer/>
 
+---
 
+## 3. API Utilities
+
+### 3.1 Request Builder Methods
 
 <MuiStyledTable
   headers={['Methods', 'Type', 'Description']}
   rows={[
-  ['setLimit', 'number', 'sets the number users that can be fetched in a single request, suitable for pagination'],
-  ['setSearchKeyword', 'String', 'used for fetching users matching the passed string'],
-  ['hideBlockedUsers', 'boolean', 'used for fetching all those users who are not blocked by the logged in user'],
-  ['friendsOnly', 'boolean', 'used for fetching only those users in which logged in user is a member'],
-  ['setRoles', `List<Sting>`, 'used for fetching users containing the passed tags'],
-  ['setTags',` List<String>`, 'used for fetching users containing the passed tags'],
-  ['withTags', 'boolean', 'used for fetching users containing tags'],
-  ['setStatus', 'String', 'used for fetching users by their status online or offline'],
-  ['setUIDs',` List`, 'used for fetching users containing the passed users'],
-]}
+    ['setLimit', 'number', 'sets the number users that can be fetched in a single request'],
+    ['setSearchKeyword', 'String', 'fetching users matching the passed string'],
+    ['hideBlockedUsers', 'boolean', 'fetching users not blocked by the logged in user'],
+    ['friendsOnly', 'boolean', 'fetching only friends of logged in user'],
+    ['setRoles', 'List<Sting>', 'fetching users containing the passed roles'],
+    ['setTags', 'List<String>', 'fetching users containing the passed tags'],
+    ['withTags', 'boolean', 'fetching users containing tags'],
+    ['setStatus', 'String', 'fetching users by status (online/offline)'],
+    ['setUIDs', 'List', 'fetching users by specific UIDs'],
+  ]}
 />
 
 <BottomSpacer/>
 
-# Bullet Points
+---
 
-1.  Numbered List
-    *   Set up the environment
-    *   Write clean code
-    *   Use version control
-    *   Test & debug
-    *   Optimize performance
-    *   Deploy & monitor
+## 4. Code Examples
 
-2.  Roman Numerals
-    {/* Use an ordered list with a custom class */}
-    <ol className='listRomanUpper'>
-      <li className="text-body-1 font-regular">
-        Development Lifecycle
-        {/* Add the description paragraph inside the list item */}
-        <div className='listDescription'>
-          Plan, design, code, test, deploy
-        </div>
-      </li>
-      <li>
-        Best Practices
-        <p className='listDescription'>
-          Follow standards, write modular code, handle errors
-        </p>
-      </li>
-      <li>
-        DevOps
-        <p className='listDescription'>
-          CI/CD, automation, security
-        </p>
-      </li>
-    </ol>
-<BottomSpacer/>
+### 4.1 Tabbed Code Demo
 
 <TabbedCodeBlock
   codes={[
@@ -199,5 +174,47 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 
 <BottomSpacer/>
 
-<AdditionalResources/>
+---
 
+## 5. Lists
+
+### 5.1 Bullet & Numbered
+
+1. Numbered List
+   * Set up the environment
+   * Write clean code
+   * Use version control
+   * Test & debug
+   * Optimize performance
+   * Deploy & monitor
+
+### 5.2 Roman Numerals
+
+<ol className='listRomanUpper'>
+  <li>
+    Development Lifecycle
+    <div className='listDescription'>
+      Plan, design, code, test, deploy
+    </div>
+  </li>
+  <li>
+    Best Practices
+    <p className='listDescription'>
+      Follow standards, write modular code, handle errors
+    </p>
+  </li>
+  <li>
+    DevOps
+    <p className='listDescription'>
+      CI/CD, automation, security
+    </p>
+  </li>
+</ol>
+
+<BottomSpacer/>
+
+---
+
+## 6. Additional Resources
+
+<AdditionalResources/>

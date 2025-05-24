@@ -1,94 +1,642 @@
+/* === FONT IMPORT === */
+/* Import Inter font - Adjust path if hosting locally or use Google Fonts import */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"); /* Added 700 for Bold */
 
-/* UI Kit tokens */
-body {
-  --my-website-colors-video-bg: 50 50 50;
-}
-
+/* === BASE LAYER STYLES === */
+/* @layer base { */
+/* --- Light Theme Variables (Default) --- */
 :root {
-  overflow-x: hidden;
+  --primary: #6852d6;
+  --extended-primary-50: #f9f8fd;
+  --extended-primary-100: #edeafa;
+  --extended-primary-200: #dcd7f6;
+  --extended-primary-300: #ccc4f1;
+  --extended-primary-400: #bbb1ed;
+  --extended-primary-500: #aa9ee8;
+  --extended-primary-600: #9a8be4;
+  --extended-primary-700: #8978df;
+  --extended-primary-800: #7965db;
+  --extended-primary-900: #5d49be;
+
+  --neutral-50: #ffffff;
+  --neutral-100: #fafafa;
+  --neutral-200: #f5f5f5;
+  --neutral-300: #e8e8e8;
+  --neutral-400: #dcdcdc;
+  --neutral-500: #a1a1a1;
+  --neutral-600: #727272;
+  --neutral-700: #5b5b5b;
+  --neutral-800: #434343;
+  --neutral-900: #141414;
+
+  --alert-info: #0b7bea;
+  --alert-warning: #ffab00;
+  --alert-success: #09c26f;
+  --alert-error: #f44649;
+
+  --static-black: #141414;
+  --static-white: #ffffff;
+
+  --background-01: #ffffff;
+  --background-02: #fafafa;
+  --background-03: #f5f5f5;
+  --background-04: #e8e8e8;
+
+  --border-light: #f5f5f5;
+  --border-default: #e8e8e8; /* Corrected spelling */
+  --border-dark: #dcdcdc;
+  --border-highlight: #6852d6;
+
+  --text-primary: #141414;
+  --text-secondary: #727272;
+  --text-tertiary: #a1a1a1;
+  --text-disabled: #dcdcdc;
+  --text-white: #ffffff;
+  --text-highlight: #6852d6;
+
+  --icon-primary: #141414;
+  --icon-secondary: #a1a1a1;
+  --icon-tertiary: #dcdcdc;
+  --icon-white: #ffffff;
+  --icon-highlight: #6852d6;
+
+  --primary-btn-bg-sp: #6852d6;
+  --primary-btn-icon-sw: #ffffff;
+  --primary-btn-text-sw: #ffffff;
+  --secondary-btn-bg: #141414;
+  --secondary-btn-icon: #141414;
+  --secondary-btn-txt: #141414;
+  --link-btn: #0b7bea;
+  --fab-btn-bg-sp: #6852d6;
+  --fab-btn-icon-sw: #ffffff;
+
+  --btn-white-hover: #fafafa;
+  --btn-white-pressed: #e8e8e8; /* Corrected spelling */
+
+  --font-family-inter: "Inter", sans-serif;
 }
-/* my-website Docs Tokens */
-:root {
 
-  --ifm-font-family-base: 'Inter', sans-serif;
-
-  --docs-color-primary: #6851d6;
-  /* --docs-color-primary-100: #1a90ff; */
-  --docs-color-primary-tint: rgba(127, 17, 224, 0.16);
-  --docs-color-primary-tint-light: rgba(33 96 253/0.24);
-  --docs-color-border: #dadde1;
-
-  --docs-color-text: #000000;
-  --docs-color-text-100: #000000;
-
-  --docs-color-background: #0b0a15;
-  --docs-color-background-100: #f8f8f8;
-  --docs-color-background-200: #efefef;
-  --docs-color-background-300: #dcdcdc;
-  --docs-color-background-400: #c8c8c8;
-  --docs-color-background-500: #b0b0b0;
-  --docs-color-background-600: #969696; /* Darker Grey */
-  --docs-color-background-700: #7c7c7c; /* Even Darker Grey */
-
-  /* Color from prism themes */
-  /*
-  --docs-color-code-background: #f6f8fa;
-  */
-  --docs-color-android: #44db85;
-  --docs-color-apple: var(--docs-color-text) !important;
-}
-
+/* --- Dark Theme Variables --- */
 [data-theme="dark"] {
-  --docs-color-border: #2e2e2e;
+  --primary: #6852d6;
+  --extended-primary-50: #15102b;
+  --extended-primary-100: #1d173c;
+  --extended-primary-200: #251e4d;
+  --extended-primary-300: #2e245e;
+  --extended-primary-400: #362b6f;
+  --extended-primary-500: #3e3180;
+  --extended-primary-600: #473892;
+  --extended-primary-700: #4f3ea3;
+  --extended-primary-800: #5745b4;
+  --extended-primary-900: #7460d9;
 
-  --docs-color-text: #ffffff;
-  --docs-color-text-100: #b4b4b4;
+  --neutral-50: #141414;
+  --neutral-100: #1a1a1a;
+  --neutral-200: #272727;
+  --neutral-300: #383838;
+  --neutral-400: #4c4c4c;
+  --neutral-500: #858585;
+  --neutral-600: #989898;
+  --neutral-700: #a8a8a8;
+  --neutral-800: #c8c8c8;
+  --neutral-900: #ffffff;
 
-  --docs-color-background: #161616;
-  --docs-color-background-100: #1c1c1c;
-  --docs-color-background-200: #2a2a2a;
-  --docs-color-background-300: #2e2e2e;
-  --docs-color-background-400: #2c2c2c;
-  --docs-color-background-500: #1a1a1a;
-  --docs-color-background-600: #101010; /* Very Dark Grey (almost black) */
-  --docs-color-background-700: #0a0a0a;
+  --alert-info: #0d66bf;
+  --alert-warning: #d08d04;
+  --alert-success: #0b9f5d;
+  --alert-error: #c73c3e;
+
+  --static-black: #141414;
+  --static-white: #ffffff;
+
+  --background-01: #141414;
+  --background-02: #1a1a1a;
+  --background-03: #272727;
+  --background-04: #383838;
+
+  --border-light: #272727;
+  --border-default: #383838; /* Corrected spelling */
+  --border-dark: #4c4c4c;
+  --border-highlight: #6852d6; /* Consider lighter highlight like --extended-primary-900 */
+
+  --text-primary: #ffffff;
+  --text-secondary: #989898;
+  --text-tertiary: #858585;
+  --text-disabled: #4c4c4c;
+  --text-white: #141414;
+  --text-highlight: #7460d9; /* Using lighter extended primary */
+
+  --icon-primary: #ffffff;
+  --icon-secondary: #858585;
+  --icon-tertiary: #4c4c4c;
+  --icon-white: #141414;
+  --icon-highlight: #7460d9; /* Using lighter extended primary */
+
+  --primary-btn-bg-sp: #6852d6;
+  --primary-btn-icon-sw: #ffffff;
+  --primary-btn-text-sw: #ffffff;
+  --secondary-btn-bg: #ffffff;
+  --secondary-btn-icon: #ffffff;
+  --secondary-btn-txt: #ffffff;
+  --link-btn: #0d66bf; /* Consider lighter blue */
+  --fab-btn-bg-sp: #6852d6;
+  --fab-btn-icon-sw: #ffffff;
+
+  --btn-white-hover: #1a1a1a;
+  --btn-white-pressed: #383838; /* Corrected spelling */
+  --font-family-inter: "Inter", sans-serif;
+}
+
+/* --- Base Body Styles --- */
+body {
+  font-family: "Inter", sans-serif !important;
+  background-color: var(--background-01);
+  color: var(--text-primary);
+  /* Add smooth transitions for color changes */
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  -webkit-font-smoothing: antialiased; /* Improve font rendering */
+  -moz-osx-font-smoothing: grayscale; /* Improve font rendering */
+}
+
+/* Font Weights */
+.font-regular {
+  font-weight: 400;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+} /* Added Bold based on spec table */
+
+/* Title Styles */
+.text-title-32 {
+  font-size: 32px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+.text-title-28 {
+  font-size: 28px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Heading 1 Styles */
+.text-h1 {
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Heading 2 Styles */
+.text-h2 {
+  font-size: 20px;
+  line-height: 120%;
+  letter-spacing: 0%;
+}
+.text-h2-loose {
+  font-size: 20px;
+  line-height: 135%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Heading 3 Styles */
+.text-h3 {
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+.text-h3-loose {
+  font-size: 18px;
+  line-height: 135%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Heading 4 Styles */
+.text-h4 {
+  font-size: 16px;
+  line-height: 120%;
+  font-family: var(--font-family-inter);
+}
+
+/* Body 1 Styles */
+.text-body-1 {
+  font-size: 15px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Body 2 Styles */
+.text-body-2 {
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Underline Body Styles (Size/Line Height same as Body 2) */
+.text-underline-body {
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  text-decoration: underline;
+  font-family: var(--font-family-inter);
+}
+
+/* Italic Body Styles (Size/Line Height same as Body 2) */
+.text-italic-body {
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-style: italic;
+  font-family: var(--font-family-inter);
+}
+
+/* Caption 1 Styles */
+.text-caption-1 {
+  font-size: 13px;
+  line-height: 150%;
+  font-family: var(--font-family-inter);
+  /* letter-spacing: 0%; */
+}
+
+/* Caption 2 Styles */
+.text-caption-2 {
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Footnote Styles */
+.text-footnote {
+  font-size: 10px;
+  line-height: 120%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+
+/* Link Styles (Using Body 2 / 14px as a common base, adjust if needed) */
+.text-link {
+  font-size: 14px; /* Default link size */
+  line-height: 150%;
+  letter-spacing: 0%;
+  color: var(--link-btn); /* Use link color variable */
+  text-decoration: none; /* Or underline */
+  cursor: pointer;
+  font-family: var(--font-family-inter);
+}
+.text-link:hover {
+  text-decoration: underline;
+  font-family: var(--font-family-inter);
+}
+
+/* Code Styles */
+.text-code {
+  font-family: monospace; /* Typically use monospace for code */
+  font-size: 13px;
+  line-height: 140%;
+  letter-spacing: 0%;
+  background-color: var(--background-03); /* Example styling */
+  padding: 0.1em 0.3em;
+  border-radius: 4px;
+  color: var(--text-secondary); /* Adjust color as needed */
+  font-family: var(--font-family-inter);
+}
+
+/* Button Text Styles (Using 14px as a common size, spec had multiple) */
+.text-button {
+  font-size: 14px; /* Common button text size */
+  line-height: 120%; /* Tighter line height for buttons */
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+}
+/* } */
+
+/* src/css/custom.css */
+
+/* --- Make sure this initial selector MATCHES your HTML --- */
+.theme-doc-toc-desktop .table-of-contents__link {
+  display: block;
+  color: #374151; /* Default link color */
+  text-decoration: none;
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+  padding: 0.25rem 0 0.25rem 1rem; /* Indentation */
+  border-left: 2px solid transparent; /* Reserve space for active border */
+  transition: color 0.2s ease, border-color 0.2s ease;
+  border-radius: 0 4px 4px 0; /* Slightly rounded corners on the right */
+  background-color: transparent;
+}
+
+.theme-doc-toc-desktop .table-of-contents__link:hover {
+  color: #4f46e5; /* Hover color - Or use var(--ifm-color-primary) */
+}
+
+/* --- Also check if this active class appears when scrolling --- */
+.theme-doc-toc-desktop .table-of-contents__link--active {
+  color: #8b5cf6; /* Active purple color */
+  font-weight: 500;
+  border-left-color: #8b5cf6; /* Active purple border */
+}
+
+/* Style nested links (indentation) */
+.theme-doc-toc-desktop .toc-item .toc-item .table-of-contents__link {
+  /* Level 2 */
+  padding-left: 2rem;
+}
+.theme-doc-toc-desktop .toc-item .toc-item .toc-item .table-of-contents__link {
+  /* Level 3 */
+  padding-left: 3rem;
+}
+
+/* Style the "On this page" title - Adjust selector if needed */
+.theme-doc-toc-desktop .table-of-contents__title,
+.theme-doc-toc-desktop h2,
+.theme-doc-toc-desktop h3 {
+  color: #6b7280;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  padding-left: 0.5rem; /* Optional alignment */
+}
+
+/* Remove default list styling */
+.theme-doc-toc-desktop .table-of-contents {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+.theme-doc-toc-desktop .toc-item {
+  margin: 0 0 0.25rem 0;
+  padding: 0;
+}
+
+/* === MARKDOWN CONTENT STYLING & SPACING === */
+/* Apply your defined typography and add specific spacing */
 
 
-  --docs-color-code-background: #1e1e1e;
+/* Target tables specifically within the main content area */
+
+/* --- End of refinement --- */
+
+main article {
+  padding: 2rem 3.5rem;
+  box-sizing: border-box;
+}
+
+
+.markdown article h1 {
+  font-family: var(--font-family-inter) !important;
+  font-size: 32px;
+  font-weight: 600;
+}
+
+.markdown h2 {
+  font-family: var(--font-family-inter) !important;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.markdown p{
+  font-family: var(--font-family-inter);
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.hash-link{
+  color: var(--primary)!important;
+}
+
+.hash-link:focus, *:hover > .hash-link{
+  color: var(--primary)!important;
+}
+
+
+/* Remove bottom border rule is no longer needed in this setup */
+/*
+main table tbody tr:last-child td,
+.markdown table tbody tr:last-child td {
+  border-bottom: none;
+}
+*/
+
+/* Style code elements within the table */
+main table code,
+.markdown table code {
+  background-color: var(--ifm-code-background, #f2f2f2);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  color: var(--ifm-code-color);
+}
+
+/* listStyles.module.css */
+ol ul li {
+  list-style-type: disc; /* Use a filled circle */
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 150%;
+  letter-spacing: 0%;
+  font-family: var(--font-family-inter);
+  font-weight: 400;
+}
+.listDescription {
+  /* Explicitly set margin-top to 0, overriding browser defaults */
+  margin-top: 0 !important; /* Try adding !important as a test if needed */
+
+  /* Keep your other styles */
+  margin-left: 0;
+  padding-left: 0;
+  color: var(--text-secondary);
+}
+
+/* Keep the rest of your styles */
+.listRomanUpper {
+  list-style-type: upper-roman;
+  margin-top: 0.1rem;
+  padding-left: 2.5rem;
   
 }
 
-/* Docusaurus Theming */
-
-:root {
-  /* Default values */
-
-  --ifm-spacing-horizontal: 1.5rem;
-  --ifm-navbar-padding-horizontal: 0.75rem;
-
-  --ifm-font-family-base: "Inter", system-ui, -apple-system, Segoe UI, Roboto,
-    Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI",
-    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol";
-
-  --ifm-font-family-monospace: "Fira Code", SFMono-Regular, Menlo, Monaco,
-    Consolas, "Liberation Mono", "Courier New", monospace;
-
-  /* Theme colors */
-  --ifm-color-primary: #6851d6;
-  --ifm-color-primary-dark: #6851d6;
-  --ifm-color-primary-darker: #6851d6;
-  --ifm-color-primary-darkest: #6851d6;
-  --ifm-color-primary-light: #6851d6;
-  --ifm-color-primary-lighter: #6851d6;
-  --ifm-color-primary-lightest: #6851d6;
-
-  --ifm-navbar-shadow: none;
-  --ifm-toc-border-color: #dedede;
-
-  --ifm-table-border-color: var(--docs-color-border);
-  --code-border-color: var(--docs-color-border);
-
-  --ifm-code-font-size: 92%;
-  --docusaurus-highlighted-code-line-bg: rgba(147, 178, 244, 0.38);
+.markdown li > p {
+  color: var(--text-primary);
+  font-weight: 600;
+  font-size: 15px;
+  font-family: var(--font-family-inter);
 }
+
+.markdown ul.listRomanUpper > li > p,
+.markdown ol.listRomanUpper > li > p{
+  color: var(--text-secondary)!important;
+  font-weight: 600;
+  font-size: 15px;
+  font-family: var(--font-family-inter);
+}
+
+.listRomanUpper li {
+  margin-bottom: 1rem;
+  line-height: 0.5; 
+  color:var(--text-secondary)
+}
+.main-wrapper {
+  background-color: var(
+    --background-01
+  ) !important; /* Ensure it overrides defaults */
+  
+}
+main[class*='docPage_'], /* Target main element with class containing 'docPage_' */
+div[class*='docItemContainer_'] /* Target div with class containing 'docItemContainer_' */ {
+  background-color: var(
+    --background-01
+  ) !important; /* Ensure it overrides defaults */
+  
+}
+html {
+  background-color: var(--background-01);
+}
+
+@media (max-width: 997px) {
+  main article {
+  padding: 0.5rem;
+}
+.listDescription{
+  line-height: 1;
+}
+
+.listRomanUpper li {
+  margin-bottom: 2rem;
+  line-height: 0.3; 
+  color:var(--text-secondary)
+}
+}
+
+@media (min-width: 997px) {
+  /*
+   * Use the EXACT hashed class name you see in Dev Tools.
+   * WARNING: This hash (_njMd) might change in future builds/updates!
+   * If spacing breaks later, inspect element again to find the new class name.
+   */
+  .sidebar_njMd {
+    /* <<< USE THE CLASS NAME FROM YOUR DEV TOOLS */
+    /* Override the theme's default top padding */
+    padding-top: 0px !important;
+    width: 100%;
+    align-items: center !important;
+    /* flex-shrink: 0; */
+  }
+}
+.theme-doc-sidebar-container {
+  width: 260px;
+}
+
+.alert{
+  box-shadow: none!important;
+}
+.alert--secondary {
+  --ifm-alert-background-color: var(--background-03);
+}
+.alert--secondary p {
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+html[data-theme='dark'] .alert--secondary p{
+  color: var(--static-white);
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+.alert--info {
+  --ifm-alert-background-color: #e8f3ff;
+}
+.alert--info p {
+  color: #094f90;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+html[data-theme='dark'] .alert--info {
+  --ifm-alert-background-color: #1C2B50;
+}
+
+html[data-theme='dark'] .alert--info p{
+  color: #A8BEFF;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+
+.alert--success {
+  --ifm-alert-background-color: #e9f6e9;
+}
+.alert--success p {
+  color: #006514;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+
+html[data-theme='dark']  .alert--success {
+  --ifm-alert-background-color: #1B2A20;
+}
+html[data-theme='dark']  .alert--success p {
+  color: #73D586;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+.alert--warning {
+  --ifm-alert-background-color: #fff7c2;
+}
+.alert--warning p {
+  color: #ab6400;
+}
+
+html[data-theme='dark']  .alert--warning {
+  --ifm-alert-background-color: #302010;
+}
+html[data-theme='dark']  .alert--warning p {
+  color: #FFCA16;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+.alert--danger {
+  --ifm-alert-background-color: #FEEBE7;
+}
+.alert--danger p {
+  color: #CD2200;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
+html[data-theme='dark']  .alert--danger {
+  --ifm-alert-background-color: #391716;
+}
+html[data-theme='dark']  .alert--danger p {
+  color: #FF977D;
+  font-size: 14px;
+  font-weight: 400;
+  font-family:  var(--font-family-inter);
+}
+
