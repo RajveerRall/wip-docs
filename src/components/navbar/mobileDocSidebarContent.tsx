@@ -110,7 +110,7 @@ const MobileDocSidebarContent = ({ currentPathname, onClose }) => {
               activePath={currentPathname}
               onItemClick={(item) => {
                 // Close the drawer when a link or category with an href is clicked
-                if (((item.type === 'category' && item.href) || item.type === 'link') && onClose) {
+                if (onClose) {
                   onClose();
                 }
               }}

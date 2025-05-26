@@ -1,6 +1,6 @@
 /* --- Section Container --- */
 .gridSection {
-  margin-bottom: 4rem; /* Equivalent to mb-12 */
+  margin-bottom: 64px; /* Equivalent to mb-12 */
 }
 
 /* --- Section Title --- */

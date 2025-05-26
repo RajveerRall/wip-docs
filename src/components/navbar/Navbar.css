@@ -2,7 +2,7 @@
 /* Navbar Core Structure & Layout         */
 /* ======================================== */
 
-.navbar{
+.navbar {
   box-shadow: none;
 }
 
@@ -14,10 +14,10 @@
   height: 70px !important;
   z-index: 1000; /* Ensure navbar is above most content */
   padding: "10px";
-  background-color: var(--background-01); 
+  background-color: var(--background-01);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
   width: 100dvw;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .navbar-content {
@@ -78,11 +78,11 @@ html[data-theme="dark"] .logo-dark {
   align-items: center;
   background: none;
   border: none;
-  color: var( --text-secondary);
+  color: var(--text-secondary);
   transition: color 0.2s;
   padding: 8px;
   min-width: 89px;
-  height:32px;
+  height: 32px;
   cursor: pointer;
 }
 
@@ -95,7 +95,7 @@ html[data-theme="dark"] .logo-dark {
 .dropdown-button.active {
   text-decoration: none;
   border-radius: 8px;
-  color: var(--text-primary); 
+  color: var(--text-primary);
   background-color: var(--background-03);
 }
 
@@ -109,7 +109,6 @@ html[data-theme="dark"] .logo-dark {
   z-index: 99999 !important;
 }
 
-
 /* Backdrop for closing dropdowns */
 .dropdown-backdrop {
   position: fixed;
@@ -122,8 +121,8 @@ html[data-theme="dark"] .logo-dark {
   opacity: 0.24;
 }
 
-html[data-theme="dark"] .dropdown-backdrop{
-    background-color: transparent!important;
+html[data-theme="dark"] .dropdown-backdrop {
+  background-color: transparent !important;
 }
 
 /* ======================================== */
@@ -135,7 +134,7 @@ html[data-theme="dark"] .dropdown-backdrop{
   background-color: var(--background-02);
   max-width: calc(100vw - 40px);
   width: max-content;
-  margin: 0; 
+  margin: 0;
   border-radius: 8px;
   display: flex;
   box-shadow: var(--ifm-global-shadow-lg);
@@ -152,7 +151,6 @@ html[data-theme="dark"] .dropdown-backdrop{
   padding: 1rem 20px; /* 1rem top/bottom, 20px left/right */
   flex-shrink: 0;
 }
-
 
 /* Headings */
 .menu-heading {
@@ -181,7 +179,6 @@ html[data-theme="dark"] .dropdown-backdrop{
 .item-container:hover {
   background-color: var(--border-default);
 }
-
 
 /* Platform Item Layout (with description) */
 .item-container-platform {
@@ -248,9 +245,8 @@ html[data-theme="dark"] .item-container-desc {
 .vertical-line,
 .horizontal-line {
   background-color: var(--border-default);
-  flex-shrink: 0; 
+  flex-shrink: 0;
 }
-
 
 .vertical-line {
   width: 0.8px;
@@ -272,7 +268,6 @@ html[data-theme="dark"] .item-container-desc {
   text-decoration: none;
 }
 
-
 /* ======================================== */
 /* Algolia DocSearch Styling              */
 /* ======================================== */
@@ -285,11 +280,10 @@ html[data-theme="dark"] .item-container-desc {
 }
 
 @media (max-width: 996px) {
-    .DocSearch-Modal {
-        margin-top: 60px;
-    }
+  .DocSearch-Modal {
+    margin-top: 60px;
+  }
 }
-
 
 /* ======================================== */
 /* End Algolia DocSearch Styling          */
@@ -336,7 +330,7 @@ html[data-theme="dark"] .item-container-desc {
   color: var(--neutral-50);
   transition: background-color 0.2s, border-color 0.2s;
   text-decoration: none;
-  white-space: nowrap; 
+  white-space: nowrap;
   cursor: pointer;
 }
 .contact-button:hover {
@@ -355,13 +349,13 @@ html[data-theme="dark"] .item-container-desc {
   width: var(--toggle-width); /* Set the width of your "box" */
   height: var(--toggle-height); /* Set the height of your "box" */
   border-radius: var(--toggle-border-radius); /* Rounded corners */
-  background-color: var(--neutral-200)!important; /* Toggle background color */
+  background-color: var(--neutral-200) !important; /* Toggle background color */
   padding: var(--toggle-padding);
   cursor: pointer;
   transition: background-color 0.3s ease;
 
   /* Set variables for toggle appearance */
-  --toggle-width: 70px; 
+  --toggle-width: 70px;
   --toggle-height: 35px;
   --toggle-border-radius: 50px; /* Make it pill-shaped */
   --toggle-padding: 5px; /* Space from edge */
@@ -369,7 +363,7 @@ html[data-theme="dark"] .item-container-desc {
   --icon-size: 15px;
 }
 
-html[data-theme='dark'] .theme-toggle{
+html[data-theme="dark"] .theme-toggle {
   background-color: var(---neutral-100);
 }
 /* --- Static Icons --- */
@@ -386,7 +380,7 @@ html[data-theme='dark'] .theme-toggle{
   z-index: 2; /* Ensure icons are above the sliding circle */
   transition: color 0.3s ease;
   /* Default INACTIVE icon color */
-  color: var( --neutral-800);
+  color: var(--neutral-800);
   cursor: pointer; /* Make icons clickable */
 }
 
@@ -398,7 +392,7 @@ html[data-theme='dark'] .theme-toggle{
 
 /* Icon Positioning */
 .sun-icon {
-  left:0.6rem; /* Space from left edge */
+  left: 0.6rem; /* Space from left edge */
 }
 
 .moon-icon {
@@ -415,7 +409,7 @@ html[data-theme='dark'] .theme-toggle{
   border-radius: 50%;
   background-color: var(--background-01);
   box-shadow: var(--ifm-global-shadow-xs);
-  z-index: 1; 
+  z-index: 1;
   transition: transform 0.3s ease;
   pointer-events: none;
 }
@@ -441,8 +435,6 @@ html[data-theme='dark'] .theme-toggle{
   color: var(--neutral-500); /* Gray color for inactive */
 }
 
-
-
 /* --- Toggle States (Circle Movement based on class) --- */
 
 /* Circle on the LEFT (when .left class is present) */
@@ -452,7 +444,9 @@ html[data-theme='dark'] .theme-toggle{
 
 /* Circle on the RIGHT (when .right class is present) */
 .theme-toggle .toggle-circle.right {
-  transform: translateX(calc(var(--toggle-width) - var(--circle-size) - (2 * var(--toggle-padding))));
+  transform: translateX(
+    calc(var(--toggle-width) - var(--circle-size) - (2 * var(--toggle-padding)))
+  );
 }
 /* ======================================== */
 /* General Layout & Docusaurus Fixes      */
@@ -513,8 +507,11 @@ html[data-theme='dark'] .theme-toggle{
     font-weight: 500;
   }
 
-
   @media (max-width: 996px) {
+    .navbar {
+      box-shadow: none;
+      height: auto;
+    }
     .DocSearch-Button {
       /* Increase button size to comfortably fit a larger icon */
       width: 17px !important; /* e.g., matches h-9/w-9 */

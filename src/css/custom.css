@@ -78,7 +78,7 @@
 
 /* --- Dark Theme Variables --- */
 [data-theme="dark"] {
-  --primary: #6852d6;
+  --primary: #8C78F0 ;
   --extended-primary-50: #15102b;
   --extended-primary-100: #1d173c;
   --extended-primary-200: #251e4d;

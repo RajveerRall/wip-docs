@@ -30,6 +30,7 @@ export default function MobileNavbar() {
   const { colorMode } = useColorMode();
   const location = useLocation();
   const { pathname } = location;
+  const isDisplayFiMenu = pathname.split("/wip-docs/").filter(e=>e!='').length>0?true:false
 
   const lightLogoUrl = useBaseUrl("/imgs/lightlogo.svg");
   const darkLogoUrl = useBaseUrl("/imgs/logo.svg");
@@ -73,7 +74,7 @@ export default function MobileNavbar() {
           <div style={{ display: "flex", flexDirection: "row" }}>
             {/* Show the menu trigger ONLY if an active docs plugin and a sidebar are found */}
             {/* {activeDocsPluginId && currentSidebar && ( */}
-              {isDocsPage && !isDisplayDocSidebar && (
+              {isDisplayFiMenu && isDocsPage && !isDisplayDocSidebar && !isDisplayMobileMenu && (
               <button
                 className={styles.docsMenuTriggerButton}
                 onClick={()=>setIsDisplayDocSidebar(true)}
@@ -148,7 +149,9 @@ export default function MobileNavbar() {
           direction='right'
           size={'100vw'}
         >
-          <MobileDocSidebarContent/>
+          <MobileDocSidebarContent
+            onClose={()=>setIsDisplayDocSidebar(false)}
+          />
           
           </Drawer>
       )}

@@ -1,6 +1,6 @@
 /* --- Section Container --- */
 .sectionContainer {
-  margin-bottom: 4rem; /* mb-12 */
+  margin-bottom: 64px; /* mb-12 */
   width: 100%; /* w-full */
   padding-left: 1rem; /* px-4 */
   padding-right: 1rem; /* px-4 */
@@ -39,7 +39,7 @@
   justify-content: center; /* justify-center */
   white-space: nowrap; /* whitespace-nowrap */
   border-radius: 8px;
-  border: 1px solid var(--border-dark); /* border border-[...] */
+  border: 1px solid var(--border-default); /* border border-[...] */
   padding: 0.275rem 1.6rem; /* py-1.5 px-4 */
   text-decoration: none; /* no-underline */
   background-color: transparent; /* bg-transparent */
@@ -62,7 +62,7 @@
 
 /* --- Apps Grid Container --- */
 .appsGridContainer {
-  margin-bottom: 4rem; /* mb-10 */
+  margin-bottom: 64px; /* mb-10 */
   display: flex; /* flex */
   width: 100%; /* w-full */
   flex-direction: column; /* flex-col */

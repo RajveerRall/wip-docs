@@ -4,7 +4,7 @@
     flex-direction: column;
     height: 100%; /* Fill the drawer */
     overflow: hidden;
-    background-color: var(--ifm-background-surface-color); /* Or your desired drawer background */
+    background-color: var(--background-01); /* Or your desired drawer background */
   }
   
   .mobileDocSidebarTopSection {
