@@ -2,7 +2,7 @@
 .mobileDocSidebarLayoutWrapper {
     display: flex;
     flex-direction: column;
-    height: 100%; /* Fill the drawer */
+    height: 100dvh; /* Fill the drawer */
     overflow: hidden;
     background-color: var(--background-01); /* Or your desired drawer background */
   }
