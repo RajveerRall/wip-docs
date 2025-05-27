@@ -169,7 +169,10 @@ function WebNavbar(): React.ReactNode {
         {/* Action Buttons */}
         <div className="navbar-actions">
           <button className={`dashboard-button text-button font-medium`}>Dashboard</button>
-          <button className={`contact-button text-button font-medium`}>Contact Support</button>
+          {/* <button className={`contact-button text-button font-medium`}>Contact Support</button> */}
+           <button className={`contact-button text-button font-medium`}>
+           <span className="contact-button-text">Contact Support</span>
+         </button>
           <ThemeToggle />
         </div>
       </div>

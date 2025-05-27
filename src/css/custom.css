@@ -391,7 +391,8 @@ body {
 /* --- End of refinement --- */
 
 main article {
-  padding: 2rem 3.5rem;
+  /* padding: 2rem 3.5rem; */
+  padding: 10px 40px;
   box-sizing: border-box;
 }
 

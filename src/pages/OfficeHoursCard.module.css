@@ -16,7 +16,6 @@
   .contentArea {
     display: flex;
     flex-direction: column;
-    gap: 16px; /* Space between title, description, and button */
     flex-shrink: 1; /* Allow content to shrink if needed */
     /* Limit width to prevent text getting too wide */
     max-width: 65%; 
@@ -26,12 +25,14 @@
     color: var(--text-primary);
     margin: 0; /* Remove default heading margin */
     line-height: 120%;
+    margin-bottom: 12px;
   }
   
   .description {
     /* Use body text styles from your theme if available */
     color: var(--text-secondary);
     margin: 0;
+    margin-bottom: 28px;
   }
   
   .bookButton {
@@ -65,8 +66,7 @@
     /* text-align: center; /* Not needed with justify-content: center */
   }
   .bookButton:hover {
-    opacity:0.75;
-  }
+background-color: var( --extended-primary-600);  }
   
   
   .iconContainer {

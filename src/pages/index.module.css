@@ -24,7 +24,7 @@
   display: flex;
   align-items: center;
   color: var(--ifm-color-emphasis-600); /* text-[--ifm-color-emphasis-600] */
-  margin-bottom: 64px; /* mb-6 */
+  margin-bottom: 32px; /* mb-6 */
   margin-top: 1.2rem;
   text-decoration: none;
   cursor:context-menu;

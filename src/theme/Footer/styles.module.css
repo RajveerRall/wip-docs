@@ -7,6 +7,10 @@
   border-top: 1px solid var(--border-light);
 }
 
+html[data-theme='dark'] .footer{
+  background-color: var(--background-02);
+}
+
 .container {
   display: flex;
   flex-direction: row;
@@ -47,7 +51,7 @@
 .socialLink:hover {
   opacity: 0.8;
   text-decoration: none;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--static-white);
 }
 
 .socialIcon {

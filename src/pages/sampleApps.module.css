@@ -47,6 +47,10 @@
   transition: background-color 200ms ease; /* transition-colors duration-200 */
 }
 
+html[data-theme='dark'] .viewAllButton{
+  border-color: var(--border-dark);
+}
+
 .viewAllButton:hover {
   background-color: var(--ifm-color-emphasis-100);
   text-decoration: none;

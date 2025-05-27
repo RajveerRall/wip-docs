@@ -1,0 +1,51 @@
+
+.heading {
+  position: relative;
+}
+
+.hashLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out, color 0.2s ease-in-out, border-color 0.2s ease-in-out;
+  text-decoration: none;
+  line-height: 1;
+  box-sizing: border-box;
+}
+
+.heading:hover .hashLink,
+.hashLink:focus {
+  opacity: 1;
+}
+
+.hashLinkLeft {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px; 
+  height: 24px; 
+  left: -28px;
+  border: 1px solid var(--border-default); 
+  border-radius: 3px; 
+}
+
+.linkIcon {
+  width: 12px;  
+  height: 12px;
+  color: var(--icon-secondary);
+}
+
+@media (max-width: 768px) {
+  .hashLinkLeft {
+    left: -26px;
+    width: 18px;
+    height: 18px;
+  }
+  .linkIcon {
+    width: 10px;
+    height: 10px;
+  }
+  
+}

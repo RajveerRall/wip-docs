@@ -104,7 +104,7 @@ html[data-theme="dark"] .logo-dark {
 .dropdown-content {
   position: absolute;
   top: calc(100% + 5px);
-  left: 8px;
+  /* left: 8px; */
   width: auto;
   min-width: 200px;
   z-index: 99999 !important;
@@ -348,13 +348,31 @@ html[data-theme="dark"] .item-container-desc {
   border-radius: 8px;
   background-color: var(--neutral-900);
   color: var(--neutral-50);
-  transition: background-color 0.2s, border-color 0.2s;
+  transition: background-color 0.2s ease-in-out, opacity 0.2s ease-in-out, transform 0.15s ease-out;
   text-decoration: none;
   white-space: nowrap;
   cursor: pointer;
+    outline: none; /* Good practice */
+
 }
 .contact-button:hover {
-  opacity: 0.7;
+  opacity: 0.85;
+}
+.contact-button-text {
+  display: inline-block; /* Allows transform to work correctly */
+  transition: transform 0.2s ease-out;
+}
+.contact-button:hover .contact-button-text {
+  transform: translateY(-2px); /* Moves text 2px up. Adjust as needed. */
+  /* For a "small" effect, you could also add scale: */
+  /* transform: translateY(-2px) scale(0.98); */
+}
+.contact-button:active {
+  opacity: 0.95; /* Slightly less transparent when pressed */
+  transform: scale(0.98);
+}
+.contact-button:active .contact-button-text {
+  transform: translateY(-1px); /* Optional: slightly less movement on active press */
 }
 
 .contact-button:hover .button-text {
