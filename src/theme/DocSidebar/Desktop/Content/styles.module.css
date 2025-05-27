@@ -26,7 +26,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 12px;
+  padding: 6px;
   border-radius: 4px;
   font-weight: 400;
   font-size: 13px;
@@ -36,15 +36,17 @@
   transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
+
+.bottomLink:hover {
+  color: var(--text-primary);
+}
+
 /* .bottomLink:hover {
   background-color: var(--ifm-menu-color-background-hover, var(--ifm-hover-overlay));
   color: var(--ifm-menu-color-hover, var(--ifm-font-color-base));
 } */
-
-.bottomLink svg { /* For external link icons like FiExternalLink */
-  width: 16px;
+.bottomLinkExternalIcon {
+  margin-left: auto;
+  width:16px;
   height: 16px;
-  color: var(--icon-secondary);
-  margin-left: 0.5rem;
-  flex-shrink: 0;
 }

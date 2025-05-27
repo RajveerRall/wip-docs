@@ -32,12 +32,11 @@
   text-transform: uppercase;
   position: sticky;
   top: 0;
-  padding-top: 1.5rem;
+  padding-top: 70px;
   padding-bottom: 0.5rem;
   background-color: var(--background-01); /* Match wrapper */
   z-index: 1;
   box-sizing: border-box;
-  padding-left: 6px;
 }
 
 :global(.theme-doc-toc-desktop div.table-of-contents) {
@@ -190,14 +189,13 @@
 }
 
 .bottomLink:hover {
-  color: var(--text-primary, #111827);
-  background-color: var(--ifm-hover-overlay, rgba(0, 0, 0, 0.04));
+  color: var(--text-primary);
 }
 
 .bottomLinkIcon,
 .bottomLinkExternalIcon {
-  width: 1em;
-  height: 1em;
+  width: 16px;
+  height: 16px;
   color: currentColor;
   flex-shrink: 0;
   opacity: 0.8;
@@ -209,8 +207,8 @@
 
 .bottomLinkExternalIcon {
   margin-left: auto;
-  width: 0.9em;
-  height: 0.9em;
+  width:16px;
+  height: 16px;
 }
 
 .bottomLink span {

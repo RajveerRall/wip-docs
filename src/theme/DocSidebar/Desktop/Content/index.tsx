@@ -63,19 +63,19 @@ export default function DocSidebarDesktopContent({path, sidebar, className}) {
           window.location.href = "/docs/react-kit/migration-guide"
         }} className={styles.bottomLink}>
           <span>Migration Guide</span>
-          <FiExternalLink />
+          <FiExternalLink className={styles.bottomLinkExternalIcon} />
         </div>
         <div onClick={()=>{
           window.location.href = "/docs/react-kit/migration-guide"
         }} className={styles.bottomLink}>
           <span>Change Log</span>
-          <FiExternalLink />
+          <FiExternalLink className={styles.bottomLinkExternalIcon} />
         </div>
         <div onClick={()=>{
           window.location.href = "/docs/react-kit/migration-guide"
         }} className={styles.bottomLink} rel="noopener noreferrer">
           <span>Figma Design</span>
-          <FiExternalLink />
+          <FiExternalLink  className={styles.bottomLinkExternalIcon}/>
         </div>
       </div>
     </nav>
