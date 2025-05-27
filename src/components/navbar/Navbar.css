@@ -23,7 +23,8 @@
 .navbar-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  position: relative;
+  /* justify-content: space-between; */
   height: 60px !important; /* Your desired navbar height */
   padding: 0 24px;
   width: 100dvw;
@@ -273,12 +274,31 @@ html[data-theme="dark"] .item-container-desc {
 /* ======================================== */
 
 .search-container {
-  flex: 1;
+  /* flex: 1; */
   display: flex;
   justify-content: center;
+    align-items: center;   /* To vertically center SearchBar component */
+
   padding: 0 40px;
+  border-color: var(--border-default);
+    position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+}
+.DocSearch-Button {
+  color: var(--text-tertiary)!important;
+}
+.DocSearch-Button-Placeholder{
+  color: var(--text-tertiary)!important;
 }
 
+.DocSearch-Button:active, .DocSearch-Button:focus, .DocSearch-Button:hover {
+  box-shadow: none!important;
+  background-color: var(--background-02);
+  color: var(--text-secondary)!important;
+}
 @media (max-width: 996px) {
   .DocSearch-Modal {
     margin-top: 60px;
