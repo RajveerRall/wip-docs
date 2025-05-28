@@ -11,8 +11,14 @@
 
 /* NEW class for padding the content of each section */
 .paddedSectionContent {
-    padding: 16px;
+    padding: 16px; /* The main padding for section content is now here */
+    border-bottom: 1px solid var(--border-default);
 }
+.paddedSectionContentLast {
+    padding: 16px; /* The main padding for section content is now here */
+    /* border-bottom: 1px solid var(--border-default); */
+}
+
 
 .sectionTitle {
     font-size: 13px!important;

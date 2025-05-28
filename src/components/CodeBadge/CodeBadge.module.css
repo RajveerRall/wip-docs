@@ -18,6 +18,12 @@
   /* line-height is less critical for centering when using flex align-items */
 }
 
+.codeBadge:hover{
+  background-color: var(--background-03);
+  color: var(--primary)!important;
+  cursor: pointer;
+}
+
 html[data-theme='dark'] .codeBadge{
   color: var(--text-primary);
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);

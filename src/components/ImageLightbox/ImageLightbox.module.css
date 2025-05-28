@@ -5,6 +5,7 @@
      Add margin here if you need to override or ensure specific spacing. */
   /* margin: 1em 0; */
   /* text-align: center; */ /* If you want images centered if they are block elements */
+  margin: 0;
 }
 
 /*
@@ -14,10 +15,12 @@
 */
 .clickableImageWrapper img {
   cursor: pointer;
-  /* Optional: subtle visual cue on hover, but Docusaurus theme might have one */
-  /* transition: opacity 0.2s ease-in-out; */
+  display: block; /* Removes extra space below if it's inline */
+  max-width: 100%; /* Image will not exceed the width of .clickableImageWrapper */
+  height: auto;    /* Maintain aspect ratio */
+  margin-left: auto; /* Optional: center if image is smaller than wrapper */
+  margin-right: auto;/* Optional: center if image is smaller than wrapper */
 }
-
 /* .clickableImageWrapper img:hover { */
   /* opacity: 0.85; */
 /* } */

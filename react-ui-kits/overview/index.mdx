@@ -138,9 +138,12 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
 <BottomSpacer/>
 
 
-
-<MuiStyledTable
-  headers={['Methods', 'Type', 'Description']}
+<MuiStyledTable 
+  columns={[
+  { label: 'Methods', width: '25%' },
+  { label: 'Type', width: '20%' },
+  { label: 'Description', width: '55%' }
+]} 
   rows={[
   ['setLimit', 'number', 'sets the number users that can be fetched in a single request, suitable for pagination'],
   ['setSearchKeyword', 'String', 'used for fetching users matching the passed string'],
@@ -151,8 +154,11 @@ Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla
   ['withTags', 'boolean', 'used for fetching users containing tags'],
   ['setStatus', 'String', 'used for fetching users by their status online or offline'],
   ['setUIDs',` List`, 'used for fetching users containing the passed users'],
-]}
+]} 
+  caption="API Methods"
+  tableAriaLabel="API methods reference table"
 />
+
 
 <BottomSpacer/>
 

@@ -233,7 +233,7 @@ const MobilePlatform: React.FC = () => {
         </div>
       </div>
 
-      <hr className={styles.divider} /> {/* Divider is a direct child */}
+      {/* <hr className={styles.divider} />  */}
 
       {/* --- Extend Section --- */}
       <div className={styles.paddedSectionContent}> {/* NEW WRAPPER for padding */}
@@ -270,10 +270,10 @@ const MobilePlatform: React.FC = () => {
         </div>
       </div>
 
-      <hr className={styles.divider} /> {/* Divider is a direct child */}
+      {/* <hr className={styles.divider} />  */}
 
       {/* --- Sample Apps Section --- */}
-      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER for padding */}
+      <div className={styles.paddedSectionContentLast}> {/* NEW WRAPPER for padding */}
         <h2 className={styles.sectionTitle}>Sample Apps</h2>
         {/* Note: Sample Apps buttons are direct children in your structure, not in a grid */}
         {sampleApps.map((item) => (

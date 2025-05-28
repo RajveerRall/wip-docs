@@ -103,7 +103,7 @@ const MobileIntegrate: React.FC = () => {
       </div>
 
       {/* Divider - now naturally full-width relative to integrateContainer */}
-      <hr className={styles.divider} />
+      {/* <hr className={styles.divider} /> */}
 
       {/* SDKs Section */}
       <div className={styles.paddedSectionContent}> {/* NEW WRAPPER with padding */}
@@ -127,10 +127,10 @@ const MobileIntegrate: React.FC = () => {
       </div>
 
       {/* Divider - now naturally full-width relative to integrateContainer */}
-      <hr className={styles.divider} />
+      {/* <hr className={styles.divider} /> */}
 
       {/* Widgets Section */}
-      <div className={styles.paddedSectionContent}> {/* NEW WRAPPER with padding */}
+      <div className={styles.paddedSectionContentLast}> {/* NEW WRAPPER with padding */}
         <p className={`${styles.sectionTitle} text-context-1 font-semibold`}>Widgets</p>
           {widgets.map((item) => (
             <div style={{marginBottom:'0.5rem'}} key={`widget-${item.name}`}> {/* Added key here */}
