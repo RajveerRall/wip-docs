@@ -146,9 +146,10 @@ html[data-theme="dark"] .optionsButtonWrapper {
   padding: 0; /* Reset padding if sizing via height/width */
 }
 .closeIcon { /* This class is now just for the icon itself if needed for specific styling */
-  width: 16px; /* Example icon size */
-  height: 16px; /* Example icon size */
+  width: 24px; /* Example icon size */
+  height: 24px; /* Example icon size */
   display: block;
+  color:var(--icon-secondary)
 }
 
 

@@ -53,44 +53,72 @@
   font-size: 12px;
   font-weight: 400;
   background-color: transparent;
-  border: none;
+  /* border: none; */ /* This is overridden by the line below */
   border-radius: 8px;
-  color: var(--text-secondary);
+  color: var(--text-secondary); /* Default text color */
   white-space: nowrap; /* Prevents text from wrapping */
   cursor: pointer;
   transition: color 0.2s ease, background-color 0.2s ease;
-  /* If content (icon + text) is smaller than button width, justify-content would matter.
-     Default is flex-start, which is usually desired here. */
+  border: 1px solid var(--border-default);
 }
 
 /* Hover state for copy button */
 .copyPageButton:hover {
-  color: var(--text-primary, var(--ifm-color-primary-darkest));
+  color: var(--text-primary)!important; /* Text color changes on hover */
   background-color: var(--ifm-hover-overlay);
 }
 
-/* NEW: Style for the icon wrapper */
-.iconWrapper {
-  display: inline-flex; /* Use flex to center the icon inside */
-  align-items: center;
-  justify-content: center;
-  width: 16px;  /* Fixed width for the icon area */
-  height: 16px; /* Fixed height for the icon area */
-  /* This container now participates in the .copyPageButton's flex layout and gap */
+/* === ADDED/MODIFIED RULES START === */
+
+/* When the button is hovered, change the color of .copyIcon inside it */
+.copyPageButton:hover .copyIcon {
+  color: var(--text-primary); /* Icon color matches text hover color.
+                                 Consider adding !important if needed due to other specific styles,
+                                 but usually specificity should be enough.
+                                 Given text uses !important, being consistent might be intended. */
+}
+
+/* When the button is hovered, change the color of .rightIcon inside it (if applicable) */
+.copyPageButton:hover .rightIcon {
+  color: var(--text-primary); /* Icon color matches text hover color */
 }
 
 /* Style for the icon inside the copy button */
 .copyIcon {
   width:16px;
   height: 16px;
-  color: var(--icon-secondary);
+  color: var(--icon-secondary); /* Default icon color */
   transform: scaleY(-1);
+  transition: color 0.2s ease; /* Added transition for smooth color change */
 }
 
-.rightIcon{
+/* This rule is likely redundant or might not behave as expected
+   because .copyPageButton:hover .copyIcon is more specific.
+   It's currently setting the color to its default.
+   Consider removing if not serving a specific purpose. */
+/*
+.copyIcon:hover {
+  color: var(--icon-secondary);
+}
+*/
+
+.rightIcon {
   width:14px;
   height: 14px;
-  color: var(--icon-secondary);
+  color: var(--icon-secondary); /* Default icon color */
+  transition: color 0.2s ease; /* Added transition for smooth color change */
+}
+
+/* === ADDED/MODIFIED RULES END === */
+
+
+/* Style for the icon wrapper (no changes needed here for color) */
+.iconWrapper {
+  display: inline-flex; /* Use flex to center the icon inside */
+  align-items: center;
+  justify-content: center;
+  width: 16px;  /* Fixed width for the icon area */
+  height: 16px; /* Fixed height for the icon area */
 }
 
 

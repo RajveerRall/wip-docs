@@ -19,7 +19,7 @@
 @media (max-width: 996px) {
   .gridDescription {
     max-width: 100vw;
-    font-size: 0.8rem !important; /* lg:text-5xl */
+    font-size: 14px !important; /* lg:text-5xl */
   }
 }
 /* --- Grid Layout --- */

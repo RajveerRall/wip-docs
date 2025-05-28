@@ -546,6 +546,10 @@ html[data-theme="dark"] .theme-toggle {
   }
 
   @media (max-width: 996px) {
+    .main-wrapper {
+  padding-top: 0px!important; /* Match navbar height */
+}
+
     .navbar {
       box-shadow: none;
       height: auto;

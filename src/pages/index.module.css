@@ -94,20 +94,14 @@ html[data-theme='dark'] .breadcrumbLink {
 
 /* --- Section Spacing --- */
 .sectionSpacer {
-  margin-top: 3rem;
-  margin-bottom: 3rem; 
-}
-
-@media (min-width: 768px) {
-  /* md breakpoint */
-  .sectionSpacer {
-    margin-top: 64px; /* md:my-16 */
-    margin-bottom: 64px; /* md:my-16 */
-  }
+  /* margin-top: 3rem; */
+  margin-bottom: 64px; 
 }
 
 @media(max-width: 996px){
-
+ .sectionSpacer {
+    margin-bottom: 40px; /* md:my-16 */
+  }
 
 .heroTitle {
   font-size: 24px;

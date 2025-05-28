@@ -7,6 +7,7 @@
   position: relative; /* CRUCIAL */
   overflow: hidden;   /* CRUCIAL */
   font-family: var(--font-family-inter) !important;
+  border: 1px solid var(--border-default);
   gap:32px
 }
 
