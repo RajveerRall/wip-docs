@@ -4,6 +4,7 @@ title: Overview
 sidebar_label: Overview
 
 ---
+
 import StepBlock from '@site/src/components/StepBlock';
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -22,189 +23,234 @@ import ImageLightbox from '@site/src/components/ImageLightbox'
 import BottomSpacer from '@site/src/components/BottomSpacer'
 import ExternalLink from '@site/src/components/ExternalLink'
 
-
-export const userDemoTsCode = `
-import { CometChatUsers } from "@cometchat/chat-uikit-react";
-import type { CometChat } from "@cometchat/chat-sdk-javascript";
-
-function UsersDemo() {
-  function handleOnItemClick(user: CometChat.User): void {
-    console.log(user, "your custom on item click action");
+export const initializeCometChatCode = `const appID = "APP_ID";
+const region = "REGION";
+const appSetting = new CometChat.AppSettingsBuilder()
+  .subscribePresenceForAllUsers()
+  .setRegion(region)
+  .build();
+CometChat.init(appID, appSetting).then(
+  () => {
+    console.log("Initialization completed successfully");
+    // You can now call login function.
+  },
+  (error) => {
+    console.log("Initialization failed with error:", error);
+    // Check the reason for error and take appropriate action.
   }
+);`;
 
-  return <CometChatUsers onItemClick={handleOnItemClick} />;
-}
+export const createUserCode = `let authKey = "AUTH_KEY";
+var uid = "user1";
+var name = "Kevin";
 
-export default UsersDemo;
-`;
-
-export const userDemoJsCode = `
-import { CometChatUsers } from "@cometchat/chat-uikit-react";
-
-function UsersDemo() {
-  function handleOnItemClick(user) {
-    console.log(user, "your custom on item click action");
+var user = new CometChat.User(uid);
+user.setName(name);
+CometChat.createUser(user, authKey).then(
+  (user) => {
+    console.log("user created", user);
+  },
+  (error) => {
+    console.log("error", error);
   }
+);`
 
-  return <CometChatUsers onItemClick={handleOnItemClick} />;
-}
+export const loginUserCode = `const authKey = "AUTH_KEY";
+const uid = "cometchat-uid-1";
 
-export default UsersDemo;
-`;
+CometChat.login(uid, authKey).then(
+  (user) => {
+    console.log("Login Successful:", { user });
+  },
+  (error) => {
+    console.log("Login failed with exception:", { error });
+  }
+);`
 
+export const usageCode = `import { CometChatUI } from "./CometChatWorkspace/src";
 
-## Main
-
-The UI Kit comprises a variety of components, each designed to work seamlessly with one another to deliver a comprehensive and intuitive chat experience. Here's how different UI Kit components work together to achieve CometChat's Core features:
-<ExternalLink href='https://www.cometchat.com/'>External Link</ExternalLink> 
-  ###  main222
-
-<StepBlock label="Step 01">
-  This is the content for the **first step**. Filters allow you to customize the data displayed
-  in a list within a Component. You can filter the list based on your specific criteria,
-  allowing for a more customized. Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK 
-</StepBlock>
-
-<StepBlock label="Step 02">
-  This is the content for the **first step**. Filters allow you to customize the data displayed
-  in a list within a Component. You can filter the list based on your specific criteria,
-  allowing for a more customized. Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK 
-</StepBlock>
-
-<BottomSpacer spacing={32}/>
-
-:::note
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
-:::
-
-:::info
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. 
-:::
-
-:::success
-This should look the same as TIP. Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
-:::
-
-:::warning
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar. 
-:::
-
-:::danger
-Lorem ipsum dolor sit amet consectetur. Porta a orci elit malesuada. Fusce nulla quisque erat amet. Scelerisque orci odio ut in nullam vitae gravida aliquam pulvinar.
-:::
-
-<BottomSpacer/>
+class App extends React.Component {
+  render() {
+    return (
+      <div style={{ width: "800px", height: "800px" }}>
+        <CometChatUI />
+      </div>
+    );
+  }
+}`
 
 
-## Main2
- <FeatureShowcase>
-  <FeatureCard
-    number="01"
-    title="Gif Processing"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
-  <FeatureCard
-    number="02"
-    title="Video Analysis"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
-  <FeatureCard
-    number="03"
-    title="Image Tagging"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
-  <FeatureCard
-    number="04"
-    title="Data Export"
-    description="Lorem ipsum dolor sit amet purus consectetur adipiscing lacus."
-  />
-</FeatureShowcase>
-<BottomSpacer/>
-
-  <CheckListItem>
-  Filters allow you to customize the data displayed in a list within a Component. You can filter the list based on your specific criteria, allowing for a more customized.
-</CheckListItem>
-
-<CheckListItem>
-  Filters can be applied using <CodeBadge>RequestBuilders</CodeBadge> of Chat SDK. Make sure you understand the different builder types.
-</CheckListItem>
-<BottomSpacer/>
+The CometChat React UI Kit is developed to keep developers in mind and aims to reduce development efforts significantly. 
 
 <ImageLightbox
   src={ReactUIKitImg}
-  alt="A very cool image"
-  thumbnailWidth="400px"
-/>
-<BottomSpacer/>
-
-
-<MuiStyledTable 
-  columns={[
-  { label: 'Methods', width: '25%' },
-  { label: 'Type', width: '20%' },
-  { label: 'Description', width: '55%' }
-]} 
-  rows={[
-  ['setLimit', 'number', 'sets the number users that can be fetched in a single request, suitable for pagination'],
-  ['setSearchKeyword', 'String', 'used for fetching users matching the passed string'],
-  ['hideBlockedUsers', 'boolean', 'used for fetching all those users who are not blocked by the logged in user'],
-  ['friendsOnly', 'boolean', 'used for fetching only those users in which logged in user is a member'],
-  ['setRoles', `List<Sting>`, 'used for fetching users containing the passed tags'],
-  ['setTags',` List<String>`, 'used for fetching users containing the passed tags'],
-  ['withTags', 'boolean', 'used for fetching users containing tags'],
-  ['setStatus', 'String', 'used for fetching users by their status online or offline'],
-  ['setUIDs',` List`, 'used for fetching users containing the passed users'],
-]} 
-  caption="API Methods"
-  tableAriaLabel="API methods reference table"
+  alt="React UI Kit"
 />
 
+The UI Kit’s customizable UI components simplify the process of integrating text chat and voice/video calling features to your website or mobile application in a few minutes.
+<div style={{display: 'flex', boxShadow: '0 0 4px 0 rgb(0 0 0 / 18%)', borderRadius: '3px'}}>
+  <div style={{padding: '24px'}}>
+  	<h4 style={{fontWeight: 'bold'}}>I want to checkout React UI Kit</h4>
+    <p>Follow the steps mentioned in the <code>README.md</code> file.</p>
+    <p>Kindly, click on below button to download our React UI Kit.</p>
+    <a style={{display: 'inline-block', backgroundColor: '#7c55c9', padding: '8px', textAlign: 'center', textTransform: 'uppercase', border: '1px solid #e3e5e7', borderRadius: '3px', color: 'white', width: '100%', marginBottom: '8px'}} href="https://github.com/cometchat-pro/cometchat-pro-react-ui-kit/archive/v2.zip">React UI Kit</a>
+		<a style={{display: 'inline-block', backgroundColor: '#7c55c9', padding: '8px', textAlign: 'center', textTransform: 'uppercase', border: '1px solid #e3e5e7', borderRadius: '3px', color: 'white', width: '100%'}} href="https://github.com/cometchat/cometchat-chat-uikit-react/tree/v2" target="_blank">View on Github</a>
+  </div>
+  <div style={{padding: '24px', borderLeft: '1px solid #e3e5e7'}}>
+  	<h4 style={{fontWeight: 'bold'}}>I want to explore the sample app</h4>
+    <p>Kindly, click on below button to download our React Sample App.</p>
+    <a style={{display: 'inline-block', backgroundColor: '#7c55c9', padding: '8px', textAlign: 'center', textTransform: 'uppercase', border: '1px solid #e3e5e7', borderRadius: '3px', color: 'white', width: '100%', marginBottom: '8px'}} href="https://github.com/cometchat-pro/javascript-react-chat-app/archive/v2.zip">React Sample App</a>
+    <a style={{display: 'inline-block', backgroundColor: '#7c55c9', padding: '8px', textAlign: 'center', textTransform: 'uppercase', border: '1px solid #e3e5e7', borderRadius: '3px', color: 'white', width: '100%'}} href="https://github.com/cometchat/cometchat-chat-sample-app-react/tree/v2" target="_blank">View on Github</a>
+  </div>
+</div>
 
-<BottomSpacer/>
+## Prerequisites
 
-# Bullet Points
+Before you begin, ensure you have met the following requirements:
 
-1.  Numbered List
-    *   Set up the environment
-    *   Write clean code
-    *   Use version control
-    *   Test & debug
-    *   Optimize performance
-    *   Deploy & monitor
-
-2.  Roman Numerals
-    {/* Use an ordered list with a custom class */}
-    <ol className='listRomanUpper'>
-      <li className="text-body-1 font-regular">
-        Development Lifecycle
-        {/* Add the description paragraph inside the list item */}
-        <div className='listDescription'>
-          Plan, design, code, test, deploy
-        </div>
-      </li>
-      <li>
-        Best Practices
-        <p className='listDescription'>
-          Follow standards, write modular code, handle errors
-        </p>
-      </li>
-      <li>
-        DevOps
-        <p className='listDescription'>
-          CI/CD, automation, security
-        </p>
-      </li>
-    </ol>
-<BottomSpacer/>
+1. A text editor. (e.g. Visual Studio Code, Notepad++, Sublime Text, Atom, or VIM)
+2. <ExternalLink href='https://nodejs.org/en/'>Node</ExternalLink>
+3. <ExternalLink href='https://www.npmjs.com/get-npm'>npm</ExternalLink> 
+4. <ExternalLink href='https://reactjs.org/'>React</ExternalLink> 
 
 <TabbedCodeBlock
   codes={[
-    { label: 'TypeScript', value: 'ts', language: 'tsx',  code: userDemoTsCode, title: 'UsersDemo.tsx' },
-    { label: 'JavaScript', value: 'js', language: 'jsx', code: userDemoJsCode, title: 'UsersDemo.jsx' }
+    { label: 'bash', value: 'bash', language: 'sh',  code: 'npm install react@17.0.2'},
   ]}
 />
 
-<BottomSpacer/>
+5. <ExternalLink href='https://reactjs.org/docs/react-dom.html'>React DOM</ExternalLink>
 
-<AdditionalResources/>
+<TabbedCodeBlock
+  codes={[
+    { label: 'bash', value: 'bash', language: 'sh',  code: 'npm install react@17.0.2'},
+  ]}
+/>
 
+6. <ExternalLink href='https://www.npmjs.com/package/react-scripts'>React Scripts</ExternalLink>  
+
+<TabbedCodeBlock
+  codes={[
+    { label: 'bash', value: 'bash', language: 'sh',  code: 'npm install react-scripts@4.0.3'},
+  ]}
+/>
+
+
+## Installing React UI Kit
+
+### Setup
+
+1. Register on CometChat
+    * To install React UI Kit, you need to first register on the CometChat Dashboard. <ExternalLink href='https://app.cometchat.com/signup'>Click here</ExternalLink> to Sign Up.
+
+2. Get your application keys
+   * Create a new app.
+   * Head over to the QuickStart or API & Auth Keys section and note the App ID, Auth Key, and Region.
+
+3. Add the CometChat dependency
+
+<TabbedCodeBlock
+  codes={[
+    { label: 'bash', value: 'bash', language: 'sh',  code: 'npm install @cometchat-pro/chat@2.4.0 --save'},
+  ]}
+/>
+
+:::info
+We have released recording feature in beta. Please install the latest beta version to enable recording feature in UI Kit. Please refer to <ExternalLink href='/sdk/javascript/2.0/calling-recording'>Recording (Beta)</ExternalLink> documentation to know more.
+**npm install @cometchat-pro/chat@ v2.4.1-beta1 --save**
+:::
+
+### Configure CometChat inside your app
+
+1. Register on CometChat
+   * The init() method initializes the settings required for CometChat. We suggest calling the init() method on app startup, preferably in the index.js file.
+
+<TabbedCodeBlock
+  codes={[
+    { label: 'JavaScript', value: 'js', language: 'jsx', code: initializeCometChatCode}
+  ]}
+/>
+
+:::warning
+Replace APP_ID and REGION with your CometChat App ID and Region in the above code.
+:::
+
+2. Create user
+   * This method takes a <CodeBadge>User</CodeBadge> object and the <CodeBadge>Auth Key</CodeBadge> as input parameters and returns the created <CodeBadge>User</CodeBadge> object if the request is successful.
+
+<TabbedCodeBlock
+  codes={[
+    { label: 'JavaScript', value: 'js', language: 'jsx', code: createUserCode}
+  ]}
+/>
+
+3. Login your user
+    * This method takes <CodeBadge>UID</CodeBadge> and <CodeBadge>Auth Key</CodeBadge> as input parameters and returns the User object containing all the information of the logged-in user.
+ 
+<TabbedCodeBlock
+  codes={[
+    { label: 'JavaScript', value: 'js', language: 'jsx', code: loginUserCode}
+  ]}
+/>
+
+:::warning
+
+Replace AUTH_KEY with your CometChat Auth Key in the above code.
+
+:::
+
+:::info 
+
+We have set up 5 users for testing having UIDs: cometchat-uid-1, cometchat-uid-2, cometchat-uid-3, cometchat-uid-4, and cometchat-uid-5.
+
+We have used uid cometchat-uid-1 as an example here. You can create a User from CometChat Dashboard as well.
+
+:::
+
+### Add UI Kit to your project
+
+4. Clone this repository
+
+<TabbedCodeBlock
+  codes={[
+    { label: 'bash', value: 'bassh', language: 'bash', code: `git clone https://github.com/cometchat/cometchat-chat-uikit-react.git -b v2`}
+  ]}
+/>
+
+5. Copy the cloned repository to your source folder
+
+<ImageLightbox
+  src={FolderStructureImg}
+  alt="Folder structure of React Sample App"
+/>
+
+<BottomSpacer spacing={20}/>
+
+6. Copy all the dependencies from package.json into your project's package.js and install them
+
+<ImageLightbox
+  src={DependenciesImg}
+  alt="Package.json of React UI Kit"
+/>
+
+### Launch CometChat
+
+Using the CometChatUI component, you can launch a fully functional chat application. In this component, all the UI Screens and UI Components are interlinked and work together to launch a fully functional chat on your website/application.
+
+<ImageLightbox
+  src={CometChatUIImg}
+  alt="CometChatUI"
+/>
+
+### Usage
+
+<TabbedCodeBlock
+  codes={[
+    { label: 'JavaScript', value: 'js', language: 'jsx', code: usageCode}
+  ]}
+/>
+
+## Checkout our sample app
+
+
+Visit our <ExternalLink href='https://github.com/cometchat/cometchat-chat-sample-app-react/tree/v2'>React sample app</ExternalLink> repository to run the React sample app.
