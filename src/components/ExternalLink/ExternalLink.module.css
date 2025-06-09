@@ -15,8 +15,8 @@
 
 .externalLink:hover {
   opacity: 0.8;
-  color: var(--primary);
-  text-decoration: none;
+  color: var(--primary)!important;
+  /* text-decoration: none; */
 }
 
 .icon {

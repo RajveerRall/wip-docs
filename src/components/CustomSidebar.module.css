@@ -22,7 +22,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* Distribute space: text left, version right */
-  width: 196px; /* Match the previous fixed width of selectors */
+  width: 216px; /* Match the previous fixed width of selectors */
   height: 36px; /* Maintain consistent height */
   box-sizing: border-box;
   position: relative; /* If dropdown menu needs to be positioned relative to this row */
@@ -104,7 +104,7 @@
   z-index: 120; /* Ensure it's above other content */
   overflow-y: auto;
   width: 60px; /* Adjust for content like "V5" + arrow */
-  padding: 4px; /* Slightly tighter padding for the menu */
+  padding: 4px 0px; /* Slightly tighter padding for the menu */
   box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05); /* Original shadow */
 }
 /* --- END: NEW STYLES FOR THE MODIFIED HEADER --- */
@@ -262,7 +262,7 @@
   box-sizing: border-box;
   margin-left: auto;
   margin-right: auto;
-  max-width: 196px;
+  max-width: 216px;
 }
 
 :global(.menu__list-item) {

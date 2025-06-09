@@ -2,34 +2,45 @@
 /* Navbar Core Structure & Layout         */
 /* ======================================== */
 
+/* This class is likely on the <nav> element, so it's fine as is. */
 .navbar {
   box-shadow: none;
 }
 
+/* The main container that is fixed to the top of the screen. */
 .navbar-container {
+  /* --- Positioning & Sizing --- */
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
-  height: 70px !important;
-  z-index: 1000; /* Ensure navbar is above most content */
-  padding: "10px";
+  width: 100%; /* More compatible than 100dvw, avoids potential scrollbar issues */
+  height: 70px; /* The single source of truth for your navbar height */
+  z-index: 1000;
+
+  /* --- Styling --- */
   background-color: var(--background-01);
   border-bottom: 1px solid var(--ifm-color-emphasis-200);
-  width: 100dvw;
   font-family: "Inter", sans-serif;
+
+  /* --- Flexbox for Centering --- */
+  display: flex; /* Make this the flex container */
+  align-items: center; /* Vertically center its direct child (.navbar-content) */
 }
 
+/* The inner container that holds your logo, links, etc. */
 .navbar-content {
-  display: flex;
-  align-items: center;
-  position: relative;
-  /* justify-content: space-between; */
-  height: 60px !important; /* Your desired navbar height */
-  padding: 0 24px;
-  width: 100dvw;
+  /* --- Layout & Sizing --- */
+  display: flex;         /* Use flexbox to lay out its own children (logo, links) */
+  align-items: center;   /* Vertically center the items inside this container */
+  justify-content: space-between; /* Pushes logo to the left and links to the right */
+  width: 100%;           /* Take up the full width of the parent */
+  
+  /* --- Spacing --- */
+  /* NO vertical padding, but horizontal padding to keep content off the edges. */
+  padding: 0 24px;       
+  
+  /* The height is now inherited from the parent, so it's not needed here. */
 }
-
 .navbar-logo {
   flex-shrink: 0;
   margin-right: 20px; /* Adjust spacing as needed */
@@ -186,7 +197,7 @@ html[data-theme="dark"] .dropdown-backdrop {
   flex-direction: column;
   margin-top: 5px;
   width: 220px; /* Adjust as needed */
-  padding: 6px;
+  padding: 8px;
 }
 
 .item-container-platform:hover {
@@ -362,11 +373,7 @@ html[data-theme="dark"] .item-container-desc {
   display: inline-block; /* Allows transform to work correctly */
   transition: transform 0.2s ease-out;
 }
-.contact-button:hover .contact-button-text {
-  transform: translateY(-2px); /* Moves text 2px up. Adjust as needed. */
-  /* For a "small" effect, you could also add scale: */
-  /* transform: translateY(-2px) scale(0.98); */
-}
+
 .contact-button:active {
   opacity: 0.95; /* Slightly less transparent when pressed */
   transform: scale(0.98);
@@ -505,6 +512,10 @@ html[data-theme="dark"] .theme-toggle {
   padding: 0 20px; /* Adjust if needed */
 }
 
+.DocSearch-Button:active, .DocSearch-Button:focus, .DocSearch-Button:hover{
+  background-color: var(--background-01);
+}
+
 /* Responsive: Hide dropdown dividers on small screens */
 @media (max-width: 1100px) {
   .main-menu-container {
@@ -580,7 +591,7 @@ html[data-theme="dark"] .theme-toggle {
       /* background-color: var(--ifm-hover-overlay) !important; */
       background: transparent !important;
     }
-
+    
     .DocSearch-Button .DocSearch-Search-Icon {
       /* Make icon bigger */
       width: 16px !important; /* Increased from 20px */

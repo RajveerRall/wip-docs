@@ -83,7 +83,7 @@ const PlatformDropdownMenu: React.FC = () => {
       icon: "https://img.icons8.com/color/144/react-native.png",
     },
     {
-      name: "iOS chat App",
+      name: "IOS chat App",
       icon: "https://img.icons8.com/color/144/swift.png",
     },
     {

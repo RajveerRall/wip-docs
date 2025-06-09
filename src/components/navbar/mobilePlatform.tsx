@@ -118,7 +118,7 @@ const sampleApps: NewCardItem[] = [
     link: "/docs/sample-apps/react-native", // Example link
   },
   { 
-    name: "iOS chat App", 
+    name: "IOS chat App", 
     icon: "https://img.icons8.com/color/144/swift.png",
     link: "/docs/sample-apps/ios", // Example link 
   },

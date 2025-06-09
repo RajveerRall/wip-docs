@@ -48,6 +48,7 @@ html[data-theme='dark'] .breadcrumbs {
 .breadcrumbLink {
   color: var(--text-highlight); /* text-[--ifm-color-primary] */
   text-decoration: none!important; /* no-underline */
+  cursor: pointer;
 }
 
 html[data-theme='dark'] .breadcrumbLink {

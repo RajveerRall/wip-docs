@@ -19,10 +19,9 @@ function WebNavbar(): React.ReactNode {
   const leaveTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const [activeDropdown, setActiveDropdown] = useState<DropdownType>(null);
-  const { colorMode } = useColorMode();
 
-  const lightLogoUrl = useBaseUrl("/imgs/lightlogo.svg");
-  const darkLogoUrl = useBaseUrl("/imgs/logo.svg");
+  const lightLogoUrl = useBaseUrl("/imgs/light_logo.png");
+  const darkLogoUrl = useBaseUrl("/imgs/dark_logo.png");
 
   const handleMouseEnter = (dropdown: DropdownType): void => {
     if (leaveTimeoutRef.current) {
@@ -94,13 +93,13 @@ function WebNavbar(): React.ReactNode {
               src={lightLogoUrl}
               alt="CometChat Docs"
               className="logo-image logo-light"
-              style={{ height: "2.2rem" }}
+              style={{ maxHeight: '32px', minWidth:'156px' }}
             />
             <img
               src={darkLogoUrl}
               alt="CometChat Docs"
               className="logo-image logo-dark"
-              style={{ height: "1.5rem" }}
+              style={{ maxHeight: '32px', minWidth:'156px', marginBottom:'5px' }}
             />
           </Link>
         </div>

@@ -27,7 +27,7 @@ const DATA = [
         link: "ui-kit/react-native",
       },
       {
-        title: "iOS",
+        title: "IOS",
         icon: "swift.svg",
         link: "ui-kit/ios/v5",
       },
@@ -68,7 +68,7 @@ const DATA = [
         link: "sdk/react-native",
       },
       {
-        title: "iOS",
+        title: "IOS",
         icon: "swift.svg",
         link: "sdk/ios",
       },

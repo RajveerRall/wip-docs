@@ -19,7 +19,7 @@ const IntegrationDropdownMenu: React.FC = () => {
       link: useBaseUrl("/"),
     },
     {
-      name: "ios",
+      name: "IOS",
       icon: "https://img.icons8.com/color/144/swift.png",
     },
     {
@@ -46,7 +46,7 @@ const IntegrationDropdownMenu: React.FC = () => {
       link: useBaseUrl("/"),
     },
     {
-      name: "ios",
+      name: "IOS",
       icon: "https://img.icons8.com/color/144/swift.png",
       link: useBaseUrl("/"),
     },

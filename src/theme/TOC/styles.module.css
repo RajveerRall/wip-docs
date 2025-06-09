@@ -1,6 +1,7 @@
 /* src/theme/TOC/styles.module.css */
 :root{
   --ifm-navbar-height: 5rem
+  
 }
 .tocWrapper {
   display: flex;

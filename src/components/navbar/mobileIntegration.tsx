@@ -18,7 +18,7 @@ const uiKitsList: NewPlatformData[] = [
     name: "React Native",
     icon: "https://img.icons8.com/color/144/react-native.png",
   },
-  { name: "ios", icon: "https://img.icons8.com/color/144/swift.png" },
+  { name: "IOS", icon: "https://img.icons8.com/color/144/swift.png" },
   { name: "Android", icon: "https://img.icons8.com/color/144/android-os.png" },
   { name: "Flutter", icon: "https://img.icons8.com/color/144/flutter.png" },
 ];
@@ -30,7 +30,7 @@ const sdks: NewPlatformData[] = [
     name: "React Native",
     icon: "https://img.icons8.com/color/144/react-native.png",
   },
-  { name: "ios", icon: "https://img.icons8.com/color/144/swift.png" },
+  { name: "IOS", icon: "https://img.icons8.com/color/144/swift.png" },
   { name: "Android", icon: "https://img.icons8.com/color/144/android-os.png" },
   { name: "Flutter", icon: "https://img.icons8.com/color/144/flutter.png" },
   {
