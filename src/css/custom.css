@@ -642,3 +642,77 @@ html[data-theme='dark']  .alert--danger p {
 }
 
 /* New css */
+
+.theme-doc-toc-mobile [class*="tocCollapsibleButton"] {
+  background-color: var(--background-01) !important;
+  border: 1px solid var(--border-default) !important;
+  border-radius: 8px !important;
+  min-height: 36px !important;
+  padding: 12px!important;
+}
+
+.theme-doc-toc-mobile [class*="tocCollapsibleButton"] p {
+  font-size: 13px!important;
+  font-weight: 400!important;
+}
+
+/* .tocCollapsibleContent_vkbj > ul */
+.theme-doc-toc-mobile [class*="tocCollapsibleContent"] > ul{
+  border-top: none!important;
+}
+
+
+.theme-doc-toc-mobile [class*="tocCollapsibleButton"]::after{
+  height: 10px!important;
+  width: 10px!important;
+}
+
+
+.theme-doc-toc-mobile[class*="tocCollapsible"] {
+  background-color: var(--background-01) !important;
+}
+
+.theme-doc-toc-mobile [class*="tocCollapsibleContent"] {
+  margin-top: 10px!important;
+  border-radius: 8px!important;
+  border: 1px solid var(--border-default)!important;
+}
+
+/* Mobile ToC: Non-active link */
+.theme-doc-toc-mobile .table-of-contents__link {
+  color: var(--text-secondary) !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-decoration: none !important;
+  background: none !important;
+  padding-left: var(--toc-item-text-indent, 0);
+  padding-right: 12px;
+  display: block;
+  width: 100%;
+  height: 32px;
+  line-height: 32px;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Mobile ToC: Active link */
+.theme-doc-toc-mobile .table-of-contents__link--active {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+  border-left-color: var(--primary) !important;
+}
+
+/* Optional: indicator bar for active link (if you want the same as desktop) */
+.theme-doc-toc-mobile .table-of-contents__link--active::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -1px;
+  width: 2px;
+  background-color: var(--primary) !important;
+  transition: background-color 0.1s ease;
+}

@@ -113,9 +113,7 @@
   background-color: var(--ifm-hover-overlay);
 }
 
-html[data-theme="dark"] .optionsButtonWrapper {
-  border-color: var(--ifm-color-emphasis-400);
-}
+
 
 /* --- Options Icon --- */
 .optionsIcon {

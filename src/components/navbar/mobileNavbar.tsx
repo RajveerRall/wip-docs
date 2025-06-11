@@ -32,8 +32,8 @@ export default function MobileNavbar() {
   const { pathname } = location;
   const isDisplayFiMenu = pathname.split("/wip-docs/").filter(e=>e!='').length>0?true:false
 
-  const lightLogoUrl = useBaseUrl("/imgs/lightlogo.svg");
-  const darkLogoUrl = useBaseUrl("/imgs/logo.svg");
+  const lightLogoUrl = useBaseUrl("/imgs/light_logo.png");
+  const darkLogoUrl = useBaseUrl("/imgs/dark_logo.png");
   const logoUrl = colorMode === "dark" ? darkLogoUrl : lightLogoUrl;
 
   const [isDisplayMobileMenu, setIsDisplayMobileMenu] = useState<boolean>(false);
@@ -93,6 +93,8 @@ export default function MobileNavbar() {
                   className={`${
                     colorMode == "dark" ? styles.darkLogo : styles.lightLogo
                   }`}
+                  style={{ maxHeight: '32px', minWidth:'156px' }}
+
                 />
               </Link>
             </div>

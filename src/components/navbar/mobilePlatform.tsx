@@ -36,7 +36,6 @@ function isIconComponent(
 }
 type NewCardItem = CardItemWithComponentIcon | CardItemWithImageUrl;
 
-// --- Data Arrays --- (Keep as is)
 const chatsAndCalling: NewCardItem[] = [
   {
     id: "overview",
@@ -134,7 +133,7 @@ const sampleApps: NewCardItem[] = [
   },
 ];
 
-// --- Reusable InfoCard Component ---
+
 interface InfoCardProps {
   icon: React.ReactNode;
   title: string;

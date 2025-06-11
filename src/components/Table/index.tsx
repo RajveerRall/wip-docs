@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './styles.module.css';
 
 interface Column {
   label: string;
@@ -55,10 +56,10 @@ const CommonTable: React.FC<CommonTableProps> = ({
   const tableStyle: React.CSSProperties = {
     width: '100%',
     tableLayout: 'fixed',
-    borderCollapse: 'separate',
+    borderCollapse: 'collapse',
     minWidth:'160px',
     borderSpacing: 0,
-    backgroundColor: V.background01, // Or a distinct table wrapper background
+    backgroundColor: V.background01,
     fontFamily: V.fontFamilyInter,
     border: `1px solid ${V.borderDefault}`,
     borderRadius: V.tableBorderRadius,
@@ -73,6 +74,7 @@ const CommonTable: React.FC<CommonTableProps> = ({
     whiteSpace: 'normal',
     wordBreak: 'break-word',
     boxSizing: 'border-box',
+    border: `1px solid ${V.borderDefault}`,
   };
 
   const headerCellStyle: React.CSSProperties = {
@@ -97,7 +99,7 @@ const CommonTable: React.FC<CommonTableProps> = ({
           {caption}
         </div>
       )}
-      <table aria-label={tableAriaLabel} style={tableStyle}>
+      <table aria-label={tableAriaLabel} className={styles.table}>
         <thead>
           <tr>
             {columns.map((column, index) => {
@@ -125,7 +127,7 @@ const CommonTable: React.FC<CommonTableProps> = ({
                 }
               }
               return (
-                <th key={column.key || `header-${index}`} scope="col" style={specificHeaderStyle}>
+                <th key={column.key || `header-${index}`} scope="col" className={styles.cell} style={specificHeaderStyle}>
                   {column.label}
                 </th>
               );
@@ -141,15 +143,11 @@ const CommonTable: React.FC<CommonTableProps> = ({
             const isLastRow = rowIndex === rows.length - 1;
 
             return (
-              <tr
-                key={`row-${rowIndex}`}
-                // Removed onMouseEnter and onMouseLeave
-                // style={{ backgroundColor: 'transparent' }} // Row itself can be transparent, cells define BG
-              >
+              <tr key={`row-${rowIndex}`}>
                 {validatedRow.map((cellContent, cellIndex) => {
                   const isFirstCellInRow = cellIndex === 0;
                   const isLastCellInRow = cellIndex === numColumns - 1;
-                  const currentCellStyle: React.CSSProperties = { ...bodyCellStyle }; // Gets default V.background01
+                  const currentCellStyle: React.CSSProperties = { ...bodyCellStyle };
                   if (!isLastRow) {
                     currentCellStyle.borderBottom = `1px solid ${V.borderDefault}`;
                   }
@@ -166,7 +164,7 @@ const CommonTable: React.FC<CommonTableProps> = ({
                   }
                   const CellComponent = isFirstCellInRow ? 'th' : 'td';
                   return (
-                    <CellComponent key={`cell-${rowIndex}-${cellIndex}`} scope={isFirstCellInRow ? 'row' : undefined} style={currentCellStyle}>
+                    <CellComponent key={`cell-${rowIndex}-${cellIndex}`} scope={isFirstCellInRow ? 'row' : undefined} className={styles.cell} style={currentCellStyle}>
                       {cellContent}
                     </CellComponent>
                   );
